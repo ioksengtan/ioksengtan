@@ -76,7 +76,7 @@
       "title": "溜溜繪本",
       "why": "《散步溜溜》靜態試讀，封面到封底可翻，滑完就停。",
       "status": "ready",
-      "note": "2026-09-24 靜態試讀頁已合進 main 並開啟 GitHub Pages；封面到封底可翻，引用 print/ 圖。",
+      "note": "2026-09-24 靜態試讀頁已合進 main（f491a86）並開啟 GitHub Pages；封面到封底可翻，引用 print/ 圖。頁面回 HTTP 200。",
       "url": "https://ioksengtan.github.io/liuliu_walk/",
       "repo": "https://github.com/ioksengtan/liuliu_walk"
     },
