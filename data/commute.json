@@ -74,9 +74,9 @@
       "id": "liuliu-walk",
       "section": "read",
       "title": "溜溜繪本",
-      "why": "《散步溜溜》靜態試讀，手機可翻頁滑完就停。",
+      "why": "《散步溜溜》靜態試讀，封面到封底可翻，滑完就停。",
       "status": "ready",
-      "note": "2026-09-24 靜態試讀上線；390×844 翻頁通過（封面→十跨頁→封底）。",
+      "note": "2026-09-24 靜態試讀頁已合進 main 並開啟 GitHub Pages；封面到封底可翻，引用 print/ 圖。",
       "url": "https://ioksengtan.github.io/liuliu_walk/",
       "repo": "https://github.com/ioksengtan/liuliu_walk"
     },
@@ -106,7 +106,7 @@
       "title": "芎鄉遍野",
       "why": "手機預覽可以點著走，但仍是草稿，不是正式 Pages。",
       "status": "rough",
-      "note": "2026-09-24 通勤暫用釘死草稿預覽。正式 Pages 在 Yu-Sheng 合併拉取請求第 9 號之前仍維持勉強可用。",
+      "note": "2026-09-24 通勤暫用釘死草稿預覽（31aba01）。較新草稿 e9a77e6 已在，但要等 PM 自測通過才換。正式 Pages 在 Yu-Sheng 合併拉取請求第 9 號之前仍維持勉強可用。",
       "url": "https://raw.githack.com/ioksengtan/IlhaHometown/31aba0108060f1398dec6da0abb97d8c40fa8a5c/index.html",
       "repo": "https://github.com/ioksengtan/IlhaHometown"
     },
