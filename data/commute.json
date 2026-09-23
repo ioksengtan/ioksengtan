@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-09-23",
+  "checkedOn": "2026-09-24",
   "editNote": "改標題、一句話、連結或狀態，只編輯這個檔，不必改版面。欄位與狀態規則見 data/README.md。",
   "statusLabels": {
     "ready": "可自用",
@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十二篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-23 首頁與文章腳本皆回 HTTP 200。",
+      "note": "2026-09-24 兩篇通勤短文上線（模型換代變笨、按次收費算錯帳），首頁與兩篇皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -36,7 +36,7 @@
       "title": "名人詞彙",
       "why": "一天五張詞彙卡，點選作答，等車的幾分鐘夠用。",
       "status": "ready",
-      "note": "2026-09-23 學習頁、題庫與每日排程皆回 HTTP 200。",
+      "note": "2026-09-24 名人詞彙日曆同款一眼可見＋CEFR／換卡極薄修已隨拉取請求第 18 號上線（a2170d7）。",
       "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -46,7 +46,7 @@
       "title": "金句卡",
       "why": "一天三張演講金句，看原話和解釋就可以收。",
       "status": "ready",
-      "note": "2026-09-23 金句頁、題庫與每日排程皆回 HTTP 200。",
+      "note": "2026-09-24 金句卡 46–53 已上線，自 2026-09-25 排入每日三張。金句頁與題庫皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -56,7 +56,7 @@
       "title": "語錄牆",
       "why": "已核實的短語錄，中英對照，不用把整場演講看完。",
       "status": "ready",
-      "note": "2026-09-23 語錄牆與 quotes_index.json 皆回 HTTP 200。",
+      "note": "2026-09-24 窄螢幕中文語錄改為一行截斷已上線。語錄牆與 quotes_index.json 皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/celebrities/products/core/quotes-wall.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -66,7 +66,7 @@
       "title": "Listmap 故事",
       "why": "一篇故事配幾個地標，先讀文字，地圖可以晚點再看。",
       "status": "ready",
-      "note": "2026-09-23 故事頁回 HTTP 200，窄螢幕會改成上下排，內容不是空殼。",
+      "note": "2026-09-24 京都永樂屋「手拭／棉布半日」（100112）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100112.html （pull request #120）。",
       "url": "https://ioksengtan.github.io/Listmap_v0d3/blog.html",
       "repo": "https://github.com/ioksengtan/Listmap_v0d3"
     },
@@ -74,18 +74,19 @@
       "id": "liuliu-walk",
       "section": "read",
       "title": "溜溜繪本",
-      "why": "《散步溜溜》是紙本繪本，路上還沒有可翻的網頁。",
-      "status": "not-ready",
-      "note": "2026-09-23 開 https://ioksengtan.github.io/liuliu_walk/ 得到 GitHub Pages 404。可印檔在 repo。",
+      "why": "《散步溜溜》靜態試讀，手機可翻頁滑完就停。",
+      "status": "ready",
+      "note": "2026-09-24 靜態試讀上線；390×844 翻頁通過（封面→十跨頁→封底）。",
+      "url": "https://ioksengtan.github.io/liuliu_walk/",
       "repo": "https://github.com/ioksengtan/liuliu_walk"
     },
     {
       "id": "timer-relay",
       "section": "play",
       "title": "計時停錶",
-      "why": "自己玩只按一顆大按鈕，心裡默數幾秒就能停。",
+      "why": "直式手機一顆大按鈕就能玩：遊玩時螢幕保持亮、按停會震，頁面也不會被捏縮。",
       "status": "ready",
-      "note": "2026-09-23 頁面與腳本皆回 HTTP 200。直式畫面，觸控、滑鼠或空白鍵都能停錶。",
+      "note": "2026-09-24 直式手機遊玩已上線（喚醒鎖、震動、遊玩時禁止捏縮）。頁面與腳本皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/timer-relay/",
       "repo": "https://github.com/ioksengtan/timer-relay"
     },
@@ -103,19 +104,19 @@
       "id": "ilha-hometown",
       "section": "play",
       "title": "芎鄉遍野",
-      "why": "可以點地圖走動，但人物說明框仍是桌面寬度，手機上不好讀。",
+      "why": "手機預覽可以點著走，但仍是草稿，不是正式 Pages。",
       "status": "rough",
-      "note": "2026-09-23 首頁、預設地圖與 map_1 資料有回應，程式有觸控。對話框寬度寫死 900px，沒有窄螢幕覆寫。",
-      "url": "https://ioksengtan.github.io/IlhaHometown/",
+      "note": "2026-09-24 通勤暫用釘死 raw.githack 預覽（commit e9a77e62…；含 safe-area／減少誤觸雙擊縮放）。拉取請求第 9 號仍 draft 不准合；正式 Pages 合進前維持勉強可用。",
+      "url": "https://raw.githack.com/ioksengtan/IlhaHometown/e9a77e62d7a13b7f1f931874c9b2b6455195beb3/index.html?map=13",
       "repo": "https://github.com/ioksengtan/IlhaHometown"
     },
     {
       "id": "rechao",
       "section": "play",
       "title": "熱炒開店啦",
-      "why": "一關不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控炒完備料課與開張。",
+      "why": "午休小局不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，炒完就停。",
       "status": "ready",
-      "note": "2026-09-24 觸控已隨 rechao v0.10.0 經 https://github.com/ioksengtan/rechao/pull/4 合併上線，線上 https://ioksengtan.github.io/rechao/ 。雲端代理回報手機寬度僅用觸控可完成備料課與開張。",
+      "note": "2026-09-24 v0.11.0 午休小局（備料 10 秒／營業 90 秒／收尾 30 秒）已隨拉取請求第 5 號合併上線：https://github.com/ioksengtan/rechao/pull/5 。",
       "url": "https://ioksengtan.github.io/rechao/",
       "repo": "https://github.com/ioksengtan/rechao"
     }
