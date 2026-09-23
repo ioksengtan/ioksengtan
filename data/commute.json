@@ -113,9 +113,9 @@
       "id": "rechao",
       "section": "play",
       "title": "熱炒開店啦",
-      "why": "一關不長，也有暫停；手機上還不能單手炒，因為要鍵盤。",
-      "status": "rough",
-      "note": "2026-09-23 遊戲頁回 HTTP 200。v0.6 說明寫明需要實體鍵盤，尚未做觸控。",
+      "why": "一關不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控炒完備料課與開張。",
+      "status": "ready",
+      "note": "2026-09-24 觸控已隨 rechao v0.10.0 經 https://github.com/ioksengtan/rechao/pull/4 合併上線，線上 https://ioksengtan.github.io/rechao/ 。雲端代理回報手機寬度僅用觸控可完成備料課與開張。",
       "url": "https://ioksengtan.github.io/rechao/",
       "repo": "https://github.com/ioksengtan/rechao"
     }
