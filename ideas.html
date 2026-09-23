@@ -1,92 +1,13 @@
 <!doctype html>
-<html lang="zh-Hant">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Ivan Chen 的靈感生態缸：探索 13 個點子，讓不同領域碰撞，餵養會生長的靈感生命體。"
-    />
-    <title>靈感生態缸 — Ivan Chen (@ioksengtan)</title>
-    <link rel="stylesheet" href="css/ideas.css" />
-    <script src="data/ideas.js" defer></script>
-    <script src="js/ideas.js" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#idea-terrarium">跳至靈感生態缸</a>
-    <header class="site-header">
-      <a href="index.html">Ivan Chen <span>(@ioksengtan)</span></a>
-      <nav aria-label="主要導覽">
-        <a href="index.html">首頁</a><a href="portfolio.html">作品</a
-        ><a href="ideas.html" aria-current="page">Ideas</a><a href="progress.html">Progress</a
-        ><a href="commute.html">Commute</a>
-      </nav>
-    </header>
-    <main id="idea-terrarium">
-      <div class="it-intro">
-        <p class="eyebrow">IDEA TERRARIUM / 01</p>
-        <h1>靈感，也可以<br />慢慢養大。</h1>
-        <p class="intro-copy">
-          把收藏的念頭放在一起。讓工具遇見故事，讓微型世界長出感覺。<br />每一次碰撞，都是餵給它的一種新養分。
-        </p>
-      </div>
-      <div class="it-meta">
-        <span>13 個主題 · 2026-09-22 資料快照</span><span id="it-count"></span>
-      </div>
-      <div id="it-world">
-        <section aria-label="全部點子">
-          <p class="eyebrow">01 / 選擇養分</p>
-          <p class="it-help">
-            點選點子可替換材料 B；兩份材料也可以在下方選擇。
-          </p>
-          <div id="it-seeds"></div>
-        </section>
-        <section id="it-life" aria-label="靈感生命體">
-          <div class="it-life-title">
-            <span class="eyebrow">02 / 餵養想像</span
-            ><span class="it-live">生長紀錄</span>
-          </div>
-          <svg
-            id="it-tree"
-            role="img"
-            aria-label="隨餵養的點子長出分支的靈感生命體"
-          ></svg>
-          <p class="it-help">感知、世界、故事，各長成一條分支。</p>
-        </section>
-      </div>
-      <div class="it-controls">
-        <label>碰撞材料 A<select id="it-a"></select></label
-        ><span class="it-times" aria-hidden="true">×</span
-        ><label>碰撞材料 B<select id="it-b"></select></label
-        ><button id="it-feed" type="button">碰撞並餵養 ↗</button>
-      </div>
-      <section class="it-proposal" aria-label="碰撞提案">
-        <p class="eyebrow">03 / 新芽 · 概念提案</p>
-        <div id="it-result" aria-live="polite"></div>
-      </section>
-      <p id="it-storage" class="it-help" role="status">
-        生長紀錄只保存在這台瀏覽器。碰撞使用預設提案與組合規則，尚未接上 AI。
-      </p>
-      <details id="it-history-wrap" hidden>
-        <summary>已吸收的碰撞</summary>
-        <ul id="it-history"></ul>
-      </details>
-      <details>
-        <summary>全部來源與點子</summary>
-        <ul id="it-sources"></ul>
-      </details>
-      <noscript
-        ><p>
-          啟用 JavaScript 即可選擇與餵養點子；也可以直接<a
-            href="https://github.com/ioksengtan/idea"
-            >閱讀原始點子庫</a
-          >。
-        </p></noscript
-      >
-    </main>
-    <footer>
-      <span>Ivan Chen · A garden of possibilities.</span
-      ><a href="https://github.com/ioksengtan/idea">探索原始點子庫 ↗</a>
-    </footer>
-  </body>
-</html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="從點子筆記長成的等角城市：縮放、探索建築與閱讀靈感。"><title>靈感城市 — Ivan Chen</title><link rel="stylesheet" href="css/ideas.css"><script src="data/ideas.js" defer></script><script src="js/idea-source.js" defer></script><script src="js/ideas.js" defer></script></head><body><div id="iso-ideas" aria-label="等角靈感城市">
+ <header><a href="index.html">IVAN CHEN / IDEA ATLAS</a><a href="https://github.com/ioksengtan/idea">點子 repo ↗</a></header>
+ <div class="iso-title"><div><small>A LITTLE WORLD, BUILT FROM CURIOSITY</small><h2>一座由點子<br>長成的城市。</h2></div><div><strong id="iso-count">13</strong><span>個點子，住進城市</span></div></div>
+ <div class="iso-tools"><span>滾輪縮放 · 拖曳移動 · 點建築閱讀</span><div><button id="iso-out" type="button" aria-label="縮小">−</button><output id="iso-zoom">200%</output><button id="iso-in" type="button" aria-label="放大">＋</button><button id="iso-all" type="button">全城</button></div></div><div class="iso-scene"><canvas aria-label="可點選建築的等角城市；也可使用下方建築清單瀏覽">城市包含研究所、工坊、觀測站、餐館、咖啡店與機械劇場。</canvas><div class="map-picker"><select id="iso-select" aria-label="探索建築"></select></div>
+ <article class="idea-card" role="region" aria-labelledby="idea-title" aria-live="polite" hidden><button id="idea-close" type="button" aria-label="關閉點子資訊">×</button><small id="idea-category"></small><h3 id="idea-title"></h3><p id="iso-detail"></p><button id="idea-expand" type="button" aria-expanded="false" aria-controls="idea-extra">更多內容</button><div id="idea-extra" hidden><p id="idea-more"></p><p id="iso-features"></p></div><div id="idea-source"></div></article><div class="iso-caption"><span>IDEA ISLAND</span><span>研究街 / 生活街 / 敘事街</span></div></div>
+ <p id="source-status" role="status">正在載入部署快照…</p><div class="iso-bar"><label for="iso-growth">生長預覽 <output id="iso-stage">13 / 13</output></label><input id="iso-growth" type="range" min="1" max="13" value="13"><span>數量示意，非歷史紀錄</span></div>
+ 
+ 
+</div>
+
+
+</body></html>
