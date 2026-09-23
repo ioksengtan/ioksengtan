@@ -24,3 +24,25 @@
 `seedDisclaimer` 與 `generatedFromPublicReposOn` 會顯示在頁首。改完內容後，把日期改成你更新的那天。
 
 目前六筆的百分比都是 2026-09-23 依公開 README 與近期 commit 填的起點，請直接改成你要追蹤的數字。
+
+## 如何更新通勤入口
+
+頁面 `commute.html` 只讀 `data/commute.json`。改連結、一句話或狀態不用動版面。
+
+1. 編輯 `data/commute.json` 裡的項目。順序就是畫面上的順序。
+2. 存檔後推上 GitHub。Pages 更新後重新整理 `/commute.html`。
+3. 本機預覽請用靜態伺服器。直接用檔案開啟時，瀏覽器通常會擋住 `fetch`。
+
+| 欄位 | 說明 |
+| --- | --- |
+| `sections` | 兩個區塊：`read`（讀）、`play`（玩）。`label` 是畫面上的大標。 |
+| `items[].section` | `read` 或 `play`。 |
+| `title` | 卡片標題。繁體中文；repo 名稱可以留英文。 |
+| `why` | 一句話，為什麼適合（或不適合）通勤用。不要寫分數或推薦指數。 |
+| `status` | `ready`（可自用）、`rough`（勉強可用）、`not-ready`（還沒準備好）。 |
+| `note` | 這個狀態怎麼來的。查過的日期、HTTP 結果、已知限制寫在這裡。 |
+| `url` | 選填。主要開啟連結，必須是 `https://`。沒有可開的網頁就拿掉這個欄位。 |
+| `repo` | 選填。GitHub 網址，同樣必須是 `https://`。 |
+| `checkedOn` | 你最後一次打開這些網址的日期，`YYYY-MM-DD`。 |
+
+`ready` 只留給你親自確認過的公開 HTTPS 頁：網址有回應，而且手機上真的讀得了或玩得了。頁面打得開、但操作或版面還不適合手機，用 `rough`。沒有網站，或內容明顯還不能拿來通勤，用 `not-ready`。

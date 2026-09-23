@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Commute hub is data-driven. Edit data/commute.json; see data/README.md. -->
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta
+      name="description"
+      content="Yu-Sheng 的通勤入口：手機上讀自己的文章與學習卡，或玩短局遊戲。"
+    />
+    <title>通勤入口 — Ivan Chen (@ioksengtan)</title>
+    <link rel="stylesheet" href="css/commute.css" />
+  </head>
+  <body>
+    <a class="cm-skip" href="#cm-main">跳至通勤清單</a>
+    <div class="cm-wrap">
+      <header class="cm-header">
+        <a class="cm-brand" href="index.html">Ivan Chen <span>(@ioksengtan)</span></a>
+        <nav class="cm-nav" aria-label="主要導覽">
+          <a href="index.html">首頁</a>
+          <a href="portfolio.html">作品</a>
+          <a href="ideas.html">Ideas</a>
+          <a href="progress.html">Progress</a>
+          <a href="commute.html" aria-current="page">通勤</a>
+        </nav>
+      </header>
+      <main id="cm-main">
+        <p class="cm-kicker">Commute</p>
+        <h1>通勤入口</h1>
+        <p class="cm-lead">
+          給自己在路上用的一頁。讀短文和學習卡，或玩一手就能停的小遊戲。
+        </p>
+        <p class="cm-fine">
+          這是靜態頁。有網路時可以打開下面的連結。沒有離線保存，斷線之後那些外部頁面不會留在手機裡。
+        </p>
+        <ul id="cm-legend" class="cm-legend" aria-label="狀態說明">
+          <li><span class="cm-badge cm-badge-ready">可自用</span></li>
+          <li><span class="cm-badge cm-badge-rough">勉強可用</span></li>
+          <li><span class="cm-badge cm-badge-not-ready">還沒準備好</span></li>
+        </ul>
+        <p id="cm-meta" class="cm-fine"></p>
+        <nav id="cm-jumps" class="cm-jumps" aria-label="讀或玩">
+          <a href="#cm-read">讀</a>
+          <a href="#cm-play">玩</a>
+        </nav>
+        <p id="cm-status" class="cm-status" role="status">正在讀取清單…</p>
+        <div id="cm-root"></div>
+        <noscript>
+          <p>需要 JavaScript 才能把 data/commute.json 畫成清單。檔案本身仍可直接閱讀。</p>
+        </noscript>
+      </main>
+      <footer class="cm-footer">
+        <p>Ivan Chen · 改清單請編輯 <a href="data/commute.json">data/commute.json</a>。</p>
+      </footer>
+    </div>
+    <script src="js/commute.js"></script>
+  </body>
+</html>
