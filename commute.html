@@ -28,22 +28,17 @@
       <main id="cm-main">
         <p class="cm-kicker">Commute</p>
         <h1>通勤入口</h1>
-        <p class="cm-lead">
-          給自己在路上用的一頁。讀短文和學習卡，或玩一手就能停的小遊戲。
-        </p>
-        <p class="cm-fine">
-          這是靜態頁。有網路時可以打開下面的連結。沒有離線保存，斷線之後那些外部頁面不會留在手機裡。
-        </p>
+        <p class="cm-lead">讀短文和學習卡，或玩一手就能停的小遊戲。</p>
+        <p class="cm-fine">有網路才能打開連結。這頁不會把那些網站存進手機。</p>
+        <nav id="cm-jumps" class="cm-jumps" aria-label="讀或玩">
+          <a href="#cm-read">讀</a>
+          <a href="#cm-play">玩</a>
+        </nav>
         <ul id="cm-legend" class="cm-legend" aria-label="狀態說明">
           <li><span class="cm-badge cm-badge-ready">可自用</span></li>
           <li><span class="cm-badge cm-badge-rough">勉強可用</span></li>
           <li><span class="cm-badge cm-badge-not-ready">還沒準備好</span></li>
         </ul>
-        <p id="cm-meta" class="cm-fine"></p>
-        <nav id="cm-jumps" class="cm-jumps" aria-label="讀或玩">
-          <a href="#cm-read">讀</a>
-          <a href="#cm-play">玩</a>
-        </nav>
         <p id="cm-status" class="cm-status" role="status">正在讀取清單…</p>
         <div id="cm-root"></div>
         <noscript>
@@ -51,7 +46,8 @@
         </noscript>
       </main>
       <footer class="cm-footer">
-        <p>Ivan Chen · 改清單請編輯 <a href="data/commute.json">data/commute.json</a>。</p>
+        <p id="cm-meta"></p>
+        <p>改清單請編輯 <a href="data/commute.json">data/commute.json</a>，說明在 <a href="data/README.md">data/README.md</a>。</p>
       </footer>
     </div>
     <script src="js/commute.js"></script>
