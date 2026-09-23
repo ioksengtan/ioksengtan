@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "seedDisclaimer": "階段與百分比是依公開 GitHub 狀態整理的可編輯種子估計，不是流量、工時或分析數據。改這個檔即可更新頁面，說明見 data/README.md。",
+  "generatedFromPublicReposOn": "2026-09-23",
+  "phaseLabels": {
+    "planning": "規劃中",
+    "building": "製作中",
+    "shipping": "上線推進",
+    "paused": "暫停"
+  },
+  "projects": [
+    {
+      "id": "listmap",
+      "name": "Listmap",
+      "blurb": "把影片、文章、書與 Podcast 綁到真實地標，用地圖整理與分享地理故事。靜態版已掛在 GitHub Pages。",
+      "phase": "shipping",
+      "progress": 75,
+      "progressKind": "seed",
+      "progressBasis": "公開 README：Pages 可瀏覽公開故事，本機另有內容管理 API；資料仍是 CSV，SQLite 只寫在後續規劃。2026-09 的 commit 仍在上架新故事。沒有官方完成百分比。",
+      "nextMilestone": "依 README 的後續規劃，把 CSV 資料層遷到 SQLite。",
+      "lastUpdated": "2026-09-22",
+      "repo": "https://github.com/ioksengtan/Listmap_v0d3",
+      "live": "https://ioksengtan.github.io/Listmap_v0d3/"
+    },
+    {
+      "id": "liuliu-walker",
+      "name": "溜溜繪本",
+      "blurb": "《散步溜溜》。封面到封底的文案與插畫已鎖定，可印檔在 print/；剩下選少量印刷與打樣。",
+      "phase": "shipping",
+      "progress": 80,
+      "progressKind": "seed",
+      "progressBasis": "2026-09-15 README：故事板、書名、正式文案與插畫皆已鎖。少量印刷廠商仍在評估，可印目標由 2026-09-16 延到約 2026-10-16。",
+      "nextMilestone": "選定少量印刷的廠商與紙規，完成打樣（README 目標約 2026-10-16）。",
+      "lastUpdated": "2026-09-15",
+      "repo": "https://github.com/ioksengtan/liuliu_walk"
+    },
+    {
+      "id": "ilha-hometown",
+      "name": "IlhaHometown",
+      "blurb": "呈現芎林在地人事物的互動地圖。公開 demo 可玩；2026-09 的修改集中在 map 13 工作室的畫面、手機視窗與角色比例。",
+      "phase": "building",
+      "progress": 48,
+      "progressKind": "seed",
+      "progressBasis": "README 願景是每個鄉鎮一座外形相同的島。目前公開的是可玩 demo（Pages 有回應）。沒有寫明整體完成度，48% 只是「有可玩版本、範圍仍開著」的種子估計。",
+      "nextMilestone": "尚無公開的下一張里程碑。種子填寫（請改）：先把 map 13 工作室收穩，再依「一鄉鎮一島」往下一個鄉鎮走。",
+      "lastUpdated": "2026-09-13",
+      "repo": "https://github.com/ioksengtan/IlhaHometown",
+      "live": "https://ioksengtan.github.io/IlhaHometown/"
+    },
+    {
+      "id": "celebrities",
+      "name": "Celebrities",
+      "blurb": "用科技名人演講做語錄牆、單場演講頁，以及「金句」「名人詞彙」兩組單字卡。核心頁已在 GitHub Pages。",
+      "phase": "shipping",
+      "progress": 62,
+      "progressKind": "seed",
+      "progressBasis": "README 目前狀態：資料庫、語錄牆、單場演講、金句與名人詞彙已完成；長導讀、時間軸、每日一句、主題分析、演講比較尚未開始。2026-09-18 加入 Satya Nadella 訪談，語錄仍是 draft。",
+      "nextMilestone": "核實 Satya Nadella 訪談的 draft 語錄是否上牆。其餘候選產品仍未開工。",
+      "lastUpdated": "2026-09-18",
+      "repo": "https://github.com/ioksengtan/celebrities",
+      "live": "https://ioksengtan.github.io/celebrities/"
+    },
+    {
+      "id": "too-much-to-learn",
+      "name": "白話科技",
+      "blurb": "把科技題目寫成給工程師與小主管的白話說明。靜態文章站，首頁已掛在 GitHub Pages。",
+      "phase": "shipping",
+      "progress": 40,
+      "progressKind": "seed",
+      "progressBasis": "此倉沒有完成度說明。2026-09-13 建立，首頁已列出多篇文章，2026-09-20 仍在加新文，drafts/ 還有一份編輯筆記。40% 只是早期專欄的可編輯起點，不是閱讀量。",
+      "nextMilestone": "尚無公開里程碑。種子填寫（請改）：繼續把新題目寫成文章並掛上首頁。",
+      "lastUpdated": "2026-09-20",
+      "repo": "https://github.com/ioksengtan/too_much_to_learn",
+      "live": "https://ioksengtan.github.io/too_much_to_learn/"
+    },
+    {
+      "id": "rechao",
+      "name": "rechao",
+      "blurb": "單人 2D 熱炒小遊戲「熱炒開店啦！」。v0.6 可在瀏覽器玩備料課與三個營業關。",
+      "phase": "building",
+      "progress": 58,
+      "progressKind": "seed",
+      "progressBasis": "README 標 Current version 0.6.0，Pages 已可開啟。備料課與三個營業關已開放；辛香料、調醬、果汁分類標成籌備中。觸控、手把、背景音樂與中途存檔尚未做。",
+      "nextMilestone": "開放選關裡標成「籌備中」的辛香料、調醬、果汁分類。",
+      "lastUpdated": "2026-09-22",
+      "repo": "https://github.com/ioksengtan/rechao",
+      "live": "https://ioksengtan.github.io/rechao/"
+    }
+  ]
+}
