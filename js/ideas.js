@@ -172,4 +172,3 @@ function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0
  new ResizeObserver(draw).observe(canvas);sync();
  IdeaSource.load(cards).then(next=>{const source=cards[selected]?.source,all=count===cards.length;cards=next;ideas=makeIdeas();count=all?cards.length:Math.min(count,cards.length);selected=Math.max(0,cards.findIndex(c=>c.source===source));sync();});if(globalThis.Tweak){const t=new Tweak({container:root,onChange:draw});t.addToggle(design,'roofDetail',{label:'屋頂瓦片細節'});}
  })();
- 
