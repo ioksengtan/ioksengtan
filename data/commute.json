@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十四篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十五篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-24 再上兩篇：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口。",
+      "note": "2026-09-24 最新短文：《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。先前兩篇仍有用：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -66,8 +66,8 @@
       "title": "Listmap 故事",
       "why": "一篇故事配幾個地標，先讀文字，地圖可以晚點再看。",
       "status": "ready",
-      "note": "2026-09-24 京都永樂屋「手拭／棉布半日」（100112）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100112.html （pull request #120）。",
-      "url": "https://ioksengtan.github.io/Listmap_v0d3/blog.html",
+      "note": "2026-09-24 京都一保堂一帶：寺町二条茶葉和菓子半日（100122）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100122.html （pull request #123）。",
+      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100122.html",
       "repo": "https://github.com/ioksengtan/Listmap_v0d3"
     },
     {
