@@ -17,3 +17,5 @@
 
 
 html{color-scheme:light dark}body{margin:0;padding:12px;background:light-dark(#e7eee5,#142020)}#iso-ideas{max-width:1500px;margin:auto}#iso-ideas header a{color:inherit;text-decoration:none}#source-status{font-size:12px;padding:0 20px;color:var(--is-muted)}@media(max-width:640px){body{padding:0}#iso-ideas{border-radius:0}#iso-ideas canvas{height:calc(100svh - 210px);min-height:360px}#iso-ideas .iso-bar{display:none}}
+
+#iso-ideas #idea-related{margin:12px 0;font-size:13px}#iso-ideas #idea-related h4{font-size:13px;font-weight:500;margin:8px 0}#iso-ideas #idea-related details{border-top:1px solid var(--is-line);padding:8px 0}#iso-ideas #idea-related summary{cursor:pointer}#iso-ideas #idea-related a{color:var(--is-accent)}

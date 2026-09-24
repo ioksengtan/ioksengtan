@@ -1,4 +1,4 @@
-/* Generated from b1156fb5794ce60e070e5716714f28808c1cb999; run node scripts/build-ideas.cjs <idea-clone>. */
+/* Generated from eb10e7470df58c007e8facc7b025df86b561a68a; run node scripts/build-ideas.cjs <idea-clone>. */
 window.IDEA_SNAPSHOT = [
   {
     "source": "AI/卡片大小本地大模型電腦選型.md",
@@ -41,24 +41,37 @@ window.IDEA_SNAPSHOT = [
     "url": "https://github.com/ioksengtan/idea/blob/main/Maker/ESP32%E8%B6%85%E9%9F%B3%E6%B3%A2%E6%8E%83%E6%8F%8F%E9%81%BF%E9%9A%9C%E8%BB%8A.md"
   },
   {
-    "source": "Maker/3D列印迷你RC車模組化底盤.md",
-    "title": "3D 列印迷你 RC 車模組化底盤",
-    "category": "Maker",
-    "summary": "設計一套主要零件皆可 3D 列印的迷你 RC 車底盤，使用常見的微型直流減速馬達、SG90 類 servo、金屬軸與小輪胎。底盤不要以膠水永久組裝，而是在受力和需要反覆拆裝的位置使用金屬螺牙嵌件、螺絲與可替換模組。",
-    "more": "這個點子的價值不只是一台小車，而是一個可快速更換馬達、轉向機構、軸距和車體的實驗平台。",
+    "source": "靈感收集點子清單.md",
+    "title": "微縮尺寸全功能遙控車系列",
+    "category": "靈感清單",
+    "summary": "微縮尺寸全功能遙控車系列——Scania 卡車、Datsun 甩尾旅行車、DeskDigger 堆高機，走桌面把玩、解壓玩具與收藏路線。延伸研究：3D 列印迷你 RC 車模組化底盤、桌上型縮景越野場。",
+    "more": "",
     "model": 4,
     "theme": "maker",
-    "url": "https://github.com/ioksengtan/idea/blob/main/Maker/3D%E5%88%97%E5%8D%B0%E8%BF%B7%E4%BD%A0RC%E8%BB%8A%E6%A8%A1%E7%B5%84%E5%8C%96%E5%BA%95%E7%9B%A4.md"
-  },
-  {
-    "source": "Maker/桌上型縮景越野場.md",
-    "title": "桌上型縮景越野場",
-    "category": "Maker",
-    "summary": "製作一座可以實際駕駛迷你遙控車的「大自然縮景」。它不是固定的模型展示，而是一個可遊玩的微型戶外世界：沙灘、叢林、溪谷、泥地、岩場與木橋都能成為路線的一部分。",
-    "more": "每位顧客可以：\n\n- 帶自己的迷你 RC 車進場。\n- 現場租車或試駕不同車型。\n- 自由探索地形，不一定要競速。\n- 參加計時、越障、尋寶或團隊救援任務。\n- 拍攝像真實戶外越野旅行的低視角影片。",
-    "model": 5,
-    "theme": "maker",
-    "url": "https://github.com/ioksengtan/idea/blob/main/Maker/%E6%A1%8C%E4%B8%8A%E5%9E%8B%E7%B8%AE%E6%99%AF%E8%B6%8A%E9%87%8E%E5%A0%B4.md"
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L12",
+    "id": "靈感收集點子清單.md#%E5%BE%AE%E7%B8%AE%E5%B0%BA%E5%AF%B8%E5%85%A8%E5%8A%9F%E8%83%BD%E9%81%99%E6%8E%A7%E8%BB%8A%E7%B3%BB%E5%88%97",
+    "related": [
+      {
+        "source": "Maker/3D列印迷你RC車模組化底盤.md",
+        "title": "3D 列印迷你 RC 車模組化底盤",
+        "category": "Maker",
+        "summary": "設計一套主要零件皆可 3D 列印的迷你 RC 車底盤，使用常見的微型直流減速馬達、SG90 類 servo、金屬軸與小輪胎。底盤不要以膠水永久組裝，而是在受力和需要反覆拆裝的位置使用金屬螺牙嵌件、螺絲與可替換模組。",
+        "more": "這個點子的價值不只是一台小車，而是一個可快速更換馬達、轉向機構、軸距和車體的實驗平台。",
+        "model": 4,
+        "theme": "maker",
+        "url": "https://github.com/ioksengtan/idea/blob/main/Maker/3D%E5%88%97%E5%8D%B0%E8%BF%B7%E4%BD%A0RC%E8%BB%8A%E6%A8%A1%E7%B5%84%E5%8C%96%E5%BA%95%E7%9B%A4.md"
+      },
+      {
+        "source": "Maker/桌上型縮景越野場.md",
+        "title": "桌上型縮景越野場",
+        "category": "Maker",
+        "summary": "製作一座可以實際駕駛迷你遙控車的「大自然縮景」。它不是固定的模型展示，而是一個可遊玩的微型戶外世界：沙灘、叢林、溪谷、泥地、岩場與木橋都能成為路線的一部分。",
+        "more": "每位顧客可以：\n\n- 帶自己的迷你 RC 車進場。\n- 現場租車或試駕不同車型。\n- 自由探索地形，不一定要競速。\n- 參加計時、越障、尋寶或團隊救援任務。\n- 拍攝像真實戶外越野旅行的低視角影片。",
+        "model": 5,
+        "theme": "maker",
+        "url": "https://github.com/ioksengtan/idea/blob/main/Maker/%E6%A1%8C%E4%B8%8A%E5%9E%8B%E7%B8%AE%E6%99%AF%E8%B6%8A%E9%87%8E%E5%A0%B4.md"
+      }
+    ]
   },
   {
     "source": "Maker/韓屋迷你氛圍燈.md",
@@ -101,14 +114,27 @@ window.IDEA_SNAPSHOT = [
     "url": "https://github.com/ioksengtan/idea/blob/main/Design/%E4%BA%92%E5%8B%95%E5%BC%8F%E5%92%96%E5%95%A1%E5%BA%97%E6%89%8B%E7%B9%AA%E5%B9%B3%E9%9D%A2%E5%9C%96.md"
   },
   {
-    "source": "Maker/可程式化電子活動識別證.md",
-    "title": "可程式化電子活動識別證",
-    "category": "Maker",
-    "summary": "把活動識別證從一次性的姓名卡，變成一台可程式化、可互動、活動結束後仍能繼續使用的掌上開發裝置。它同時可以是：",
-    "more": "- 姓名與個人資料展示。\n- 議程、場地與通知工具。\n- 與其他參加者互動的社交裝置。\n- 尋寶、闖關與遊戲平台。\n- 工作坊教材與 hackathon 開發板。\n- 活動結束後帶回家的紀念品。\n\n照片裡上半部仍保留紙本姓名牌與 QR code，下半部是彩色螢幕裝置。這種混合設計很好：入場與身份識別不必依賴電子系統，電子 badge 則專注在互動和可玩性。",
+    "source": "靈感收集點子清單.md",
+    "title": "可切換顯示狀態的徽章式小螢幕",
+    "category": "靈感清單",
+    "summary": "可切換顯示狀態的徽章式小螢幕——別針款，可切換「正能量」、「工作勿擾」等狀態圖案。延伸研究：可程式化電子活動識別證。",
+    "more": "",
     "model": 10,
     "theme": "creative",
-    "url": "https://github.com/ioksengtan/idea/blob/main/Maker/%E5%8F%AF%E7%A8%8B%E5%BC%8F%E5%8C%96%E9%9B%BB%E5%AD%90%E6%B4%BB%E5%8B%95%E8%AD%98%E5%88%A5%E8%AD%89.md"
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L11",
+    "id": "靈感收集點子清單.md#%E5%8F%AF%E5%88%87%E6%8F%9B%E9%A1%AF%E7%A4%BA%E7%8B%80%E6%85%8B%E7%9A%84%E5%BE%BD%E7%AB%A0%E5%BC%8F%E5%B0%8F%E8%9E%A2%E5%B9%95",
+    "related": [
+      {
+        "source": "Maker/可程式化電子活動識別證.md",
+        "title": "可程式化電子活動識別證",
+        "category": "Maker",
+        "summary": "把活動識別證從一次性的姓名卡，變成一台可程式化、可互動、活動結束後仍能繼續使用的掌上開發裝置。它同時可以是：",
+        "more": "- 姓名與個人資料展示。\n- 議程、場地與通知工具。\n- 與其他參加者互動的社交裝置。\n- 尋寶、闖關與遊戲平台。\n- 工作坊教材與 hackathon 開發板。\n- 活動結束後帶回家的紀念品。\n\n照片裡上半部仍保留紙本姓名牌與 QR code，下半部是彩色螢幕裝置。這種混合設計很好：入場與身份識別不必依賴電子系統，電子 badge 則專注在互動和可玩性。",
+        "model": 10,
+        "theme": "creative",
+        "url": "https://github.com/ioksengtan/idea/blob/main/Maker/%E5%8F%AF%E7%A8%8B%E5%BC%8F%E5%8C%96%E9%9B%BB%E5%AD%90%E6%B4%BB%E5%8B%95%E8%AD%98%E5%88%A5%E8%AD%89.md"
+      }
+    ]
   },
   {
     "source": "AI/Agents Office 專案拆解.md",
@@ -129,5 +155,365 @@ window.IDEA_SNAPSHOT = [
     "model": 12,
     "theme": "ai",
     "url": "https://github.com/ioksengtan/idea/blob/main/AI/Bot%20Crossing%20%E5%B0%88%E6%A1%88%E6%8B%86%E8%A7%A3.md"
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "雙手拉線控制傾斜迷宮遊戲機",
+    "category": "靈感清單",
+    "summary": "雙手拉線控制傾斜迷宮遊戲機——兩個旋鈕各控一條鋼索傾斜迷宮板，讓球穿過不規則洞落入底部目標孔。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L7",
+    "id": "靈感收集點子清單.md#%E9%9B%99%E6%89%8B%E6%8B%89%E7%B7%9A%E6%8E%A7%E5%88%B6%E5%82%BE%E6%96%9C%E8%BF%B7%E5%AE%AE%E9%81%8A%E6%88%B2%E6%A9%9F",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "公車到站時間鑰匙圈",
+    "category": "靈感清單",
+    "summary": "公車到站時間鑰匙圈——小螢幕即時顯示對面站牌各路線到站分鐘數。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L8",
+    "id": "靈感收集點子清單.md#%E5%85%AC%E8%BB%8A%E5%88%B0%E7%AB%99%E6%99%82%E9%96%93%E9%91%B0%E5%8C%99%E5%9C%88",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "紙藝／手繪拼貼 Game Boy 造型卡套",
+    "category": "靈感清單",
+    "summary": "紙藝／手繪拼貼 Game Boy 造型卡套——復古掌機外型做成卡片收納夾。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L9",
+    "id": "靈感收集點子清單.md#%E7%B4%99%E8%97%9D%EF%BC%8F%E6%89%8B%E7%B9%AA%E6%8B%BC%E8%B2%BC%20Game%20Boy%20%E9%80%A0%E5%9E%8B%E5%8D%A1%E5%A5%97",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "九九乘法自我驗證卡盒",
+    "category": "靈感清單",
+    "summary": "九九乘法自我驗證卡盒——翻牌題目加插棒對答案孔的自我檢查機制。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L10",
+    "id": "靈感收集點子清單.md#%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%87%AA%E6%88%91%E9%A9%97%E8%AD%89%E5%8D%A1%E7%9B%92",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "LED 酒瓶露營燈骨架",
+    "category": "靈感清單",
+    "summary": "LED 酒瓶露營燈骨架——空酒瓶套入馬燈造型骨架，瓶身變燈罩。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L13",
+    "id": "靈感收集點子清單.md#LED%20%E9%85%92%E7%93%B6%E9%9C%B2%E7%87%9F%E7%87%88%E9%AA%A8%E6%9E%B6",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "電子錶封鑄樂高人偶造型機器人玩偶",
+    "category": "靈感清單",
+    "summary": "電子錶封鑄樂高人偶造型機器人玩偶——手錶螢幕露出當顯示面。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L14",
+    "id": "靈感收集點子清單.md#%E9%9B%BB%E5%AD%90%E9%8C%B6%E5%B0%81%E9%91%84%E6%A8%82%E9%AB%98%E4%BA%BA%E5%81%B6%E9%80%A0%E5%9E%8B%E6%A9%9F%E5%99%A8%E4%BA%BA%E7%8E%A9%E5%81%B6",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "手作虛構鈔票設計",
+    "category": "靈感清單",
+    "summary": "手作虛構鈔票設計——仿真鈔版面語言加浮雕質感工藝。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L15",
+    "id": "靈感收集點子清單.md#%E6%89%8B%E4%BD%9C%E8%99%9B%E6%A7%8B%E9%88%94%E7%A5%A8%E8%A8%AD%E8%A8%88",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "平交道警示器聲光模型",
+    "category": "靈感清單",
+    "summary": "平交道警示器聲光模型——雜誌附錄玩具，高擬真機構包含燈光、音效與柵欄動作。",
+    "more": "",
+    "model": -1,
+    "theme": "ai",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L16",
+    "id": "靈感收集點子清單.md#%E5%B9%B3%E4%BA%A4%E9%81%93%E8%AD%A6%E7%A4%BA%E5%99%A8%E8%81%B2%E5%85%89%E6%A8%A1%E5%9E%8B",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "60Hz 高更新率 E-Ink 電子紙驅動板改裝",
+    "category": "靈感清單",
+    "summary": "60Hz 高更新率 E-Ink 電子紙驅動板改裝——整合鍵盤／顯示器專案，另有磁吸自動對齊連接兩塊板子的防呆設計。",
+    "more": "",
+    "model": -1,
+    "theme": "sensing",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L17",
+    "id": "靈感收集點子清單.md#60Hz%20%E9%AB%98%E6%9B%B4%E6%96%B0%E7%8E%87%20E-Ink%20%E9%9B%BB%E5%AD%90%E7%B4%99%E9%A9%85%E5%8B%95%E6%9D%BF%E6%94%B9%E8%A3%9D",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "個人數位書架網站",
+    "category": "靈感清單",
+    "summary": "個人數位書架網站——書脊視覺陳列、分類篩選與推薦互動。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L18",
+    "id": "靈感收集點子清單.md#%E5%80%8B%E4%BA%BA%E6%95%B8%E4%BD%8D%E6%9B%B8%E6%9E%B6%E7%B6%B2%E7%AB%99",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "疊層山脈造型便利貼",
+    "category": "靈感清單",
+    "summary": "疊層山脈造型便利貼——錯題累積視覺化、遊戲化文具（KOKUYO Campus 系列）。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L19",
+    "id": "靈感收集點子清單.md#%E7%96%8A%E5%B1%A4%E5%B1%B1%E8%84%88%E9%80%A0%E5%9E%8B%E4%BE%BF%E5%88%A9%E8%B2%BC",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "三角造型爬行機器人玩具",
+    "category": "靈感清單",
+    "summary": "三角造型爬行機器人玩具——蜂巢鏤空機構加 LED 燈效（NIKOLA TOY Cyber Weng）。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L20",
+    "id": "靈感收集點子清單.md#%E4%B8%89%E8%A7%92%E9%80%A0%E5%9E%8B%E7%88%AC%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA%E7%8E%A9%E5%85%B7",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "復刻歷史插畫的立體紙藝模型",
+    "category": "靈感清單",
+    "summary": "復刻歷史插畫的立體紙藝模型——訂閱制月更套件商業模式（Club de Papel，含帆船、天球儀等款式）。",
+    "more": "",
+    "model": -1,
+    "theme": "ai",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L21",
+    "id": "靈感收集點子清單.md#%E5%BE%A9%E5%88%BB%E6%AD%B7%E5%8F%B2%E6%8F%92%E7%95%AB%E7%9A%84%E7%AB%8B%E9%AB%94%E7%B4%99%E8%97%9D%E6%A8%A1%E5%9E%8B",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "河流水系地鐵圖風格製圖",
+    "category": "靈感清單",
+    "summary": "河流水系地鐵圖風格製圖——地理資料轉譯為資訊圖表視覺語言。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L22",
+    "id": "靈感收集點子清單.md#%E6%B2%B3%E6%B5%81%E6%B0%B4%E7%B3%BB%E5%9C%B0%E9%90%B5%E5%9C%96%E9%A2%A8%E6%A0%BC%E8%A3%BD%E5%9C%96",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "圍棋規則移植地理地圖",
+    "category": "靈感清單",
+    "summary": "圍棋規則移植地理地圖——以真實城市地圖（如中國大陸）為背景，城市為節點、道路為連結，套用圍棋提子／氣的規則；可用兩色或三色代表陣營，三國武將包裝。詳見下方延伸筆記。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L23",
+    "id": "靈感收集點子清單.md#%E5%9C%8D%E6%A3%8B%E8%A6%8F%E5%89%87%E7%A7%BB%E6%A4%8D%E5%9C%B0%E7%90%86%E5%9C%B0%E5%9C%96",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "國旗地標配對翻牌遊戲",
+    "category": "靈感清單",
+    "summary": "國旗地標配對翻牌遊戲——依國家分類的知識型記憶配對。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L24",
+    "id": "靈感收集點子清單.md#%E5%9C%8B%E6%97%97%E5%9C%B0%E6%A8%99%E9%85%8D%E5%B0%8D%E7%BF%BB%E7%89%8C%E9%81%8A%E6%88%B2",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "大型電玩街機縮尺組裝模型",
+    "category": "靈感清單",
+    "summary": "大型電玩街機縮尺組裝模型——精細還原機台細節的收藏模型套件（太鼓達人 1/12 模型）。",
+    "more": "",
+    "model": -1,
+    "theme": "ai",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L25",
+    "id": "靈感收集點子清單.md#%E5%A4%A7%E5%9E%8B%E9%9B%BB%E7%8E%A9%E8%A1%97%E6%A9%9F%E7%B8%AE%E5%B0%BA%E7%B5%84%E8%A3%9D%E6%A8%A1%E5%9E%8B",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "模型框架式會員歡迎禮",
+    "category": "靈感清單",
+    "summary": "模型框架式會員歡迎禮——把實用小物包裝成注塑框架公仔，增加開箱儀式感。",
+    "more": "",
+    "model": -1,
+    "theme": "ai",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L26",
+    "id": "靈感收集點子清單.md#%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6%E5%BC%8F%E6%9C%83%E5%93%A1%E6%AD%A1%E8%BF%8E%E7%A6%AE",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "魔術方塊結構萬年曆",
+    "category": "靈感清單",
+    "summary": "魔術方塊結構萬年曆——轉動方塊組合顯示日期，兼具把玩性與實用性（Umbra Play Date）。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L27",
+    "id": "靈感收集點子清單.md#%E9%AD%94%E8%A1%93%E6%96%B9%E5%A1%8A%E7%B5%90%E6%A7%8B%E8%90%AC%E5%B9%B4%E6%9B%86",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "落葉裁切拼貼漸層牆面藝術",
+    "category": "靈感清單",
+    "summary": "落葉裁切拼貼漸層牆面藝術——自然材料規則化裁切加色階漸層排列。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L28",
+    "id": "靈感收集點子清單.md#%E8%90%BD%E8%91%89%E8%A3%81%E5%88%87%E6%8B%BC%E8%B2%BC%E6%BC%B8%E5%B1%A4%E7%89%86%E9%9D%A2%E8%97%9D%E8%A1%93",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "滑蓋透視式精品禮盒包裝",
+    "category": "靈感清單",
+    "summary": "滑蓋透視式精品禮盒包裝——推拉開盒加玻璃視窗預覽內容物，強調開箱儀式感。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L29",
+    "id": "靈感收集點子清單.md#%E6%BB%91%E8%93%8B%E9%80%8F%E8%A6%96%E5%BC%8F%E7%B2%BE%E5%93%81%E7%A6%AE%E7%9B%92%E5%8C%85%E8%A3%9D",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "免膠水透明壓克力立體拼圖",
+    "category": "靈感清單",
+    "summary": "免膠水透明壓克力立體拼圖——卡榫互鎖組裝加透光漸層擺飾效果。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L30",
+    "id": "靈感收集點子清單.md#%E5%85%8D%E8%86%A0%E6%B0%B4%E9%80%8F%E6%98%8E%E5%A3%93%E5%85%8B%E5%8A%9B%E7%AB%8B%E9%AB%94%E6%8B%BC%E5%9C%96",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "手動拉桿式復古列車資訊看板",
+    "category": "靈感清單",
+    "summary": "手動拉桿式復古列車資訊看板——機械翻牌顯示目的地加懷舊鐵道時鐘造型。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L31",
+    "id": "靈感收集點子清單.md#%E6%89%8B%E5%8B%95%E6%8B%89%E6%A1%BF%E5%BC%8F%E5%BE%A9%E5%8F%A4%E5%88%97%E8%BB%8A%E8%B3%87%E8%A8%8A%E7%9C%8B%E6%9D%BF",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "模組化 3D 列印牆面月曆",
+    "category": "靈感清單",
+    "summary": "模組化 3D 列印牆面月曆——活動式日期卡片加標籤分類，永久重複使用。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L32",
+    "id": "靈感收集點子清單.md#%E6%A8%A1%E7%B5%84%E5%8C%96%203D%20%E5%88%97%E5%8D%B0%E7%89%86%E9%9D%A2%E6%9C%88%E6%9B%86",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "實體卡片序列式無螢幕程式教學玩具",
+    "category": "靈感清單",
+    "summary": "實體卡片序列式無螢幕程式教學玩具——卡片排列等於指令序列，機器人依序執行（toio 新版）。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L33",
+    "id": "靈感收集點子清單.md#%E5%AF%A6%E9%AB%94%E5%8D%A1%E7%89%87%E5%BA%8F%E5%88%97%E5%BC%8F%E7%84%A1%E8%9E%A2%E5%B9%95%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8%E7%8E%A9%E5%85%B7",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "六角地形桌上高爾夫遊戲",
+    "category": "靈感清單",
+    "summary": "六角地形桌上高爾夫遊戲——SOURCE Golf（官網 adventuretogether.games，需搭配 SOURCE 地形套組，售價 US$34.99，多種主題環境）；DIY 方案可參考 Printables「Mini Mini Putt Putt」模組化零件（斜坡、彎道、管道連接件，用 BB 彈當高爾夫球）。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L34",
+    "id": "靈感收集點子清單.md#%E5%85%AD%E8%A7%92%E5%9C%B0%E5%BD%A2%E6%A1%8C%E4%B8%8A%E9%AB%98%E7%88%BE%E5%A4%AB%E9%81%8A%E6%88%B2",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "可旋轉調角度桌上迷你籃球機",
+    "category": "靈感清單",
+    "summary": "可旋轉調角度桌上迷你籃球機——蜂巢鏤空半球結構加多角度投籃機關。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L35",
+    "id": "靈感收集點子清單.md#%E5%8F%AF%E6%97%8B%E8%BD%89%E8%AA%BF%E8%A7%92%E5%BA%A6%E6%A1%8C%E4%B8%8A%E8%BF%B7%E4%BD%A0%E7%B1%83%E7%90%83%E6%A9%9F",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "E-Ink 螢幕打字訓練裝置",
+    "category": "靈感清單",
+    "summary": "E-Ink 螢幕打字訓練裝置——inktype 介面加客製鍵盤，低干擾專注書寫／打字練習工具（compose.kb）。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L36",
+    "id": "靈感收集點子清單.md#E-Ink%20%E8%9E%A2%E5%B9%95%E6%89%93%E5%AD%97%E8%A8%93%E7%B7%B4%E8%A3%9D%E7%BD%AE",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "薛西弗斯推石計數器",
+    "category": "靈感清單",
+    "summary": "薛西弗斯推石計數器——實體裝置視覺化連續紀錄，怠惰時角色會倒退／墜落。",
+    "more": "",
+    "model": -1,
+    "theme": "creative",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L37",
+    "id": "靈感收集點子清單.md#%E8%96%9B%E8%A5%BF%E5%BC%97%E6%96%AF%E6%8E%A8%E7%9F%B3%E8%A8%88%E6%95%B8%E5%99%A8",
+    "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "模組化 3D 列印桌遊收納系統",
+    "category": "靈感清單",
+    "summary": "模組化 3D 列印桌遊收納系統——可堆疊卡榫收納盒、轉盤計分器與翻頁計數器（Board Nerds Kickstarter 專案參考）。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L38",
+    "id": "靈感收集點子清單.md#%E6%A8%A1%E7%B5%84%E5%8C%96%203D%20%E5%88%97%E5%8D%B0%E6%A1%8C%E9%81%8A%E6%94%B6%E7%B4%8D%E7%B3%BB%E7%B5%B1",
+    "related": []
   }
 ];

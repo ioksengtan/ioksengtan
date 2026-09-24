@@ -17,6 +17,27 @@
     return {source,title,category,summary:(paragraphs[0]||title).slice(0,700),more:paragraphs.slice(1,4).join('\n\n').slice(0,1800),model,theme,url:'https://github.com/'+repo+'/blob/main/'+source.split('/').map(encodeURIComponent).join('/')};
   }
   function sort(cards) { return cards.sort((a,b)=>(a.model<0?999:a.model)-(b.model<0?999:b.model)||a.source.localeCompare(b.source,'en')); }
+  function compile(documents) {
+    const notes=new Map(documents.map(d=>[d.source,parse(d.source,d.markdown)]));
+    const collections=new Set(),linked=new Set(),items=[];
+    for(const doc of documents){
+      const lines=doc.markdown.split(/\r?\n/);let active=false,item=null;
+      const flush=()=>{if(!item)return;const raw=item.text.trim(),summary=plain(raw),title=summary.split(/——|—|：/)[0].trim();
+        const card=parse(doc.source,'# '+title+'\n\n'+raw);card.id=doc.source+'#'+encodeURIComponent(title);card.model=-1;card.category='靈感清單';card.url+='#L'+item.line;card.related=[];
+        for(const match of raw.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)){
+          try{const base=new URL(doc.source,'https://notes.local/'),url=new URL(match[2],base);if(url.origin!==base.origin)continue;
+            const target=decodeURIComponent(url.pathname.slice(1)),note=notes.get(target);if(!note||target===doc.source||card.related.some(n=>n.source===target))continue;
+            card.related.push(note);linked.add(target);if(card.model<0&&note.model>=0)card.model=note.model;
+          }catch{}
+        }
+        items.push(card);item=null;
+      };
+      lines.forEach((line,index)=>{if(/^##\s+/.test(line)){flush();active=/^##\s+(已收集點子|靈感清單|點子清單)\s*$/.test(line);return;}if(!active)return;
+        const match=line.match(/^\d+[.)]\s+(.+)/);if(match){flush();item={text:match[1],line:index+1};collections.add(doc.source);}else if(item&&/^\s+\S/.test(line))item.text+='\n'+line.trim();
+      });flush();
+    }
+    return sort([...notes.values()].filter(n=>!collections.has(n.source)&&!linked.has(n.source)).concat(items));
+  }
   async function load(snapshot) {
     const status=document.getElementById('source-status');
     status.textContent='正在同步點子 repo…';
@@ -28,13 +49,14 @@
       if(tree.truncated)throw Error('Incomplete tree');
       const paths=tree.tree.filter(x=>x.type==='blob'&&eligible(x.path)).map(x=>x.path);
       if(!paths.length || paths.length>500)throw Error('Unexpected source size');
-      const cards=[];let cursor=0;
-      await Promise.all(Array.from({length:Math.min(6,paths.length)},async()=>{while(cursor<paths.length){const path=paths[cursor++];const md=await (await get('https://raw.githubusercontent.com/'+repo+'/'+commit.sha+'/'+path.split('/').map(encodeURIComponent).join('/'))).text();cards.push(parse(path,md));}}));
+      const documents=[];let cursor=0;
+      await Promise.all(Array.from({length:Math.min(6,paths.length)},async()=>{while(cursor<paths.length){const path=paths[cursor++];const md=await (await get('https://raw.githubusercontent.com/'+repo+'/'+commit.sha+'/'+path.split('/').map(encodeURIComponent).join('/'))).text();documents.push({source:path,markdown:md});}}));
+      const cards=compile(documents);
       status.textContent='已同步 repo · '+cards.length+' 個點子 · '+commit.sha.slice(0,7);
       return sort(cards);
     } catch {status.textContent='目前顯示部署快照 · '+snapshot.length+' 個點子（暫時無法同步）';return snapshot;}
     finally {clearTimeout(timeout);}
   }
-  const api={parse,eligible,sort,load};
+  const api={parse,eligible,sort,compile,load};
   if(typeof module!=='undefined')module.exports=api;else scope.IdeaSource=api;
 })(globalThis);
