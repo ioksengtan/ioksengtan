@@ -56,7 +56,7 @@
       "title": "語錄牆",
       "why": "已核實的短語錄，中英對照，不用把整場演講看完。",
       "status": "ready",
-      "note": "2026-09-24 窄螢幕中文語錄改為一行截斷已上線。語錄牆與 quotes_index.json 皆回 HTTP 200。",
+      "note": "2026-09-24 語錄牆手機薄修已上線（拉取請求第 19 號／8645b31）：窄螢幕導覽與講者篩選改單列橫滑（約 44px 熱區）、載入骨架取代空白占位、補 Satya Nadella 講者色；仍只顯示 verified 語錄。",
       "url": "https://ioksengtan.github.io/celebrities/products/core/quotes-wall.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
