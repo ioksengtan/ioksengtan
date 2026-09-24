@@ -106,8 +106,8 @@
       "title": "芎鄉遍野",
       "why": "手機可點，但仍是草稿預覽不是正式 Pages。",
       "status": "rough",
-      "note": "2026-09-24 通勤改指釘死預覽 0fb3932…（JSON：地圖 1↔13、歡迎文去技術字、回島提示；map=13）。拉取請求第 9 號仍 draft 不准合；正式 Pages 合進前維持勉強可用。回島 html 在 change_map 首點時可能不先顯示，屬非阻塞。",
-      "url": "https://raw.githack.com/ioksengtan/IlhaHometown/0fb393233e6e75c3b0fd4f211f828b7d88e5125e/index.html?map=13",
+      "note": "2026-09-24 通勤改釘預覽 529b335…（地圖 1 兩則佔位改正式短文：島央地標、島上告示；對話面無技術字；?map=13）。拉取請求第 9 號仍 draft 不准合；正式 Pages 合進前維持勉強可用。",
+      "url": "https://raw.githack.com/ioksengtan/IlhaHometown/529b335f2560336e018560e77c4c9dc5e55eb268/index.html?map=13",
       "repo": "https://github.com/ioksengtan/IlhaHometown"
     },
     {
