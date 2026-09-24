@@ -86,7 +86,7 @@
       "title": "計時停錶",
       "why": "直式手機一顆大按鈕就能玩：遊玩時螢幕保持亮、按停會震，頁面也不會被捏縮。",
       "status": "ready",
-      "note": "2026-09-24 直式手機遊玩已上線（喚醒鎖、震動、遊玩時禁止捏縮）。頁面與腳本皆回 HTTP 200。",
+      "note": "2026-09-24 記住上次設定已上線（?v=6／54f7a74b）：記住模式／人名／目標、結果後一鍵同一設定再開。",
       "url": "https://ioksengtan.github.io/timer-relay/",
       "repo": "https://github.com/ioksengtan/timer-relay"
     },
@@ -96,7 +96,7 @@
       "title": "橘架猜排列",
       "why": "拖卡片猜隱藏排列，只告訴你對了幾格，一手能玩。",
       "status": "ready",
-      "note": "2026-09-24 直式飲料包裝圖已隨拉取請求第 6 號合併上線。頁面回 HTTP 200。",
+      "note": "2026-09-24 飲料真圖＋手機拖曳已合進 main（拉取請求第 6 號／45d5aac）；Pages 部署後生效。",
       "url": "https://ioksengtan.github.io/guess-lineup/",
       "repo": "https://github.com/ioksengtan/guess-lineup"
     },
