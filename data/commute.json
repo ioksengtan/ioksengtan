@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十六篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十七篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-24 最新兩篇：《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html ；《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。先前兩篇仍有用：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口，共十六篇可分頁讀。",
+      "note": "2026-09-24 最新短文：《AI 寫的待辦清單很齊，為什麼一週後還是沒人勾？》https://ioksengtan.github.io/too_much_to_learn/ai-todo-list-unchecked.html （拉取請求第 18 號）。先前兩篇仍有用：《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html ；《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。首頁仍作入口，共十七篇可分頁讀。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -63,11 +63,11 @@
     {
       "id": "listmap-stories",
       "section": "read",
-      "title": "Listmap 故事",
-      "why": "一篇故事配幾個地標，先讀文字，地圖可以晚點再看。",
+      "title": "礁溪住一晚：走五峰旗短瀑",
+      "why": "步道來回大約一公里，單趟大約三十分到四十分，皆約估，先讀文字，地圖可以晚點再看。",
       "status": "ready",
-      "note": "2026-09-24 西伊豆堂之島：遊船、公園、海邊隱湯（100085）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100085.html （拉取請求第 125 號）。先前京都一保堂半日（100122）仍可讀。",
-      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100085.html",
+      "note": "2026-09-24 礁溪住一晚：走五峰旗短瀑（100126）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100126.html （拉取請求第 127 號）。先前西伊豆堂之島（100085）仍可讀。",
+      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100126.html",
       "repo": "https://github.com/ioksengtan/Listmap_v0d3"
     },
     {
