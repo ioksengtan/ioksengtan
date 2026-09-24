@@ -12,6 +12,11 @@ const reordered=source.compile([{...docs[0],markdown:docs[0].markdown.replace('1
 const page=await browser.newPage({viewport:{width:1100,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.route('https://api.github.com/**',r=>r.abort());await page.goto('http://127.0.0.1:'+server.address().port+'/ideas.html');await page.waitForFunction(()=>document.querySelector('#source-status').textContent.includes('暫時'));
 assert.equal(await page.locator('#iso-select option').count(),42);assert(await page.locator('.idea-card').isHidden());
+const canvasImage=()=>page.locator('canvas').evaluate(c=>c.toDataURL());
+const moving=await canvasImage();await page.waitForTimeout(160);assert.notEqual(await canvasImage(),moving,'Street life should animate');
+await page.click('#iso-life');const paused=await canvasImage();await page.waitForTimeout(160);assert.equal(await canvasImage(),paused,'Pause should freeze street life');
+await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#iso-life').getAttribute('aria-pressed'),'false');
+await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(60);assert.equal(await page.locator('#iso-life').getAttribute('aria-pressed'),'true');
 assert.deepEqual(await page.evaluate(()=>window.IDEA_SNAPSHOT.filter(c=>c.model<0&&!window.IdeaLandmarks.find(c)).map(c=>c.title)),[],'Every current idea must have a specific landmark');
 for(let i=0;i<42;i++){await page.selectOption('#iso-select',String(i));assert(await page.locator('#idea-title').innerText());assert.equal(await page.locator('#idea-source a').count(),1);}
 const badge=await page.locator('#iso-select option').evaluateAll(options=>options.find(o=>o.textContent.includes('徽章式')).value);await page.selectOption('#iso-select',badge);assert.equal(await page.locator('#idea-related details').count(),1);await page.locator('#idea-related summary').click();assert.match(await page.locator('#idea-related p').innerText(),/可程式化/);
