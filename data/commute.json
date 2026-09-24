@@ -96,7 +96,7 @@
       "title": "橘架猜排列",
       "why": "拖卡片猜隱藏排列，只告訴你對了幾格，一手能玩。",
       "status": "ready",
-      "note": "2026-09-24 飲料真圖＋手機拖曳已合進 main（拉取請求第 6 號／45d5aac）；Pages 部署後生效。",
+      "note": "2026-09-24 一鍵再玩＋記住開局設定已合進 main（拉取請求第 7 號／680cd678）：結算主按鈕再玩一局（同格數／牌庫／模式、新種子）；設定寫入本機並重整後還原。先前飲料真圖＋手機拖曳（拉取請求第 6 號）仍在。Pages 部署後生效。",
       "url": "https://ioksengtan.github.io/guess-lineup/",
       "repo": "https://github.com/ioksengtan/guess-lineup"
     },
