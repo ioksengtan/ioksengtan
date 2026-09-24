@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十五篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十六篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-24 最新短文：《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。先前兩篇仍有用：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口。",
+      "note": "2026-09-24 最新兩篇：《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html ；《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。先前兩篇仍有用：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口，共十六篇可分頁讀。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -116,7 +116,7 @@
       "title": "熱炒開店啦",
       "why": "午休小局和午後來一杯都不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，炒完就停。",
       "status": "ready",
-      "note": "2026-09-24 v0.12.0 果汁與醬油進營業已上線（拉取請求第 7 號／f8a73e4）；短關「午後來一杯」。v0.11.0 午休小局仍在。live https://ioksengtan.github.io/rechao/",
+      "note": "2026-09-24 v0.13.0 練習模式調醬／果汁細量取已上線（拉取請求第 8 號／9138279）：果汁課以片、cc、塊量取後調杯；醬料課以大匙量取後交付；熱炒營業維持粗份數。v0.12.0 短關「午後來一杯」與 v0.11.0 午休小局仍在。",
       "url": "https://ioksengtan.github.io/rechao/",
       "repo": "https://github.com/ioksengtan/rechao"
     }
