@@ -36,7 +36,7 @@
       "title": "名人詞彙",
       "why": "一天五張詞彙卡，點選作答，等車的幾分鐘夠用。",
       "status": "ready",
-      "note": "2026-09-24 第四波內容增量已上線（拉取請求第 20 號／ce36313）：名人詞彙新增 id 161–170（池至 170）；自 2026-09-25 起各在每日排程出現一次。先前日曆同款一眼可見＋CEFR／換卡薄修（拉取請求第 18 號）仍在。",
+      "note": "2026-09-24 第五波內容增量已上線（拉取請求第 21 號／b8131e0）：名人詞彙新增 id 171–177（池至 177）；自 2026-10-05 至 2026-10-11 各在每日排程出現一次。第四波 id 161–170（拉取請求第 20 號）與日曆薄修（拉取請求第 18 號）仍在。",
       "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
