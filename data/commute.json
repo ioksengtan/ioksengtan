@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十二篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十四篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-24 兩篇通勤短文上線（模型換代變笨、按次收費算錯帳），首頁與兩篇皆回 HTTP 200。",
+      "note": "2026-09-24 再上兩篇：《跟 AI 聊完了，為什麼還是交不出可交接的東西？》https://ioksengtan.github.io/too_much_to_learn/ai-chat-without-handoff.html ；《AI 試用很熱絡，為什麼轉正付費常常掉一半？》https://ioksengtan.github.io/too_much_to_learn/ai-trial-to-paid-dropoff.html 。首頁仍作入口。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -96,7 +96,7 @@
       "title": "橘架猜排列",
       "why": "拖卡片猜隱藏排列，只告訴你對了幾格，一手能玩。",
       "status": "ready",
-      "note": "2026-09-23 頁面與遊戲腳本皆回 HTTP 200。專案說明寫明給手機寬度直接開。",
+      "note": "2026-09-24 直式飲料包裝圖已隨拉取請求第 6 號合併上線。頁面回 HTTP 200。",
       "url": "https://ioksengtan.github.io/guess-lineup/",
       "repo": "https://github.com/ioksengtan/guess-lineup"
     },
@@ -104,19 +104,19 @@
       "id": "ilha-hometown",
       "section": "play",
       "title": "芎鄉遍野",
-      "why": "手機預覽可以點著走，但仍是草稿，不是正式 Pages。",
+      "why": "手機可點，但仍是草稿預覽不是正式 Pages。",
       "status": "rough",
-      "note": "2026-09-24 通勤暫用釘死草稿預覽（31aba01）。較新草稿 e9a77e6 已在，但要等 PM 自測通過才換。正式 Pages 在 Yu-Sheng 合併拉取請求第 9 號之前仍維持勉強可用。",
-      "url": "https://raw.githack.com/ioksengtan/IlhaHometown/31aba0108060f1398dec6da0abb97d8c40fa8a5c/index.html",
+      "note": "2026-09-24 通勤改指釘死預覽 e9a77e62…（含 safe-area／減少誤觸雙擊縮放；map=13）。拉取請求第 9 號仍 draft 不准合；正式 Pages 合進前維持勉強可用。",
+      "url": "https://raw.githack.com/ioksengtan/IlhaHometown/e9a77e62d7a13b7f1f931874c9b2b6455195beb3/index.html?map=13",
       "repo": "https://github.com/ioksengtan/IlhaHometown"
     },
     {
       "id": "rechao",
       "section": "play",
       "title": "熱炒開店啦",
-      "why": "午休小局不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，炒完就停。",
+      "why": "午休小局和午後來一杯都不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，炒完就停。",
       "status": "ready",
-      "note": "2026-09-24 v0.11.0 午休小局（備料 10 秒／營業 90 秒／收尾 30 秒）已隨拉取請求第 5 號合併上線：https://github.com/ioksengtan/rechao/pull/5 。",
+      "note": "2026-09-24 v0.12.0 果汁與醬油進營業已上線（拉取請求第 7 號／f8a73e4）；短關「午後來一杯」。v0.11.0 午休小局仍在。live https://ioksengtan.github.io/rechao/",
       "url": "https://ioksengtan.github.io/rechao/",
       "repo": "https://github.com/ioksengtan/rechao"
     }
