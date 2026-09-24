@@ -36,7 +36,7 @@
       "title": "名人詞彙",
       "why": "一天五張詞彙卡，點選作答，等車的幾分鐘夠用。",
       "status": "ready",
-      "note": "2026-09-24 名人詞彙日曆同款一眼可見＋CEFR／換卡極薄修已隨拉取請求第 18 號上線（a2170d7）。",
+      "note": "2026-09-24 第四波內容增量已上線（拉取請求第 20 號／ce36313）：名人詞彙新增 id 161–170（池至 170）；自 2026-09-25 起各在每日排程出現一次。先前日曆同款一眼可見＋CEFR／換卡薄修（拉取請求第 18 號）仍在。",
       "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -46,7 +46,7 @@
       "title": "金句卡",
       "why": "一天三張演講金句，看原話和解釋就可以收。",
       "status": "ready",
-      "note": "2026-09-24 金句卡 46–53 已上線，自 2026-09-25 排入每日三張。金句頁與題庫皆回 HTTP 200。",
+      "note": "2026-09-24 第四波內容增量已上線（拉取請求第 20 號／ce36313）：金句新增 id 54–58（池至 58）；自 2026-09-25 起各在每日三張排程出現一次。排程仍至 2026-11-15。金句頁與題庫皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
