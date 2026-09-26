@@ -46,7 +46,7 @@
       "title": "金句卡",
       "why": "一天三張演講金句，看原話和解釋就可以收。",
       "status": "ready",
-      "note": "2026-09-24 第四波內容增量已上線（拉取請求第 20 號／ce36313）：金句新增 id 54–58（池至 58）；自 2026-09-25 起各在每日三張排程出現一次。排程仍至 2026-11-15。金句頁與題庫皆回 HTTP 200。",
+      "note": "2026-09-25 Celebrities 第六波已合進主線（拉取請求第 22 號／f1036a0）：金句新增 id 59–64 共六張，本波無名人詞彙；新金句在每日排程 2026-09-30 至 2026-10-05 各出現一次。卡池現為金句 64 張、名人詞彙 177 張。排程仍至 2026-11-15。第四波 id 54–58（拉取請求第 20 號）仍在。金句頁與題庫皆回 HTTP 200。",
       "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
