@@ -63,11 +63,11 @@
     {
       "id": "listmap-stories",
       "section": "read",
-      "title": "礁溪住一晚：走五峰旗短瀑",
-      "why": "步道來回大約一公里，單趟大約三十分到四十分，皆約估，先讀文字，地圖可以晚點再看。",
+      "title": "台9線卑南半日：遺址草地、竹管厝吃冰、牧場收尾",
+      "why": "三站之間開車各大約十分鐘，車程加停留大約四小時上下，皆約估，不用排滿一整天，先讀文字，地圖可以晚點再看。",
       "status": "ready",
-      "note": "2026-09-24 礁溪住一晚：走五峰旗短瀑（100126）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100126.html （拉取請求第 127 號）。先前西伊豆堂之島（100085）仍可讀。",
-      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100126.html",
+      "note": "2026-09-26 台9線卑南半日（100129）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100129.html （拉取請求第 130 號）。先前礁溪住一晚：走五峰旗短瀑（100126）與台東美濃冰品（100128）仍可讀。",
+      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100129.html",
       "repo": "https://github.com/ioksengtan/Listmap_v0d3"
     },
     {
