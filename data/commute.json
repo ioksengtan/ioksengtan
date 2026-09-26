@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十七篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "十八篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-24 最新短文：《AI 寫的待辦清單很齊，為什麼一週後還是沒人勾？》https://ioksengtan.github.io/too_much_to_learn/ai-todo-list-unchecked.html （拉取請求第 18 號）。先前兩篇仍有用：《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html ；《AI 摘要很完整，為什麼開會還是對不齊？》https://ioksengtan.github.io/too_much_to_learn/ai-summary-meeting-misalign.html 。首頁仍作入口，共十七篇可分頁讀。",
+      "note": "2026-09-25 最新短文：《AI 客服回得很快，為什麼客訴反而變多？》https://ioksengtan.github.io/too_much_to_learn/ai-support-fast-more-complaints.html （拉取請求第 19 號）。先前仍有用：《AI 寫的待辦清單很齊，為什麼一週後還是沒人勾？》https://ioksengtan.github.io/too_much_to_learn/ai-todo-list-unchecked.html ；《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html 。首頁仍作入口，共十八篇可分頁讀。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
