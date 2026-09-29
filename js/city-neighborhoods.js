@@ -3,14 +3,14 @@ window.CityNeighborhoods=(()=>{
  function district(n){let side=Math.floor(Math.sqrt(n)),offset=n-side*side;return offset<=side?[side,offset]:[2*side-offset,side];}
  function layout(count){
   const lots=[],districts=[];let cols=3,rows=3;
-  for(let d=0;d<Math.ceil(count/4);d++){
+  for(let d=0;d<Math.ceil(count/8);d++){
    const [dx,dy]=district(d),cx=dx*3,cy=dy*3;
    districts.push({x:cx*155,y:cy*155});cols=Math.max(cols,cx+3);rows=Math.max(rows,cy+3);
-   // Public landmarks occupy corners; a two-plot garden forms the neighborhood heart.
+   // Eight resident homes share a central garden; vacant plots stay green.
    for(let slot=0;slot<9;slot++){
-    const corner=[0,2,6,8].indexOf(slot),i=d*4+corner;
-    const kind=corner>=0?(i<count?'idea':'park'):([4,7].includes(slot)?'park':'homes');
-    lots.push({kind,...(kind==='idea'?{i}:{}),variant:(d+slot)%3,x:(cx+slot%3)*155+10,y:(cy+Math.floor(slot/3))*155+10});
+    const corner=[0,1,2,5,8,7,6,3].indexOf(slot),i=d*8+corner;
+    const kind=corner>=0&&i<count?'idea':'park';
+    lots.push({kind,...(kind==='idea'?{i}:{}),variant:slot===4?Math.min(2,Math.floor((Math.min(8,count-d*8)-1)/3)):(d+slot)%3,x:(cx+slot%3)*155+10,y:(cy+Math.floor(slot/3))*155+10});
    }
   }
   return{cols,rows,lots,districts};
