@@ -1,5 +1,20 @@
 window.CityNeighborhoods=(()=>{
- function layout(count){const lots=[];for(let i=0;i<count;i++){lots.push({kind:'idea',i});if(i%4===1)lots.push({kind:'park',variant:Math.floor(i/4)%3});if(i%4===3)lots.push({kind:'homes',variant:Math.floor(i/4)%3});}const cols=Math.max(4,Math.ceil(Math.sqrt(lots.length)));return{cols,rows:Math.ceil(lots.length/cols),lots:lots.map((lot,index)=>({...lot,x:index%cols*155+10,y:Math.floor(index/cols)*155+10}))};}
+ // Append-only square-shell districts: increasing the count never moves existing plots.
+ function district(n){let side=Math.floor(Math.sqrt(n)),offset=n-side*side;return offset<=side?[side,offset]:[2*side-offset,side];}
+ function layout(count){
+  const lots=[],districts=[];let cols=3,rows=3;
+  for(let d=0;d<Math.ceil(count/4);d++){
+   const [dx,dy]=district(d),cx=dx*3,cy=dy*3;
+   districts.push({x:cx*155,y:cy*155});cols=Math.max(cols,cx+3);rows=Math.max(rows,cy+3);
+   // Public landmarks occupy corners; a two-plot garden forms the neighborhood heart.
+   for(let slot=0;slot<9;slot++){
+    const corner=[0,2,6,8].indexOf(slot),i=d*4+corner;
+    const kind=corner>=0?(i<count?'idea':'park'):([4,7].includes(slot)?'park':'homes');
+    lots.push({kind,...(kind==='idea'?{i}:{}),variant:(d+slot)%3,x:(cx+slot%3)*155+10,y:(cy+Math.floor(slot/3))*155+10});
+   }
+  }
+  return{cols,rows,lots,districts};
+ }
  function draw(lot,a){const {box,poly,line,tree,bench,lamp,roofGable,windows,wall,mint,blue,rose,roof,dark,gold}=a,{x,y,variant}=lot;
   box(x,y,-7,118,112,7,['#bccc9f','#9aad85','#839a73']);
   if(lot.kind==='park'){

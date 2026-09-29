@@ -7,15 +7,15 @@ window.CityLife = (() => {
     if(d<w)return{x:x+w-d,y:y+h,dx:-1,dy:0};d-=w;
     return{x,y:y+h-d,dx:0,dy:-1};
   }
-  function actors(cols,rows,count,time){
+  function actors(cols,rows,count,time,districts){
     const result=[];
     for(let i=0;i<Math.min(12,Math.max(2,Math.ceil(count/4)));i++){
-      const cell=(i*17)%count,x=cell%cols*155+3,y=Math.floor(cell/cols)*155+3;
-      const p=loop(x,y,149,149,time*(12+i%3*2)+i*137);
+      const block=districts[i%districts.length],x=block.x+3,y=block.y+3;
+      const p=loop(x,y,459,459,time*(12+i%3*2)+i*137);
       result.push({...p,kind:i%5===0?'van':'car',id:i,depth:p.x+p.y+10});
     }
     for(let i=0;i<Math.min(56,count*2);i++){
-      const cell=(i*11)%count,x=cell%cols*155-11,y=Math.floor(cell/cols)*155-11;
+      const block=districts[i%districts.length],cell=i%9,x=block.x+cell%3*155-11,y=block.y+Math.floor(cell/3)*155-11;
       const p=loop(x,y,144,144,time*(3+i%3)+i*81);
       result.push({...p,kind:'person',id:i,phase:time*4+i,depth:p.x+p.y+3});
     }

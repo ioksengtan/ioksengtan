@@ -179,13 +179,26 @@ function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0
  function draw(){const w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(2,window.devicePixelRatio||1);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);hits=[];const city=CityNeighborhoods.layout(count),{cols,rows,lots}=city,ideaLots=new Map(lots.filter(l=>l.kind==='idea').map(l=>[l.i,l])),extentX=cols*155+10,extentY=rows*155+10;scale=zoom*Math.min((w-32)/((extentX+extentY)*.866),(h-95)/((extentX+extentY)*.5+80));ox=w/2-(extentX-extentY)*.433*scale;oy=(h-((extentX+extentY)*.5+55)*scale)/2+70*scale;
   if(focus){const lot=ideaLots.get(selected),cx=lot.x+53,cy=lot.y+43;ox=(cardOpen&&w>640?w*.32:w*.5)-(cx-cy)*.8660254*scale;oy=h*(cardOpen&&w<=640?.32:.55)-((cx+cy)*.5-27)*scale;}ox+=panX;oy+=panY;q('#iso-zoom').textContent=Math.round(zoom*100)+'%';
   box(-12,-12,-18,extentX+24,extentY+24,15,['#c1cfa4','#9eaa83','#7e9373']);box(-12,-12,-3,extentX+24,extentY+24,3,['#c8d6af','#aebd95','#91a783']);
-  for(let yy=0;yy<=rows;yy++){const y=yy*155-7;poly([[-6,y,.2],[extentX+6,y,.2],[extentX+6,y+15,.2],[-6,y+15,.2]],'#a0ada1');for(let x=0;x<extentX;x+=18)line([[x,y+7,.4],[x+8,y+7,.4]],'#e5e7d4',1.1);}
-  for(let xx=0;xx<=cols;xx++){const x=xx*155-7;poly([[x,-6,.5],[x+15,-6,.5],[x+15,extentY+6,.5],[x,extentY+6,.5]],'#a0ada1');for(let y=0;y<extentY;y+=18)line([[x+7,y,.7],[x+7,y+8,.7]],'#e5e7d4',1.1);}
-  if(inkStyle){for(let col=0;col<cols;col++)for(let row=0;row<rows;row++){if((col+row)%3)continue;const x=col*155+22,y=row*155;for(let k=0;k<4;k++)poly([[x+k*5,y-5,.9],[x+k*5+3,y-5,.9],[x+k*5+3,y+6,.9],[x+k*5,y+6,.9]],'#fcf6df');}}
+  for(const district of city.districts){
+   const {x:dx,y:dy}=district;
+   for(let n=0;n<=3;n++){
+    const main=n===0||n===3,width=main?15:7,color=main?'#a0ada1':'#ded8b8',off=main?7:3;
+    const y=dy+n*155-off,x=dx+n*155-off;
+    poly([[dx-7,y,.3],[dx+473,y,.3],[dx+473,y+width,.3],[dx-7,y+width,.3]],color);
+    poly([[x,dy-7,.4],[x+width,dy-7,.4],[x+width,dy+473,.4],[x,dy+473,.4]],color);
+    if(main)for(let t=18;t<450;t+=18){line([[dx+t,y+7,.6],[dx+t+8,y+7,.6]],'#e5e7d4',1.1);line([[x+7,dy+t,.6],[x+7,dy+t+8,.6]],'#e5e7d4',1.1);}
+   }
+   for(let k=0;k<4;k++)poly([[dx+22+k*5,dy-5,.9],[dx+25+k*5,dy-5,.9],[dx+25+k*5,dy+6,.9],[dx+22+k*5,dy+6,.9]],'#fcf6df');
+  }
   const objects=[];
+  // Undeveloped districts remain wooded reserve instead of empty road grids.
+  for(let cy=0;cy<rows;cy+=3)for(let cx=0;cx<cols;cx+=3){
+   if(city.districts.some(d=>d.x===cx*155&&d.y===cy*155))continue;
+   for(let n=0;n<24;n++){const tx=cx*155+35+(n*97)%390,ty=cy*155+35+(n*173)%390;objects.push({depth:tx+ty,paint:()=>tree(tx,ty,.8+(n%3)*.2)});}
+  }
   for(const lot of lots){const {x,y,i}=lot;objects.push({depth:x+y+180,paint:()=>lot.kind==='idea'?drawCityLandmark(i,x,y):CityNeighborhoods.draw(lot,{box,poly,line,tree,bench,lamp,roofGable,windows,wall,mint,blue,rose,roof,dark,gold})});if(lot.kind==='idea'&&i%3===0)objects.push({depth:x+y+247,paint:()=>{bench(x+65,y+126);lamp(x+127,y+117);}});}
   for(let y=25;y<extentY;y+=62){const yy=y;objects.push({depth:extentX+14+y,paint:()=>tree(extentX+14,yy,.7)});}for(let x=25;x<extentX;x+=70){const xx=x;objects.push({depth:x+extentY+14,paint:()=>tree(xx,extentY+14,.65)});}
-  for(const actor of CityLife.actors(cols,rows,lots.length,lifeTime))objects.push({depth:actor.depth,paint:()=>CityLife.paint(actor,{box,line,circle,poly,wall,mint,blue,rose,gold,dark,roof})});
+  for(const actor of CityLife.actors(cols,rows,lots.length,lifeTime,city.districts))objects.push({depth:actor.depth,paint:()=>CityLife.paint(actor,{box,line,circle,poly,wall,mint,blue,rose,gold,dark,roof})});
   objects.sort((a,b)=>a.depth-b.depth).forEach(o=>o.paint());
   for(const {i,button} of photoMarkers){const lot=ideaLots.get(i),p=P(lot.x+98,lot.y+94,15);button.style.left=p[0]+'px';button.style.top=p[1]+'px';button.hidden=p[0]<12||p[0]>w-12||p[1]<12||p[1]>h-12;button.classList.toggle('selected',i===selected);}
   canvas.setAttribute('aria-label',count+' 棟等角建築，目前選取'+ideas[selected][0]+'。可用地圖上的探索建築清單選取。');
