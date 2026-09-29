@@ -17,6 +17,17 @@ assert.equal(await page.locator('#iso-select option').count(),50);assert(await p
 assert.deepEqual(await page.evaluate(()=>{const c=CityNeighborhoods.layout(50);return ['idea','park','homes'].map(k=>c.lots.filter(l=>l.kind===k).length);}),[50,28,39]);
 assert(await page.evaluate(()=>{const a=CityNeighborhoods.layout(49),b=CityNeighborhoods.layout(60);return a.lots.filter(l=>l.kind==='idea').every(l=>b.lots.some(m=>m.i===l.i&&m.x===l.x&&m.y===l.y))&&new Set(b.lots.map(l=>l.x+','+l.y)).size===b.lots.length;}),'Growth must preserve plots and avoid overlaps');
 assert.equal(await page.locator('.photo-marker').count(),33);await page.locator('.photo-marker:visible').first().click();assert(await page.locator('.idea-card').isVisible());assert.equal(await page.locator('#idea-gallery img').count(),1);await page.click('#iso-all');
+// Growth changes content, never the camera, even when a focused building disappears.
+const markerPosition=()=>page.locator('.photo-marker').first().evaluate(e=>[e.style.left,e.style.top]);
+for(const focused of [false,true]){
+ if(focused)await page.selectOption('#iso-select','49');
+ const before=await markerPosition();
+ for(const n of [12,17,49,50]){
+  await page.locator('#iso-growth').evaluate((e,n)=>{e.value=n;e.dispatchEvent(new Event('input',{bubbles:true}));},n);
+  const after=await markerPosition();after.forEach((v,i)=>assert(Math.abs(parseFloat(v)-parseFloat(before[i]))<.01,'Growth must keep screen coordinates fixed'));
+ }
+ await page.click('#iso-all');
+}
 const canvasImage=()=>page.locator('canvas').evaluate(c=>c.toDataURL());
 const moving=await canvasImage();await page.waitForTimeout(160);assert.notEqual(await canvasImage(),moving,'Street life should animate');
 await page.click('#iso-life');const paused=await canvasImage();await page.waitForTimeout(160);assert.equal(await canvasImage(),paused,'Pause should freeze street life');
