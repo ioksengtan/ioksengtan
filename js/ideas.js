@@ -4,11 +4,10 @@
  let cards=window.IDEA_SNAPSHOT;
  const makeIdeas=()=>cards.map(c=>[c.title,c.theme,c.summary]);
  let ideas=makeIdeas(),count=cards.length,selected=0;const design={trees:true,roofDetail:true};
- let inkStyle=true;try{inkStyle=localStorage.getItem('idea-city-style')!=='model';}catch{}
+ const inkStyle=true;
  const inkPalette={'#f1e6c9':'#f5eac8','#dacbaa':'#e8dfbd','#b4ad94':'#c5c5ac','#bad5c2':'#a7c3af','#89b2a6':'#8bab98','#628f87':'#73907e','#b1d4d9':'#b1c8b9','#80acb7':'#91b0a0','#578b9c':'#789587','#e8b2a0':'#dc9c87','#c9907f':'#c78375','#a17063':'#ac736b','#de9d78':'#db9781','#b67559':'#c57968','#995a49':'#a96b5c','#788d8a':'#9aaa98','#526c6a':'#736e66','#3c5557':'#534e4a','#ecd199':'#efddb5','#d2ad70':'#d3be97','#b58b53':'#b6a181','#536f70':'#795e59','#547d85':'#79635c','#a0ada1':'#af9e98','#e5e7d4':'#fcf6df','#c8d6af':'#f1e9cd','#c1cfa4':'#e6dfc2','#aebd95':'#d5ceb0','#91a783':'#b6b79d','#c7d3ac':'#eee7ca','#a9b894':'#d5cdb0','#859e80':'#adb69d','#bccc9f':'#e5e3c3','#9aad85':'#cccfb0','#839a73':'#acb99d'};
  const paintColor=c=>inkStyle?(inkPalette[c]||c):c;
- const stylePicker=q('#iso-style');stylePicker.value=inkStyle?'ink':'model';root.classList.toggle('ink-style',inkStyle);
- stylePicker.onchange=()=>{inkStyle=stylePicker.value==='ink';root.classList.toggle('ink-style',inkStyle);try{localStorage.setItem('idea-city-style',stylePicker.value);}catch{}draw();};
+ root.classList.add('ink-style');
  function save(){}
  let cardOpen=false;
  const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');let lifeTime=0,lifeRunning=!motionPreference.matches,lifeVisible=true,lifeFrame=0,lastFrame=0;
