@@ -25,3 +25,5 @@ html{color-scheme:light dark}body{margin:0;padding:12px;background:light-dark(#e
 #iso-ideas .photo-markers{position:absolute;inset:0;pointer-events:none;z-index:1}#iso-ideas .photo-marker{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;width:26px;height:26px;min-height:26px;min-width:26px;padding:0;border:1.5px solid var(--is-panel);border-radius:8px;font:20px/22px system-ui;background:var(--is-accent);color:var(--is-bg);box-shadow:0 2px 5px #183d3540;cursor:pointer}#iso-ideas .photo-marker:hover,#iso-ideas .photo-marker:focus-visible{transform:translate(-50%,-50%) scale(1.18)}#iso-ideas .photo-marker.selected{outline:2px solid var(--is-accent);outline-offset:2px}#iso-ideas .photo-marker[hidden]{display:none}
 
 #iso-ideas .photo-marker{display:flex;align-items:center;justify-content:center}#iso-ideas .photo-marker svg{display:block}
+
+#iso-ideas.ink-style{--is-sky:light-dark(#faf6e9,#282e29);--is-bg:light-dark(#f7f1df,#202b27);--is-accent:light-dark(#657e70,#b7d1b5)}#iso-ideas .iso-tools>div{flex-wrap:wrap}#iso-ideas #iso-style{width:auto;max-width:140px}#iso-ideas.ink-style .iso-scene{border:1px solid var(--is-line)}

@@ -19,6 +19,7 @@ assert.equal(await page.locator('.photo-marker').count(),33);await page.locator(
 const canvasImage=()=>page.locator('canvas').evaluate(c=>c.toDataURL());
 const moving=await canvasImage();await page.waitForTimeout(160);assert.notEqual(await canvasImage(),moving,'Street life should animate');
 await page.click('#iso-life');const paused=await canvasImage();await page.waitForTimeout(160);assert.equal(await canvasImage(),paused,'Pause should freeze street life');
+assert.equal(await page.locator('#iso-style').inputValue(),'ink');await page.selectOption('#iso-style','model');assert.notEqual(await canvasImage(),paused,'Style switch changes drawing');assert.equal(await page.evaluate(()=>localStorage.getItem('idea-city-style')),'model');await page.selectOption('#iso-style','ink');assert.equal(await canvasImage(),paused,'Returning to ink preserves camera and scene');
 await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#iso-life').getAttribute('aria-pressed'),'false');
 await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(60);assert.equal(await page.locator('#iso-life').getAttribute('aria-pressed'),'true');
 assert.deepEqual(await page.evaluate(()=>window.IDEA_SNAPSHOT.filter(c=>c.model<0&&!window.IdeaLandmarks.find(c)).map(c=>c.title)),[],'Every current idea must have a specific landmark');
