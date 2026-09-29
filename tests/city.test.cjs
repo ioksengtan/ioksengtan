@@ -14,6 +14,7 @@ const page=await browser.newPage({viewport:{width:1100,height:1000}}),errors=[];
 await page.route('https://raw.githubusercontent.com/**/assets/idea-collection/*.jpg',r=>r.fulfill({contentType:'image/jpeg',body:fs.readFileSync(path.join(root,'../idea/assets/idea-collection',new URL(r.request().url()).pathname.split('/').pop()))}));
 await page.route('https://api.github.com/**',r=>r.abort());await page.goto('http://127.0.0.1:'+server.address().port+'/ideas.html');await page.waitForFunction(()=>document.querySelector('#source-status').textContent.includes('暫時'));
 assert.equal(await page.locator('#iso-select option').count(),50);assert(await page.locator('.idea-card').isHidden());
+assert.equal(await page.locator('.photo-marker').count(),33);await page.locator('.photo-marker:visible').first().click();assert(await page.locator('.idea-card').isVisible());assert.equal(await page.locator('#idea-gallery img').count(),1);await page.click('#iso-all');
 const canvasImage=()=>page.locator('canvas').evaluate(c=>c.toDataURL());
 const moving=await canvasImage();await page.waitForTimeout(160);assert.notEqual(await canvasImage(),moving,'Street life should animate');
 await page.click('#iso-life');const paused=await canvasImage();await page.waitForTimeout(160);assert.equal(await canvasImage(),paused,'Pause should freeze street life');
