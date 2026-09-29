@@ -1,90 +1,281 @@
 {
-  "schemaVersion": 1,
-  "seedDisclaimer": "階段與百分比是依公開 GitHub 狀態整理的可編輯種子估計，不是流量、工時或分析數據。改這個檔即可更新頁面，說明見 data/README.md。",
-  "generatedFromPublicReposOn": "2026-09-23",
-  "phaseLabels": {
-    "planning": "規劃中",
-    "building": "製作中",
-    "shipping": "上線推進",
-    "paused": "暫停"
+  "schemaVersion": 2,
+  "updatedOn": "2026-09-29",
+  "editNote": "改狀態、最新上線、下一步或詳情，只編輯這個檔，不必改版面。欄位說明見 data/README.md。",
+  "statusLabels": {
+    "green": "正常推進",
+    "yellow": "等 Yu-Sheng 決定",
+    "gray": "暫停或規劃中"
   },
   "projects": [
     {
-      "id": "listmap",
-      "name": "Listmap",
-      "blurb": "把影片、文章、書與 Podcast 綁到真實地標，用地圖整理與分享地理故事。靜態版已掛在 GitHub Pages。",
-      "phase": "shipping",
-      "progress": 75,
-      "progressKind": "seed",
-      "progressBasis": "公開 README：Pages 可瀏覽公開故事，本機另有內容管理 API；資料仍是 CSV，SQLite 只寫在後續規劃。2026-09 的 commit 仍在上架新故事。沒有官方完成百分比。",
-      "nextMilestone": "依 README 的後續規劃，把 CSV 資料層遷到 SQLite。",
-      "lastUpdated": "2026-09-22",
-      "repo": "https://github.com/ioksengtan/Listmap_v0d3",
-      "live": "https://ioksengtan.github.io/Listmap_v0d3/"
-    },
-    {
-      "id": "liuliu-walker",
-      "name": "溜溜繪本",
-      "blurb": "《散步溜溜》。封面到封底的文案與插畫已鎖定，可印檔在 print/；剩下選少量印刷與打樣。",
-      "phase": "shipping",
-      "progress": 80,
-      "progressKind": "seed",
-      "progressBasis": "2026-09-15 README：故事板、書名、正式文案與插畫皆已鎖。少量印刷廠商仍在評估，可印目標由 2026-09-16 延到約 2026-10-16。",
-      "nextMilestone": "選定少量印刷的廠商與紙規，完成打樣（README 目標約 2026-10-16）。",
-      "lastUpdated": "2026-09-15",
-      "repo": "https://github.com/ioksengtan/liuliu_walk"
+      "id": "liuliu-walk",
+      "name": "溜溜繪本《散步溜溜》",
+      "status": "yellow",
+      "latest": {
+        "text": "試讀頁上線（封面到封底可翻）",
+        "url": "https://ioksengtan.github.io/liuliu_walk/"
+      },
+      "next": "決定印刷與封底後打樣",
+      "decision": "印刷方式與封底",
+      "details": {
+        "history": [
+          "2026-09-24 靜態試讀頁合進主線並開啟 GitHub Pages，引用 print/ 資料夾的圖。",
+          "2026-09-15 故事板、書名、正式文案與插畫皆已定稿，可印檔在 print/ 資料夾。",
+          "少量印刷廠商仍在評估，打樣目標約 2026-10-16（依倉庫說明檔）。"
+        ],
+        "links": [
+          {
+            "label": "試讀頁",
+            "url": "https://ioksengtan.github.io/liuliu_walk/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/liuliu_walk"
+          }
+        ]
+      }
     },
     {
       "id": "ilha-hometown",
-      "name": "IlhaHometown",
-      "blurb": "呈現芎林在地人事物的互動地圖。公開 demo 可玩；2026-09 的修改集中在 map 13 工作室的畫面、手機視窗與角色比例。",
-      "phase": "building",
-      "progress": 48,
-      "progressKind": "seed",
-      "progressBasis": "README 願景是每個鄉鎮一座外形相同的島。目前公開的是可玩 demo（Pages 有回應）。沒有寫明整體完成度，48% 只是「有可玩版本、範圍仍開著」的種子估計。",
-      "nextMilestone": "尚無公開的下一張里程碑。種子填寫（請改）：先把 map 13 工作室收穩，再依「一鄉鎮一島」往下一個鄉鎮走。",
-      "lastUpdated": "2026-09-13",
-      "repo": "https://github.com/ioksengtan/IlhaHometown",
-      "live": "https://ioksengtan.github.io/IlhaHometown/"
+      "name": "IlhaHometown（芎林在地互動地圖）",
+      "status": "yellow",
+      "latest": {
+        "text": "預覽釘在 529b335（地圖 13）",
+        "url": "https://raw.githack.com/ioksengtan/IlhaHometown/529b335f2560336e018560e77c4c9dc5e55eb268/index.html?map=13"
+      },
+      "next": "決定是否合併拉取請求第 9 號",
+      "decision": "合併拉取請求第 9 號（仍是草稿）",
+      "details": {
+        "history": [
+          "2026-09-24 預覽改釘 529b335：地圖 1 兩則佔位文字改成正式短文（島央地標、島上告示）。",
+          "拉取請求第 9 號：手機直式對話框寬度、點一下關閉、島與工作室之間的門；仍是草稿、未合併。",
+          "正式網站仍是合併前的舊版。"
+        ],
+        "links": [
+          {
+            "label": "拉取請求第 9 號",
+            "url": "https://github.com/ioksengtan/IlhaHometown/pull/9"
+          },
+          {
+            "label": "預覽（首頁）",
+            "url": "https://raw.githack.com/ioksengtan/IlhaHometown/529b335f2560336e018560e77c4c9dc5e55eb268/index.html"
+          },
+          {
+            "label": "正式網站（舊版）",
+            "url": "https://ioksengtan.github.io/IlhaHometown/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/IlhaHometown"
+          }
+        ]
+      }
     },
     {
-      "id": "celebrities",
-      "name": "Celebrities",
-      "blurb": "用科技名人演講做語錄牆、單場演講頁，以及「金句」「名人詞彙」兩組單字卡。核心頁已在 GitHub Pages。",
-      "phase": "shipping",
-      "progress": 62,
-      "progressKind": "seed",
-      "progressBasis": "README 目前狀態：資料庫、語錄牆、單場演講、金句與名人詞彙已完成；長導讀、時間軸、每日一句、主題分析、演講比較尚未開始。2026-09-18 加入 Satya Nadella 訪談，語錄仍是 draft。",
-      "nextMilestone": "核實 Satya Nadella 訪談的 draft 語錄是否上牆。其餘候選產品仍未開工。",
-      "lastUpdated": "2026-09-18",
-      "repo": "https://github.com/ioksengtan/celebrities",
-      "live": "https://ioksengtan.github.io/celebrities/"
+      "id": "listmap",
+      "name": "Listmap",
+      "status": "green",
+      "latest": {
+        "text": "100129 台9線卑南半日",
+        "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100129.html"
+      },
+      "next": "下一篇適合通勤讀的故事",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-09-26 100129《台9線卑南半日：遺址草地、竹管厝吃冰、牧場收尾》上線（拉取請求第 130 號）。",
+          "100128 台東美濃冰品。",
+          "100126 礁溪住一晚：走五峰旗短瀑。"
+        ],
+        "links": [
+          {
+            "label": "100128 台東美濃冰品",
+            "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100128.html"
+          },
+          {
+            "label": "網站首頁",
+            "url": "https://ioksengtan.github.io/Listmap_v0d3/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/Listmap_v0d3"
+          }
+        ]
+      }
     },
     {
       "id": "too-much-to-learn",
       "name": "白話科技",
-      "blurb": "把科技題目寫成給工程師與小主管的白話說明。靜態文章站，首頁已掛在 GitHub Pages。",
-      "phase": "shipping",
-      "progress": 40,
-      "progressKind": "seed",
-      "progressBasis": "此倉沒有完成度說明。2026-09-13 建立，首頁已列出多篇文章，2026-09-20 仍在加新文，drafts/ 還有一份編輯筆記。40% 只是早期專欄的可編輯起點，不是閱讀量。",
-      "nextMilestone": "尚無公開里程碑。種子填寫（請改）：繼續把新題目寫成文章並掛上首頁。",
-      "lastUpdated": "2026-09-20",
-      "repo": "https://github.com/ioksengtan/too_much_to_learn",
-      "live": "https://ioksengtan.github.io/too_much_to_learn/"
+      "status": "green",
+      "latest": {
+        "text": "《從核子工程師到 Intel 執行長：陳立武的轉彎，教我們怎麼看半導體？》",
+        "url": "https://ioksengtan.github.io/too_much_to_learn/lip-bu-tan-career-intel.html"
+      },
+      "next": "下一篇短文",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-09-29《從核子工程師到 Intel 執行長：陳立武的轉彎，教我們怎麼看半導體？》上線，目錄更新為 19 篇（拉取請求第 20 號）。",
+          "2026-09-25《AI 客服回得很快，為什麼客訴反而變多？》（拉取請求第 19 號）。"
+        ],
+        "links": [
+          {
+            "label": "上一篇：AI 客服回得很快，為什麼客訴反而變多？",
+            "url": "https://ioksengtan.github.io/too_much_to_learn/ai-support-fast-more-complaints.html"
+          },
+          {
+            "label": "首頁（19 篇）",
+            "url": "https://ioksengtan.github.io/too_much_to_learn/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/too_much_to_learn"
+          }
+        ]
+      }
+    },
+    {
+      "id": "celebrities",
+      "name": "Celebrities",
+      "status": "green",
+      "latest": {
+        "text": "金句卡第六波（第 59–64 張）",
+        "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html"
+      },
+      "next": "下一波卡片",
+      "decision": "",
+      "details": {
+        "history": [
+          "新金句 2026-09-30 至 2026-10-05 每日排程各出現一次。",
+          "2026-09-25 第六波合進主線（拉取請求第 22 號）：金句新增第 59–64 張，本波沒有名人詞彙。",
+          "卡池現為金句 64 張、名人詞彙 177 張；每日排程到 2026-11-15。",
+          "2026-09-24 名人詞彙第五波新增第 171–177 張（拉取請求第 21 號）。"
+        ],
+        "links": [
+          {
+            "label": "金句卡",
+            "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html"
+          },
+          {
+            "label": "名人詞彙",
+            "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html"
+          },
+          {
+            "label": "網站首頁",
+            "url": "https://ioksengtan.github.io/celebrities/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/celebrities"
+          }
+        ]
+      }
+    },
+    {
+      "id": "guess-lineup",
+      "name": "橘架猜排列",
+      "status": "green",
+      "latest": {
+        "text": "一鍵再玩＋記住開局設定",
+        "url": "https://ioksengtan.github.io/guess-lineup/"
+      },
+      "next": "尚未排定下一步",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-09-24 一鍵再玩＋記住開局設定合進主線（拉取請求第 7 號）：同格數、同牌庫、同模式，換新種子。",
+          "先前：飲料真圖與手機拖曳（拉取請求第 6 號）。"
+        ],
+        "links": [
+          {
+            "label": "開始玩",
+            "url": "https://ioksengtan.github.io/guess-lineup/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/guess-lineup"
+          }
+        ]
+      }
+    },
+    {
+      "id": "timer-relay",
+      "name": "計時停錶挑戰",
+      "status": "green",
+      "latest": {
+        "text": "記住設定＋一鍵同設定再開",
+        "url": "https://ioksengtan.github.io/timer-relay/"
+      },
+      "next": "尚未排定下一步",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-09-24 記住模式、人名與目標，結果畫面一鍵用同一設定再開（第 6 版）。",
+          "直式手機一顆大按鈕：遊玩時螢幕保持亮、按停會震動。"
+        ],
+        "links": [
+          {
+            "label": "開始玩",
+            "url": "https://ioksengtan.github.io/timer-relay/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/timer-relay"
+          }
+        ]
+      }
     },
     {
       "id": "rechao",
-      "name": "rechao",
-      "blurb": "單人 2D 熱炒小遊戲「熱炒開店啦！」。v0.6 可在瀏覽器玩備料課與三個營業關。",
-      "phase": "building",
-      "progress": 58,
-      "progressKind": "seed",
-      "progressBasis": "README 標 Current version 0.6.0，Pages 已可開啟。備料課與三個營業關已開放；辛香料、調醬、果汁分類標成籌備中。觸控、手把、背景音樂與中途存檔尚未做。",
-      "nextMilestone": "開放選關裡標成「籌備中」的辛香料、調醬、果汁分類。",
-      "lastUpdated": "2026-09-22",
-      "repo": "https://github.com/ioksengtan/rechao",
-      "live": "https://ioksengtan.github.io/rechao/"
+      "name": "熱炒開店啦",
+      "status": "gray",
+      "latest": {
+        "text": "0.15.0 水彩廚房上線",
+        "url": "https://ioksengtan.github.io/rechao/"
+      },
+      "next": "等找到真人插畫家",
+      "decision": "",
+      "details": {
+        "history": [
+          "暫停中：程式手繪美術這一輪已做完，等找到真人插畫家再繼續。",
+          "2026-09-24 0.15.0 水彩廚房／過渡手繪上線（拉取請求第 11 號）：廚房、食物、人物、選單圖示同一套墨線水彩；玩法未改。",
+          "0.14.0 全站手繪、0.12.0「午後來一杯」、0.11.0 午休小局仍在。"
+        ],
+        "links": [
+          {
+            "label": "開始玩",
+            "url": "https://ioksengtan.github.io/rechao/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/rechao"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dice-block-puzzle",
+      "name": "多格拼圖填格",
+      "status": "gray",
+      "latest": {
+        "text": "尚未上線（倉庫剛建立）",
+        "url": "https://github.com/ioksengtan/dice-block-puzzle"
+      },
+      "next": "做出第一個可玩版本",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-09-29 建立倉庫 dice-block-puzzle（只有初始提交，說明檔是空的）；網站還沒開。",
+          "倉庫名稱推定就是「多格拼圖填格」，待 Yu-Sheng 確認。"
+        ],
+        "links": [
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/dice-block-puzzle"
+          }
+        ]
+      }
     }
   ]
 }
