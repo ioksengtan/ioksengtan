@@ -171,20 +171,22 @@ function finishLandmark(i){
  if(i===11){for(const y of [21,51])for(const x of [20,60]){box(x+4,y+9,18,15,3,1,wall);face(x+6,y+5.2,21,()=>{ctx.fillStyle='#9fbea8';ctx.fillRect(0,0,9,.8);ctx.fillRect(0,3,6,.8);});}box(86,66,5,8,8,4,roof);tree(90,70,.45);}
  if(i===12){for(const [x,y] of [[7,10],[55,12],[32,55]]){box(x+12,y+28,0,9,1,14,roof);circle(x+19,y+29.2,7,1,'#d8c18a');box(x+9,y+30,0,16,5,2,wall);}line([[80,80.3,21],[90,80.3,21]],'#91a185',.7);line([[80,80.3,18],[87,80.3,18]],'#91a185',.7);}
 }
-// A lived-in front wing joins each resident's distinctive studio or landmark.
+// The themed sculpture sits on a single apartment, not beside a separate home.
 function residentHome(i){
- const plaster=['#f3ead4','#e5d9bd','#c7bea6'],tiles=i%2?roof:mint;
- box(8,98,0,49,24,31,plaster);roofGable(5,95,32,55,30,tiles);
- for(const x of [13,39]){
-  poly([[x,122.3,18],[x+11,122.3,18],[x+11,122.3,27],[x,122.3,27]],'#8fafab');
-  line([[x+5.5,122.6,18],[x+5.5,122.6,27]],'#efe4cd',1);
-  box(x-1,123,16,13,4,2,roof);box(x+1,124,18,3,2,3,mint);
+ const height=48+(i%3)*8,facade=[wall,mint,gold][i%3];
+ box(0,0,-7,118,112,7,wall);box(10,8,0,94,86,height,facade);
+ windows(10,8,0,94,86,height);
+ box(7,5,height,100,92,4,wall);
+ for(let floor=18;floor<height-5;floor+=16){
+  box(18,94,floor,28,7,2,wall);line([[18,101,floor+7],[46,101,floor+7]],dark[2],1);
+  for(let n=0;n<5;n++)line([[19+n*6,101,floor+2],[19+n*6,101,floor+7]],dark[2],.7);
+  box(20,97,floor+2,6,3,4,mint);
  }
- box(27,122,0,9,2,14,roof);box(25,124,0,13,6,2,wall);
- box(59,117,0,2,2,12,roof);box(57,116,10,7,4,4,tiles);
- line([[58,120.2,12],[62,120.2,12]],'#f3ead4',1);
+ box(53,94,0,14,2,17,roof);box(50,96,0,20,6,2,wall);
+ box(48,94,18,24,10,2,[roof,mint,blue][i%3]);box(77,96,7,6,3,5,roof);
+ return height+4;
 }
-function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0);ox=p[0];oy=p[1];if(selected===i)poly([[-4,-4,-.1],[118,-4,-.1],[118,98,-.1],[-4,98,-.1]],'#e4dba3');if(!IdeaLandmarks.draw(cards[i],{box,poly,line,circle,face,gear,robot,car,tree,ctx,wall,mint,blue,rose,roof,dark,gold})){if(cards[i].model>=0){landmark(cards[i].model);finishLandmark(cards[i].model);}else genericLandmark(cards[i]);}residentHome(i);ox=previousX;oy=previousY;const hit=P(x+53,y+43,45);hits.push({i,x:hit[0],y:hit[1],r:70*scale});}
+function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0);ox=p[0];oy=p[1];if(selected===i)poly([[-4,-4,-.1],[118,-4,-.1],[118,98,-.1],[-4,98,-.1]],'#e4dba3');const roofZ=residentHome(i),oldScale=scale,roofOrigin=P(18,16,roofZ+5);ox=roofOrigin[0];oy=roofOrigin[1];scale*=.65;if(!IdeaLandmarks.draw(cards[i],{box,poly,line,circle,face,gear,robot,car,tree,ctx,wall,mint,blue,rose,roof,dark,gold})){if(cards[i].model>=0){landmark(cards[i].model);finishLandmark(cards[i].model);}else genericLandmark(cards[i]);}scale=oldScale;ox=previousX;oy=previousY;const hit=P(x+53,y+43,65);hits.push({i,x:hit[0],y:hit[1],r:70*scale});}
 
  const hasPhotos=card=>(card.images?.length||0)+(card.related||[]).reduce((n,c)=>n+(c.images?.length||0),0)>0;
  const markerLayer=document.createElement('div');markerLayer.className='photo-markers';q('.iso-scene').append(markerLayer);let photoMarkers=[];
