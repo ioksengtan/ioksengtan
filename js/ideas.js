@@ -172,18 +172,31 @@ function finishLandmark(i){
  if(i===12){for(const [x,y] of [[7,10],[55,12],[32,55]]){box(x+12,y+28,0,9,1,14,roof);circle(x+19,y+29.2,7,1,'#d8c18a');box(x+9,y+30,0,16,5,2,wall);}line([[80,80.3,21],[90,80.3,21]],'#91a185',.7);line([[80,80.3,18],[87,80.3,18]],'#91a185',.7);}
 }
 // The themed sculpture sits on a single apartment, not beside a separate home.
+function homeProfile(i){
+ const card=cards[i];let seed=2166136261;for(const c of (card.id||card.source||card.title))seed=Math.imul(seed^c.charCodeAt(0),16777619)>>>0;
+ const type=seed%6,height=[32,48,64,80,96,56][type];
+ return{type,height,seed,name:['低層花園公寓','紅磚街屋','階梯露台公寓','垂直窗帶公寓','轉角陽台高樓','長廊住宅'][type]};
+}
 function residentHome(i){
- const height=48+(i%3)*8,facade=[wall,mint,gold][i%3];
- box(0,0,-7,118,112,7,wall);box(10,8,0,94,86,height,facade);
- windows(10,8,0,94,86,height);
- box(7,5,height,100,92,4,wall);
- for(let floor=18;floor<height-5;floor+=16){
-  box(18,94,floor,28,7,2,wall);line([[18,101,floor+7],[46,101,floor+7]],dark[2],1);
-  for(let n=0;n<5;n++)line([[19+n*6,101,floor+2],[19+n*6,101,floor+7]],dark[2],.7);
-  box(20,97,floor+2,6,3,4,mint);
+ const {type,height,seed}=homeProfile(i),facade=[wall,rose,mint,blue,gold,wall][type];
+ box(0,0,-7,118,112,7,wall);
+ const stepped=type===2||type===4,front=stepped?88:94;
+ if(stepped){box(6,4,0,104,98,20,facade);windows(6,4,0,104,98,20);box(4,2,20,108,102,3,wall);box(14,12,23,86,76,height-23,facade);windows(14,12,23,86,76,height-23);}
+ else{box(10,8,0,94,86,height,facade);windows(10,8,0,94,86,height);}
+ box(stepped?11:7,stepped?9:5,height,stepped?92:100,stepped?82:92,4,wall);
+ if(type===1){for(let z=5;z<height;z+=6)line([[10,94.3,z],[104,94.3,z]],'#a97363',.7);}
+ if(type===3){for(let x=19;x<98;x+=19)box(x,94.3,7,4,2,height-11,wall);}
+ if(type===0){for(let x=14;x<100;x+=20){box(x,98,0,14,7,4,roof);box(x+2,99,4,10,4,5,mint);}}
+ for(let floor=stepped?35:18;floor<height-4;floor+=16){
+  const bx=type===4?66:18,bw=type===5?76:type===4?32:28;
+  if(type===1||type===3)continue;
+  box(bx,front,floor,bw,8,2,wall);line([[bx,front+8,floor+7],[bx+bw,front+8,floor+7]],dark[2],1);
+  for(let n=0;n<=bw;n+=6)line([[bx+n,front+8,floor+2],[bx+n,front+8,floor+7]],dark[2],.7);
+  box(bx+2+seed%9,front+3,floor+2,6,3,4,mint);
  }
- box(53,94,0,14,2,17,roof);box(50,96,0,20,6,2,wall);
- box(48,94,18,24,10,2,[roof,mint,blue][i%3]);box(77,96,7,6,3,5,roof);
+ if(stepped){for(let x=14;x<95;x+=23){box(x,96,23,13,5,3,roof);box(x+2,97,26,9,3,4,mint);}}
+ box(53,stepped?102:94,0,14,2,17,roof);box(50,stepped?104:96,0,20,6,2,wall);
+ box(48,stepped?102:94,18,24,9,2,[roof,mint,blue][seed%3]);
  return height+4;
 }
 function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0);ox=p[0];oy=p[1];if(selected===i)poly([[-4,-4,-.1],[118,-4,-.1],[118,98,-.1],[-4,98,-.1]],'#e4dba3');const roofZ=residentHome(i),oldScale=scale,roofOrigin=P(18,16,roofZ+5);ox=roofOrigin[0];oy=roofOrigin[1];scale*=.65;if(!IdeaLandmarks.draw(cards[i],{box,poly,line,circle,face,gear,robot,car,tree,ctx,wall,mint,blue,rose,roof,dark,gold})){if(cards[i].model>=0){landmark(cards[i].model);finishLandmark(cards[i].model);}else genericLandmark(cards[i]);}scale=oldScale;ox=previousX;oy=previousY;const hit=P(x+53,y+43,65);hits.push({i,x:hit[0],y:hit[1],r:70*scale});}
@@ -218,7 +231,7 @@ function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0
   for(const {i,button} of photoMarkers){const lot=ideaLots.get(i),p=P(lot.x+98,lot.y+94,15);button.style.left=p[0]+'px';button.style.top=p[1]+'px';button.hidden=p[0]<12||p[0]>w-12||p[1]<12||p[1]>h-12;button.classList.toggle('selected',i===selected);}
   canvas.setAttribute('aria-label',count+' 位點子居民，目前拜訪'+ideas[selected][0]+'。可用地圖上的居民清單選取。');
  }
- function sync(){syncPhotoMarkers();q('.idea-card').hidden=!cardOpen;q('#iso-count').textContent=ideas.length;q('#iso-growth').max=ideas.length;q('#iso-growth').value=count;q('#iso-stage').textContent=count+' / '+ideas.length;q('#iso-select').replaceChildren();ideas.slice(0,count).forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a[0]+(hasPhotos(cards[i])?' · 有圖':'');q('#iso-select').append(o);});selected=Math.min(selected,count-1);q('#iso-select').value=selected;const card=cards[selected];q('#idea-category').textContent=card.category+' · 點子居民';q('#idea-title').textContent=card.title;q('#iso-detail').textContent=card.summary;q('#idea-more').textContent=card.more;IdeaGallery.render(card,q('#idea-gallery'));q('#idea-source').replaceChildren();if(card.url){const link=document.createElement('a');link.href=card.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=card.id?'查看原始清單項目 ↗':'閱讀完整筆記 ↗';q('#idea-source').append(link);}else q('#idea-source').textContent='本機遊戲原型，尚無公開筆記連結。';const oldRelated=q('#idea-related');if(oldRelated)oldRelated.remove();if(card.related?.length){const group=document.createElement('div');group.id='idea-related';const heading=document.createElement('h4');heading.textContent='延伸研究';group.append(heading);for(const note of card.related){const details=document.createElement('details'),summary=document.createElement('summary'),text=document.createElement('p'),link=document.createElement('a');summary.textContent=note.title;text.textContent=note.summary;link.href=note.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='閱讀研究筆記 ↗';details.append(summary,text,link);group.append(details);}q('#idea-source').before(group);}q('#iso-features').textContent='住所特徵 · '+(IdeaLandmarks.find(card)?.[2]||features[cards[selected].model]||'依主題產生的基本建築 · '+cards[selected].category);draw();}
+ function sync(){syncPhotoMarkers();q('.idea-card').hidden=!cardOpen;q('#iso-count').textContent=ideas.length;q('#iso-growth').max=ideas.length;q('#iso-growth').value=count;q('#iso-stage').textContent=count+' / '+ideas.length;q('#iso-select').replaceChildren();ideas.slice(0,count).forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a[0]+(hasPhotos(cards[i])?' · 有圖':'');q('#iso-select').append(o);});selected=Math.min(selected,count-1);q('#iso-select').value=selected;const card=cards[selected];q('#idea-category').textContent=card.category+' · 點子居民';q('#idea-title').textContent=card.title;q('#iso-detail').textContent=card.summary;q('#idea-more').textContent=card.more;IdeaGallery.render(card,q('#idea-gallery'));q('#idea-source').replaceChildren();if(card.url){const link=document.createElement('a');link.href=card.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=card.id?'查看原始清單項目 ↗':'閱讀完整筆記 ↗';q('#idea-source').append(link);}else q('#idea-source').textContent='本機遊戲原型，尚無公開筆記連結。';const oldRelated=q('#idea-related');if(oldRelated)oldRelated.remove();if(card.related?.length){const group=document.createElement('div');group.id='idea-related';const heading=document.createElement('h4');heading.textContent='延伸研究';group.append(heading);for(const note of card.related){const details=document.createElement('details'),summary=document.createElement('summary'),text=document.createElement('p'),link=document.createElement('a');summary.textContent=note.title;text.textContent=note.summary;link.href=note.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='閱讀研究筆記 ↗';details.append(summary,text,link);group.append(details);}q('#idea-source').before(group);}q('#iso-features').textContent='住所特徵 · '+homeProfile(selected).name+' · '+(IdeaLandmarks.find(card)?.[2]||features[cards[selected].model]||'依主題產生的基本建築 · '+cards[selected].category);draw();}
  q('#iso-select').onchange=e=>{selectIdea(Number(e.target.value));};q('#iso-growth').oninput=e=>{const previousX=ox,previousY=oy;focus=false;count=Number(e.target.value);sync();panX+=previousX-ox;panY+=previousY-oy;draw();};q('#iso-growth').onchange=save;
 
 
