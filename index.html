@@ -26,6 +26,14 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Project screenshots: fill the image column like the old background image did. */
+      .block-3 .image { position: relative; overflow: hidden; }
+      .block-3 .image .project-shot,
+      .block-3 .image .project-shot img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+      .block-3 .image .project-shot img { display: block; object-fit: cover; object-position: center top; }
+      .block-3 .image .icon { position: relative; z-index: 1; }
+    </style>
   </head>
   <body>
 
@@ -195,7 +203,11 @@
           </div>
           <div class="row no-gutters">
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://ioksengtan.github.io/Listmap_v0d3/" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-1.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://ioksengtan.github.io/Listmap_v0d3/" class="image d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/listmap-portrait.jpg">
+                <img src="images/projects/listmap.jpg" alt="Listmap screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
@@ -208,7 +220,11 @@
             </div>
           </div>
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://github.com/ioksengtan/liuliu_walk" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-2.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://github.com/ioksengtan/liuliu_walk" class="image order-2 d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/liuliu-walk-portrait.jpg">
+                <img src="images/projects/liuliu-walk.jpg" alt="溜溜繪本 screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
@@ -221,7 +237,11 @@
             </div>
           </div>
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://ioksengtan.github.io/IlhaHometown/" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-3.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://ioksengtan.github.io/IlhaHometown/" class="image d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/ilhahometown-portrait.jpg">
+                <img src="images/projects/ilhahometown.jpg" alt="IlhaHometown screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
@@ -234,7 +254,11 @@
             </div>
           </div>
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://ioksengtan.github.io/celebrities/" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-4.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://ioksengtan.github.io/celebrities/" class="image order-2 d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/celebrities-portrait.jpg">
+                <img src="images/projects/celebrities.jpg" alt="Celebrities screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
@@ -247,7 +271,11 @@
             </div>
           </div>
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://ioksengtan.github.io/too_much_to_learn/" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-5.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://ioksengtan.github.io/too_much_to_learn/" class="image d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/too-much-to-learn-portrait.jpg">
+                <img src="images/projects/too-much-to-learn.jpg" alt="白話科技 screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
@@ -260,7 +288,11 @@
             </div>
           </div>
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://ioksengtan.github.io/rechao/" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-6.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
+            <a href="https://ioksengtan.github.io/rechao/" class="image order-2 d-flex justify-content-center align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
+              <picture class="project-shot">
+                <source media="(min-width: 768px)" srcset="images/projects/rechao-portrait.jpg">
+                <img src="images/projects/rechao.jpg" alt="rechao screenshot" width="960" height="800" loading="lazy" decoding="async">
+              </picture>
               <div class="icon d-flex text-center justify-content-center align-items-center">
                 <span class="icon-search"></span>
               </div>
