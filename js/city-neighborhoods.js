@@ -1,7 +1,9 @@
 window.CityNeighborhoods=(()=>{
  // Append-only square-shell districts: increasing the count never moves existing plots.
  function district(n){let side=Math.floor(Math.sqrt(n)),offset=n-side*side;return offset<=side?[side,offset]:[2*side-offset,side];}
+ const cache=new Map();
  function layout(count){
+  if(cache.has(count))return cache.get(count);
   const lots=[],districts=[];let cols=3,rows=3;
   for(let d=0;d<Math.ceil(count/8);d++){
    const [dx,dy]=district(d),cx=dx*3,cy=dy*3;
@@ -13,7 +15,7 @@ window.CityNeighborhoods=(()=>{
     lots.push({kind,...(kind==='idea'?{i}:{}),seed:d*19+slot*7,variant:(d+slot*5)%6,x:(cx+slot%3)*155+10,y:(cy+Math.floor(slot/3))*155+10});
    }
   }
-  return{cols,rows,lots,districts};
+  const result={cols,rows,lots,districts};if(cache.size>128)cache.clear();cache.set(count,result);return result;
  }
  function draw(lot,a){const {box,poly,line,tree,bench,lamp,roofGable,windows,wall,mint,blue,rose,roof,dark,gold}=a,{x,y,variant}=lot;
   box(x,y,-7,118,112,7,['#bccc9f','#9aad85','#839a73']);
