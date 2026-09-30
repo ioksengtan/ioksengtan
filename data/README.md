@@ -13,11 +13,11 @@
 | `updatedOn` | 頁首「資料更新：」後面的日期，`YYYY-MM-DD`。 |
 | `statusLabels` | 燈號的文字說明，通常不用改。 |
 | `projects[].name` | 卡片標題。寫完整名稱，不要縮寫。 |
-| `projects[].status` | `green`（正常推進）、`yellow`（等 Yu-Sheng 決定）、`gray`（暫停或規劃中）。畫面順序：黃、綠、灰，同色依檔案順序。 |
+| `projects[].status` | `green`（正常推進）、`yellow`（等我決定）、`gray`（暫停或規劃中）。畫面順序：黃、綠、灰，同色依檔案順序。 |
 | `projects[].latest.text` | 一行「最新上線」。太長會被截成「…」，完整標題可寫進詳情。 |
 | `projects[].latest.url` | 「最新」的連結，必須是 `https://`。 |
 | `projects[].next` | 一行「下一步」。 |
-| `projects[].decision` | 要 Yu-Sheng 決定的事。有填就會顯示「⚑ 待你決定」；不用決定就留空字串。 |
+| `projects[].decision` | 要我決定的事。有填就會顯示「⚑ 待你決定」；不用決定就留空字串。 |
 | `projects[].details.history` | 詳情裡的歷程，一句一項，新的放前面。預設收合。 |
 | `projects[].details.links` | 詳情裡的其他連結，每項 `{ "label": "…", "url": "https://…" }`。 |
 

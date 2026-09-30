@@ -4,7 +4,7 @@
   "editNote": "改狀態、最新上線、下一步或詳情，只編輯這個檔，不必改版面。欄位說明見 data/README.md。",
   "statusLabels": {
     "green": "正常推進",
-    "yellow": "等 Yu-Sheng 決定",
+    "yellow": "等我決定",
     "gray": "暫停或規劃中"
   },
   "projects": [
@@ -267,7 +267,7 @@
       "details": {
         "history": [
           "2026-09-29 建立倉庫 dice-block-puzzle（只有初始提交，說明檔是空的）；網站還沒開。",
-          "倉庫名稱推定就是「多格拼圖填格」，待 Yu-Sheng 確認。"
+          "倉庫名稱推定就是「多格拼圖填格」，待我確認。"
         ],
         "links": [
           {

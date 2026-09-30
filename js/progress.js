@@ -1,7 +1,7 @@
 /* 讀 data/projects-progress.json 畫出專案進度一覽。不需建置。 */
 (function () {
   var DATA_URL = "data/projects-progress.json";
-  var LABELS = { green: "正常推進", yellow: "等 Yu-Sheng 決定", gray: "暫停或規劃中" };
+  var LABELS = { green: "正常推進", yellow: "等我決定", gray: "暫停或規劃中" };
   var ORDER = { yellow: 0, green: 1, gray: 2 };
 
   var gridEl = document.getElementById("pp-grid");
