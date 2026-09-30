@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-09-24",
+  "checkedOn": "2026-09-30",
   "editNote": "改標題、一句話、連結或狀態，只編輯這個檔，不必改版面。欄位與狀態規則見 data/README.md。",
   "statusLabels": {
     "ready": "可自用",
@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "十八篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "二十一篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-25 最新短文：《AI 客服回得很快，為什麼客訴反而變多？》https://ioksengtan.github.io/too_much_to_learn/ai-support-fast-more-complaints.html （拉取請求第 19 號）。先前仍有用：《AI 寫的待辦清單很齊，為什麼一週後還是沒人勾？》https://ioksengtan.github.io/too_much_to_learn/ai-todo-list-unchecked.html ；《標榜「有 AI」之後，為什麼點兩次就沒人用？》https://ioksengtan.github.io/too_much_to_learn/ai-has-ai-two-clicks-dropoff.html 。首頁仍作入口，共十八篇可分頁讀。",
+      "note": "2026-09-30 最新短文：《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》https://ioksengtan.github.io/too_much_to_learn/bezos-gifts-vs-choices.html （too_much_to_learn 拉取請求第 24 號／aa9e6b4，2026-09-30 上線）。前一篇：《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》https://ioksengtan.github.io/too_much_to_learn/docker-explained.html （拉取請求第 21 號／a0da0ce）。首頁仍作入口，共二十一篇可分頁讀。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -36,7 +36,7 @@
       "title": "名人詞彙",
       "why": "一天五張詞彙卡，點選作答，等車的幾分鐘夠用。",
       "status": "ready",
-      "note": "2026-09-24 第五波內容增量已上線（拉取請求第 21 號／b8131e0）：名人詞彙新增 id 171–177（池至 177）；自 2026-10-05 至 2026-10-11 各在每日排程出現一次。第四波 id 161–170（拉取請求第 20 號）與日曆薄修（拉取請求第 18 號）仍在。",
+      "note": "2026-09-30 第七波已合進主線（Celebrities 拉取請求第 25 號／e4d0558）：名人詞彙新增 id 178–183，卡池現為 183 張；新卡自 2026-10-02 至 2026-10-07 各出現一次。",
       "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -46,7 +46,7 @@
       "title": "金句卡",
       "why": "一天三張演講金句，看原話和解釋就可以收。",
       "status": "ready",
-      "note": "2026-09-25 Celebrities 第六波已合進主線（拉取請求第 22 號／f1036a0）：金句新增 id 59–64 共六張，本波無名人詞彙；新金句在每日排程 2026-09-30 至 2026-10-05 各出現一次。卡池現為金句 64 張、名人詞彙 177 張。排程仍至 2026-11-15。第四波 id 54–58（拉取請求第 20 號）仍在。金句頁與題庫皆回 HTTP 200。",
+      "note": "2026-09-30 Celebrities 第七波已合進主線（拉取請求第 25 號／e4d0558）：新增 Jeff Bezos 金句 id 65–70；金句卡池現為 70 張，新卡在每日排程 2026-10-06 至 2026-10-11 各出現一次。名人詞彙卡池現為 183 張。排程仍至 2026-11-15。",
       "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -56,7 +56,7 @@
       "title": "語錄牆",
       "why": "已核實的短語錄，中英對照，不用把整場演講看完。",
       "status": "ready",
-      "note": "2026-09-24 語錄牆手機薄修已上線（拉取請求第 19 號／8645b31）：窄螢幕導覽與講者篩選改單列橫滑（約 44px 熱區）、載入骨架取代空白占位、補 Satya Nadella 講者色；仍只顯示 verified 語錄。",
+      "note": "2026-09-30 新增講者 Jeff Bezos 已上線（Celebrities 拉取請求第 24 號／04549be）：有 16 則已核實語錄，來自 9 場原始事件，來源均標記為原始事件；仍只顯示已核實語錄。",
       "url": "https://ioksengtan.github.io/celebrities/products/core/quotes-wall.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
