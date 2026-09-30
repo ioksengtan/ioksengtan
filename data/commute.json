@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "二十篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "二十一篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-30 最新短文：《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》https://ioksengtan.github.io/too_much_to_learn/docker-explained.html （拉取請求第 21 號／a0da0ce，2026-09-30 上線）。前一篇：《從核子工程師到 Intel 執行長：陳立武的轉彎，教我們怎麼看半導體？》https://ioksengtan.github.io/too_much_to_learn/lip-bu-tan-career-intel.html （拉取請求第 20 號／e51298f）。首頁仍作入口，共二十篇可分頁讀。",
+      "note": "2026-09-30 最新短文：《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》https://ioksengtan.github.io/too_much_to_learn/bezos-gifts-vs-choices.html （too_much_to_learn 拉取請求第 24 號／aa9e6b4，2026-09-30 上線）。前一篇：《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》https://ioksengtan.github.io/too_much_to_learn/docker-explained.html （拉取請求第 21 號／a0da0ce）。首頁仍作入口，共二十一篇可分頁讀。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
