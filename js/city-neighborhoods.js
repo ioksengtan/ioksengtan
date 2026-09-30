@@ -23,12 +23,19 @@ window.CityNeighborhoods=(()=>{
    poly([[x+5,y+5,.1],[x+113,y+5,.1],[x+113,y+107,.1],[x+5,y+107,.1]],'#b0c696');
    const seed=lot.seed||0,shift=seed%13;
    line([[x+7,y+57,1],[x+35+shift,y+57,1],[x+62,y+70-shift,1],[x+113,y+70-shift,1]],'#ded8b8',variant%2?7:10);
+   // Low stone edging, inset paving and planted borders give each park a finished ground plane.
+   box(x+5,y+5,0,108,3,2,wall);box(x+5,y+5,0,3,102,2,wall);box(x+5,y+104,0,40,3,2,wall);box(x+76,y+104,0,37,3,2,wall);
+   for(let n=0;n<7;n++){const px=x+12+n*14,py=y+57+(n>2?(70-shift-57)*(n-2)/4:0);line([[px,py-3,1.2],[px+2,py+3,1.2]],'#b9b69b',.7);}
+   for(let n=0;n<5;n++){const px=x+12+n*18;box(px,y+91,0,13,9,3,roof);box(px+1,y+92,3,11,7,4,mint);for(let f=0;f<3;f++)box(px+2+f*3,y+94+(f%2)*2,7,2,2,1,[rose,gold,wall][(seed+n+f)%3]);}
    if(variant===0){poly([[x+45,y+19,1],[x+78,y+14,1],[x+94,y+34,1],[x+81,y+52,1],[x+50,y+44,1]],'#7ea9a6');line([[x+56,y+24,1.2],[x+73,y+22,1.2]],'#c7dfc7',1);box(x+37,y+33,2,16,30,3,roof);for(let n=0;n<5;n++)line([[x+38,y+35+n*5,5.1],[x+52,y+35+n*5,5.1]],'#e2bf97',.8);}
    if(variant===1){for(let n=0;n<3;n++){box(x+47+n*17,y+18,0,13,31,3,roof);for(let m=0;m<4;m++)box(x+50+n*17,y+21+m*6,3,6,4,2,n%2?gold:mint);}box(x+71,y+91,0,27,12,3,wall);}
    if(variant===2){box(x+43,y+20,0,40,35,2,wall);for(const xx of [46,76])for(const yy of [23,48])box(x+xx,y+yy,2,2,2,27,roof);roofGable(x+41,y+18,30,45,39,mint);bench(x+50,y+32);}
    if(variant===3){box(x+36,y+20,0,48,34,2,wall);box(x+43,y+26,2,34,22,2,blue);box(x+55,y+32,4,8,8,11,wall);line([[x+59,y+36,15],[x+59,y+36,23]],'#8fafab',3);}
    if(variant===4){for(let n=0;n<3;n++){box(x+34+n*21,y+20+n*7,0,15,22,3,roof);for(let m=0;m<3;m++)box(x+37+n*21,y+23+n*7+m*6,3,8,3,3,[rose,gold,mint][(n+m)%3]);}bench(x+43,y+87);}
-   if(variant===5){for(const xx of [40,74]){box(x+xx,y+21,0,3,3,28,roof);box(x+xx,y+46,0,3,3,28,roof);}line([[x+41,y+23,28],[x+76,y+23,28]],roof[2],3);for(const xx of [50,66]){line([[x+xx,y+23,27],[x+xx,y+31,10]],dark[2],1);box(x+xx-4,y+29,9,8,6,2,gold);}}
+   if(variant===5){poly([[x+31,y+17,.5],[x+85,y+17,.5],[x+85,y+54,.5],[x+31,y+54,.5]],'#d8c5a1');for(const xx of [40,74]){box(x+xx,y+21,0,3,3,28,roof);box(x+xx,y+46,0,3,3,28,roof);}line([[x+41,y+23,28],[x+76,y+23,28]],roof[2],3);for(const xx of [50,66]){line([[x+xx,y+23,27],[x+xx,y+31,10]],dark[2],1);box(x+xx-4,y+29,9,8,6,2,gold);}}
+   if(variant===0){line([[x+45,y+19,2],[x+78,y+14,2],[x+94,y+34,2],[x+81,y+52,2],[x+50,y+44,2],[x+45,y+19,2]],'#d9d6bd',3);for(const xx of [37,53]){line([[x+xx,y+33,6],[x+xx,y+33,14],[x+xx,y+62,14],[x+xx,y+62,6]],'#9d7454',1);}}
+   if(variant===2){for(let n=0;n<5;n++)line([[x+46+n*7,y+21,2.2],[x+46+n*7,y+52,2.2]],'#b9b69b',.6);box(x+82,y+30,0,7,7,9,mint);}
+   if(variant===3){line([[x+44,y+28,5],[x+74,y+28,5],[x+74,y+46,5]],'#d6e5db',1);for(const side of [-1,1])line([[x+59,y+36,23],[x+59+side*8,y+36,19],[x+59+side*12,y+36,7]],'#abcac5',1.2);}
    [[13+shift,14,.8+seed%4*.12],[18,91-shift,.65],[103-shift,18,.9],[94,98,.6+seed%3*.1]].forEach(([xx,yy,s])=>tree(x+xx,y+yy,s));bench(x+13,y+64);bench(x+72,y+66);lamp(x+108,y+101);
   }else{
    // One two-storey Japanese detached home per plot: stepped roof, genkan and enclosed garden.
