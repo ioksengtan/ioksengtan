@@ -197,6 +197,34 @@ Inbox → Researched → Challenged → Experiment → Archived
 
 第一階段只需要一個簡單 dashboard，能看到所有點子的階段、最近更新、下一步與卡點。等真的出現多個同時執行的背景 agent，再加入動態角色或 3D 空間；這樣視覺化會反映真實工作，而非先做出漂亮但空洞的場景。
 
+## 相關產品：Munder Difflin（已上線、相同比喻的真實產品）
+
+來源：[munderdiffl.in](https://munderdiffl.in/)（2026-10 版本 0.5.3，GitHub Trending #1、Product Hunt #5、8.2K GitHub stars、10 萬＋下載）。
+
+這是一個已經商業化、公開上線的多代理人協作工具，核心比喻跟 Agents Office 幾乎一致——把多個 CLI coding agent（Claude Code、Codex、Gemini CLI、Copilot、Cursor、Grok 等十餘種）包裝成「一間辦公室」，角色直接借用影集《辦公室》（The Office）人名：
+
+- **Michael**（orchestrator）接收使用者一句話指令，拆解成任務分派給不同「clone」（實際上是真實 CLI agent 的獨立執行個體），完成後互相交接，不需要使用者盯著每個終端機。
+- 每個 clone 有自己的 inbox，任務板所有 clone 可讀；遇到需要人判斷的事項集中到一個「Ask me」收件匣。
+- 設有 circuit breaker 防止失控燒錢，agent 當機後能在原資料夾重啟、工作進度不丟失。
+- **記憶跨 session 留存**：可用白話直接問這個「辦公室」問題，答案來自它自己的歷史紀錄（ticket、memory log）。
+- 0.5.3 新增「Stapler」——一個浮動圓形小工具，可語音聽寫（本機轉錄，定位為取代 Granola／Wispr Flow）、錄會議雙方語音、截圖、錄語音訊息，直接餵給 agent。
+- **Local-first**：跑在使用者自己電腦上，驅動的是使用者原本就有訂閱的 CLI agent（用既有的小時額度，不另外計費 API），金鑰與程式碼不離開本機；可用 API key 串 GitHub／Linear／Telegram／webhook 喚醒 clone。
+- **跨機器端對端加密**：不同機器上的 clone 互相通訊時，訊息在來源端簽署、用目的端金鑰封裝（X25519／XChaCha20／Ed25519），中繼伺服器無法解讀內容。
+- 支援多專案：`File → New Floor` 開新樓層對應新專案。
+
+### 跟 Agents Office 的落差
+
+| 面向 | Agents Office（demo） | Munder Difflin（已上線產品） |
+| --- | --- | --- |
+| agent 本質 | 35 個固定角色，模型驅動的角色扮演 | 真實 CLI agent（Claude Code／Codex／Gemini CLI 等）的獨立執行個體 |
+| 成本模式 | 每個任務、路由都另外呼叫模型 | 直接用使用者既有訂閱的小時額度，不二次計費 |
+| 記憶 | Brain／skills／feedback／tasks（檔案結構） | 可直接問答的歷史記錄＋ticket／memory log |
+| 協作安全 | 未特別著墨 | 多機器端對端加密通訊 |
+| 周邊整合 | 無 | Stapler（語音聽寫、錄會議、截圖）、GitHub／Linear／Telegram／webhook 觸發 |
+| 視覺化 | 3D 等角辦公室 | 以捲動式網頁敘事呈現（像一天的辦公室時間軸），產品本身是桌面 App 不是 3D 場景 |
+
+最大的啟示是：**把「多 agent 協作」包裝成辦公室／員工比喻，已經被市場驗證是有效的產品敘事**，而且真正落地、讓人願意付費／下載的關鍵不是 3D 場景本身，而是「不用另外付模型費、本機優先、記憶跨 session、失控可煞車」這幾個務實問題解決得好不好。這進一步支持「最小版本」章節的判斷：先把點子狀態／核准佇列／記憶這些底層機制做對，視覺化（無論是 3D 辦公室還是捲動式敘事）都只是其中一種呈現方式。
+
 ## 最終評價
 
 Agents Office 最強的不是 AI 技術創新，而是把 agent orchestration 做成一套具有人類組織隱喻的產品介面。它證明了三件事：
@@ -213,5 +241,6 @@ Agents Office 最強的不是 AI 技術創新，而是把 agent orchestration �
 - [原始碼目錄](https://github.com/ajsahni/agents-office/tree/main/src)
 - [Server implementation](https://github.com/ajsahni/agents-office/blob/main/serve.mjs)
 - [Agent teams implementation](https://github.com/ajsahni/agents-office/blob/main/teams.mjs)
+- [Munder Difflin 官網](https://munderdiffl.in/)（同比喻的已上線競品）
 - [License](https://github.com/ajsahni/agents-office/blob/main/LICENSE)
 
