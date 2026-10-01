@@ -225,6 +225,14 @@ Inbox → Researched → Challenged → Experiment → Archived
 
 最大的啟示是：**把「多 agent 協作」包裝成辦公室／員工比喻，已經被市場驗證是有效的產品敘事**，而且真正落地、讓人願意付費／下載的關鍵不是 3D 場景本身，而是「不用另外付模型費、本機優先、記憶跨 session、失控可煞車」這幾個務實問題解決得好不好。這進一步支持「最小版本」章節的判斷：先把點子狀態／核准佇列／記憶這些底層機制做對，視覺化（無論是 3D 辦公室還是捲動式敘事）都只是其中一種呈現方式。
 
+### 垂直產業客製案例：招募仲介
+
+來源：IG 貼文展示一個「Agents Office V3 — Blackwood Workforce」客製版本，作者留言稱「this is a custom-built... comment 'office' and I'll send the agents office repo」，確認同一套辦公室視覺模板已被改造成特定產業的客製部署，而非只是通用 demo。
+
+這個版本把部門改成招募仲介的實際業務線：Candidate Hub、Talent Marketing、Placements & Temps、Client Desk、Compliance、Pay & Bill，各自顯示人數／任務量，旁邊一欄 Task Status 列出具體待辦（例如「Order checks on the eleven new candidates」「Manage the top CD on the staff department last year」）。功能清單直接對應真實招募工作：客製化獵頭、領域專家篩選（作者特別強調「no random AI logic for this」，暗示這塊用規則式邏輯而非純 LLM 判斷）、維護人才庫並保持資料更新、處理 FTE／派遣／特殊職缺的大部分行政作業、協助行銷（但坦承這塊目前只能「協助」，還做不到完全自動化）。
+
+**這點證實了上面「落差表」的推論**：同一套「辦公室」視覺框架可以換皮套用到不同產業（通用版 vs 招募仲介版），代表這個比喻本身有一定的可複製性；但也印證了限制所在——連原作者都老實承認「行銷」這種判斷性高、少明確規則的任務還做不到自動化，只能算輔助，呼應 Agents Office 筆記中「關鍵判斷仍部分依賴模型」的提醒。
+
 ## 最終評價
 
 Agents Office 最強的不是 AI 技術創新，而是把 agent orchestration 做成一套具有人類組織隱喻的產品介面。它證明了三件事：
