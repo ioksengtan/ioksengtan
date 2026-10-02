@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedOn": "2026-09-29",
+  "updatedOn": "2026-10-02",
   "editNote": "改狀態、最新上線、下一步或詳情，只編輯這個檔，不必改版面。欄位說明見 data/README.md。",
   "statusLabels": {
     "green": "正常推進",
@@ -84,6 +84,7 @@
       "decision": "",
       "details": {
         "history": [
+          "2026-09-29 故事頁加上捲動地標：捲到哪段，地圖就飛到那個地標；為舊故事補標記，改寫 100122、100129、100132、100126、100085、100131 並補兩店座標（拉取請求第 136–144 號）。尚未新增第 100130 以後的故事。",
           "2026-09-26 100129《台9線卑南半日：遺址草地、竹管厝吃冰、牧場收尾》上線（拉取請求第 130 號）。",
           "100128 台東美濃冰品。",
           "100126 礁溪住一晚：走五峰旗短瀑。"
@@ -109,23 +110,26 @@
       "name": "白話科技",
       "status": "green",
       "latest": {
-        "text": "《從核子工程師到 Intel 執行長：陳立武的轉彎，教我們怎麼看半導體？》",
-        "url": "https://ioksengtan.github.io/too_much_to_learn/lip-bu-tan-career-intel.html"
+        "text": "《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》",
+        "url": "https://ioksengtan.github.io/too_much_to_learn/bezos-gifts-vs-choices.html"
       },
       "next": "下一篇短文",
       "decision": "",
       "details": {
         "history": [
+          "2026-09-30 首頁新增分類入口（全部文章＋四個分類），M5Stack 依上架時間補列，卡片標籤統一（拉取請求第 25 號）。",
+          "2026-09-30《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》上線，目錄更新為 21 篇（拉取請求第 24 號）。",
+          "2026-09-29《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》上線，目錄 20 篇（拉取請求第 21 號）。",
           "2026-09-29《從核子工程師到 Intel 執行長：陳立武的轉彎，教我們怎麼看半導體？》上線，目錄更新為 19 篇（拉取請求第 20 號）。",
           "2026-09-25《AI 客服回得很快，為什麼客訴反而變多？》（拉取請求第 19 號）。"
         ],
         "links": [
           {
-            "label": "上一篇：AI 客服回得很快，為什麼客訴反而變多？",
-            "url": "https://ioksengtan.github.io/too_much_to_learn/ai-support-fast-more-complaints.html"
+            "label": "上一篇：Docker 到底把什麼裝進箱子？",
+            "url": "https://ioksengtan.github.io/too_much_to_learn/docker-explained.html"
           },
           {
-            "label": "首頁（19 篇）",
+            "label": "首頁（21 篇）",
             "url": "https://ioksengtan.github.io/too_much_to_learn/"
           },
           {
@@ -140,17 +144,18 @@
       "name": "Celebrities",
       "status": "green",
       "latest": {
-        "text": "金句卡第六波（第 59–64 張）",
+        "text": "第七波：Jeff Bezos 金句 65–70、詞彙 178–183",
         "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html"
       },
-      "next": "下一波卡片",
+      "next": "下一波卡片；Quiz Blocks 小遊戲試玩後再調整",
       "decision": "",
       "details": {
         "history": [
-          "新金句 2026-09-30 至 2026-10-05 每日排程各出現一次。",
-          "2026-09-25 第六波合進主線（拉取請求第 22 號）：金句新增第 59–64 張，本波沒有名人詞彙。",
-          "卡池現為金句 64 張、名人詞彙 177 張；每日排程到 2026-11-15。",
-          "2026-09-24 名人詞彙第五波新增第 171–177 張（拉取請求第 21 號）。"
+          "2026-10-01 新增獨立小遊戲 Quiz Blocks（落塊測驗）：多格方塊、點擊救援、手繪貼紙風；同日修掉掉落動畫偶爾跳過與落下中方塊不易分辨的問題。",
+          "2026-09-30 名人詞彙內新增疊字方塊小遊戲；首頁張數改由卡片資料自動計算。",
+          "2026-09-29 第七波合進主線（拉取請求第 25 號）：金句 65–70、名人詞彙 178–183，卡池現為金句 70 張、名人詞彙 183 張，每日排程到 2026-11-15。",
+          "2026-09-29 加入 Jeff Bezos 九場原始演講與 16 則已核實語錄（拉取請求第 24 號）。",
+          "2026-09-25 第六波合進主線（拉取請求第 22 號）：金句新增第 59–64 張。"
         ],
         "links": [
           {
