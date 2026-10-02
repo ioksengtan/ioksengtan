@@ -216,27 +216,29 @@ function drawCityLandmark(i,x,y){const previousX=ox,previousY=oy;const p=P(x,y,0
  function syncPhotoMarkers(){markerLayer.replaceChildren();photoMarkers=[];cards.slice(0,count).forEach((card,i)=>{if(!hasPhotos(card))return;const button=document.createElement('button');button.type='button';button.className='photo-marker';button.innerHTML='<svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="9" r="1.7" fill="currentColor"/><path d="M4 18l5-5 4 3 3-5 5 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';button.setAttribute('aria-label',card.title+'：有參考圖，點擊查看');button.title='有參考圖';button.onclick=()=>selectIdea(i);markerLayer.append(button);photoMarkers.push({i,button});});}
  let pendingDraw=0;
  function requestDraw(){if(!pendingDraw)pendingDraw=requestAnimationFrame(()=>{pendingDraw=0;draw();});}
- function draw(cameraOnly=false){cameraOnly=cameraOnly===true;if(!cameraOnly&&pendingDraw){cancelAnimationFrame(pendingDraw);pendingDraw=0;}const w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(2,window.devicePixelRatio||1);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}if(!cameraOnly){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);hits=[];}const city=CityNeighborhoods.layout(count),{cols,rows,lots}=city,ideaLots=new Map(lots.filter(l=>l.kind==='idea').map(l=>[l.i,l])),extentX=CityNeighborhoods.layout(cards.length).cols*155+10,extentY=CityNeighborhoods.layout(cards.length).rows*155+10;scale=zoom*Math.min((w-32)/((extentX+extentY)*.866),(h-95)/((extentX+extentY)*.5+80));ox=w/2-(extentX-extentY)*.433*scale;oy=(h-((extentX+extentY)*.5+55)*scale)/2+70*scale;
+ function draw(cameraOnly=false){cameraOnly=cameraOnly===true;if(!cameraOnly&&pendingDraw){cancelAnimationFrame(pendingDraw);pendingDraw=0;}const w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(2,window.devicePixelRatio||1);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}if(!cameraOnly){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);hits=[];}const city=CityNeighborhoods.layout(count),{cols,rows,lots}=city,ideaLots=new Map(lots.filter(l=>l.kind==='idea').map(l=>[l.i,l])),extentX=CityNeighborhoods.layout(cards.length).cols*195+10,extentY=CityNeighborhoods.layout(cards.length).rows*195+10;scale=zoom*Math.min((w-32)/((extentX+extentY)*.866),(h-95)/((extentX+extentY)*.5+80));ox=w/2-(extentX-extentY)*.433*scale;oy=(h-((extentX+extentY)*.5+55)*scale)/2+70*scale;
   if(focus){const lot=ideaLots.get(selected),cx=lot.x+53,cy=lot.y+43;ox=(cardOpen&&w>640?w*.32:w*.5)-(cx-cy)*.8660254*scale;oy=h*(cardOpen&&w<=640?.32:.55)-((cx+cy)*.5-27)*scale;}ox+=panX;oy+=panY;q('#iso-zoom').textContent=Math.round(zoom*100)+'%';if(cameraOnly)return;
   box(-12,-12,-18,extentX+24,extentY+24,15,['#c1cfa4','#9eaa83','#7e9373']);box(-12,-12,-3,extentX+24,extentY+24,3,['#c8d6af','#aebd95','#91a783']);
   for(const district of city.districts){
    const {x:dx,y:dy}=district;
    for(let n=0;n<=3;n++){
     const main=n===0||n===3,width=main?15:7,color=main?'#a0ada1':'#ded8b8',off=main?7:3;
-    const y=dy+n*155-off,x=dx+n*155-off;
-    poly([[dx-7,y,.3],[dx+473,y,.3],[dx+473,y+width,.3],[dx-7,y+width,.3]],color);
-    poly([[x,dy-7,.4],[x+width,dy-7,.4],[x+width,dy+473,.4],[x,dy+473,.4]],color);
-    if(main)for(let t=18;t<450;t+=18){line([[dx+t,y+7,.6],[dx+t+8,y+7,.6]],'#e5e7d4',1.1);line([[x+7,dy+t,.6],[x+7,dy+t+8,.6]],'#e5e7d4',1.1);}
+    const y=dy+n*195-off,x=dx+n*195-off;
+    poly([[dx-7,y,.3],[dx+593,y,.3],[dx+593,y+width,.3],[dx-7,y+width,.3]],color);
+    poly([[x,dy-7,.4],[x+width,dy-7,.4],[x+width,dy+593,.4],[x,dy+593,.4]],color);
+    if(main)for(let t=18;t<570;t+=18){line([[dx+t,y+7,.6],[dx+t+8,y+7,.6]],'#e5e7d4',1.1);line([[x+7,dy+t,.6],[x+7,dy+t+8,.6]],'#e5e7d4',1.1);}
    }
    for(let k=0;k<4;k++)poly([[dx+22+k*5,dy-5,.9],[dx+25+k*5,dy-5,.9],[dx+25+k*5,dy+6,.9],[dx+22+k*5,dy+6,.9]],'#fcf6df');
   }
   const objects=[];
   // Undeveloped districts remain wooded reserve instead of empty road grids.
   for(let cy=0;cy<rows;cy+=3)for(let cx=0;cx<cols;cx+=3){
-   if(city.districts.some(d=>d.x===cx*155&&d.y===cy*155))continue;
-   for(let n=0;n<24;n++){const tx=cx*155+35+(n*97)%390,ty=cy*155+35+(n*173)%390;objects.push({depth:tx+ty,paint:()=>tree(tx,ty,.8+(n%3)*.2)});}
+   if(city.districts.some(d=>d.x===cx*195&&d.y===cy*195))continue;
+   for(let n=0;n<24;n++){const tx=cx*195+35+(n*97)%510,ty=cy*195+35+(n*173)%510;objects.push({depth:tx+ty,paint:()=>tree(tx,ty,.8+(n%3)*.2)});}
   }
   for(const lot of lots){const {x,y,i}=lot;const screen=P(x+59,y+56,50),margin=210*scale;if(screen[0]<-margin||screen[0]>w+margin||screen[1]<-margin||screen[1]>h+margin)continue;objects.push({depth:x+y+180,paint:()=>lot.kind==='idea'?drawCityLandmark(i,x,y):CityNeighborhoods.draw(lot,{box,poly,line,tree,bench,lamp,roofGable,windows,wall,mint,blue,rose,roof,dark,gold})});if(lot.kind==='idea'&&i%3===0)objects.push({depth:x+y+247,paint:()=>{bench(x+65,y+126);lamp(x+127,y+117);}});}
+  // Planted strips occupy the extra space between plots and paths.
+  for(const lot of lots){const {x,y}=lot;for(const offset of [32,96]){const tx=x+150,ty=y+offset;objects.push({depth:tx+ty,paint:()=>tree(tx,ty,.8)});}}
   for(let y=25;y<extentY;y+=62){const yy=y;objects.push({depth:extentX+14+y,paint:()=>tree(extentX+14,yy,.7)});}for(let x=25;x<extentX;x+=70){const xx=x;objects.push({depth:x+extentY+14,paint:()=>tree(xx,extentY+14,.65)});}
   for(const actor of CityLife.actors(cols,rows,lots.length,lifeTime,city.districts))objects.push({depth:actor.depth,paint:()=>CityLife.paint(actor,{box,line,circle,poly,wall,mint,blue,rose,gold,dark,roof})});
   objects.sort((a,b)=>a.depth-b.depth).forEach(o=>o.paint());

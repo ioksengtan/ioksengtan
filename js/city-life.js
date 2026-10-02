@@ -11,12 +11,12 @@ window.CityLife = (() => {
     const result=[];
     for(let i=0;i<Math.min(12,Math.max(2,Math.ceil(count/4)));i++){
       const block=districts[i%districts.length],x=block.x+3,y=block.y+3;
-      const p=loop(x,y,459,459,time*(12+i%3*2)+i*137);
+      const p=loop(x,y,579,579,time*(12+i%3*2)+i*137);
       result.push({...p,kind:i%5===0?'van':'car',id:i,depth:p.x+p.y+10});
     }
     for(let i=0;i<Math.min(56,count*2);i++){
-      const block=districts[i%districts.length],cell=i%9,x=block.x+cell%3*155-11,y=block.y+Math.floor(cell/3)*155-11;
-      const p=loop(x,y,144,144,time*(3+i%3)+i*81);
+      const block=districts[i%districts.length],cell=i%9,x=block.x+cell%3*195-11,y=block.y+Math.floor(cell/3)*195-11;
+      const p=loop(x,y,184,184,time*(3+i%3)+i*81);
       result.push({...p,kind:'person',id:i,phase:time*4+i,depth:p.x+p.y+3});
     }
     return result;

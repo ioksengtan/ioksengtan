@@ -5,14 +5,14 @@ window.CityNeighborhoods=(()=>{
  function layout(count){
   if(cache.has(count))return cache.get(count);
   const lots=[],districts=[];let cols=3,rows=3;
-  for(let d=0;d<Math.ceil(count/8);d++){
+  for(let d=0;d<Math.ceil(count/4);d++){
    const [dx,dy]=district(d),cx=dx*3,cy=dy*3;
-   districts.push({x:cx*155,y:cy*155});cols=Math.max(cols,cx+3);rows=Math.max(rows,cy+3);
-   // Eight resident homes share a central garden; vacant plots stay green.
+   districts.push({x:cx*195,y:cy*195});cols=Math.max(cols,cx+3);rows=Math.max(rows,cy+3);
+   // Four corner homes share five garden plots; vacant plots stay green.
    for(let slot=0;slot<9;slot++){
-    const corner=[0,1,2,5,8,7,6,3].indexOf(slot),i=d*8+corner;
+    const corner=[0,2,8,6].indexOf(slot),i=d*4+corner;
     const kind=corner>=0&&i<count?'idea':'park';
-    lots.push({kind,...(kind==='idea'?{i}:{}),seed:d*19+slot*7,variant:(d+slot*5)%6,x:(cx+slot%3)*155+10,y:(cy+Math.floor(slot/3))*155+10});
+    lots.push({kind,...(kind==='idea'?{i}:{}),seed:d*19+slot*7,variant:(d+slot*5)%6,x:(cx+slot%3)*195+10,y:(cy+Math.floor(slot/3))*195+10});
    }
   }
   const result={cols,rows,lots,districts};if(cache.size>128)cache.clear();cache.set(count,result);return result;
