@@ -106,6 +106,35 @@
       }
     },
     {
+      "id": "normal-news",
+      "name": "正常新聞（每日報紙）",
+      "status": "green",
+      "latest": {
+        "text": "2026-10-02 科技版出刊（GitHub＋Hacker News 合併）",
+        "url": "https://ioksengtan.github.io/normal_news/"
+      },
+      "next": "觀察合併後的科技版與國中生版摘要",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-10-02 出刊科技版。",
+          "2026-10-01 摘要一律完整顯示（拿掉展開／收合）、統一字級與間距、新增頁頂捲動進度條。",
+          "2026-09-30 合併科技版並移除國際版（拉取請求第 8 號）：科技摘要改用國中生看得懂的寫法，可附 SVG 圖解與「今日一笑」漫畫框；Lobsters 與 Product Hunt 因爬取規範仍不收。",
+          "2026-09-30 抓取規則：每來源最多 6 篇、全部 30 篇；遵守來源的反對（BBC 中文、Al Jazeera、Deutsche Welle 停用）；擋掉通訊社署名與影片頁（拉取請求第 5–7 號）。"
+        ],
+        "links": [
+          {
+            "label": "網站",
+            "url": "https://ioksengtan.github.io/normal_news/"
+          },
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/normal_news"
+          }
+        ]
+      }
+    },
+    {
       "id": "too-much-to-learn",
       "name": "白話科技",
       "status": "green",
