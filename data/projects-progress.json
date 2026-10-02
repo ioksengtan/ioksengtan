@@ -135,6 +135,81 @@
       }
     },
     {
+      "id": "hikings",
+      "name": "登山路線爬升比較",
+      "status": "green",
+      "latest": {
+        "text": "手機版排版＋嘉明湖（向陽）、大霸尖山路線",
+        "url": "https://github.com/ioksengtan/hikings"
+      },
+      "next": "補更多路線、把近似剖面換成實測資料",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-10-02 手機版排版：圖表置頂、統計改卡片、路線列表可收合；新增嘉明湖（向陽）與大霸尖山路線。",
+          "2026-10-02 每條線的顏色固定不再亂跳；對照 OpenStreetMap 與數值高程模型修正 13 個地標海拔，並修正結茅司路線。",
+          "2026-10-02 可自訂起終點（路線圖形）；新增合歡北峰、奇萊南華、南湖。",
+          "2026-10-02 滑過圖表顯示地標名稱；新增富士山（吉田路線）與京那巴魯山。",
+          "2026-10-02 建立站點：疊合多條路線的海拔對距離剖面，支援 GPX 匯入與分段裁切；剖面為依路標畫的近似值。"
+        ],
+        "links": [
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/hikings"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jiaming-lake-2026",
+      "name": "嘉明湖 2026 遊記網站",
+      "status": "green",
+      "latest": {
+        "text": "照片改 AVIF／WebP、多尺寸與模糊預覽",
+        "url": "https://github.com/ioksengtan/jiaming_lake_2026"
+      },
+      "next": "把地圖與捲動敘事版面收尾後上線",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-10-02 照片改用 AVIF（WebP 備援）、480／960／1600 三種寬度與模糊佔位，修正格狀照片誤載最大圖。",
+          "2026-10-01 每章加入互動地圖（MapLibre＋國土測繪中心底圖）；做出捲動敘事版面與海拔列原型。",
+          "2026-10-01 加入 OpenStreetMap 與 Copernicus 高程資料；可能拍到隊友臉的兩張照片先保留不公開。",
+          "2026-10-01 建立 Vite 網站與 GitHub Pages 部署流程，並整理決策與照片清單。"
+        ],
+        "links": [
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/jiaming_lake_2026"
+          }
+        ]
+      }
+    },
+    {
+      "id": "watch-sim",
+      "name": "手錶按鍵模擬器（Garmin）",
+      "status": "green",
+      "latest": {
+        "text": "Forerunner 255 與 fenix 7 按鍵模擬＋說明檔",
+        "url": "https://github.com/ioksengtan/watch_sim"
+      },
+      "next": "依使用手冊補更多機型",
+      "decision": "",
+      "details": {
+        "history": [
+          "2026-10-01 加入說明檔（線上示範、支援機型、準確度限制、如何新增機型）；fenix 7 外型依手冊圖調整。",
+          "2026-10-01 依官方手冊修正 fenix 7：長按返回開啟最近使用的應用程式、地圖平移與縮放改由長按選單進入。",
+          "2026-10-01 建立 Garmin 按鍵模擬器：資料驅動狀態機、各機型按鍵與畫面表、當前畫面按鍵提示、機型切換；介面為繁體中文。"
+        ],
+        "links": [
+          {
+            "label": "GitHub 倉庫",
+            "url": "https://github.com/ioksengtan/watch_sim"
+          }
+        ]
+      }
+    },
+    {
       "id": "too-much-to-learn",
       "name": "白話科技",
       "status": "green",
