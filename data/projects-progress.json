@@ -140,7 +140,7 @@
       "status": "green",
       "latest": {
         "text": "手機版排版＋嘉明湖（向陽）、大霸尖山路線",
-        "url": "https://github.com/ioksengtan/hikings"
+        "url": "https://ioksengtan.github.io/hikings/"
       },
       "next": "補更多路線、把近似剖面換成實測資料",
       "decision": "",
@@ -154,6 +154,10 @@
         ],
         "links": [
           {
+            "label": "網站",
+            "url": "https://ioksengtan.github.io/hikings/"
+          },
+          {
             "label": "GitHub 倉庫",
             "url": "https://github.com/ioksengtan/hikings"
           }
@@ -166,7 +170,7 @@
       "status": "green",
       "latest": {
         "text": "照片改 AVIF／WebP、多尺寸與模糊預覽",
-        "url": "https://github.com/ioksengtan/jiaming_lake_2026"
+        "url": "https://ioksengtan.github.io/jiaming_lake_2026/"
       },
       "next": "把地圖與捲動敘事版面收尾後上線",
       "decision": "",
@@ -178,6 +182,10 @@
           "2026-10-01 建立 Vite 網站與 GitHub Pages 部署流程，並整理決策與照片清單。"
         ],
         "links": [
+          {
+            "label": "網站",
+            "url": "https://ioksengtan.github.io/jiaming_lake_2026/"
+          },
           {
             "label": "GitHub 倉庫",
             "url": "https://github.com/ioksengtan/jiaming_lake_2026"
@@ -191,7 +199,7 @@
       "status": "green",
       "latest": {
         "text": "Forerunner 255 與 fenix 7 按鍵模擬＋說明檔",
-        "url": "https://github.com/ioksengtan/watch_sim"
+        "url": "https://ioksengtan.github.io/watch_sim/"
       },
       "next": "依使用手冊補更多機型",
       "decision": "",
@@ -202,6 +210,10 @@
           "2026-10-01 建立 Garmin 按鍵模擬器：資料驅動狀態機、各機型按鍵與畫面表、當前畫面按鍵提示、機型切換；介面為繁體中文。"
         ],
         "links": [
+          {
+            "label": "網站",
+            "url": "https://ioksengtan.github.io/watch_sim/"
+          },
           {
             "label": "GitHub 倉庫",
             "url": "https://github.com/ioksengtan/watch_sim"
