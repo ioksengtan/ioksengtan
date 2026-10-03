@@ -1,4 +1,4 @@
-/* Generated from 1a60c14147da808f74c19797fc9ddbda1f683241; run node scripts/build-ideas.cjs <idea-clone>. */
+/* Generated from e2f77ce41fa33d7f018148cb68a49ed81ca9c488; run node scripts/build-ideas.cjs <idea-clone>. */
 window.IDEA_SNAPSHOT = [
   {
     "source": "AI/卡片大小本地大模型電腦選型.md",
@@ -54,7 +54,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-06-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-06-1.jpg",
         "alt": "微縮全功能遙控車系列原始參考圖"
       }
     ],
@@ -139,7 +139,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-05-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-05-1.jpg",
         "alt": "狀態徽章螢幕原始參考圖"
       }
     ],
@@ -257,7 +257,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-01-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-01-1.jpg",
         "alt": "雙手迷宮機原始參考圖"
       }
     ],
@@ -275,7 +275,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-02-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-02-1.jpg",
         "alt": "公車到站鑰匙圈原始參考圖"
       }
     ],
@@ -293,7 +293,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-03-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-03-1.jpg",
         "alt": "Game Boy 造型卡套原始參考圖"
       }
     ],
@@ -311,7 +311,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-04-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-04-1.jpg",
         "alt": "九九乘法驗證卡盒原始參考圖"
       }
     ],
@@ -329,7 +329,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-07-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-07-1.jpg",
         "alt": "LED 酒瓶露營燈原始參考圖"
       }
     ],
@@ -347,7 +347,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-08-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-08-1.jpg",
         "alt": "電子錶封鑄機器人偶原始參考圖"
       }
     ],
@@ -365,7 +365,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-09-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-09-1.jpg",
         "alt": "虛構鈔票設計原始參考圖"
       }
     ],
@@ -383,7 +383,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "ai",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-10-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-10-1.jpg",
         "alt": "平交道警示器模型原始參考圖"
       }
     ],
@@ -401,7 +401,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "sensing",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-11-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-11-1.jpg",
         "alt": "60Hz E-Ink 驅動板改裝原始參考圖"
       }
     ],
@@ -419,7 +419,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-12-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-12-1.jpg",
         "alt": "個人數位書架原始參考圖"
       }
     ],
@@ -437,7 +437,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-13-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-13-1.jpg",
         "alt": "疊層山脈便利貼原始參考圖"
       }
     ],
@@ -455,7 +455,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-14-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-14-1.jpg",
         "alt": "三角形爬行機器人原始參考圖"
       }
     ],
@@ -473,7 +473,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "ai",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-15-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-15-1.jpg",
         "alt": "紙藝天文模型系列原始參考圖"
       }
     ],
@@ -491,7 +491,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-16-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-16-1.jpg",
         "alt": "河流水系地鐵圖原始參考圖"
       }
     ],
@@ -522,7 +522,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-18-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-18-1.jpg",
         "alt": "國旗地標配對原始參考圖"
       }
     ],
@@ -540,7 +540,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "ai",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-19-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-19-1.jpg",
         "alt": "太鼓達人縮尺模型原始參考圖"
       }
     ],
@@ -558,7 +558,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "ai",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-20-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-20-1.jpg",
         "alt": "模型框架式歡迎禮原始參考圖"
       }
     ],
@@ -576,7 +576,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-21-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-21-1.jpg",
         "alt": "魔術方塊萬年曆原始參考圖"
       }
     ],
@@ -594,7 +594,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-22-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-22-1.jpg",
         "alt": "落葉拼貼漸層牆原始參考圖"
       }
     ],
@@ -612,7 +612,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-23-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-23-1.jpg",
         "alt": "滑蓋透視精品禮盒原始參考圖"
       }
     ],
@@ -630,7 +630,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-24-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-24-1.jpg",
         "alt": "免膠水壓克力立體拼圖原始參考圖"
       }
     ],
@@ -648,7 +648,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-25-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-25-1.jpg",
         "alt": "復古列車翻牌看板原始參考圖"
       }
     ],
@@ -666,7 +666,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-26-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-26-1.jpg",
         "alt": "模組化牆面月曆原始參考圖"
       }
     ],
@@ -684,7 +684,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-27-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-27-1.jpg",
         "alt": "無螢幕程式教學卡片原始參考圖"
       }
     ],
@@ -702,7 +702,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-28-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-28-1.jpg",
         "alt": "六角地形桌上高爾夫原始參考圖"
       }
     ],
@@ -720,7 +720,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-29-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-29-1.jpg",
         "alt": "旋轉角度迷你籃球機原始參考圖"
       }
     ],
@@ -738,7 +738,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-30-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-30-1.jpg",
         "alt": "E-Ink 打字訓練裝置原始參考圖"
       }
     ],
@@ -756,7 +756,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-31-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-31-1.jpg",
         "alt": "薛西弗斯推石計數器原始參考圖"
       }
     ],
@@ -912,7 +912,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-32-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-32-1.jpg",
         "alt": "模組化桌遊收納系統原始參考圖"
       }
     ],
@@ -942,7 +942,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-33-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-33-1.jpg",
         "alt": "六角地形路線紀念牌原始參考圖"
       }
     ],
@@ -973,7 +973,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-35-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-35-1.jpg",
         "alt": "天才方塊 Genius Square原始參考圖"
       }
     ],
@@ -1056,11 +1056,11 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-41-1.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-41-1.jpg",
         "alt": "互動式日本地圖原始參考圖 1"
       },
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-41-2.jpg",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-41-2.jpg",
         "alt": "互動式日本地圖原始參考圖 2"
       }
     ],
@@ -1078,15 +1078,15 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-42-1.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-42-1.png",
         "alt": "Claude+NotebookLM 面試準備工作流原始參考圖 1"
       },
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-42-2.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-42-2.png",
         "alt": "Claude+NotebookLM 面試準備工作流原始參考圖 2"
       },
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-42-3.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-42-3.png",
         "alt": "Claude+NotebookLM 面試準備工作流原始參考圖 3"
       }
     ],
@@ -1143,11 +1143,11 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-46-1.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-46-1.png",
         "alt": "摺紙星形幾何立鐘原始參考圖 1"
       },
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-46-2.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-46-2.png",
         "alt": "摺紙星形幾何立鐘原始參考圖 2"
       }
     ],
@@ -1165,7 +1165,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-47-1.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-47-1.png",
         "alt": "LED 點陣飛機雷達看板原始參考圖"
       }
     ],
@@ -1183,7 +1183,7 @@ window.IDEA_SNAPSHOT = [
     "theme": "maker",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-48-1.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-48-1.png",
         "alt": "USB 隨身虛擬寵物顯示器原始參考圖"
       }
     ],
@@ -1201,11 +1201,11 @@ window.IDEA_SNAPSHOT = [
     "theme": "creative",
     "images": [
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-49-1.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-49-1.png",
         "alt": "GitHub 當機冒煙道具盒原始參考圖 1"
       },
       {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-49-2.png",
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-49-2.png",
         "alt": "GitHub 當機冒煙道具盒原始參考圖 2"
       }
     ],
@@ -1286,18 +1286,64 @@ window.IDEA_SNAPSHOT = [
     "more": "",
     "model": -1,
     "theme": "maker",
-    "images": [
-      {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-50-1.png",
-        "alt": "CNC 鋁合金 Apple Watch 改裝殼原始參考圖"
-      },
-      {
-        "src": "https://raw.githubusercontent.com/ioksengtan/idea/1a60c14147da808f74c19797fc9ddbda1f683241/assets/idea-collection/idea-44-1.png",
-        "alt": "D10 機械骰子計數器原始參考圖"
-      }
-    ],
+    "images": [],
     "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L111",
     "id": "靈感收集點子清單.md#%E5%87%B8%E8%BC%AA%E8%A7%A3%E7%A2%BC%E6%A9%9F%E6%A2%B0%E4%B8%83%E6%AE%B5%E9%A1%AF%E7%A4%BA%E5%99%A8",
     "related": []
+  },
+  {
+    "source": "靈感收集點子清單.md",
+    "title": "Vento AI 實體原型平台",
+    "category": "靈感清單",
+    "summary": "Vento AI 實體原型平台——以一塊整合觸控螢幕、IMU、NeoPixel、馬達、旋鈕與遊戲按鍵的掛牌式 Lyra 示範板，配合 Vento 的 AI 建構與裝置連線平台，把同一硬體快速變成遊戲、樂器、互動名牌或自動化控制器；適合發展成「核心板買一次、每個專案包 NT$299～599」的套件模式。來源：IG protofy.xyzeng／protofy.xyz。詳見：Vento AI 實體原型平台。",
+    "more": "",
+    "model": -1,
+    "theme": "maker",
+    "images": [
+      {
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-50-1.png",
+        "alt": "CNC 鋁合金 Apple Watch 改裝殼原始參考圖"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-44-1.png",
+        "alt": "D10 機械骰子計數器原始參考圖"
+      }
+    ],
+    "url": "https://github.com/ioksengtan/idea/blob/main/%E9%9D%88%E6%84%9F%E6%94%B6%E9%9B%86%E9%BB%9E%E5%AD%90%E6%B8%85%E5%96%AE.md#L112",
+    "id": "靈感收集點子清單.md#Vento%20AI%20%E5%AF%A6%E9%AB%94%E5%8E%9F%E5%9E%8B%E5%B9%B3%E5%8F%B0",
+    "related": [
+      {
+        "source": "Maker/Vento AI實體原型平台.md",
+        "title": "Vento AI 實體原型平台",
+        "category": "Maker",
+        "summary": "Instagram 帳號 protofy.xyzeng／protofy.xyz 展示一塊掛牌式藍色開發板、Teenage Engineering Pocket Operator，以及先前記錄的透明互動活動識別證。畫面把 Vento 描述為連接 AI 與實體世界的工具。",
+        "more": "官方網站對 Vento 的定位是：用自然語言建立能連接真實裝置的系統，並可透過 MQTT 或 HTTP 串接開發板、感測器、攝影機與致動器，再加入 agent、API、webhook 和控制介面。Protofy 則是開發 Vento 的產品／工程團隊。\n\n- Vento：\n- Protofy：\n\n藍色 PCB 右下角印有 Lyra。照片可辨識的元件包括：",
+        "model": -1,
+        "theme": "sensing",
+        "images": [
+          {
+            "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-56-1.jpg",
+            "alt": "Lyra 掛牌式整合開發板"
+          },
+          {
+            "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-56-2.jpg",
+            "alt": "Pocket Operator 的 PCB 即面板設計"
+          },
+          {
+            "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-56-3.jpg",
+            "alt": "工作桌上的 Lyra 與其他掌上裝置"
+          },
+          {
+            "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-56-4.jpg",
+            "alt": "Vento 連接 AI 與實體世界的定位"
+          },
+          {
+            "src": "https://raw.githubusercontent.com/ioksengtan/idea/e2f77ce41fa33d7f018148cb68a49ed81ca9c488/assets/idea-collection/idea-56-5.jpg",
+            "alt": "透明互動活動識別證案例"
+          }
+        ],
+        "url": "https://github.com/ioksengtan/idea/blob/main/Maker/Vento%20AI%E5%AF%A6%E9%AB%94%E5%8E%9F%E5%9E%8B%E5%B9%B3%E5%8F%B0.md"
+      }
+    ]
   }
 ];
