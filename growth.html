@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>成長曲線 — ioksengtan</title>
+    <meta name="description" content="ioksengtan 的作品、內容與點子，按週累積。手機上先看總數與曲線，細節點開才展開。">
+    <meta name="theme-color" content="#faf7f2">
+    <link rel="icon" href="images/avatar-96.jpg">
+    <link rel="stylesheet" href="css/growth.css">
+  </head>
+  <body>
+    <main class="gc">
+      <header class="gc-head">
+        <div class="gc-head-row">
+          <h1>成長曲線</h1>
+          <nav aria-label="返回">
+            <a href="index.html">首頁</a>
+            <a href="progress.html">進度看板</a>
+          </nav>
+        </div>
+        <p id="gc-asof" class="gc-meta">正在讀取成長資料…</p>
+      </header>
+
+      <p id="gc-status" class="gc-status" role="status">正在讀取成長資料…</p>
+      <section id="gc-stats" class="gc-stats" aria-label="目前總數與最近 7 天"></section>
+      <section class="gc-chart-block" aria-labelledby="gc-chart-title">
+        <h2 id="gc-chart-title" class="visually-hidden">累積曲線</h2>
+        <svg id="gc-chart"></svg>
+        <p id="gc-scale" class="gc-scale"></p>
+        <h2 id="gc-recent-title" class="gc-sub">最近 12 週</h2>
+        <svg id="gc-recent"></svg>
+      </section>
+      <section id="gc-defs" class="gc-defs" aria-label="三條線怎麼算"></section>
+
+      <details class="gc-fold">
+        <summary>各專案</summary>
+        <div id="gc-projects" class="gc-fold-body"></div>
+      </details>
+      <details class="gc-fold">
+        <summary>涵蓋的倉庫與沒算進來的部分</summary>
+        <div id="gc-repos" class="gc-fold-body"></div>
+      </details>
+
+      <footer class="gc-foot">
+        <a href="index.html">回首頁</a>
+        <a href="data/growth.json">成長資料</a>
+      </footer>
+      <noscript>
+        <p>需要 JavaScript 才能把 data/growth.json 畫成曲線。檔案本身仍可直接閱讀。</p>
+      </noscript>
+    </main>
+    <script src="js/growth.js"></script>
+  </body>
+</html>
