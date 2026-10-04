@@ -36,7 +36,7 @@
       "title": "名人詞彙",
       "why": "一天五張詞彙卡，點選作答，等車的幾分鐘夠用。",
       "status": "ready",
-      "note": "2026-09-30 第七波已合進主線（Celebrities 拉取請求第 25 號／e4d0558）：名人詞彙新增 id 178–183，卡池現為 183 張；新卡自 2026-10-02 至 2026-10-07 各出現一次。",
+      "note": "2026-10-04 第八波已合進主線（Celebrities 拉取請求第 27 號／c501da8）：名人詞彙新增 id 184–187，卡池現為 187 張；新卡自 2026-10-08 至 2026-10-11 各出現一次。首頁 2026-10-04 打開確認顯示 187 個進階英語詞彙。",
       "url": "https://ioksengtan.github.io/celebrities/products/general-vocab/executive-english.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -46,7 +46,7 @@
       "title": "金句卡",
       "why": "一天三張演講金句，看原話和解釋就可以收。",
       "status": "ready",
-      "note": "2026-09-30 Celebrities 第七波已合進主線（拉取請求第 25 號／e4d0558）：新增 Jeff Bezos 金句 id 65–70；金句卡池現為 70 張，新卡在每日排程 2026-10-06 至 2026-10-11 各出現一次。名人詞彙卡池現為 183 張。排程仍至 2026-11-15。",
+      "note": "2026-10-04 Celebrities 第八波已合進主線（拉取請求第 27 號／c501da8）：新增 Eric Schmidt 金句 id 71–74；金句卡池現為 74 張，新卡在每日排程 2026-10-12 至 2026-10-15 各出現一次。首頁 2026-10-04 打開確認顯示 74 張科技主題卡。排程仍至 2026-11-15。",
       "url": "https://ioksengtan.github.io/celebrities/products/vocabulary-cards/keynote-lexicon.html",
       "repo": "https://github.com/ioksengtan/celebrities"
     },
@@ -113,10 +113,10 @@
     {
       "id": "rechao",
       "section": "play",
-      "title": "熱炒開店啦",
-      "why": "午休小局和午後來一杯都不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，炒完就停。",
+      "title": "來我家簡單吃",
+      "why": "午休小局和午後來一杯都不長、有暫停；手機可用螢幕方向鍵與 E／F 觸控，玩完就停。",
       "status": "ready",
-      "note": "2026-09-24 v0.15.0 水彩廚房／過渡手繪已上線（拉取請求第 11 號／c34dae6）：廚房、食物、人物、選單圖示與頁面外框同一套墨線水彩，輪廓重畫（直拼木地板、鼠尾草櫥櫃、食材籃、爐灶鐵鍋）；站點位置、碰撞與玩法未改。v0.14.0 全站手繪、v0.13.0 練習細量取、v0.12.0「午後來一杯」、v0.11.0 午休小局仍在。",
+      "note": "2026-10-04 v0.16.0 顯示名稱改為「來我家簡單吃」已上線（rechao 拉取請求第 22 號／c90a9d9）。玩法、美術與關卡未改；儲存庫名與 GitHub Pages 網址仍是 rechao。2026-10-04 打開 https://ioksengtan.github.io/rechao/ 確認標題為「來我家簡單吃」、原型 v0.16。先前 v0.15.0 水彩廚房（拉取請求第 11 號／c34dae6）仍在。",
       "url": "https://ioksengtan.github.io/rechao/",
       "repo": "https://github.com/ioksengtan/rechao"
     }
