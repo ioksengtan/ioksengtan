@@ -41,7 +41,7 @@ PROJECT_NAMES = {
     "too_much_to_learn": "白話科技",
     "Listmap_v0d3": "Listmap",
     "celebrities": "Celebrities",
-    "rechao": "熱炒開店啦",
+    "rechao": "來我家簡單吃（rechao）",
     "liuliu_walk": "溜溜繪本",
     "IlhaHometown": "IlhaHometown",
     "guess-lineup": "橘架猜排列",
@@ -79,7 +79,7 @@ TOPIC_PREFIXES = ("AI/", "Art/", "Business/", "Design/", "Education/", "Food/", 
 IDEA_LIST = "靈感收集點子清單.md"
 
 DEFINITIONS = {
-    "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；熱炒開店啦不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
+    "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；來我家簡單吃（rechao）不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
     "content": "內容：白話科技首頁目錄裡的每一篇文章、Listmap 的 stories 資料夾裡每一則故事頁、正常新聞每一期、登山路線比較每一條路線、Celebrities 的名人詞彙卡、金句卡、螢幕英語卡、語錄索引裡已核實的每一則，以及演講庫裡的每一場演講，各算一項，日期是該檔案或該編號第一次出現的提交日。",
     "ideas": "點子：靈感收集倉庫「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。",
 }
@@ -595,7 +595,7 @@ def record_events(repo: Path, ref: str, path: str, kind: str, extractor, spot: d
 def rechao_versions(repo: Path, ref: str) -> list[dict]:
     revisions = file_revisions(repo, ref, "package.json")
     if not revisions:
-        raise RuntimeError("熱炒開店啦沒有 package.json 歷史")
+        raise RuntimeError("來我家簡單吃（rechao）沒有 package.json 歷史")
     first: dict[str, str] = {}
     current_version = ""
     for commit, iso, historic_path in revisions:
@@ -608,9 +608,9 @@ def rechao_versions(repo: Path, ref: str) -> list[dict]:
             current_version = version.strip()
             first.setdefault(current_version, iso)
     if not current_version:
-        raise RuntimeError("熱炒開店啦的 package.json 沒有版本號")
+        raise RuntimeError("來我家簡單吃（rechao）的 package.json 沒有版本號")
     if current_version not in first:
-        raise RuntimeError("熱炒開店啦目前版本沒有對應的提交")
+        raise RuntimeError("來我家簡單吃（rechao）目前版本沒有對應的提交")
     return [event("works", "rechao", "版本", first[version], version) for version in first]
 
 

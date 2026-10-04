@@ -5,7 +5,7 @@
   "recentDays": 7,
   "owner": "ioksengtan",
   "definitions": {
-    "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；熱炒開店啦不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
+    "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；來我家簡單吃（rechao）不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
     "content": "內容：白話科技首頁目錄裡的每一篇文章、Listmap 的 stories 資料夾裡每一則故事頁、正常新聞每一期、登山路線比較每一條路線、Celebrities 的名人詞彙卡、金句卡、螢幕英語卡、語錄索引裡已核實的每一則，以及演講庫裡的每一場演講，各算一項，日期是該檔案或該編號第一次出現的提交日。",
     "ideas": "點子：靈感收集倉庫「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。"
   },
@@ -4726,7 +4726,7 @@
     },
     {
       "repo": "rechao",
-      "name": "熱炒開店啦",
+      "name": "來我家簡單吃（rechao）",
       "url": "https://github.com/ioksengtan/rechao",
       "totals": {
         "works": 15,
@@ -40715,7 +40715,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-21",
       "id": "0.3.0"
@@ -40723,7 +40723,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-22",
       "id": "0.4.0"
@@ -40731,7 +40731,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-22",
       "id": "0.5.0"
@@ -40739,7 +40739,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-22",
       "id": "0.5.1"
@@ -40747,7 +40747,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-22",
       "id": "0.6.0"
@@ -40779,7 +40779,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-23",
       "id": "0.7.0"
@@ -40787,7 +40787,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-23",
       "id": "0.8.0"
@@ -41539,7 +41539,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.10.0"
@@ -41547,7 +41547,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.11.0"
@@ -41555,7 +41555,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.12.0"
@@ -41563,7 +41563,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.13.0"
@@ -41571,7 +41571,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.14.0"
@@ -41579,7 +41579,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.15.0"
@@ -41587,7 +41587,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-09-24",
       "id": "0.9.0"
@@ -42787,7 +42787,7 @@
     {
       "series": "works",
       "repo": "rechao",
-      "project": "熱炒開店啦",
+      "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-10-04",
       "id": "0.16.0"
