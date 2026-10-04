@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-09-30",
+  "checkedOn": "2026-10-04",
   "editNote": "改標題、一句話、連結或狀態，只編輯這個檔，不必改版面。欄位與狀態規則見 data/README.md。",
   "statusLabels": {
     "ready": "可自用",
@@ -24,9 +24,9 @@
       "id": "too-much-to-learn",
       "section": "read",
       "title": "白話科技",
-      "why": "二十一篇短文都可以分頁讀，滑完一段就能停。",
+      "why": "二十二篇短文都可以分頁讀，滑完一段就能停。",
       "status": "ready",
-      "note": "2026-09-30 最新短文：《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》https://ioksengtan.github.io/too_much_to_learn/bezos-gifts-vs-choices.html （too_much_to_learn 拉取請求第 24 號／aa9e6b4，2026-09-30 上線）。前一篇：《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》https://ioksengtan.github.io/too_much_to_learn/docker-explained.html （拉取請求第 21 號／a0da0ce）。首頁仍作入口，共二十一篇可分頁讀。",
+      "note": "2026-09-30 最新短文：《AI 讓聰明變便宜之後，還剩什麼值得驕傲？貝佐斯說：你的選擇》https://ioksengtan.github.io/too_much_to_learn/bezos-gifts-vs-choices.html （too_much_to_learn 拉取請求第 24 號／aa9e6b4，2026-09-30 上線）。前一篇：《「我電腦上可以跑啊」：Docker 到底把什麼裝進箱子？》https://ioksengtan.github.io/too_much_to_learn/docker-explained.html （拉取請求第 21 號／a0da0ce）。首頁仍作入口；2026-09-30 首頁補列 M5Stack 那篇（拉取請求第 25 號／763db6a）後，「全部文章」共二十二篇可分頁讀，2026-10-04 打開首頁確認。",
       "url": "https://ioksengtan.github.io/too_much_to_learn/",
       "repo": "https://github.com/ioksengtan/too_much_to_learn"
     },
@@ -63,11 +63,11 @@
     {
       "id": "listmap-stories",
       "section": "read",
-      "title": "台9線卑南半日：遺址草地、竹管厝吃冰、牧場收尾",
-      "why": "三站之間開車各大約十分鐘，車程加停留大約四小時上下，皆約估，不用排滿一整天，先讀文字，地圖可以晚點再看。",
+      "title": "別府明礬到鐵輪：住一晚，隔天早上走湯煙坡道",
+      "why": "想去還沒去過的行程，一段一個時段：下午明礬看湯花小屋、住一晚，隔天早上搭巴士下到鐵輪走坡道，分段讀完就能停；先讀文字，地圖可以晚點再看。",
       "status": "ready",
-      "note": "2026-09-26 台9線卑南半日（100129）已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100129.html （拉取請求第 130 號）。先前礁溪住一晚：走五峰旗短瀑（100126）與台東美濃冰品（100128）仍可讀。",
-      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100129.html",
+      "note": "2026-09-30 別府明礬到鐵輪（100131）新版已上線 https://ioksengtan.github.io/Listmap_v0d3/stories/100131.html （Listmap 拉取請求第 136 號／71aa937；手機寬度封面標題修正為拉取請求第 137 號／0039a5a）。2026-10-04 打開確認回 HTTP 200，頁面標題相符。先前台9線卑南半日（100129）與礁溪住一晚：走五峰旗短瀑（100126）仍可讀。",
+      "url": "https://ioksengtan.github.io/Listmap_v0d3/stories/100131.html",
       "repo": "https://github.com/ioksengtan/Listmap_v0d3"
     },
     {
