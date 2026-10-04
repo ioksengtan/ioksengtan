@@ -1,0 +1,32 @@
+name: 更新成長曲線
+
+on:
+  schedule:
+    # 每週一 00:15 協調世界時（台北時間上午 8:15）
+    - cron: "15 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: growth-data
+  cancel-in-progress: false
+
+jobs:
+  growth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 從公開倉庫重算成長資料
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build-growth.py
+      - name: 有變動就提交
+        run: |
+          git diff --quiet -- data/growth.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/growth.json
+          git commit -m "更新成長曲線資料"
+          git push
