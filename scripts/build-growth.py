@@ -77,11 +77,13 @@ PROJECT_ORDER = [
 
 TOPIC_PREFIXES = ("AI/", "Art/", "Business/", "Design/", "Education/", "Food/", "Maker/")
 IDEA_LIST = "靈感收集點子清單.md"
+# 點子已併入個人站的 idea/ 子資料夾；併入前的提交仍是沒有前綴的舊路徑。
+IDEA_PREFIX = "idea/"
 
 DEFINITIONS = {
     "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；來我家簡單吃（rechao）不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
     "content": "內容：白話科技首頁目錄裡的每一篇文章、Listmap 的 stories 資料夾裡每一則故事頁、正常新聞每一期、登山路線比較每一條路線、Celebrities 的名人詞彙卡、金句卡、螢幕英語卡、語錄索引裡已核實的每一則，以及演講庫裡的每一場演講，各算一項，日期是該檔案或該編號第一次出現的提交日。",
-    "ideas": "點子：靈感收集倉庫「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。",
+    "ideas": "點子：個人站 idea/ 資料夾（原靈感收集倉庫）裡「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。",
 }
 
 EXCLUDED = "沒算進來的部分：私人倉庫、分叉倉庫、GitHub 議題、語錄草稿、Celebrities 的遊戲詞表、溜溜繪本的跨頁圖片、嘉明湖遊記裡的照片、正常新聞每一期裡面轉載的各篇。有開 GitHub Pages 但發布分支沒有 index.html 的倉庫也不算作品。日期用提交的作者時間換成台北時間的日曆日；一週從週一到週日。最近 7 天含今天。"
@@ -251,6 +253,13 @@ def week_start(day: date) -> date:
     return day - timedelta(days=day.weekday())
 
 
+def pathspecs(path: str) -> list[str]:
+    """path 加上併入 idea/ 之前的舊路徑，讓兩段歷史都查得到。"""
+    if path.startswith(IDEA_PREFIX):
+        return [path, path[len(IDEA_PREFIX):]]
+    return [path]
+
+
 def first_commit_date(repo: Path, ref: str, path: str, diff_filter: str | None) -> str:
     """Oldest author date on this path.
 
@@ -260,7 +269,7 @@ def first_commit_date(repo: Path, ref: str, path: str, diff_filter: str | None) 
     args = ["log", ref, "--full-history", "--reverse", "--pretty=format:%aI"]
     if diff_filter:
         args.extend(["--diff-filter", diff_filter])
-    args.extend(["--", path])
+    args.extend(["--", *pathspecs(path)])
     for line in git(repo, *args).splitlines():
         if line.strip():
             return line.strip()
@@ -295,7 +304,7 @@ def file_revisions(repo: Path, ref: str, path: str) -> list[tuple[str, str, str]
         "--reverse",
         "--pretty=tformat:%H%x09%aI",
         "--",
-        path,
+        *pathspecs(path),
     )
     revisions = []
     for line in raw.splitlines():
@@ -306,7 +315,12 @@ def file_revisions(repo: Path, ref: str, path: str) -> list[tuple[str, str, str]
 
 
 def show_file(repo: Path, commit: str, path: str) -> str:
-    return git(repo, "show", f"{commit}:{path}")
+    try:
+        return git(repo, "show", f"{commit}:{path}")
+    except RuntimeError:
+        if path.startswith(IDEA_PREFIX):
+            return git(repo, "show", f"{commit}:{path[len(IDEA_PREFIX):]}")
+        raise
 
 
 def event(series: str, repo: str, kind: str, iso: str, item_id: str) -> dict:
@@ -568,8 +582,9 @@ def analyze_repo(info: dict) -> dict:
         for item_id, iso in pairs:
             events.append(event("content", name, "登山路線", iso, item_id))
 
-    if name == "idea":
-        events.extend(idea_events(repo, ref, spot))
+    # 點子的歷史現在在個人站的 idea/ 底下；舊的 idea 倉庫只算它自己的網站，避免重複計數。
+    if name == "ioksengtan":
+        events.extend(idea_events(repo, ref, spot, IDEA_PREFIX))
 
     return {"name": name, "events": events, "notes": notes, "commit": commit, "spot": spot}
 
@@ -614,8 +629,8 @@ def rechao_versions(repo: Path, ref: str) -> list[dict]:
     return [event("works", "rechao", "版本", first[version], version) for version in first]
 
 
-def idea_events(repo: Path, ref: str, spot: dict) -> list[dict]:
-    revisions = file_revisions(repo, ref, IDEA_LIST)
+def idea_events(repo: Path, ref: str, spot: dict, prefix: str = "") -> list[dict]:
+    revisions = file_revisions(repo, ref, prefix + IDEA_LIST)
     if not revisions:
         raise RuntimeError("找不到靈感收集點子清單的歷史")
     history = []
@@ -653,18 +668,21 @@ def idea_events(repo: Path, ref: str, spot: dict) -> list[dict]:
     ]
     spot["ideaListItems"] = len(events)
 
-    list_text = show_file(repo, ref, IDEA_LIST)
+    list_text = show_file(repo, ref, prefix + IDEA_LIST)
     decoded = urllib.parse.unquote(list_text)
     compact_list = re.sub(r"\s+", "", decoded)
     note_count = 0
-    for path in list_tree(repo, ref):
+    for full_path in list_tree(repo, ref):
+        if not full_path.startswith(prefix):
+            continue
+        path = full_path[len(prefix):]
         if not path.endswith(".md") or not path.startswith(TOPIC_PREFIXES):
             continue
         filename = path.rsplit("/", 1)[-1]
         stem = re.sub(r"\s+", "", filename[:-3])
         if path in decoded or filename in decoded or (stem and stem in compact_list):
             continue
-        events.append(event("ideas", "idea", "點子筆記", first_added(repo, ref, path), path))
+        events.append(event("ideas", "idea", "點子筆記", first_added(repo, ref, full_path), path))
         note_count += 1
     spot["ideaNotes"] = note_count
     return events
