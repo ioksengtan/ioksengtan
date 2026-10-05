@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T13:30:47+08:00",
+  "generatedAt": "2026-10-05T13:56:13+08:00",
   "asOf": "2026-10-05",
   "timezone": "Asia/Taipei",
   "recentDays": 7,
@@ -7,19 +7,19 @@
   "definitions": {
     "works": "作品：每個有 GitHub Pages 的公開倉庫算一件網站，日期是發布路徑上的 index.html（沒有的話改看 public/index.html 或 docs/index.html）第一次被加入的提交日；來我家簡單吃（rechao）不另計網站，改以 package.json 出現過的每個版本號各算一件；Celebrities 的 products 資料夾裡每個產品頁再各算一件。",
     "content": "內容：白話科技首頁目錄裡的每一篇文章、Listmap 的 stories 資料夾裡每一則故事頁、正常新聞每一期、登山路線比較每一條路線、Celebrities 的名人詞彙卡、金句卡、螢幕英語卡、語錄索引裡已核實的每一則，以及演講庫裡的每一場演講，各算一項，日期是該檔案或該編號第一次出現的提交日。",
-    "ideas": "點子：靈感收集倉庫「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。"
+    "ideas": "點子：個人站 idea/ 資料夾（原靈感收集倉庫）裡「靈感收集點子清單」的「已收集點子」裡每一條編號項目算一項，同檔後段的延伸筆記不另計；主題資料夾裡沒被這份清單提到的 Markdown 筆記再各算一項，日期是該句文字或該檔第一次出現的提交日。"
   },
   "excluded": "沒算進來的部分：私人倉庫、分叉倉庫、GitHub 議題、語錄草稿、Celebrities 的遊戲詞表、溜溜繪本的跨頁圖片、嘉明湖遊記裡的照片、正常新聞每一期裡面轉載的各篇。有開 GitHub Pages 但發布分支沒有 index.html 的倉庫也不算作品。日期用提交的作者時間換成台北時間的日曆日；一週從週一到週日。最近 7 天含今天。目前因此略過作品的倉庫：dice-block-puzzle、unity_games。",
   "summary": {
     "totals": {
       "works": 50,
       "content": 587,
-      "ideas": 82
+      "ideas": 83
     },
     "recent": {
       "works": 8,
       "content": 98,
-      "ideas": 44
+      "ideas": 45
     }
   },
   "weeks": [
@@ -2743,7 +2743,7 @@
       "start": "2026-10-05",
       "works": 50,
       "content": 587,
-      "ideas": 82,
+      "ideas": 83,
       "recent": true
     }
   ],
@@ -7460,12 +7460,12 @@
       "totals": {
         "works": 1,
         "content": 0,
-        "ideas": 82
+        "ideas": 83
       },
       "recent": {
         "works": 1,
         "content": 0,
-        "ideas": 44
+        "ideas": 45
       },
       "weeks": [
         {
@@ -7493,7 +7493,7 @@
           "start": "2026-10-05",
           "works": 1,
           "content": 0,
-          "ideas": 82,
+          "ideas": 83,
           "recent": true
         }
       ]
@@ -36975,8 +36975,8 @@
       "url": "https://github.com/ioksengtan/idea",
       "hasPages": true,
       "defaultBranch": "main",
-      "eventCount": 83,
-      "commit": "a3821810d90ee174223b73265d019a1387ea7e23",
+      "eventCount": 1,
+      "commit": "d375b46aa85814f2d546787084f65639a1cca271",
       "note": ""
     },
     {
@@ -36993,8 +36993,8 @@
       "url": "https://github.com/ioksengtan/ioksengtan",
       "hasPages": true,
       "defaultBranch": "master",
-      "eventCount": 1,
-      "commit": "3898b57530485bbc7b362b97be1c4ae7d404c681",
+      "eventCount": 84,
+      "commit": "2399d1981b91089b059f2a97dac329e400757005",
       "note": ""
     },
     {
@@ -37183,7 +37183,7 @@
       "hasPages": true,
       "defaultBranch": "main",
       "eventCount": 15,
-      "commit": "c90a9d9c18edde678de4a15dfae30abbd116700c",
+      "commit": "948e5d10c2397b792229ac5294f982737d0e7ac0",
       "note": ""
     },
     {
@@ -37320,7 +37320,7 @@
     "verifiedQuotes": 143,
     "speeches": 43,
     "hikingRoutes": 13,
-    "ideaListItems": 74,
+    "ideaListItems": 75,
     "ideaNotes": 8,
     "listmapStories": 92,
     "listmapStory100131": true,
@@ -43096,6 +43096,14 @@
       "kind": "點子",
       "date": "2026-10-05",
       "id": "074 島線相框（island-line-frame）——把運具時間軸做成可上牆的居家相"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "075 極座標筆式繪圖機（Polar Pen Plotter）——來源：Instagra"
     }
   ]
 }
