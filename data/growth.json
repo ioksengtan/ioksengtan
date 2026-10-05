@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T12:59:04+08:00",
-  "asOf": "2026-10-04",
+  "generatedAt": "2026-10-05T13:30:47+08:00",
+  "asOf": "2026-10-05",
   "timezone": "Asia/Taipei",
   "recentDays": 7,
   "owner": "ioksengtan",
@@ -13,13 +13,13 @@
   "summary": {
     "totals": {
       "works": 50,
-      "content": 583,
-      "ideas": 75
+      "content": 587,
+      "ideas": 82
     },
     "recent": {
       "works": 8,
-      "content": 97,
-      "ideas": 37
+      "content": 98,
+      "ideas": 44
     }
   },
   "weeks": [
@@ -2736,7 +2736,14 @@
       "start": "2026-09-28",
       "works": 50,
       "content": 583,
-      "ideas": 75,
+      "ideas": 77,
+      "recent": true
+    },
+    {
+      "start": "2026-10-05",
+      "works": 50,
+      "content": 587,
+      "ideas": 82,
       "recent": true
     }
   ],
@@ -2776,6 +2783,13 @@
           "content": 23,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 23,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -2785,7 +2799,7 @@
       "url": "https://github.com/ioksengtan/Listmap_v0d3",
       "totals": {
         "works": 1,
-        "content": 89,
+        "content": 92,
         "ideas": 0
       },
       "recent": {
@@ -4669,6 +4683,13 @@
           "content": 89,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 92,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -4721,6 +4742,13 @@
           "content": 453,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 7,
+          "content": 453,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -4752,6 +4780,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 15,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -4779,6 +4814,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -7138,6 +7180,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -7190,6 +7239,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -7199,12 +7255,12 @@
       "url": "https://github.com/ioksengtan/normal_news",
       "totals": {
         "works": 1,
-        "content": 5,
+        "content": 6,
         "ideas": 0
       },
       "recent": {
         "works": 0,
-        "content": 5,
+        "content": 6,
         "ideas": 0
       },
       "weeks": [
@@ -7235,6 +7291,13 @@
           "content": 5,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 6,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -7255,6 +7318,13 @@
       "weeks": [
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 13,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 13,
           "ideas": 0,
@@ -7283,6 +7353,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -7303,6 +7380,13 @@
       "weeks": [
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -7359,6 +7443,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -7369,12 +7460,12 @@
       "totals": {
         "works": 1,
         "content": 0,
-        "ideas": 75
+        "ideas": 82
       },
       "recent": {
         "works": 1,
         "content": 0,
-        "ideas": 37
+        "ideas": 44
       },
       "weeks": [
         {
@@ -7395,7 +7486,14 @@
           "start": "2026-09-28",
           "works": 1,
           "content": 0,
-          "ideas": 75,
+          "ideas": 77,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 82,
           "recent": true
         }
       ]
@@ -9661,6 +9759,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -9688,6 +9793,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -12267,6 +12379,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -15004,6 +15123,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -17128,6 +17254,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -19017,6 +19150,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -21036,6 +21176,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -23647,6 +23794,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -26142,6 +26296,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -28161,6 +28322,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -28181,6 +28349,13 @@
       "weeks": [
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -30505,6 +30680,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -30546,6 +30728,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -32842,6 +33031,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -32883,6 +33079,13 @@
         },
         {
           "start": "2026-09-28",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
+        },
+        {
+          "start": "2026-10-05",
           "works": 1,
           "content": 0,
           "ideas": 0,
@@ -34997,6 +35200,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     },
@@ -36631,6 +36841,13 @@
           "content": 0,
           "ideas": 0,
           "recent": true
+        },
+        {
+          "start": "2026-10-05",
+          "works": 1,
+          "content": 0,
+          "ideas": 0,
+          "recent": true
         }
       ]
     }
@@ -36741,7 +36958,7 @@
       "hasPages": true,
       "defaultBranch": "main",
       "eventCount": 1,
-      "commit": "90bbaa550c94c9eda027c05c1e2fc3e485553f11",
+      "commit": "5cb3d31c34062687b207f288455bb92f0a7700d4",
       "note": ""
     },
     {
@@ -36758,8 +36975,8 @@
       "url": "https://github.com/ioksengtan/idea",
       "hasPages": true,
       "defaultBranch": "main",
-      "eventCount": 76,
-      "commit": "450b8c6a678f02b7b8d92e84b79f8e3a4bd87f4e",
+      "eventCount": 83,
+      "commit": "a3821810d90ee174223b73265d019a1387ea7e23",
       "note": ""
     },
     {
@@ -36777,7 +36994,7 @@
       "hasPages": true,
       "defaultBranch": "master",
       "eventCount": 1,
-      "commit": "7c6970ad45855c1975080ad7ad0fdfb64ccd72b9",
+      "commit": "3898b57530485bbc7b362b97be1c4ae7d404c681",
       "note": ""
     },
     {
@@ -36804,7 +37021,7 @@
       "hasPages": true,
       "defaultBranch": "main",
       "eventCount": 1,
-      "commit": "658bb1e561e4ba573b4b8aad84bc6f727c73b346",
+      "commit": "aa9ca12555baaeec7bceda63966e2a092f654f6f",
       "note": ""
     },
     {
@@ -36866,8 +37083,8 @@
       "url": "https://github.com/ioksengtan/Listmap_v0d3",
       "hasPages": true,
       "defaultBranch": "master",
-      "eventCount": 90,
-      "commit": "dac5197e841809514e69aa4ab7f762b92b52a185",
+      "eventCount": 93,
+      "commit": "e8521da1aadba059d59e03f891cf98370b749a35",
       "note": ""
     },
     {
@@ -36920,8 +37137,8 @@
       "url": "https://github.com/ioksengtan/normal_news",
       "hasPages": true,
       "defaultBranch": "main",
-      "eventCount": 6,
-      "commit": "baea691a4b82bec99923e422e18d73a61bb4cbc0",
+      "eventCount": 7,
+      "commit": "ab55372b12006b55d0284e5987e2d6e90ec23b49",
       "note": ""
     },
     {
@@ -37020,7 +37237,7 @@
       "hasPages": true,
       "defaultBranch": "main",
       "eventCount": 24,
-      "commit": "3f10aeca49681d085c49af72863e133a90158a92",
+      "commit": "a909c4b13099b336af56e7aca38f7b804d72ef61",
       "note": ""
     },
     {
@@ -37103,11 +37320,11 @@
     "verifiedQuotes": 143,
     "speeches": 43,
     "hikingRoutes": 13,
-    "ideaListItems": 67,
+    "ideaListItems": 74,
     "ideaNotes": 8,
-    "listmapStories": 89,
+    "listmapStories": 92,
     "listmapStory100131": true,
-    "newsIssues": 5,
+    "newsIssues": 6,
     "rechaoVersions": [
       "0.3.0",
       "0.4.0",
@@ -42785,12 +43002,100 @@
       "id": "ai-code-who-ships-it.html"
     },
     {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-04",
+      "id": "068 雙人推撲克（暫名，正式名稱另取）——來源：Instagram 帳號 `tna.9"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-04",
+      "id": "069 拆開看骨架的收集玩具——來源：Instagram 帳號 `creanzacr`（"
+    },
+    {
       "series": "works",
       "repo": "rechao",
       "project": "來我家簡單吃（rechao）",
       "kind": "版本",
       "date": "2026-10-04",
       "id": "0.16.0"
+    },
+    {
+      "series": "content",
+      "repo": "Listmap_v0d3",
+      "project": "Listmap",
+      "kind": "故事",
+      "date": "2026-10-05",
+      "id": "stories/100146.html"
+    },
+    {
+      "series": "content",
+      "repo": "Listmap_v0d3",
+      "project": "Listmap",
+      "kind": "故事",
+      "date": "2026-10-05",
+      "id": "stories/100148.html"
+    },
+    {
+      "series": "content",
+      "repo": "Listmap_v0d3",
+      "project": "Listmap",
+      "kind": "故事",
+      "date": "2026-10-05",
+      "id": "stories/100149.html"
+    },
+    {
+      "series": "content",
+      "repo": "normal_news",
+      "project": "正常新聞",
+      "kind": "每日報紙",
+      "date": "2026-10-05",
+      "id": "data/issues/2026-10-05.json"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "070 終端機風天氣網頁——查天氣預報要像進入控制室讀情報：點陣圖示與等寬字體、細網格底"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "071 手寫信傳遞平台（即時地圖飛行視覺化）——在數位平台上傳送手寫信（觸控筆手寫或紙本"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "072 自建鐵道時間軸視覺（軌島方向）——在深色地圖上用同一條全域時間軸播放全台（或選定"
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "073 島線時鐘（island-line-clock）——第 66 筆的正式自建專案版："
+    },
+    {
+      "series": "ideas",
+      "repo": "idea",
+      "project": "靈感收集",
+      "kind": "點子",
+      "date": "2026-10-05",
+      "id": "074 島線相框（island-line-frame）——把運具時間軸做成可上牆的居家相"
     }
   ]
 }
