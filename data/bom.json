@@ -123,9 +123,9 @@
       "name": "1.28inch 圓形 IPS 螢幕模組 (GC9A01)",
       "sku": "",
       "category": "顯示",
-      "qty": 1,
-      "unsure": true,
-      "note": "240×240，4 線 SPI，已焊排針"
+      "qty": 2,
+      "unsure": false,
+      "note": "240×240，4 線 SPI；1 片已焊排針，1 片只有排線"
     },
     {
       "id": "pround-zjy",
@@ -133,17 +133,8 @@
       "sku": "",
       "category": "顯示",
       "qty": 1,
-      "unsure": true,
+      "unsure": false,
       "note": "中景園，240×240，8 腳轉接板；驅動 IC 待確認"
-    },
-    {
-      "id": "pround-bare",
-      "name": "1.28inch 圓形螢幕裸片",
-      "sku": "",
-      "category": "顯示",
-      "qty": 1,
-      "unsure": true,
-      "note": "只有排線，型號待確認"
     }
   ],
   "projects": [
