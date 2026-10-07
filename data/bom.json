@@ -51,7 +51,7 @@
       "name": "ESP32-C3-DevKitM-1",
       "sku": "",
       "category": "開發板",
-      "qty": 2,
+      "qty": 3,
       "unsure": false,
       "note": "Espressif"
     },
@@ -108,6 +108,42 @@
       "qty": 1,
       "unsure": false,
       "note": "8MP，element14 盒裝"
+    },
+    {
+      "id": "pnano",
+      "name": "Arduino Nano（相容板）",
+      "sku": "",
+      "category": "開發板",
+      "qty": 3,
+      "unsure": false,
+      "note": "Mini-USB，ATmega328；USB 晶片（CH340 或 FT232）待確認"
+    },
+    {
+      "id": "pround-gc9a01",
+      "name": "1.28inch 圓形 IPS 螢幕模組 (GC9A01)",
+      "sku": "",
+      "category": "顯示",
+      "qty": 1,
+      "unsure": true,
+      "note": "240×240，4 線 SPI，已焊排針"
+    },
+    {
+      "id": "pround-zjy",
+      "name": "1.28inch 圓形 IPS 螢幕 ZJY_IPS128_8P",
+      "sku": "",
+      "category": "顯示",
+      "qty": 1,
+      "unsure": true,
+      "note": "中景園，240×240，8 腳轉接板；驅動 IC 待確認"
+    },
+    {
+      "id": "pround-bare",
+      "name": "1.28inch 圓形螢幕裸片",
+      "sku": "",
+      "category": "顯示",
+      "qty": 1,
+      "unsure": true,
+      "note": "只有排線，型號待確認"
     }
   ],
   "projects": [
