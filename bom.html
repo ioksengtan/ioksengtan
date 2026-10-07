@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BOM 零件庫 — ioksengtan</title>
+<meta name="description" content="電子零件庫存與專案 BOM 管理，自動統計缺料。">
+<link rel="icon" href="images/avatar-96.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky summary strip over three working tabs (stock / project BOMs / shortage list), tables scroll inside their own wrappers. */
+:root{
+  --bg:#f2f5f3; --surface:#ffffff; --surface2:#e9eeeb; --fg:#15201b; --muted:#5b6a62; --line:#d5ddd8;
+  --accent:#1c7a52; --accent-fg:#ffffff; --accent-soft:#dcefe5;
+  --ok-bg:#dcefe5; --ok-fg:#14583a; --warn-bg:#fbebc6; --warn-fg:#7a5200; --bad-bg:#fadcd8; --bad-fg:#9a2518;
+  --font:'Noto Sans TC',system-ui,-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1613; --surface:#17211c; --surface2:#1f2b25; --fg:#e5ece8; --muted:#92a39a; --line:#2b3932;
+  --accent:#43b784; --accent-fg:#06150d; --accent-soft:#1b3328;
+  --ok-bg:#1b3328; --ok-fg:#7fd9ad; --warn-bg:#3a2f12; --warn-fg:#f0c868; --bad-bg:#40201c; --bad-fg:#ff9d8f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1613; --surface:#17211c; --surface2:#1f2b25; --fg:#e5ece8; --muted:#92a39a; --line:#2b3932;
+  --accent:#43b784; --accent-fg:#06150d; --accent-soft:#1b3328;
+  --ok-bg:#1b3328; --ok-fg:#7fd9ad; --warn-bg:#3a2f12; --warn-fg:#f0c868; --bad-bg:#40201c; --bad-fg:#ff9d8f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:14px/1.5 var(--font);padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:1080px;margin-inline:auto;display:flex;flex-direction:column;gap:16px}
+h1{font-size:22px;margin:0;font-weight:700;letter-spacing:.01em}
+h2{font-size:15px;margin:0;font-weight:700}
+.sub{color:var(--muted);font-size:13px;margin:2px 0 0}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+.stats{display:flex;flex-wrap:wrap;gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 12px;min-width:84px}
+.stat b{display:block;font:500 18px var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+.stat.bad b{color:var(--bad-fg)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:500 14px var(--font);padding:8px 14px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 9px;min-width:0}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.btn{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--surface2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:500}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.danger{color:var(--bad-fg)}
+.btn.sm{padding:2px 8px;font-size:13px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar .grow{flex:1 1 180px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.form label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.form .full{grid-column:1/-1}
+.form .chk{flex-direction:row;align-items:center;gap:8px;font-size:13px;color:var(--fg)}
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{font-size:12px;font-weight:500;color:var(--muted);text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+th.num{text-align:right}
+.mono{font-family:var(--mono);font-size:13px}
+.muted{color:var(--muted)}
+.name b{font-weight:500}
+.name small{display:block;color:var(--muted);font-size:12px}
+.qty{display:inline-flex;align-items:center;gap:6px}
+.qty .btn{width:26px;padding:0;line-height:22px;text-align:center}
+.pill{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok-fg)}
+.pill.warn{background:var(--warn-bg);color:var(--warn-fg)}
+.pill.bad{background:var(--bad-bg);color:var(--bad-fg)}
+.pill.gray{background:var(--surface2);color:var(--muted)}
+.acts{display:flex;gap:6px;justify-content:flex-end}
+.empty{padding:28px 16px;text-align:center;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:4px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:500}
+.notice{background:var(--warn-bg);color:var(--warn-fg);border-radius:6px;padding:8px 12px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.btn,.chip{transition:background .12s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>BOM 零件庫</h1>
+      <p class="sub">手邊零件的庫存，加上各專案的用料表，缺什麼一眼看得出來。</p>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+
+  <div id="notice" class="notice" hidden></div>
+  <div id="dirty" class="notice" hidden>
+    <div class="bar">
+      <span class="grow">你有改動，目前只存在這個瀏覽器。要永久保存，請匯出 JSON 交給 Claude 更新 <code>data/bom.json</code>。</span>
+      <button class="btn" id="exportJson2" type="button">匯出 JSON</button>
+    </div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="stock" id="t-stock">庫存</button>
+    <button class="tab" role="tab" data-tab="proj" id="t-proj">專案 BOM</button>
+    <button class="tab" role="tab" data-tab="short" id="t-short">缺料與採購</button>
+  </div>
+
+  <!-- 庫存 -->
+  <section id="p-stock" class="wrap" style="gap:12px">
+    <div class="bar">
+      <input id="q" class="grow" type="search" placeholder="搜尋名稱、SKU、備註">
+      <select id="catf" aria-label="類別篩選"></select>
+      <button class="btn primary" id="addPart">新增零件</button>
+    </div>
+    <form id="partForm" class="panel" hidden>
+      <h2 id="partFormTitle">新增零件</h2>
+      <div class="form">
+        <label class="full">名稱<input id="f-name" required placeholder="例如 2.13inch e-Paper HAT"></label>
+        <label>SKU / 型號<input id="f-sku" placeholder="例如 12915"></label>
+        <label>類別<input id="f-cat" list="catlist" placeholder="開發板、顯示、感測器…"><datalist id="catlist"></datalist></label>
+        <label>數量<input id="f-qty" type="number" min="0" step="1" value="1" required></label>
+        <label class="chk"><input id="f-unsure" type="checkbox">數量待確認</label>
+        <label class="full">備註<input id="f-note" placeholder="裸屏、缺排線、放在哪個籃子…"></label>
+      </div>
+      <div class="bar"><button class="btn primary" type="submit">儲存</button><button class="btn" type="button" id="partCancel">取消</button></div>
+    </form>
+    <div class="tw"><table>
+      <thead><tr><th>名稱</th><th>SKU</th><th>類別</th><th class="num">庫存</th><th class="num">專案需求</th><th>備註</th><th></th></tr></thead>
+      <tbody id="partRows"></tbody>
+    </table></div>
+  </section>
+
+  <!-- 專案 BOM -->
+  <section id="p-proj" class="wrap" style="gap:12px" hidden>
+    <div class="bar">
+      <div class="chips grow" id="projChips"></div>
+    </div>
+    <form id="projNew" class="bar">
+      <input id="pn-name" class="grow" placeholder="新專案名稱，例如 電子紙桌面看板" required>
+      <button class="btn primary" type="submit">建立專案</button>
+    </form>
+    <div id="projDetail" class="wrap" style="gap:12px"></div>
+  </section>
+
+  <!-- 缺料 -->
+  <section id="p-short" class="wrap" style="gap:12px" hidden>
+    <div class="bar">
+      <p class="sub grow" style="margin:0">把所有專案的用料加總，和庫存比較。</p>
+      <button class="btn" id="exportCsv">匯出缺料 CSV</button>
+    </div>
+    <div class="tw"><table>
+      <thead><tr><th>零件</th><th>SKU</th><th class="num">庫存</th><th class="num">總需求</th><th class="num">還缺</th><th>用到的專案</th></tr></thead>
+      <tbody id="shortRows"></tbody>
+    </table></div>
+  </section>
+  <footer class="bar" style="border-top:1px solid var(--line);padding-top:12px">
+    <span class="sub grow">資料來源：<code>data/bom.json</code></span>
+    <button class="btn" id="exportJson" type="button">匯出 JSON</button>
+    <label class="btn" style="cursor:pointer">匯入 JSON<input id="importJson" type="file" accept="application/json,.json" hidden></label>
+    <button class="btn" id="resetBase" type="button">還原成網站版本</button>
+  </footer>
+</div>
+
+<script>
+(async function () {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const num = (v) => Math.max(0, Math.floor(Number(v) || 0));
+
+  /* ---------- 資料層：data/bom.json 為基底，網頁修改存在這台瀏覽器 ---------- */
+  const KEY = 'bom-data-v1', DATA_URL = 'data/bom.json';
+  let store = { parts: {}, projects: {} };
+  let dirty = false;
+  const listeners = { parts: [], projects: [] };
+  const newId = () => 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const toStore = (j) => {
+    const o = { parts: {}, projects: {} };
+    for (const p of j.parts || []) { const { id, ...d } = p; o.parts[id] = d; }
+    for (const p of j.projects || []) { const { id, ...d } = p; o.projects[id] = d; }
+    return o;
+  };
+  const toJson = () => ({
+    updated: new Date().toISOString().slice(0, 10),
+    parts: Object.entries(store.parts).map(([id, d]) => ({ id, ...d })),
+    projects: Object.entries(store.projects).map(([id, d]) => ({ id, ...d })),
+  });
+  function emit(c) {
+    const docs = Object.entries(store[c]).map(([id, data]) => ({ id, data: () => data }));
+    listeners[c].forEach((f) => f({ docs }));
+  }
+  function persist(c) {
+    dirty = true;
+    try { localStorage.setItem(KEY, JSON.stringify(toJson())); } catch (e) { showNotice('這個瀏覽器不能儲存，修改只會留到關閉頁面為止。'); }
+    emit(c);
+  }
+  const db = {
+    doc(path) {
+      const [c, id] = path.split('/');
+      return {
+        id,
+        set: async (d) => { store[c][id] = d; persist(c); },
+        update: async (d) => { store[c][id] = { ...store[c][id], ...d }; persist(c); },
+        delete: async () => { delete store[c][id]; persist(c); },
+      };
+    },
+    collection(c) {
+      return {
+        doc: (id) => db.doc(c + '/' + (id || newId())),
+        onSnapshot: (f) => { listeners[c].push(f); emit(c); },
+      };
+    },
+  };
+  async function loadBase() {
+    const r = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return toStore(await r.json());
+  }
+  async function init() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    if (saved) { store = toStore(saved); dirty = true; }
+    else {
+      try { store = await loadBase(); }
+      catch (e) { showNotice('讀不到 data/bom.json，請確認是從網站開啟，而不是直接開檔案。'); }
+    }
+  }
+
+  let parts = [], projects = [];
+  let tab = 'stock', curProj = null, editingId = null, armedDelete = null;
+  try { tab = localStorage.getItem('bom-tab') || 'stock'; } catch (e) {}
+
+  async function write(key, fn) { try { await fn(); } catch (e) { showNotice('儲存失敗。'); } }
+  function showNotice(msg) { const n = $('#notice'); n.textContent = msg; n.hidden = !msg; }
+  const editable = () => true;
+
+  const partById = (id) => parts.find((p) => p.id === id);
+  const projName = (p) => p.name || '(未命名)';
+
+  /* ---------- derived numbers ---------- */
+  function lineKey(l) { return l.partId ? 'p:' + l.partId : 'c:' + String(l.name || '').trim().toLowerCase(); }
+  function computeDemand() {
+    const map = new Map();
+    for (const pr of projects) for (const l of pr.lines || []) {
+      const k = lineKey(l);
+      const e = map.get(k) || { need: 0, projects: new Map() };
+      e.need += num(l.qty);
+      e.projects.set(pr.id, (e.projects.get(pr.id) || 0) + num(l.qty));
+      map.set(k, e);
+    }
+    return map;
+  }
+  function lineInfo(l) {
+    if (l.partId) {
+      const p = partById(l.partId);
+      return p ? { name: p.name, sku: p.sku || '', stock: num(p.qty), missingPart: false }
+               : { name: '(零件已刪除)', sku: '', stock: 0, missingPart: true };
+    }
+    return { name: l.name || '(未命名)', sku: '', stock: 0, custom: true };
+  }
+
+  /* ---------- render ---------- */
+  function renderAll() {
+    renderStats(); renderStock(); renderProjects(); renderShort(); renderTabs();
+    $('#dirty').hidden = !dirty;
+  }
+
+  function renderStats() {
+    const dem = computeDemand();
+    let short = 0;
+    for (const [k, e] of dem) {
+      const stock = k.startsWith('p:') ? num((partById(k.slice(2)) || {}).qty) : 0;
+      if (e.need > stock) short++;
+    }
+    const total = parts.reduce((a, p) => a + num(p.qty), 0);
+    const unsure = parts.filter((p) => p.unsure).length;
+    $('#stats').innerHTML =
+      `<div class="stat"><b>${parts.length}</b><span>零件品項</span></div>` +
+      `<div class="stat"><b>${total}</b><span>總件數</span></div>` +
+      `<div class="stat"><b>${unsure}</b><span>數量待確認</span></div>` +
+      `<div class="stat ${short ? 'bad' : ''}"><b>${short}</b><span>缺料項目</span></div>`;
+  }
+
+  function renderTabs() {
+    for (const t of document.querySelectorAll('.tab')) t.setAttribute('aria-selected', String(t.dataset.tab === tab));
+    $('#p-stock').hidden = tab !== 'stock';
+    $('#p-proj').hidden = tab !== 'proj';
+    $('#p-short').hidden = tab !== 'short';
+  }
+
+  function renderStock() {
+    const cats = [...new Set(parts.map((p) => p.category).filter(Boolean))].sort();
+    const sel = $('#catf'); const keep = sel.value;
+    sel.innerHTML = '<option value="">全部類別</option>' + cats.map((c) => `<option>${esc(c)}</option>`).join('');
+    sel.value = cats.includes(keep) ? keep : '';
+    $('#catlist').innerHTML = cats.map((c) => `<option value="${esc(c)}">`).join('');
+
+    const q = $('#q').value.trim().toLowerCase();
+    const cat = sel.value;
+    const dem = computeDemand();
+    const rows = parts
+      .filter((p) => (!cat || p.category === cat) && (!q || [p.name, p.sku, p.note, p.category].join(' ').toLowerCase().includes(q)))
+      .sort((a, b) => (a.category || '').localeCompare(b.category || '') || (a.name || '').localeCompare(b.name || ''));
+    const ed = editable();
+    if (!rows.length) {
+      $('#partRows').innerHTML = `<tr><td colspan="7" class="empty">${parts.length ? '沒有符合的零件。' : '還沒有零件。按「新增零件」加入第一筆。'}</td></tr>`;
+      return;
+    }
+    $('#partRows').innerHTML = rows.map((p) => {
+      const need = (dem.get('p:' + p.id) || {}).need || 0;
+      const needCell = need ? `<span class="pill ${need > num(p.qty) ? 'bad' : 'ok'}">${need}</span>` : '<span class="muted">-</span>';
+      const armed = armedDelete === 'part:' + p.id;
+      return `<tr>
+        <td class="name"><b>${esc(p.name)}</b>${p.unsure ? ' <span class="pill warn">數量待確認</span>' : ''}</td>
+        <td class="mono">${esc(p.sku || '')}</td>
+        <td>${p.category ? `<span class="pill gray">${esc(p.category)}</span>` : ''}</td>
+        <td class="num"><span class="qty"><button class="btn sm" data-act="dec" data-id="${p.id}" ${ed ? '' : 'disabled'} aria-label="減少">−</button><span style="min-width:2ch;text-align:center">${num(p.qty)}</span><button class="btn sm" data-act="inc" data-id="${p.id}" ${ed ? '' : 'disabled'} aria-label="增加">+</button></span></td>
+        <td class="num">${needCell}</td>
+        <td class="muted">${esc(p.note || '')}</td>
+        <td><div class="acts"><button class="btn sm" data-act="edit" data-id="${p.id}" ${ed ? '' : 'disabled'}>編輯</button><button class="btn sm danger" data-act="del" data-id="${p.id}" ${ed ? '' : 'disabled'}>${armed ? '確定刪除？' : '刪除'}</button></div></td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderProjects() {
+    const sorted = [...projects].sort((a, b) => projName(a).localeCompare(projName(b)));
+    if (!sorted.find((p) => p.id === curProj)) curProj = sorted[0] ? sorted[0].id : null;
+    $('#projChips').innerHTML = sorted.length
+      ? sorted.map((p) => `<button class="chip" data-proj="${p.id}" aria-pressed="${p.id === curProj}">${esc(projName(p))}</button>`).join('')
+      : '<span class="muted">還沒有專案。在下面建立第一個。</span>';
+
+    const box = $('#projDetail');
+    const pr = projects.find((p) => p.id === curProj);
+    if (!pr) { box.innerHTML = ''; return; }
+    const keepScroll = document.activeElement && box.contains(document.activeElement) ? document.activeElement.id : null;
+    const prevPart = ($('#l-part') || {}).value, prevQty = ($('#l-qty') || {}).value, prevName = ($('#l-name') || {}).value;
+    const dem = computeDemand();
+    const ed = editable();
+    const lines = pr.lines || [];
+
+    const partOpts = [...parts].sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+      .map((p) => `<option value="${p.id}">${esc(p.name)}${p.sku ? ' (' + esc(p.sku) + ')' : ''}　庫存 ${num(p.qty)}</option>`).join('');
+
+    const rowsHtml = lines.length ? lines.map((l) => {
+      const info = lineInfo(l);
+      const need = num(l.qty);
+      const total = (dem.get(lineKey(l)) || { need }).need;
+      let pill;
+      if (info.custom) pill = `<span class="pill bad">需採購 ${need}</span>`;
+      else if (info.stock >= total) pill = '<span class="pill ok">足夠</span>';
+      else if (info.stock >= need) pill = `<span class="pill warn">其他專案也要，合計缺 ${total - info.stock}</span>`;
+      else pill = `<span class="pill bad">缺 ${need - info.stock}</span>`;
+      return `<tr>
+        <td class="name"><b>${esc(info.name)}</b>${info.custom ? '<small>庫存沒有的零件</small>' : ''}</td>
+        <td class="mono">${esc(info.sku)}</td>
+        <td class="num"><input type="number" min="1" step="1" value="${need}" style="width:72px;text-align:right" data-lineqty="${l.id}" ${ed ? '' : 'disabled'} aria-label="需求數量"></td>
+        <td class="num">${info.custom ? '-' : info.stock}</td>
+        <td>${pill}</td>
+        <td><div class="acts"><button class="btn sm danger" data-lineact="del" data-line="${l.id}" ${ed ? '' : 'disabled'}>${armedDelete === 'line:' + l.id ? '確定移除？' : '移除'}</button></div></td>
+      </tr>`;
+    }).join('') : '<tr><td colspan="6" class="empty">這個專案還沒有用料。從下面加入第一項。</td></tr>';
+
+    const stockLines = lines.filter((l) => l.partId && partById(l.partId));
+    const ready = stockLines.length && stockLines.every((l) => num((partById(l.partId) || {}).qty) >= num(l.qty)) && lines.every((l) => l.partId);
+
+    box.innerHTML = `
+      <div class="panel">
+        <div class="bar">
+          <input id="pr-name" class="grow" value="${esc(pr.name || '')}" aria-label="專案名稱" ${ed ? '' : 'disabled'}>
+          ${lines.length ? (ready ? '<span class="pill ok">庫存可以完成</span>' : '<span class="pill bad">還有缺料</span>') : ''}
+          <button class="btn danger" id="pr-del" ${ed ? '' : 'disabled'}>${armedDelete === 'proj:' + pr.id ? '確定刪除專案？' : '刪除專案'}</button>
+        </div>
+        <input id="pr-note" value="${esc(pr.note || '')}" placeholder="專案備註" aria-label="專案備註" ${ed ? '' : 'disabled'}>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>零件</th><th>SKU</th><th class="num">需求</th><th class="num">庫存</th><th>狀態</th><th></th></tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table></div>
+      <form id="lineForm" class="panel">
+        <h2>加入用料</h2>
+        <div class="form">
+          <label class="full">零件<select id="l-part">${partOpts}<option value="__custom">庫存沒有，手動輸入…</option></select></label>
+          <label id="l-name-wrap" hidden>零件名稱<input id="l-name" placeholder="例如 杜邦線 20cm"></label>
+          <label>數量<input id="l-qty" type="number" min="1" step="1" value="1"></label>
+        </div>
+        <div class="bar"><button class="btn primary" type="submit" ${ed ? '' : 'disabled'}>加入</button></div>
+      </form>`;
+    if (prevPart && [...$('#l-part').options].some((o) => o.value === prevPart)) $('#l-part').value = prevPart;
+    if (prevQty) $('#l-qty').value = prevQty;
+    if (prevName) $('#l-name').value = prevName;
+    $('#l-name-wrap').hidden = $('#l-part').value !== '__custom';
+    if (keepScroll && document.getElementById(keepScroll)) document.getElementById(keepScroll).focus();
+  }
+
+  function shortageRows() {
+    const dem = computeDemand();
+    const rows = [];
+    for (const [k, e] of dem) {
+      let name, sku = '', stock = 0;
+      if (k.startsWith('p:')) {
+        const p = partById(k.slice(2));
+        name = p ? p.name : '(零件已刪除)'; sku = p ? p.sku || '' : ''; stock = p ? num(p.qty) : 0;
+      } else {
+        const first = projects.flatMap((pr) => pr.lines || []).find((l) => lineKey(l) === k);
+        name = first ? first.name : k.slice(2);
+      }
+      const names = [...e.projects].map(([pid, n]) => { const pr = projects.find((x) => x.id === pid); return `${pr ? projName(pr) : '?'} ×${n}`; });
+      rows.push({ name, sku, stock, need: e.need, lack: Math.max(0, e.need - stock), projects: names });
+    }
+    return rows.sort((a, b) => b.lack - a.lack || a.name.localeCompare(b.name));
+  }
+  function renderShort() {
+    const rows = shortageRows();
+    $('#shortRows').innerHTML = rows.length ? rows.map((r) => `<tr>
+      <td class="name"><b>${esc(r.name)}</b></td><td class="mono">${esc(r.sku)}</td>
+      <td class="num">${r.stock}</td><td class="num">${r.need}</td>
+      <td class="num">${r.lack ? `<span class="pill bad">${r.lack}</span>` : '<span class="pill ok">0</span>'}</td>
+      <td class="muted">${esc(r.projects.join('、'))}</td></tr>`).join('')
+      : '<tr><td colspan="6" class="empty">還沒有專案用料，建立專案 BOM 後這裡會自動統計。</td></tr>';
+  }
+
+  /* ---------- events ---------- */
+  for (const t of document.querySelectorAll('.tab')) t.addEventListener('click', () => {
+    tab = t.dataset.tab; try { localStorage.setItem('bom-tab', tab); } catch (e) {} renderTabs();
+  });
+  $('#q').addEventListener('input', renderStock);
+  $('#catf').addEventListener('change', renderStock);
+
+  function openForm(p) {
+    editingId = p ? p.id : null;
+    $('#partFormTitle').textContent = p ? '編輯零件' : '新增零件';
+    $('#f-name').value = p ? p.name || '' : '';
+    $('#f-sku').value = p ? p.sku || '' : '';
+    $('#f-cat').value = p ? p.category || '' : '';
+    $('#f-qty').value = p ? num(p.qty) : 1;
+    $('#f-unsure').checked = !!(p && p.unsure);
+    $('#f-note').value = p ? p.note || '' : '';
+    $('#partForm').hidden = false;
+    $('#f-name').focus();
+  }
+  $('#addPart').addEventListener('click', () => openForm(null));
+  $('#partCancel').addEventListener('click', () => { $('#partForm').hidden = true; editingId = null; });
+  $('#partForm').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const data = {
+      name: $('#f-name').value.trim(), sku: $('#f-sku').value.trim(), category: $('#f-cat').value.trim(),
+      qty: num($('#f-qty').value), unsure: $('#f-unsure').checked, note: $('#f-note').value.trim(),
+    };
+    if (!data.name || !db) return;
+    const ref = editingId ? db.doc('parts/' + editingId) : db.collection('parts').doc();
+    write('part:' + ref.id, () => ref.set(data));
+    $('#partForm').hidden = true; editingId = null;
+  });
+
+  $('#partRows').addEventListener('click', (ev) => {
+    const b = ev.target.closest('button[data-act]'); if (!b || !db) return;
+    const p = partById(b.dataset.id); if (!p) return;
+    const act = b.dataset.act;
+    if (act === 'edit') return openForm(p);
+    if (act === 'inc' || act === 'dec') {
+      const qty = Math.max(0, num(p.qty) + (act === 'inc' ? 1 : -1));
+      p.qty = qty; renderStock();
+      return write('part:' + p.id, () => db.doc('parts/' + p.id).update({ qty }));
+    }
+    if (act === 'del') {
+      if (armedDelete !== 'part:' + p.id) { armedDelete = 'part:' + p.id; renderStock(); return; }
+      armedDelete = null;
+      write('part:' + p.id, () => db.doc('parts/' + p.id).delete());
+    }
+  });
+
+  $('#projChips').addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-proj]'); if (!b) return;
+    curProj = b.dataset.proj; armedDelete = null; renderProjects();
+  });
+  $('#projNew').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const name = $('#pn-name').value.trim(); if (!name || !db) return;
+    const ref = db.collection('projects').doc();
+    curProj = ref.id; $('#pn-name').value = '';
+    write('proj:' + ref.id, () => ref.set({ name, note: '', lines: [] }));
+  });
+
+  const pd = $('#projDetail');
+  function curRef() { return db.doc('projects/' + curProj); }
+  function saveLines(lines) {
+    const pr = projects.find((p) => p.id === curProj); if (pr) pr.lines = lines;
+    renderAll();
+    return write('proj:' + curProj, () => curRef().update({ lines }));
+  }
+  pd.addEventListener('change', (ev) => {
+    const t = ev.target; if (!db || !curProj) return;
+    const pr = projects.find((p) => p.id === curProj); if (!pr) return;
+    if (t.id === 'l-part') { $('#l-name-wrap').hidden = t.value !== '__custom'; return; }
+    if (t.id === 'pr-name') { const name = t.value.trim() || pr.name; return write('proj:' + pr.id, () => curRef().update({ name })); }
+    if (t.id === 'pr-note') { const note = t.value.trim(); return write('proj:' + pr.id, () => curRef().update({ note })); }
+    if (t.dataset.lineqty) {
+      const qty = Math.max(1, num(t.value));
+      saveLines((pr.lines || []).map((l) => (l.id === t.dataset.lineqty ? { ...l, qty } : l)));
+    }
+  });
+  pd.addEventListener('click', (ev) => {
+    const pr = projects.find((p) => p.id === curProj); if (!pr || !db) return;
+    const del = ev.target.closest('[data-lineact="del"]');
+    if (del) {
+      const id = del.dataset.line;
+      if (armedDelete !== 'line:' + id) { armedDelete = 'line:' + id; renderProjects(); return; }
+      armedDelete = null;
+      return saveLines((pr.lines || []).filter((l) => l.id !== id));
+    }
+    if (ev.target.id === 'pr-del') {
+      if (armedDelete !== 'proj:' + pr.id) { armedDelete = 'proj:' + pr.id; renderProjects(); return; }
+      armedDelete = null;
+      write('proj:' + pr.id, () => curRef().delete());
+    }
+  });
+  pd.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    if (ev.target.id !== 'lineForm' || !db) return;
+    const pr = projects.find((p) => p.id === curProj); if (!pr) return;
+    const sel = $('#l-part').value, qty = Math.max(1, num($('#l-qty').value));
+    const line = { id: 'l' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), qty };
+    if (sel === '__custom') {
+      const name = $('#l-name').value.trim(); if (!name) { $('#l-name').focus(); return; }
+      line.name = name;
+    } else line.partId = sel;
+    const lines = [...(pr.lines || [])];
+    const same = lines.find((l) => lineKey(l) === lineKey(line));
+    if (same) same.qty = num(same.qty) + qty; else lines.push(line);
+    $('#l-name').value = ''; $('#l-qty').value = 1;
+    saveLines(lines);
+  });
+  document.addEventListener('click', (ev) => {
+    if (armedDelete && !ev.target.closest('[data-act="del"],[data-lineact="del"],#pr-del')) { armedDelete = null; renderAll(); }
+  });
+
+  function saveFile(filename, text, type) {
+    const url = URL.createObjectURL(new Blob([text], { type }));
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  $('#exportCsv').addEventListener('click', () => {
+    const q = (v) => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+    const rows = [['零件', 'SKU', '庫存', '總需求', '還缺', '用到的專案']]
+      .concat(shortageRows().map((r) => [r.name, r.sku, r.stock, r.need, r.lack, r.projects.join('、')]));
+    saveFile('bom-shortage.csv', '﻿' + rows.map((r) => r.map(q).join(',')).join('\r\n'), 'text/csv;charset=utf-8');
+  });
+  $('#exportJson2').addEventListener('click', () => $('#exportJson').click());
+  $('#exportJson').addEventListener('click', () => {
+    saveFile('bom.json', JSON.stringify(toJson(), null, 2) + '\n', 'application/json');
+  });
+  $('#importJson').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0]; ev.target.value = ''; if (!f) return;
+    try {
+      const j = JSON.parse(await f.text());
+      if (!Array.isArray(j.parts) || !Array.isArray(j.projects)) throw new Error('format');
+      store = toStore(j); persist('parts'); emit('projects'); showNotice('');
+    } catch (e) { showNotice('匯入失敗，檔案格式不對。'); }
+  });
+  $('#resetBase').addEventListener('click', async () => {
+    const btn = $('#resetBase');
+    if (btn.dataset.armed !== '1') { btn.dataset.armed = '1'; btn.textContent = '確定捨棄本機修改？'; return; }
+    btn.dataset.armed = ''; btn.textContent = '還原成網站版本';
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    try { store = await loadBase(); dirty = false; emit('parts'); emit('projects'); showNotice(''); }
+    catch (e) { showNotice('讀不到 data/bom.json。'); }
+  });
+
+  /* ---------- start ---------- */
+  await init();
+  db.collection('parts').onSnapshot((s) => { parts = s.docs.map((d) => ({ id: d.id, ...d.data() })); renderAll(); });
+  db.collection('projects').onSnapshot((s) => { projects = s.docs.map((d) => ({ id: d.id, ...d.data() })); renderAll(); });
+})();
+</script>
+</body>
+</html>

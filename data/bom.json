@@ -1,0 +1,147 @@
+{
+  "updated": "2026-10-07",
+  "parts": [
+    {
+      "id": "p12915",
+      "name": "2.13inch e-Paper HAT",
+      "sku": "12915",
+      "category": "電子紙",
+      "qty": 4,
+      "unsure": false,
+      "note": "Waveshare"
+    },
+    {
+      "id": "p14972",
+      "name": "1.3inch LCD HAT",
+      "sku": "14972",
+      "category": "顯示",
+      "qty": 4,
+      "unsure": false,
+      "note": "Waveshare"
+    },
+    {
+      "id": "p19310",
+      "name": "Raspberry Pi Pico",
+      "sku": "19310",
+      "category": "開發板",
+      "qty": 4,
+      "unsure": false,
+      "note": ""
+    },
+    {
+      "id": "p21038",
+      "name": "Raspberry Pi Zero 2 WH",
+      "sku": "21038",
+      "category": "開發板",
+      "qty": 1,
+      "unsure": false,
+      "note": ""
+    },
+    {
+      "id": "prpi3b",
+      "name": "Raspberry Pi 3 Model B",
+      "sku": "",
+      "category": "開發板",
+      "qty": 1,
+      "unsure": false,
+      "note": "RS 盒裝"
+    },
+    {
+      "id": "pesp32c3",
+      "name": "ESP32-C3-DevKitM-1",
+      "sku": "",
+      "category": "開發板",
+      "qty": 2,
+      "unsure": false,
+      "note": "Espressif"
+    },
+    {
+      "id": "p19537",
+      "name": "LCD1602 RGB Module",
+      "sku": "19537",
+      "category": "顯示",
+      "qty": 1,
+      "unsure": true,
+      "note": "下面疊著其他盒子，可能有 2 到 3 個"
+    },
+    {
+      "id": "p13512",
+      "name": "e-Paper Driver HAT",
+      "sku": "13512",
+      "category": "電子紙",
+      "qty": 3,
+      "unsure": false,
+      "note": "裸屏的驅動板"
+    },
+    {
+      "id": "p17779",
+      "name": "5.65inch e-Paper (F) 裸屏",
+      "sku": "17779",
+      "category": "電子紙",
+      "qty": 2,
+      "unsure": false,
+      "note": "裸屏，24pin 排線"
+    },
+    {
+      "id": "p13187",
+      "name": "7.5inch e-Paper 裸屏",
+      "sku": "13187",
+      "category": "電子紙",
+      "qty": 2,
+      "unsure": false,
+      "note": "裸屏"
+    },
+    {
+      "id": "pmki215",
+      "name": "STEVAL-MKI215V1 (LSM6DSO32 轉接板)",
+      "sku": "497-STEVAL-MKI215V1-ND",
+      "category": "感測器",
+      "qty": 1,
+      "unsure": false,
+      "note": "ST，Digi-Key 出貨"
+    },
+    {
+      "id": "pcamv2",
+      "name": "Raspberry Pi Camera V2",
+      "sku": "",
+      "category": "感測器",
+      "qty": 1,
+      "unsure": false,
+      "note": "8MP，element14 盒裝"
+    }
+  ],
+  "projects": [
+    {
+      "id": "demo-epaper",
+      "name": "電子紙看板（範例）",
+      "note": "範例專案，可修改或刪除。裸屏需要驅動板才能用。",
+      "lines": [
+        {
+          "id": "l1",
+          "partId": "p17779",
+          "qty": 1
+        },
+        {
+          "id": "l2",
+          "partId": "p13187",
+          "qty": 1
+        },
+        {
+          "id": "l3",
+          "partId": "p13512",
+          "qty": 2
+        },
+        {
+          "id": "l4",
+          "partId": "p21038",
+          "qty": 1
+        },
+        {
+          "id": "l5",
+          "name": "microSD 卡 16GB",
+          "qty": 1
+        }
+      ]
+    }
+  ]
+}

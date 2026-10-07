@@ -53,3 +53,12 @@
 2. 腳本會列出 `ioksengtan` 的公開倉庫，淺層複製歷史後重算 `data/growth.json`。
 3. 看終端機印出的三個總數。確認沒有不該公開的人名之後再提交。
 4. 每週一 00:15（協調世界時）會由 GitHub Actions 自動重跑並提交。不需要另外設定密鑰；公開倉庫用預設的 `GITHUB_TOKEN` 就讀得到。若預設分支不允許動作直接推送，改手動執行上面的指令，再開拉取請求。
+
+## 如何更新 BOM 零件庫
+
+頁面 `bom.html` 只讀 `data/bom.json`。網頁上的修改只存在那個瀏覽器，要永久保存：在頁面按「匯出 JSON」，用下載的檔案覆蓋 `data/bom.json`，再推上 GitHub。
+
+| 欄位 | 說明 |
+| --- | --- |
+| `parts[]` | 庫存零件：`id`、`name`、`sku`、`category`、`qty`、`unsure`（數量待確認）、`note`。 |
+| `projects[].lines[]` | 專案用料。庫存的零件寫 `partId` 加 `qty`；庫存沒有的寫 `name` 加 `qty`。 |
