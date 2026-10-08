@@ -1,0 +1,38 @@
+* Fig 9.27 wide-range VXO, JFET (MPF102-class) + 9 MHz crystal. 
+* ASSUMED: crystal motional params (Lm 12 mH, Cm 0.0261 pF, Rm 15 ohm, Cp 4 pF -> fs~9.00 MHz), L = 6 uH, RFC 1 mH, JFET model typical.
+.model J2N5486 NJF(Vto=-2.2 Beta=1.5m Lambda=0.02 Cgs=4p Cgd=2p Is=1e-14)
+.model D1N914 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p)
+.param Ct=100p
+Vdd vdd 0 12
+Rfc vdd d 1k
+Lrfc vdd d 1m
+Cb vdd 0 0.01u
+* crystal Y1 from gate-side node 'x' to drain 'd'? Book: crystal between supply/drain and tank; here Y1 from d to t
+Lm d m1 12m
+Cm m1 m2 0.0261p
+Rm m2 t 15
+Cp d t 4p
+* tuning: series 68 pF + variable pair 100p||... to ground-side leg
+Ctune d tn 68p
+Ctv tn gnd2 {Ct}
+Rtie gnd2 0 0.01
+Rleak tn 0 1e9
+L1 t g1 6u
+R27 t g1 27k
+Cc1 g1 gt 100p
+D1 0 gt D1N914
+R10 gt 0 10k
+Rg gt g 10
+J1 d g 0 J2N5486
+Cout d out 5p
+Rout out 0 10k
+.ic v(d)=12 v(g)=0
+.tran 20n 150u
+.control
+run
+meas tran vpk max v(out) from=100u to=150u
+meas tran t10 trig v(out) val=0 rise=1000 targ v(out) val=0 rise=1010
+let fosc = 10/t10
+echo "VXO peak = $&vpk V ; f = $&fosc Hz (assumed crystal fs ~9.0 MHz)"
+.endc
+.end

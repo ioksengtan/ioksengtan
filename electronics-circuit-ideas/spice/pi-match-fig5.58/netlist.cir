@@ -1,0 +1,22 @@
+* Fig 5.58 style Pi network, 50 ohm -> 200 ohm at 7.1 MHz, Q (input side) = 4.
+* Component values computed here with the standard Pi design equations (not from the book's figure).
+.param f0=7.1Meg
+Vin in 0 AC 1
+Rs in a 50
+* Pi: shunt C1 - series L - shunt C2
+* virtual R = 200/(1+Q^2)=11.76 ; Q50=1.80 (Xc1=27.7), Q200=4.0 (Xc2=50), XL=Rv*(Q50+Q200)=68.2
+C1 a 0 809p
+Ls a b 1.53u
+C2 b 0 448p
+RL b 0 200
+.ac lin 200 1Meg 20Meg
+.control
+run
+let pload = mag(v(b))*mag(v(b))/200
+let pavail = 1/(4*50)
+let loss = -10*log10(pload/pavail)
+meas ac loss7p1 find loss at=7.1Meg
+meas ac lossmin min loss
+echo "mismatch loss at 7.1 MHz = $&loss7p1 dB (min over sweep $&lossmin dB)"
+.endc
+.end
