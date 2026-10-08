@@ -1,0 +1,36 @@
+* ARRL Handbook 2011, Fig 7.69  13.8 V 5 A linear supply (G4YNM) - behavioural LM338 model
+* Not simulated: MC3423 crowbar, fuses, line filter.  Mains 60 Hz (Taiwan), T1 secondary 16 Vac.
+* LM338 modelled as: Vout = min(Vadj+1.25, Vin-2.5) (ideal, no current limit).
+* Vsec_rms: 16 V (minimum in the book) or 20 V (maximum); Vpk = rms*1.414
+.param Vpk=22.6
+Vac a 0 SIN(0 {Vpk} 60)
+* winding resistance is an assumption (0.1 ohm per leg), not from the book
+Rsec a a2 0.1
+* bridge rectifier U1 (1N4002 stand-ins)
+.model D1N4002 D(Is=14n Rs=0.033 N=1.99 Cjo=51p Bv=100 Ibv=5u)
+D1 a2 vp D1N4002
+D2 0 vp D1N4002
+D3 0 a3 D1N4002
+D4 a3 vp D1N4002
+Rsec2 a3 0 0.1
+C1 vp 0 10000u IC=0
+R1 vp 0 1k
+Bout out 0 V = (V(adj)+1.25 < V(vp)-2.5) ? (V(adj)+1.25) : (V(vp)-2.5)
+* pass element draws its output current from the unregulated rail
+Bi vp 0 I = -I(Bout)
+R3 out adj 120
+R2 adj m 1k
+R8 m 0 205
+C3 adj 0 10u
+C4 out 0 1u
+.param Rload=2.76
+Rl out 0 {Rload}
+.tran 0.2m 0.6 0 0.1m uic
+.control
+run
+meas tran vout_avg avg v(out) from=0.4 to=0.6
+meas tran vout_pp pp v(out) from=0.4 to=0.6
+meas tran vin_min min v(vp) from=0.4 to=0.6
+echo "Vout avg = $&vout_avg V, ripple p-p = $&vout_pp V, Vin min = $&vin_min V (load 2.76 ohm = 5 A)"
+.endc
+.end

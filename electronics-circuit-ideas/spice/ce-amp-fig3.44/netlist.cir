@@ -1,0 +1,24 @@
+* Fig 3.43/3.44 self-biased common-emitter amplifier with emitter bypass. 2N3904, Vcc 12 V.
+* Resistor values are chosen here for Ic ~ 1 mA (book gives the topology, not these numbers).
+.model Q2N3904 NPN(Is=6.7f Bf=416 Vaf=74 Cjc=3.6p Cje=4.5p Tf=0.3n Rb=10 Rc=1 Re=0.2 Ikf=0.07)
+Vcc vcc 0 12
+Vin in 0 AC 1 SIN(0 5m 1k)
+Cin in b 10u
+R1 vcc b 82k
+R2 b 0 15k
+Rc vcc c 4.7k
+Re e 0 1k
+Q1 c b e Q2N3904
+Ce e 0 100u
+Cout c out 10u
+RL out 0 10k
+.control
+op
+print i(Vcc)
+ac dec 20 10 10Meg
+meas ac gain find vdb(out) at=1k
+
+meas ac f3 when vdb(out)=39.3 cross=last
+echo "midband gain = $&gain dB ; low-frequency -3 dB corner ~ $&f3 Hz"
+.endc
+.end

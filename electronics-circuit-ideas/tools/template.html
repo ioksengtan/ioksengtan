@@ -1,0 +1,99 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>電子點子庫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* 工作台筆記本：淡灰綠方格紙底，焊錫銅色當唯一強調色，數字與頁碼用等寬字 */
+:root{
+  --bg:#edf0ec; --panel:#f7f9f6; --fg:#1d2a26; --muted:#5d6b66; --line:#cdd5cf; --accent:#a9501c; --accent-ink:#ffffff; --chip:#dfe6e1; --grid:#dde3de;
+  --f-body:"Noto Sans TC",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14201c;--panel:#1b2a25;--fg:#e4ece7;--muted:#97a8a0;--line:#2f423b;--accent:#e58a52;--accent-ink:#1a1210;--chip:#243630;--grid:#1a2823;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14201c;--panel:#1b2a25;--fg:#e4ece7;--muted:#97a8a0;--line:#2f423b;--accent:#e58a52;--accent-ink:#1a1210;--chip:#243630;--grid:#1a2823;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.65 var(--f-body);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;padding-inline:clamp(16px,4vw,48px);padding-block:28px 64px}
+.wrap{max-width:1100px;margin:0 auto}
+header{display:flex;gap:16px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;margin-bottom:20px}
+h1{font-size:clamp(26px,5vw,38px);margin:0;line-height:1.2;letter-spacing:.02em;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+.count{font-family:var(--f-mono);color:var(--muted);font-size:13px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=search]{flex:1 1 220px;min-width:0;font:inherit;padding:9px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px}
+select{font:inherit;padding:9px 10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px}
+button.chip{font:inherit;font-size:13px;padding:5px 11px;border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:999px;cursor:pointer}
+button.chip[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:14px;margin-top:18px}
+.card{background:var(--panel);border:1px solid var(--line);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h3{margin:0;font-size:16px;line-height:1.4}
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:12px}
+.tag{padding:1px 8px;border:1px solid var(--line);border-radius:3px;color:var(--muted)}
+.tag.p{border-color:var(--accent);color:var(--accent)}
+.src{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.card p{margin:0;font-size:14px}
+.idea{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto}
+.idea b{color:var(--accent);font-weight:500}
+.star{margin-left:auto;background:none;border:0;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;padding:0 2px}
+.star[aria-pressed=true]{color:var(--accent)}
+.top{display:flex;gap:8px;align-items:flex-start}
+.empty{padding:40px 0;color:var(--muted)}
+footer{margin-top:36px;color:var(--muted);font-size:13px;max-width:70ch}
+.b{padding:1px 8px;border-radius:3px;font-size:12px;border:1px solid var(--line)}
+.b.ok{border-color:#2f8f5b;color:#2f8f5b}.b.mid{border-color:#b7861f;color:#b7861f}.b.hard{border-color:#b23a3a;color:#b23a3a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .b.ok{color:#6fd39a;border-color:#6fd39a}:root:not([data-theme="light"]) .b.mid{color:#e6b84f;border-color:#e6b84f}:root:not([data-theme="light"]) .b.hard{color:#ef8a8a;border-color:#ef8a8a}}
+details{font-size:13px}summary{cursor:pointer;color:var(--accent)}
+pre{margin:8px 0 0;padding:10px;overflow:auto;max-height:260px;background:var(--bg);border:1px solid var(--line);font:12px/1.5 var(--f-mono)}
+.res{color:var(--fg);font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+</style>
+</head><body>
+<div class="wrap">
+<header>
+ <div><h1>電子點子庫</h1><p class="sub">整理自《The ARRL Handbook for Radio Communications 2011》的專案與電路積木，附 SPICE 可行性、台灣取得難度與已驗證的 netlist。</p></div>
+ <div class="count" id="count"></div>
+</header>
+<div class="bar">
+ <div class="row"><input type="search" id="q" placeholder="搜尋：LM317、VFO、濾波、keyer…" aria-label="搜尋">
+ <select id="lv" aria-label="難度"><option value="">難度不限</option><option>入門</option><option>中階</option><option>進階</option></select>
+ <select id="tp" aria-label="類型"><option value="">專案＋積木</option><option value="專案">完整專案</option><option value="積木">電路積木</option></select>
+ <select id="sp" aria-label="SPICE"><option value="">SPICE 不限</option><option>可</option><option>部分</option><option>難</option></select>
+ <select id="tw" aria-label="取得難度"><option value="">取得難度不限</option><option>易</option><option>中</option><option>難</option></select>
+ <button class="chip" id="nl" aria-pressed="false">有 netlist</button><button class="chip" id="fav" aria-pressed="false">只看收藏</button></div>
+ <div class="row" id="cats"></div>
+</div>
+<div class="grid" id="grid"></div>
+<footer>書中圖片受著作權保護，未放入此 repo；每筆以章節、PDF 頁碼與圖號指向原書。「SPICE」「台灣取得」兩欄與難度為我依內容和經驗所做的估計，沒有逐項查現貨。標示「已驗證」的 netlist 都在 ngspice 42 跑過，結果寫在卡片上，元件值若不是取自書中圖，卡片會註明。</footer>
+</div>
+<script>
+const D=__DATA__;
+const cats=[...new Set(D.map(x=>x.category))];
+let cat='',favs=new Set();
+try{favs=new Set(JSON.parse(localStorage.getItem('eci-favs')||'[]'))}catch(e){}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+const cls={'可':'ok','易':'ok','部分':'mid','中':'mid','難':'hard'};
+function save(){try{localStorage.setItem('eci-favs',JSON.stringify([...favs]))}catch(e){}}
+function chips(){const el=$('cats');el.innerHTML='';['全部',...cats].forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.setAttribute('aria-pressed',String((c==='全部'&&!cat)||c===cat));b.onclick=()=>{cat=c==='全部'?'':c;chips();render()};el.appendChild(b)})}
+function pressed(id){return $(id).getAttribute('aria-pressed')==='true'}
+function render(){
+ const q=$('q').value.trim().toLowerCase(),lv=$('lv').value,tp=$('tp').value,sp=$('sp').value,tw=$('tw').value;
+ const L=D.filter(x=>(!cat||x.category===cat)&&(!lv||x.level===lv)&&(!tp||x.type===tp)&&(!sp||x.spice===sp)&&(!tw||x.tw_sourcing===tw)&&(!pressed('nl')||x.netlist)&&(!pressed('fav')||favs.has(x.id))&&(!q||(x.name+x.description+x.idea+x.category+x.figures+x.note).toLowerCase().includes(q)));
+ $('count').textContent=L.length+' / '+D.length+' 筆';
+ const g=$('grid');
+ if(!L.length){g.innerHTML='<div class="empty">沒有符合的項目，換個關鍵字或放寬篩選。</div>';return}
+ g.innerHTML=L.map(x=>`<article class="card"><div class="top"><h3>${esc(x.name)}</h3><button class="star" data-id="${x.id}" aria-pressed="${favs.has(x.id)}" aria-label="收藏">${favs.has(x.id)?'★':'☆'}</button></div>
+<div class="meta"><span class="tag ${x.type==='專案'?'p':''}">${x.type}</span><span class="tag">${x.category}</span><span class="tag">${x.level}</span><span class="b ${cls[x.spice]}">SPICE ${x.spice}</span><span class="b ${cls[x.tw_sourcing]}">取得 ${x.tw_sourcing}</span></div>
+<p>${esc(x.description)}</p>${x.note?`<div class="note">${esc(x.note)}</div>`:''}
+<div class="src">第 ${x.chapter} 章 · PDF p.${x.pdf_page} · Fig ${esc(x.figures)}</div>
+${x.netlist?`<details><summary>netlist／testbench（已驗證）</summary><div class="res">${esc(x.sim_result)}</div><pre>${esc(x.netlist_text)}</pre><button class="chip cp" data-id="${x.id}">複製 netlist</button></details>`:''}
+<div class="idea"><b>點子</b>　${esc(x.idea)}</div></article>`).join('');
+}
+$('grid').addEventListener('click',e=>{
+ const c=e.target.closest('.cp');if(c){const x=D.find(d=>d.id==+c.dataset.id);try{navigator.clipboard.writeText(x.netlist_text).then(()=>c.textContent='已複製',()=>{c.textContent='複製失敗，請手動選取'})}catch(_){c.textContent='複製失敗，請手動選取'}return}
+ const b=e.target.closest('.star');if(!b)return;const id=+b.dataset.id;favs.has(id)?favs.delete(id):favs.add(id);save();render()});
+['q','lv','tp','sp','tw'].forEach(i=>$(i).addEventListener('input',render));
+['fav','nl'].forEach(i=>$(i).onclick=function(){this.setAttribute('aria-pressed',String(!pressed(i)));render()});
+chips();render();
+</script>
+</body></html>
