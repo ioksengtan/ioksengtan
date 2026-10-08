@@ -1,0 +1,18 @@
+* Fig 7.30 buck converter, 12 V -> D=0.5 -> ~6 V. 100 kHz, L=100 uH, C=100 uF, load 6 ohm (1 A). Ideal switch + 1N5819 style diode.
+.model SW1 SW(Ron=0.05 Roff=1Meg Vt=0.5 Vh=0)
+.model DSCH D(Is=1u Rs=0.05 N=1.05 Cjo=100p Bv=40)
+Vin in 0 12
+Vpwm g 0 PULSE(0 1 0 10n 10n 5u 10u)
+S1 in sw g 0 SW1
+D1 0 sw DSCH
+L1 sw o 100u
+Cout o 0 100u
+Rl o 0 6
+.tran 50n 12m 0 50n
+.control
+run
+meas tran vavg avg v(o) from=11m to=12m
+meas tran vpp pp v(o) from=11m to=12m
+echo "buck: Vout avg = $&vavg V (ideal 6 V), ripple p-p = $&vpp V"
+.endc
+.end

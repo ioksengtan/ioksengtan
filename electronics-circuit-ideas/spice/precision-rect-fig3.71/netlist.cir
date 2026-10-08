@@ -1,0 +1,24 @@
+* Fig 3.71 half-wave precision rectifier, op amp with diode in the loop (non-inverting form), 1N4148.
+* Input 100 mVpk 1 kHz would vanish with a plain diode; the op-amp loop recovers it.
+* Op-amp model: DC gain 1e4, pole 10 kHz, output clamped +-9 V inside the pole (a 5 Hz-pole model saturates and recovers far too slowly for a transient test).
+.model D1N4148 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+.subckt opal p n out
+Bg 1 0 V={ 9*tanh(1e4*(v(p)-v(n))/9) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*10k)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+Vin in 0 SIN(0 0.1 1k)
+Xa in fb a opal
+D1 a o D1N4148
+Rl o 0 10k
+Rfb o fb 1
+.tran 5u 3m
+.control
+run
+meas tran vo_pk max v(o) from=1m to=3m
+meas tran vo_min min v(o) from=1m to=3m
+echo "output peak = $&vo_pk V (input peak 0.1 V; plain diode would give ~0), negative swing = $&vo_min V"
+.endc
+.end

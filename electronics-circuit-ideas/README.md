@@ -21,6 +21,17 @@
 | 全波倍壓器 | `doubler-fig7.10` | 約 31.1 V |
 | 運放反相／非反相 | `opamp-basics-fig3.61` | 增益 20.0 dB，頻寬 99 kHz |
 | 共射極放大器 | `ce-amp-fig3.44` | 增益 42.4 dB，Ic 約 1.28 mA |
+| Zener 並聯穩壓 | `zener-reg-fig3.20` | 負載 0.5→10 mA：5.23→5.13 V |
+| 施密特觸發器 | `comparator-hyst-fig3.68` | 門檻 −0.47／+0.47 V（理論 ±0.4545） |
+| 光電二極體跨阻放大 | `photodiode-tia-fig3.28` | 120 dBΩ，−3 dB 約 100 kHz |
+| 精密半波整流 | `precision-rect-fig3.71` | 100 mV 輸入 → 100.0 mV 輸出 |
+| Colpitts 振盪器 | `colpitts-fig9.12` | 10.02 MHz（理論 10.2） |
+| AM 包絡偵測 | `am-detector-fig8.3` | 還原音訊約 0.81 Vp-p |
+| Sallen-Key 低通 | `sallen-key-fig3.69` | fc 1000.3 Hz（理論 1000.7） |
+| Wien 電橋振盪器 | `wien-osc-fig25.20` | 990 Hz（理論 1 kHz），二極體穩幅為我的假設 |
+| 降壓轉換器 | `buck-fig7.30` | 12 V→5.78 V，漣波 4 mVp-p |
+| JFET 共源放大 | `jfet-cs-fig3.51` | 中頻增益 14.7 dB |
+| 二極體環形 DBM | `diode-dbm-fig10.22` | 1 MHz／19 MHz 中頻各約 12 mV 峰值（轉換損耗約 −8 dB 量級，粗估） |
 
 元件值取自書中圖的只有 80 m 低通濾波器與 13.8 V 電源；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
 
