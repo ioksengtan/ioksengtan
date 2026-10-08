@@ -1,0 +1,287 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>電子點子撲克牌 列印版</title><style>
+:root{--paper:#f8f7f2;--ink:#1d2a2c;--red:#b3402a;--grid:#e3e6df;--ok:#2f7a52;--mid:#9a6f12;--hard:#a53a3a;--felt:#173a34;--felt2:#0f2a26}
+*{box-sizing:border-box}
+.card{position:relative;width:63.5mm;height:88.9mm;background:var(--paper);color:var(--ink);border-radius:3.2mm;border:.3mm solid #c9ccc2;overflow:hidden;font-family:"Noto Sans TC","Noto Sans CJK TC",system-ui,sans-serif;background-image:linear-gradient(var(--grid) .2mm,transparent .2mm),linear-gradient(90deg,var(--grid) .2mm,transparent .2mm);background-size:4mm 4mm;display:flex;flex-direction:column;break-inside:avoid}
+.card.red{--ink:#7d2b1c;color:var(--red)}.card.red h3,.card.red p,.card.red .parts,.card.red .src{color:#2a1f1c}
+.idx{position:absolute;display:flex;flex-direction:column;align-items:center;line-height:1;font-weight:700}
+.idx b{font-size:6.2mm}.idx span{font-size:5.2mm;margin-top:.4mm}
+.tl{left:2.6mm;top:2.4mm}.br{right:2.6mm;bottom:2.4mm;transform:rotate(180deg)}
+.face{margin:6.5mm 8mm 0;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.6mm;padding-top:2mm}
+.glyph{width:15mm;height:15mm;color:var(--ink)}
+.card.red .glyph{color:var(--red)}
+h3{margin:1mm 0 0;font-size:4.5mm;line-height:1.25;color:var(--ink)}
+.face p{margin:0;font-size:3mm;line-height:1.5;color:#33403f}
+.parts{margin-top:auto;font-size:2.6mm;line-height:1.4;border-top:.25mm dashed #aab1a8;padding-top:1.6mm;width:100%;color:#46514f}
+.foot{margin:0 10mm 3mm 10mm;display:flex;flex-direction:column;gap:1.2mm;align-items:center}
+.chips{display:flex;gap:1mm;flex-wrap:nowrap}
+.chip{font-size:2.3mm;line-height:1;padding:.8mm 1.4mm;border-radius:1mm;border:.25mm solid;white-space:nowrap}
+.chip i{font-style:normal;opacity:.65;margin-right:.6mm}
+.chip.ok{color:var(--ok)}.chip.mid{color:var(--mid)}.chip.hard{color:var(--hard)}
+.src{font-size:2.2mm;color:#5d6866;font-family:ui-monospace,Menlo,monospace}.nl{border:.2mm solid currentColor;border-radius:.8mm;padding:0 .8mm;margin-left:1mm}
+
+@page{size:A4;margin:0}body{margin:0;background:#fff}
+.sheet{width:210mm;height:297mm;padding:15.15mm 0 0 9.75mm;display:grid;grid-template-columns:repeat(3,63.5mm);grid-auto-rows:88.9mm;break-after:page}
+.sheet .card{border-radius:0;border:.15mm solid #999;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.back{background:linear-gradient(135deg,#173a34,#0f2a26);color:#e9f1ec;border-radius:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3mm;border:.15mm solid #999;font-family:"Noto Sans TC","Noto Sans CJK TC",sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.back svg{width:22mm;height:22mm}.back b{font-size:5.5mm;letter-spacing:.5mm}.back small{font-size:2.8mm;opacity:.7}
+</style></head><body><section class="sheet"><article class="card ink" data-suit="S" data-id="96" tabindex="0" aria-label="♠A 運放基本組態">
+<div class="idx tl"><b>A</b><span>♠</span></div><div class="idx br"><b>A</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>運放基本組態</h3><p>反相與非反相放大，增益 = 1 + Rf/Rg</p><div class="parts">741／LM358、電阻</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.153 <span class="nl">netlist</span></div></div></article><article class="card ink" data-suit="S" data-id="105" tabindex="0" aria-label="♠2 Zener 穩壓">
+<div class="idx tl"><b>2</b><span>♠</span></div><div class="idx br"><b>2</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24l16-12z"/><path d="M32 12v24"/></svg>
+<h3>Zener 穩壓</h3><p>一顆 Zener 加電阻就是最小的電壓參考</p><div class="parts">Zener 二極體、電阻</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.125 </div></div></article><article class="card ink" data-suit="S" data-id="10" tabindex="0" aria-label="♠3 整流與倍壓">
+<div class="idx tl"><b>3</b><span>♠</span></div><div class="idx br"><b>3</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24l16-12z"/><path d="M32 12v24"/></svg>
+<h3>整流與倍壓</h3><p>橋式整流、半波與全波倍壓</p><div class="parts">1N4002 ×4、電解電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch7 · PDF p.288 <span class="nl">netlist</span></div></div></article><article class="card ink" data-suit="S" data-id="97" tabindex="0" aria-label="♠4 比較器與遲滯">
+<div class="idx tl"><b>4</b><span>♠</span></div><div class="idx br"><b>4</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>比較器與遲滯</h3><p>加一顆回授電阻消除輸出抖動</p><div class="parts">LM339／LM311、電阻</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.155 </div></div></article><article class="card ink" data-suit="S" data-id="103" tabindex="0" aria-label="♠5 電晶體驅動與緩衝">
+<div class="idx tl"><b>5</b><span>♠</span></div><div class="idx br"><b>5</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="24" r="16"/><path d="M2 24h14M16 14v20M16 28l16 10M16 20l16-10"/><path d="M28 34l4 4-6 1z" fill="currentColor"/></svg>
+<h3>電晶體驅動與緩衝</h3><p>BJT 或 MOSFET 驅動負載，附 snubber</p><div class="parts">2N3904、MOSFET、RC</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.149 </div></div></article><article class="card ink" data-suit="S" data-id="101" tabindex="0" aria-label="♠6 BJT 放大器">
+<div class="idx tl"><b>6</b><span>♠</span></div><div class="idx br"><b>6</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="24" r="16"/><path d="M2 24h14M16 14v20M16 28l16 10M16 20l16-10"/><path d="M28 34l4 4-6 1z" fill="currentColor"/></svg>
+<h3>BJT 放大器</h3><p>共射、共基、射極隨耦三種組態</p><div class="parts">2N3904、電阻、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.140 <span class="nl">netlist</span></div></div></article><article class="card ink" data-suit="S" data-id="102" tabindex="0" aria-label="♠7 FET 放大器">
+<div class="idx tl"><b>7</b><span>♠</span></div><div class="idx br"><b>7</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="24" r="16"/><path d="M2 24h14M16 14v20M16 28l16 10M16 20l16-10"/><path d="M28 34l4 4-6 1z" fill="currentColor"/></svg>
+<h3>FET 放大器</h3><p>共源、共汲、共閘，共閘常當前置放大</p><div class="parts">JFET、電阻、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.148 </div></div></article><article class="card ink" data-suit="S" data-id="104" tabindex="0" aria-label="♠8 光電二極體放大">
+<div class="idx tl"><b>8</b><span>♠</span></div><div class="idx br"><b>8</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24l16-12z"/><path d="M32 12v24"/></svg>
+<h3>光電二極體放大</h3><p>光電流轉電壓，附光耦合器隔離</p><div class="parts">光電二極體、運放</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.131 </div></div></article><article class="card ink" data-suit="S" data-id="11" tabindex="0" aria-label="♠9 LM317 可調穩壓">
+<div class="idx tl"><b>9</b><span>♠</span></div><div class="idx br"><b>9</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8M38 24h8"/><rect x="10" y="12" width="28" height="24"/><path d="M16 26c3-8 5 8 8 0s5 8 8 0"/></svg>
+<h3>LM317 可調穩壓</h3><p>兩顆電阻決定輸出，也能做定電流源</p><div class="parts">LM317、兩顆電阻</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch7 · PDF p.298 <span class="nl">netlist</span></div></div></article></section><section class="sheet"><article class="card ink" data-suit="S" data-id="8" tabindex="0" aria-label="♠10 過壓 Crowbar">
+<div class="idx tl"><b>10</b><span>♠</span></div><div class="idx br"><b>10</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8M38 24h8"/><rect x="10" y="12" width="28" height="24"/><path d="M16 26c3-8 5 8 8 0s5 8 8 0"/></svg>
+<h3>過壓 Crowbar</h3><p>穩壓器損壞時用 SCR 短路保護負載</p><div class="parts">MC3423（已停產）、SCR</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch7 · PDF p.341 </div></div></article><article class="card ink" data-suit="S" data-id="3" tabindex="0" aria-label="♠J 13.8 V 5 A 電源">
+<div class="idx tl"><b>J</b><span>♠</span></div><div class="idx br"><b>J</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8M38 24h8"/><rect x="10" y="12" width="28" height="24"/><path d="M16 26c3-8 5 8 8 0s5 8 8 0"/></svg>
+<h3>13.8 V 5 A 電源</h3><p>LM338 穩壓加限流、過壓保護</p><div class="parts">LM338、MC3423、10,000 µF</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch7 · PDF p.331 <span class="nl">netlist</span></div></div></article><article class="card ink" data-suit="S" data-id="98" tabindex="0" aria-label="♠Q 精密整流與峰值">
+<div class="idx tl"><b>Q</b><span>♠</span></div><div class="idx br"><b>Q</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>精密整流與峰值</h3><p>運放消除二極體壓降，做電平偵測</p><div class="parts">運放、1N4148、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch3 · PDF p.156 </div></div></article><article class="card ink" data-suit="S" data-id="2" tabindex="0" aria-label="♠K 12 V 15 A 線性電源">
+<div class="idx tl"><b>K</b><span>♠</span></div><div class="idx br"><b>K</b><span>♠</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8M38 24h8"/><rect x="10" y="12" width="28" height="24"/><path d="M16 26c3-8 5 8 8 0s5 8 8 0"/></svg>
+<h3>12 V 15 A 線性電源</h3><p>可調輸出與限流，加通道電晶體可到 30 A</p><div class="parts">通道電晶體、運放</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch7 · PDF p.326 </div></div></article><article class="card red" data-suit="H" data-id="16" tabindex="0" aria-label="♥A 邏輯閘振盪器">
+<div class="idx tl"><b>A</b><span>♥</span></div><div class="idx br"><b>A</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24M32 12v24"/><rect x="21" y="14" width="6" height="20"/></svg>
+<h3>邏輯閘振盪器</h3><p>反相閘加晶體，最簡單的時脈源</p><div class="parts">74HC04、晶體</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch9 · PDF p.396 </div></div></article><article class="card red" data-suit="H" data-id="28" tabindex="0" aria-label="♥2 AM 調變與包絡偵測">
+<div class="idx tl"><b>2</b><span>♥</span></div><div class="idx br"><b>2</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24l16-12z"/><path d="M32 12v24"/></svg>
+<h3>AM 調變與包絡偵測</h3><p>二極體加電容就能解出 AM 音訊</p><div class="parts">二極體、電容、電阻</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch8 · PDF p.345 </div></div></article><article class="card red" data-suit="H" data-id="17" tabindex="0" aria-label="♥3 Colpitts／Hartley">
+<div class="idx tl"><b>3</b><span>♥</span></div><div class="idx br"><b>3</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>Colpitts／Hartley</h3><p>最常見的 LC 振盪器基本款</p><div class="parts">電晶體、電感、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch9 · PDF p.380 </div></div></article><article class="card red" data-suit="H" data-id="15" tabindex="0" aria-label="♥4 Butler 晶體振盪器">
+<div class="idx tl"><b>4</b><span>♥</span></div><div class="idx br"><b>4</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24M32 12v24"/><rect x="21" y="14" width="6" height="20"/></svg>
+<h3>Butler 晶體振盪器</h3><p>串聯模式晶體，穩定又好起振</p><div class="parts">晶體、電晶體</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch9 · PDF p.393 </div></div></article><article class="card red" data-suit="H" data-id="14" tabindex="0" aria-label="♥5 寬範圍 VXO">
+<div class="idx tl"><b>5</b><span>♥</span></div><div class="idx br"><b>5</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24M32 12v24"/><rect x="21" y="14" width="6" height="20"/></svg>
+<h3>寬範圍 VXO</h3><p>晶體串可變電容，微調幾 kHz</p><div class="parts">晶體、可變電容、JFET</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch9 · PDF p.395 </div></div></article></section><section class="sheet"><article class="card red" data-suit="H" data-id="26" tabindex="0" aria-label="♥6 JFET／BJT 主動混頻">
+<div class="idx tl"><b>6</b><span>♥</span></div><div class="idx br"><b>6</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="24" r="16"/><path d="M2 24h14M16 14v20M16 28l16 10M16 20l16-10"/><path d="M28 34l4 4-6 1z" fill="currentColor"/></svg>
+<h3>JFET／BJT 主動混頻</h3><p>電晶體混頻的動態範圍比較</p><div class="parts">2N4416、2N3904</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch10 · PDF p.450 </div></div></article><article class="card red" data-suit="H" data-id="25" tabindex="0" aria-label="♥7 二極體雙平衡混頻">
+<div class="idx tl"><b>7</b><span>♥</span></div><div class="idx br"><b>7</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24l16-12z"/><path d="M32 12v24"/></svg>
+<h3>二極體雙平衡混頻</h3><p>二極體環加 diplexer 終端</p><div class="parts">二極體環、變壓器</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch10 · PDF p.444 </div></div></article><article class="card red" data-suit="H" data-id="27" tabindex="0" aria-label="♥8 電抗與 PLL 調頻">
+<div class="idx tl"><b>8</b><span>♥</span></div><div class="idx br"><b>8</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>電抗與 PLL 調頻</h3><p>變容二極體調頻，附 MC3359 FM 子系統</p><div class="parts">變容二極體、MC3359</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch10 · PDF p.434 </div></div></article><article class="card red" data-suit="H" data-id="23" tabindex="0" aria-label="♥9 MC1496 平衡調變">
+<div class="idx tl"><b>9</b><span>♥</span></div><div class="idx br"><b>9</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="8" width="24" height="32"/><path d="M6 14h6M6 22h6M6 30h6M36 14h6M36 22h6M36 30h6"/><path d="M20 8c0 4 8 4 8 0"/></svg>
+<h3>MC1496 平衡調變</h3><p>載波抑制超過 50 dB 的 9 MHz 調變器</p><div class="parts">MC1496、麥克風放大</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch10 · PDF p.457 </div></div></article><article class="card red" data-suit="H" data-id="20" tabindex="0" aria-label="♥10 Tayloe 偵測器">
+<div class="idx tl"><b>10</b><span>♥</span></div><div class="idx br"><b>10</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="8" width="24" height="32"/><path d="M6 14h6M6 22h6M6 30h6M36 14h6M36 22h6M36 30h6"/><path d="M20 8c0 4 8 4 8 0"/></svg>
+<h3>Tayloe 偵測器</h3><p>四位置開關做正交降頻，軟體無線電前端</p><div class="parts">取樣開關、74AC74、運放</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch10 · PDF p.452 </div></div></article><article class="card red" data-suit="H" data-id="29" tabindex="0" aria-label="♥J I/Q 調變解調">
+<div class="idx tl"><b>J</b><span>♥</span></div><div class="idx br"><b>J</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="8" width="24" height="32"/><path d="M6 14h6M6 22h6M6 30h6M36 14h6M36 22h6M36 30h6"/><path d="M20 8c0 4 8 4 8 0"/></svg>
+<h3>I/Q 調變解調</h3><p>兩個混頻器加 90° 移相產生 SSB</p><div class="parts">混頻器 ×2、移相網路</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch8 · PDF p.353 </div></div></article><article class="card red" data-suit="H" data-id="13" tabindex="0" aria-label="♥Q 11.1 MHz 高穩定 VFO">
+<div class="idx tl"><b>Q</b><span>♥</span></div><div class="idx br"><b>Q</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>11.1 MHz 高穩定 VFO</h3><p>band-set／bandspread 取代減速機構</p><div class="parts">JFET、2N3904 緩衝</div></div>
+<div class="foot"><div class="chips"><span class="chip hard"><i>難度</i>進階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch9 · PDF p.384 </div></div></article><article class="card red" data-suit="H" data-id="12" tabindex="0" aria-label="♥K N1UL Vackar VFO">
+<div class="idx tl"><b>K</b><span>♥</span></div><div class="idx br"><b>K</b><span>♥</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>N1UL Vackar VFO</h3><p>輕耦合諧振器，5.5–6.6 MHz 仍穩定</p><div class="parts">可變電容、電晶體、緩衝</div></div>
+<div class="foot"><div class="chips"><span class="chip hard"><i>難度</i>進階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch9 · PDF p.382 </div></div></article><article class="card red" data-suit="D" data-id="32" tabindex="0" aria-label="♦A 廣播 Wave Trap">
+<div class="idx tl"><b>A</b><span>♦</span></div><div class="idx br"><b>A</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>廣播 Wave Trap</h3><p>一顆線圈加可變電容，陷掉廣播電台</p><div class="parts">線圈、300 pF 可變電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.506 <span class="nl">netlist</span></div></div></article></section><section class="sheet"><article class="card red" data-suit="D" data-id="68" tabindex="0" aria-label="♦2 L、Pi、T 匹配網路">
+<div class="idx tl"><b>2</b><span>♦</span></div><div class="idx br"><b>2</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>L、Pi、T 匹配網路</h3><p>把複數阻抗匹配成 50 Ω</p><div class="parts">電感、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch5 · PDF p.231 <span class="nl">netlist</span></div></div></article><article class="card red" data-suit="D" data-id="36" tabindex="0" aria-label="♦3 主動 RC 音訊濾波">
+<div class="idx tl"><b>3</b><span>♦</span></div><div class="idx br"><b>3</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>主動 RC 音訊濾波</h3><p>運放同時濾波與放大，不怕嗡聲</p><div class="parts">運放、電阻、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch11 · PDF p.481 </div></div></article><article class="card red" data-suit="D" data-id="31" tabindex="0" aria-label="♦4 廣播頻段拒斥">
+<div class="idx tl"><b>4</b><span>♦</span></div><div class="idx br"><b>4</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>廣播頻段拒斥</h3><p>1.8–30 MHz 幾乎無損通過</p><div class="parts">LC 濾波、50 Ω 兩端</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.505 </div></div></article><article class="card red" data-suit="D" data-id="73" tabindex="0" aria-label="♦5 音頻天線電橋">
+<div class="idx tl"><b>5</b><span>♦</span></div><div class="idx br"><b>5</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V14M24 14l-12-8M24 14l12-8M24 22l-8-5M24 22l8-5"/><path d="M14 44h20"/></svg>
+<h3>音頻天線電橋</h3><p>用聲音指示阻抗，視障也能調天線</p><div class="parts">電橋、音頻輸出</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch24 · PDF p.1031 </div></div></article><article class="card red" data-suit="D" data-id="34" tabindex="0" aria-label="♦6 Diplexer 濾波器">
+<div class="idx tl"><b>6</b><span>♦</span></div><div class="idx br"><b>6</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>Diplexer 濾波器</h3><p>混頻器終端不再反射不要的頻率</p><div class="parts">電感、電容、50 Ω 終端</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.507 </div></div></article><article class="card red" data-suit="D" data-id="33" tabindex="0" aria-label="♦7 80 m 低通濾波器">
+<div class="idx tl"><b>7</b><span>♦</span></div><div class="idx br"><b>7</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>80 m 低通濾波器</h3><p>兩個陷波壓制諧波，已用 SPICE 驗證</p><div class="parts">L 1.5 µH／1.3 µH、5 個電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.507 <span class="nl">netlist</span></div></div></article><article class="card red" data-suit="D" data-id="35" tabindex="0" aria-label="♦8 1.8–54 MHz 低通">
+<div class="idx tl"><b>8</b><span>♦</span></div><div class="idx br"><b>8</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h8c0-8 8-8 8 0M18 24h12M30 24c0-8 8-8 8 0h8"/><path d="M10 24v14M18 24v14M30 24v14M38 24v14M6 38h36"/></svg>
+<h3>1.8–54 MHz 低通</h3><p>160–6 m 一個盒子，可處理法規上限</p><div class="parts">環形磁芯電感、NP0 電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.510 </div></div></article><article class="card red" data-suit="D" data-id="30" tabindex="0" aria-label="♦9 8.5 MHz 晶體梯形">
+<div class="idx tl"><b>9</b><span>♦</span></div><div class="idx br"><b>9</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 24h14M32 24h14M16 12v24M32 12v24"/><rect x="21" y="14" width="6" height="20"/></svg>
+<h3>8.5 MHz 晶體梯形</h3><p>自己決定 IF 頻率的 SSB 窄濾波器</p><div class="parts">8.5 MHz 晶體、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch11 · PDF p.504 </div></div></article><article class="card red" data-suit="D" data-id="69" tabindex="0" aria-label="♦10 Guanella balun">
+<div class="idx tl"><b>10</b><span>♦</span></div><div class="idx br"><b>10</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>Guanella balun</h3><p>1:1 傳輸線變壓器，抑制共模電流</p><div class="parts">鐵氧體磁芯、繞線</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch5 · PDF p.234 </div></div></article></section><section class="sheet"><article class="card red" data-suit="D" data-id="65" tabindex="0" aria-label="♦J Z-Match 調諧器">
+<div class="idx tl"><b>J</b><span>♦</span></div><div class="idx br"><b>J</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V14M24 14l-12-8M24 14l12-8M24 22l-8-5M24 22l8-5"/><path d="M14 44h20"/></svg>
+<h3>Z-Match 調諧器</h3><p>兩個旋鈕匹配各波段，100 W</p><div class="parts">環形磁芯、可變電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch24 · PDF p.1012 </div></div></article><article class="card red" data-suit="D" data-id="66" tabindex="0" aria-label="♦Q 43 呎直立匹配">
+<div class="idx tl"><b>Q</b><span>♦</span></div><div class="idx br"><b>Q</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V14M24 14l-12-8M24 14l12-8M24 22l-8-5M24 22l8-5"/><path d="M14 44h20"/></svg>
+<h3>43 呎直立匹配</h3><p>160／80 m 的底部匹配網路</p><div class="parts">鐵氧體磁芯、跳線</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch24 · PDF p.1020 </div></div></article><article class="card red" data-suit="D" data-id="67" tabindex="0" aria-label="♦K 匹配網路切換">
+<div class="idx tl"><b>K</b><span>♦</span></div><div class="idx br"><b>K</b><span>♦</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V14M24 14l-12-8M24 14l12-8M24 22l-8-5M24 22l8-5"/><path d="M14 44h20"/></svg>
+<h3>匹配網路切換</h3><p>繼電器遠端切換 160／80 m</p><div class="parts">繼電器、控制電路</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch24 · PDF p.1022 </div></div></article><article class="card ink" data-suit="C" data-id="93" tabindex="0" aria-label="♣A RF Sniffer">
+<div class="idx tl"><b>A</b><span>♣</span></div><div class="idx br"><b>A</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="28"/><path d="M10 24c4-10 8 10 12 0s8 10 12 0"/><path d="M14 42h20"/></svg>
+<h3>RF Sniffer</h3><p>聽見家裡電器發出的干擾雜訊</p><div class="parts">偵測電路、耳機</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch27 · PDF p.1182 </div></div></article><article class="card ink" data-suit="C" data-id="39" tabindex="0" aria-label="♣2 現代礦石收音機">
+<div class="idx tl"><b>2</b><span>♣</span></div><div class="idx br"><b>2</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 32h6c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0c0-12 8-12 8 0h6"/></svg>
+<h3>現代礦石收音機</h3><p>二極體檢波，不需電池</p><div class="parts">二極體、線圈、可變電容</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch12 · PDF p.518 </div></div></article><article class="card ink" data-suit="C" data-id="48" tabindex="0" aria-label="♣3 麥克風放大器">
+<div class="idx tl"><b>3</b><span>♣</span></div><div class="idx br"><b>3</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="24" r="16"/><path d="M2 24h14M16 14v20M16 28l16 10M16 20l16-10"/><path d="M28 34l4 4-6 1z" fill="currentColor"/></svg>
+<h3>麥克風放大器</h3><p>高低阻抗麥克風都適用的前級</p><div class="parts">放大電路</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch13 · PDF p.571 </div></div></article><article class="card ink" data-suit="C" data-id="86" tabindex="0" aria-label="♣4 741 音訊振盪器">
+<div class="idx tl"><b>4</b><span>♣</span></div><div class="idx br"><b>4</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>741 音訊振盪器</h3><p>8 Hz–150 kHz 的測試訊號源</p><div class="parts">741、雙 9 V 電池</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch25 · PDF p.1075 </div></div></article><article class="card ink" data-suit="C" data-id="84" tabindex="0" aria-label="♣5 標記產生器">
+<div class="idx tl"><b>5</b><span>♣</span></div><div class="idx br"><b>5</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="28"/><path d="M10 24c4-10 8 10 12 0s8 10 12 0"/><path d="M14 42h20"/></svg>
+<h3>標記產生器</h3><p>100／50／25 kHz 間隔校準接收機刻度</p><div class="parts">振盪器、除頻電路</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch25 · PDF p.1070 </div></div></article><article class="card ink" data-suit="C" data-id="47" tabindex="0" aria-label="♣6 晶體控制 CW 發射機">
+<div class="idx tl"><b>6</b><span>♣</span></div><div class="idx br"><b>6</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 34h40M10 34v-6M38 34v-6"/><path d="M8 24l30-8"/><circle cx="40" cy="15" r="3"/></svg>
+<h3>晶體控制 CW 發射機</h3><p>一級振盪、兩級放大加濾波</p><div class="parts">晶體、2N2102、低通</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch13 · PDF p.563 </div></div></article></section><section class="sheet"><article class="card ink" data-suit="C" data-id="87" tabindex="0" aria-label="♣7 DVM 測電感電容">
+<div class="idx tl"><b>7</b><span>♣</span></div><div class="idx br"><b>7</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="28"/><path d="M10 24c4-10 8 10 12 0s8 10 12 0"/><path d="M14 42h20"/></svg>
+<h3>DVM 測電感電容</h3><p>用萬用表整理零件盒</p><div class="parts">數位電表、簡易電路</div></div>
+<div class="foot"><div class="chips"><span class="chip ok"><i>難度</i>入門</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch25 · PDF p.1076 </div></div></article><article class="card ink" data-suit="C" data-id="50" tabindex="0" aria-label="♣8 CW 波形整形">
+<div class="idx tl"><b>8</b><span>♣</span></div><div class="idx br"><b>8</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 34h40M10 34v-6M38 34v-6"/><path d="M8 24l30-8"/><circle cx="40" cy="15" r="3"/></svg>
+<h3>CW 波形整形</h3><p>柔化鍵控邊緣，消除 key click</p><div class="parts">運放、電阻、電容</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch13 · PDF p.576 </div></div></article><article class="card ink" data-suit="C" data-id="49" tabindex="0" aria-label="♣9 語音限幅與壓縮">
+<div class="idx tl"><b>9</b><span>♣</span></div><div class="idx br"><b>9</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg>
+<h3>語音限幅與壓縮</h3><p>讓 SSB 語音更有力</p><div class="parts">運放、二極體</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch13 · PDF p.572 </div></div></article><article class="card ink" data-suit="C" data-id="77" tabindex="0" aria-label="♣10 萬用鍵控轉接器">
+<div class="idx tl"><b>10</b><span>♣</span></div><div class="idx br"><b>10</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 34h40M10 34v-6M38 34v-6"/><path d="M8 24l30-8"/><circle cx="40" cy="15" r="3"/></svg>
+<h3>萬用鍵控轉接器</h3><p>老電台接電子鍵控器，隔離按鍵電壓</p><div class="parts">隔離鍵控電路</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch24 · PDF p.1040 </div></div></article><article class="card ink" data-suit="C" data-id="85" tabindex="0" aria-label="♣J 數位柵流表">
+<div class="idx tl"><b>J</b><span>♣</span></div><div class="idx br"><b>J</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="28"/><path d="M10 24c4-10 8 10 12 0s8 10 12 0"/><path d="M14 42h20"/></svg>
+<h3>數位柵流表</h3><p>FET 振盪器找諧振，三位數顯示頻率</p><div class="parts">FET、倍壓偵測、顯示</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip ok"><i>SPICE</i>可</span><span class="chip ok"><i>取得</i>易</span></div>
+<div class="src">Ch25 · PDF p.1072 </div></div></article><article class="card ink" data-suit="C" data-id="52" tabindex="0" aria-label="♣Q MicroT2 發射機">
+<div class="idx tl"><b>Q</b><span>♣</span></div><div class="idx br"><b>Q</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 34h40M10 34v-6M38 34v-6"/><path d="M8 24l30-8"/><circle cx="40" cy="15" r="3"/></svg>
+<h3>MicroT2 發射機</h3><p>40 m SSB／CW，內建 VXO 與 0.5 W 功放</p><div class="parts">VXO、功放、低通</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch13 · PDF p.580 </div></div></article><article class="card ink" data-suit="C" data-id="37" tabindex="0" aria-label="♣K MicroR2 接收機">
+<div class="idx tl"><b>K</b><span>♣</span></div><div class="idx br"><b>K</b><span>♣</span></div>
+<div class="face"><svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V14M24 14l-12-8M24 14l12-8M24 22l-8-5M24 22l8-5"/><path d="M14 44h20"/></svg>
+<h3>MicroR2 接收機</h3><p>易製作的 SSB／CW 接收機</p><div class="parts">見書中表 12.3</div></div>
+<div class="foot"><div class="chips"><span class="chip mid"><i>難度</i>中階</span><span class="chip mid"><i>SPICE</i>部分</span><span class="chip mid"><i>取得</i>中</span></div>
+<div class="src">Ch12 · PDF p.532 </div></div></article></section><section class="sheet"><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div><div class="back"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 8v32l28-16z"/><path d="M2 18h8M2 30h8M38 24h8"/><path d="M14 18h6M17 15v6M14 30h6"/></svg><b>電子點子</b><small>ARRL Handbook 2011</small></div></section></body></html>

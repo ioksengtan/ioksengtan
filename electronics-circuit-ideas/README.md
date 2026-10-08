@@ -6,7 +6,8 @@
 - `data/circuits.json`、`data/circuits.csv`：全部資料，是頁面的資料來源
 - `spice/`：已在 ngspice 42 驗證的 netlist 與 testbench，每個資料夾一個電路
 - `spice/wip/`：未通過驗證的嘗試（目前是 VXO）
-- `tools/build_site.py`：由 `data/` 與 `spice/` 重建 `index.html`
+- `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
+- `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 
 ## 驗證過的 netlist
 
@@ -35,3 +36,7 @@
 sudo apt install ngspice
 cd spice/lpf-80m-fig11.95 && ngspice -b netlist.cir
 ```
+
+## 撲克牌
+
+四種花色是四個領域：♠ 電源與類比、♥ 振盪與混頻、♦ 濾波與匹配、♣ 收發與工具。每個花色 A 到 K 由易到難。只挑「SPICE 可行性為可或部分」且「台灣取得難度為易或中」的電路，所以真空管、微波、高壓都不在內。
