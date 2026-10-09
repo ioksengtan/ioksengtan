@@ -1,0 +1,30 @@
+* Audio oscillator after Fig 25.20 (741-based, lamp-stabilised). Wien bridge, R=2.2k + 100k pot (set 15.9k), C=10 nF -> f=1/(2*pi*R*C)=1 kHz.
+* The book's lamp (1819/327) stabilises the amplitude; here an anti-parallel diode pair in the feedback network does (assumption).
+.model D1N4148 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+.subckt opa p n out
+Eg 1 0 p n 200k
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*5)}
+Eo 3 0 value={ v(2)>8 ? 8 : (v(2)<-8 ? -8 : v(2)) }
+Ro 3 out 75
+.ends
+Xa p n o opa
+Rs1 o x 15.9k
+Cs1 x p 10n
+Rp1 p 0 15.9k
+Cp1 p 0 10n
+Rf o n 22k
+Rd o dd 6.8k
+D1 dd n D1N4148
+D2 n dd D1N4148
+Rg n 0 10k
+.ic v(o)=0.01 v(p)=0.01
+.tran 20u 400m 0 20u
+.control
+run
+meas tran vpk max v(o) from=380m to=400m
+meas tran per trig v(o) val=0 rise=5 targ v(o) val=0 rise=15
+let f=10/per
+echo "oscillation f = $&f Hz (theory 1000 Hz), amplitude = $&vpk V"
+.endc
+.end

@@ -1,0 +1,19 @@
+* Fig 8.3 envelope (diode) AM detector. 1 MHz carrier, 1 kHz tone, m=0.5, 1N4148, Rl=10k, C=10 nF (tau=100 us).
+.model D1N4148 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+Vam in 0 SIN(0 0 1Meg) 
+Bam am 0 V = 1*(1+0.5*sin(2*3.14159*1k*time))*sin(2*3.14159*1Meg*time)
+Rs am a 50
+D1 a o D1N4148
+Cl o 0 10n
+Rl o 0 10k
+Cc o aud 10u
+Rla aud 0 100k
+.tran 20n 4m 0 20n
+.control
+run
+meas tran apk max v(aud) from=2m to=4m
+meas tran amin min v(aud) from=2m to=4m
+let app = apk-amin
+echo "recovered audio p-p = $&app V (envelope depth 0.5 x 1 V carrier -> ~1 V p-p less diode drop)"
+.endc
+.end

@@ -1,0 +1,25 @@
+* Fig 3.28A photodiode transimpedance amplifier. Photodiode modelled as current source + 20 pF; 741-class op amp (GBW 1 MHz).
+.subckt opa p n out
+Eg 1 0 p n 200k
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*5)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+.param Rf=1Meg
+Iph 0 n DC 1u AC 1
+Cd n 0 20p
+Rf out n {Rf}
+Cf out n 2p
+Xa 0 n out opa
+.control
+op
+print v(out)
+ac dec 20 10 1Meg
+meas ac zt find vdb(out) at=100
+let z0=db(1Meg)
+echo "transimpedance at 100 Hz = $&zt dBV/A (1 Mohm = 120 dB)"
+meas ac f3 when vdb(out)=117 cross=1
+echo "-3 dB bandwidth ~ $&f3 Hz"
+.endc
+.end
