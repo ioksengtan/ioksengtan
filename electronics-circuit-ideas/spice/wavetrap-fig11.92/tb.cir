@@ -1,0 +1,16 @@
+* testbench for circuit.cir: Fig 11.92 broadcast-station wave trap: series LC shunt across the antenna input.
+.include circuit.cir
+Vin in 0 AC 1
+Rs in a 50
+RL a 0 50
+.ac dec 400 0.3Meg 3Meg
+.control
+foreach c 300p 100p 40p
+  alter C1 = $c
+  run
+  meas ac fnotch when vdb(a)=-15 cross=1
+  meas ac a_1p0 find vdb(a) at=1.0Meg
+  echo "C1=$c  f(notch)=$&fnotch  atten@1MHz=$&a_1p0 dB"
+end
+.endc
+.end

@@ -1,0 +1,6 @@
+* circuit under test (no sources / analysis).  Fig 3.68 inverting Schmitt trigger (comparator with hysteresis): +-5 V output, R1=10k to ground, R2=100k from output. Thresholds = +-5*R1/(R1+R2) = +-0.4545 V. Thresholds from the positive-feedback divider: Vth = Vout*R1/(R1+R2).
+.param R1=10k R2=100k
+Bcmp out 0 V = 5*tanh(2000*(v(fb)-v(in)))
+Rfb out fb {R2}
+Rg fb 0 {R1}
+Rl out 0 100k

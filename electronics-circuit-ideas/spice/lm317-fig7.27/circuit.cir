@@ -1,0 +1,8 @@
+* circuit under test (no sources / analysis).  Fig 7.27 LM317 adjustable regulator: Vout = 1.25*(1+R2/R1) + Iadj*R2.  Behavioural model (Vref 1.25, Iadj 50 uA, dropout 2 V).
+.param R1=240 R2=1.2k
+Bout out 0 V = (V(adj)+1.25 < V(vin)-2.0) ? (V(adj)+1.25) : (V(vin)-2.0)
+Biadj 0 adj I = 50u
+R1 out adj {R1}
+R2 adj 0 {R2}
+Cout out 0 10u
+Rl out 0 50

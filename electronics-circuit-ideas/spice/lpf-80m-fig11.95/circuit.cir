@@ -1,0 +1,9 @@
+* circuit under test (no sources / analysis).  ARRL Handbook 2011, Fig 11.95  Optimized 80 m low-pass filter (5-pole, two traps)
+* Values read from the figure. Source: 50 ohm, load: 50 ohm.
+C1 n1 0 1300p
+L2 n1 n2 1.5u
+C2 n1 n2 180p
+C3 n2 0 2400p
+L4 n2 n3 1.3u
+C4 n2 n3 390p
+C5 n3 0 1100p

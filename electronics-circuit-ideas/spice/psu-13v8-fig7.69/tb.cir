@@ -1,0 +1,17 @@
+* testbench for circuit.cir: ARRL Handbook 2011, Fig 7.69  13.8 V 5 A linear supply (G4YNM) - behavioural LM338 model
+.include circuit.cir
+.param Vpk=22.6
+Vac a b SIN(0 {Vpk} 60)
+Rsec a a2 0.1
+Rsec2 b a3 0.1
+.param Rload=2.76
+Rl out 0 {Rload}
+.tran 0.2m 0.6 0 0.1m uic
+.control
+run
+meas tran vout_avg avg v(out) from=0.4 to=0.6
+meas tran vout_pp pp v(out) from=0.4 to=0.6
+meas tran vin_min min v(vp) from=0.4 to=0.6
+echo "Vout avg = $&vout_avg V, ripple p-p = $&vout_pp V, Vin min = $&vin_min V (load 2.76 ohm = 5 A)"
+.endc
+.end

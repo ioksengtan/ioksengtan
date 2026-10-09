@@ -1,0 +1,8 @@
+* circuit under test (no sources / analysis).  Fig 5.58 style Pi network, 50 ohm -> 200 ohm at 7.1 MHz, Q (input side) = 4.
+* Component values computed here with the standard Pi design equations (not from the book's figure).
+.param f0=7.1Meg
+* Pi: shunt C1 - series L - shunt C2
+* virtual R = 200/(1+Q^2)=11.76 ; Q50=1.80 (Xc1=27.7), Q200=4.0 (Xc2=50), XL=Rv*(Q50+Q200)=68.2
+C1 a 0 809p
+Ls a b 1.53u
+C2 b 0 448p

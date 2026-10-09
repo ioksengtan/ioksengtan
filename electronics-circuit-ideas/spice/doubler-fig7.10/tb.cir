@@ -1,0 +1,10 @@
+* testbench for circuit.cir: Fig 7.10 full-wave voltage doubler, 60 Hz, 12 Vac rms input, 1N4002, 2 x 2200 uF, load 100 mA
+.include circuit.cir
+Vac a 0 SIN(0 17 60)
+.tran 0.1m 1.2 0 0.1m
+.control
+run
+meas tran vavg avg v(o) from=1.0 to=1.2
+echo "doubler output = $&vavg V (ideal 2*17=34 V peak less diode drops)"
+.endc
+.end

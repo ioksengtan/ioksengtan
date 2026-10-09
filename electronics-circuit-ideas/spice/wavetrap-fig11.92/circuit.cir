@@ -1,0 +1,7 @@
+* circuit under test (no sources / analysis).  Fig 11.92 broadcast-station wave trap: series LC shunt across the antenna input.
+* L1 = 80 turns on ferrite rod (inductance not given in the caption -> ASSUMED 200 uH, Q=80), C1 = 300 pF polyvaricon (assumed 30-300 pF range).
+* Test: 50 ohm source/load, sweep at 3 trap settings, reads the notch frequency.
+.param Cv=300p
+L1 a b0 200u
+Rl1 b0 b 2.5
+C1 b 0 {Cv}

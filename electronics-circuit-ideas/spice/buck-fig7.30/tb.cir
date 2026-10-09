@@ -1,0 +1,12 @@
+* testbench for circuit.cir: Fig 7.30 buck converter, 12 V -> D=0.5 -> ~6 V. 100 kHz, L=100 uH, C=100 uF, load 6 ohm (1 A). Ideal switch + 1N5819 style diode.
+.include circuit.cir
+Vin in 0 12
+Vpwm g 0 PULSE(0 1 0 10n 10n 5u 10u)
+.tran 50n 12m 0 50n
+.control
+run
+meas tran vavg avg v(o) from=11m to=12m
+meas tran vpp pp v(o) from=11m to=12m
+echo "buck: Vout avg = $&vavg V (ideal 6 V), ripple p-p = $&vpp V"
+.endc
+.end

@@ -1,0 +1,13 @@
+* testbench for circuit.cir: Fig 3.43/3.44 self-biased common-emitter amplifier with emitter bypass. 2N3904, Vcc 12 V.
+.include circuit.cir
+Vin in 0 AC 1 SIN(0 5m 1k)
+.control
+op
+print i(Vcc)
+ac dec 20 10 10Meg
+meas ac gain find vdb(out) at=1k
+
+meas ac f3 when vdb(out)=39.3 cross=last
+echo "midband gain = $&gain dB ; low-frequency -3 dB corner ~ $&f3 Hz"
+.endc
+.end

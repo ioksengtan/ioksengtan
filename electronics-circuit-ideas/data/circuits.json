@@ -14,7 +14,8 @@
   "tw_sourcing": "易",
   "note": "LM2575／LM2673 無內建模型，需用廠商 SPICE 或平均模型；兩顆 IC 光華常見。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 2,
@@ -31,7 +32,8 @@
   "tw_sourcing": "易",
   "note": "2N3055 類通道電晶體與運放皆有模型。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 3,
@@ -47,8 +49,9 @@
   "spice": "部分",
   "tw_sourcing": "中",
   "note": "LM338 用行為模型（已驗證）；MC3423 需自建；TO-3 的 LM338K 較少，可改 LM338T。",
-  "netlist": "spice/psu-13v8-fig7.69/netlist.cir",
-  "sim_result": "20 Vac 次級、5 A 滿載輸出 13.80 V；16 Vac 次級掉到約 12.1 V（壓差不足）。LM338 為行為模型，繞組電阻 0.1 Ω 是假設。"
+  "netlist": "spice/psu-13v8-fig7.69/circuit.cir",
+  "sim_result": "20 Vac 次級、5 A 滿載輸出 13.80 V（漣波近 0）；16 Vac 次級只有 12.70 V、漣波 0.85 Vp-p（壓差不足）。LM338 為行為模型，繞組電阻 0.1 Ω 是假設。",
+  "testbench": "spice/psu-13v8-fig7.69/tb.cir"
  },
  {
   "id": 4,
@@ -65,7 +68,8 @@
   "tw_sourcing": "難",
   "note": "高壓電容與變壓器取得困難且有致命危險。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 5,
@@ -82,7 +86,8 @@
   "tw_sourcing": "易",
   "note": "主要是運放與比較器，充電曲線需自己建模。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 6,
@@ -99,7 +104,8 @@
   "tw_sourcing": "易",
   "note": "主要是運放與比較器，充電曲線需自己建模。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 7,
@@ -116,7 +122,8 @@
   "tw_sourcing": "中",
   "note": "核心是 GFCI 行為，SPICE 難以模擬。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 8,
@@ -133,7 +140,8 @@
   "tw_sourcing": "中",
   "note": "MC3423 已停產，需找替代方案。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 9,
@@ -149,8 +157,9 @@
   "spice": "部分",
   "tw_sourcing": "易",
   "note": "切換式控制 IC 要用平均模型。",
-  "netlist": "spice/buck-fig7.30/netlist.cir",
-  "sim_result": "降壓轉換器 12 V→6 V（D=0.5, 100 kHz）：輸出平均 5.78 V，漣波 4 mVp-p"
+  "netlist": "spice/buck-fig7.30/circuit.cir",
+  "sim_result": "降壓轉換器 12 V→6 V（D=0.5, 100 kHz）：輸出平均 5.78 V，漣波 4 mVp-p",
+  "testbench": "spice/buck-fig7.30/tb.cir"
  },
  {
   "id": 10,
@@ -166,8 +175,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "基本二極體、LM317 皆易取得。",
-  "netlist": "spice/doubler-fig7.10/netlist.cir",
-  "sim_result": "17 V 峰值輸入、100 mA 負載，輸出約 31.1 V（理想值 34 V 扣二極體壓降與紋波）。"
+  "netlist": "spice/doubler-fig7.10/circuit.cir",
+  "sim_result": "17 V 峰值輸入、100 mA 負載，輸出約 31.1 V（理想值 34 V 扣二極體壓降與紋波）。",
+  "testbench": "spice/doubler-fig7.10/tb.cir"
  },
  {
   "id": 11,
@@ -183,8 +193,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "基本二極體、LM317 皆易取得。（另附 spice/zener-reg-fig3.20：5.1 V 稽納穩壓，負載調整 0.5→10 mA 為 5.23→5.13 V）",
-  "netlist": "spice/lm317-fig7.27/netlist.cir",
-  "sim_result": "R1=240 Ω、R2=1.2 kΩ 輸出 7.56 V，與公式一致。"
+  "netlist": "spice/lm317-fig7.27/circuit.cir",
+  "sim_result": "R1=240 Ω、R2=1.2 kΩ 輸出 7.56 V，與公式一致。",
+  "testbench": "spice/lm317-fig7.27/tb.cir"
  },
  {
   "id": 12,
@@ -201,7 +212,8 @@
   "tw_sourcing": "中",
   "note": "JFET／BJT 有模型；Miniductor、特殊電容要自找。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 13,
@@ -218,7 +230,8 @@
   "tw_sourcing": "中",
   "note": "JFET／BJT 有模型；Miniductor、特殊電容要自找。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 14,
@@ -235,7 +248,8 @@
   "tw_sourcing": "中",
   "note": "MPF102 停產，可改 J310 或 2N5486；模擬暫時未通過，見 wip。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 15,
@@ -252,7 +266,8 @@
   "tw_sourcing": "中",
   "note": "2N5179 較少見，可用 2N3904／2N2222 替代；晶體需訂購頻率。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 16,
@@ -269,7 +284,8 @@
   "tw_sourcing": "易",
   "note": "74HC04、晶體與 2N3904 都容易買。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 17,
@@ -285,8 +301,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "74HC04、晶體與 2N3904 都容易買。",
-  "netlist": "spice/colpitts-fig9.12/netlist.cir",
-  "sim_result": "Colpitts 振盪器（元件值自訂）：模擬 10.02 MHz，理論 10.2 MHz"
+  "netlist": "spice/colpitts-fig9.12/circuit.cir",
+  "sim_result": "Colpitts 振盪器（元件值自訂）：模擬 10.02 MHz，理論 10.2 MHz",
+  "testbench": "spice/colpitts-fig9.12/tb.cir"
  },
  {
   "id": 18,
@@ -303,7 +320,8 @@
   "tw_sourcing": "難",
   "note": "PLL／微波元件，不適合自製。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 19,
@@ -320,7 +338,8 @@
   "tw_sourcing": "難",
   "note": "PLL／微波元件，不適合自製。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 20,
@@ -337,7 +356,8 @@
   "tw_sourcing": "中",
   "note": "74AC74 等數位元件偏行為模型，需另找取樣開關 IC。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 21,
@@ -354,7 +374,8 @@
   "tw_sourcing": "難",
   "note": "NE602／SA602 已停產，SA612 偶有現貨；無官方 SPICE 模型。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 22,
@@ -371,7 +392,8 @@
   "tw_sourcing": "難",
   "note": "NE602／SA602 已停產，SA612 偶有現貨；無官方 SPICE 模型。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 23,
@@ -388,7 +410,8 @@
   "tw_sourcing": "中",
   "note": "MC1496 有網路模型；現貨需確認。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 24,
@@ -405,7 +428,8 @@
   "tw_sourcing": "難",
   "note": "RF MOSFET 與 H-mode 變壓器需特殊零件。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 25,
@@ -421,8 +445,9 @@
   "spice": "可",
   "tw_sourcing": "中",
   "note": "二極體、JFET 有模型；環形變壓器要自繞。",
-  "netlist": "spice/diode-dbm-fig10.22/netlist.cir",
-  "sim_result": "二極體環形 DBM（LO 10 MHz +7 dBm，RF 9 MHz −20 dBm）：1 MHz 與 19 MHz 中頻各約 12 mV 峰值"
+  "netlist": "spice/diode-dbm-fig10.22/circuit.cir",
+  "sim_result": "二極體環形 DBM（LO 10 MHz +7 dBm，RF 9 MHz −20 dBm）：1 MHz 與 19 MHz 中頻各約 12 mV 峰值",
+  "testbench": "spice/diode-dbm-fig10.22/tb.cir"
  },
  {
   "id": 26,
@@ -439,7 +464,8 @@
   "tw_sourcing": "中",
   "note": "二極體、JFET 有模型；環形變壓器要自繞。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 27,
@@ -456,7 +482,8 @@
   "tw_sourcing": "中",
   "note": "二極體、JFET 有模型；環形變壓器要自繞。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 28,
@@ -472,8 +499,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/am-detector-fig8.3/netlist.cir",
-  "sim_result": "二極體包絡偵測：m=0.5 的 1 MHz AM，還原 1 kHz 音訊約 0.81 Vp-p"
+  "netlist": "spice/am-detector-fig8.3/circuit.cir",
+  "sim_result": "二極體包絡偵測：m=0.5 的 1 MHz AM，還原 1 kHz 音訊約 0.81 Vp-p",
+  "testbench": "spice/am-detector-fig8.3/tb.cir"
  },
  {
   "id": 29,
@@ -490,7 +518,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 30,
@@ -507,7 +536,8 @@
   "tw_sourcing": "中",
   "note": "晶體可用等效電路模擬；8.5 MHz 晶體需訂購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 31,
@@ -524,7 +554,8 @@
   "tw_sourcing": "中",
   "note": "線圈與磁芯要自繞，磁芯多半需網購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 32,
@@ -540,8 +571,9 @@
   "spice": "可",
   "tw_sourcing": "中",
   "note": "線圈與磁芯要自繞，磁芯多半需網購。",
-  "netlist": "spice/wavetrap-fig11.92/netlist.cir",
-  "sim_result": "L 假設 200 µH，C1 為 300／100／40 pF 時陷波在 645 kHz／1.12 MHz／1.77 MHz，與公式相符。"
+  "netlist": "spice/wavetrap-fig11.92/circuit.cir",
+  "sim_result": "L 假設 200 µH，C1 為 300／100／40 pF 時陷波在 645 kHz／1.12 MHz／1.77 MHz，與公式相符。",
+  "testbench": "spice/wavetrap-fig11.92/tb.cir"
  },
  {
   "id": 33,
@@ -557,8 +589,9 @@
   "spice": "可",
   "tw_sourcing": "中",
   "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。",
-  "netlist": "spice/lpf-80m-fig11.95/netlist.cir",
-  "sim_result": "−3 dB 約 4.49 MHz，3.75 MHz 插入損耗 0.01 dB，7.5 與 11.25 MHz 約 58 dB。元件值取自書中圖。"
+  "netlist": "spice/lpf-80m-fig11.95/circuit.cir",
+  "sim_result": "−3 dB 約 4.49 MHz，3.75 MHz 插入損耗 0.01 dB，7.5 與 11.25 MHz 約 58 dB。元件值取自書中圖。",
+  "testbench": "spice/lpf-80m-fig11.95/tb.cir"
  },
  {
   "id": 34,
@@ -575,7 +608,8 @@
   "tw_sourcing": "中",
   "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 35,
@@ -592,7 +626,8 @@
   "tw_sourcing": "中",
   "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 36,
@@ -609,7 +644,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 37,
@@ -626,7 +662,8 @@
   "tw_sourcing": "中",
   "note": "電晶體可模擬，晶體濾波器與特殊 IC 需另外處理。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 38,
@@ -643,7 +680,8 @@
   "tw_sourcing": "難",
   "note": "SBL-1 需海外購買。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 39,
@@ -660,7 +698,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 40,
@@ -677,7 +716,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 41,
@@ -694,7 +734,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 42,
@@ -711,7 +752,8 @@
   "tw_sourcing": "中",
   "note": "NE604 等已停產，需找替代。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 43,
@@ -728,7 +770,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 44,
@@ -745,7 +788,8 @@
   "tw_sourcing": "難",
   "note": "微波，PCB 與寄生效應主導，SPICE 不可靠。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 45,
@@ -762,7 +806,8 @@
   "tw_sourcing": "難",
   "note": "微波，PCB 與寄生效應主導，SPICE 不可靠。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 46,
@@ -779,7 +824,8 @@
   "tw_sourcing": "難",
   "note": "微波，PCB 與寄生效應主導，SPICE 不可靠。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 47,
@@ -796,7 +842,8 @@
   "tw_sourcing": "中",
   "note": "晶體與 RF 電晶體需替代品。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 48,
@@ -813,7 +860,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 49,
@@ -830,7 +878,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 50,
@@ -847,7 +896,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 51,
@@ -864,7 +914,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 52,
@@ -881,7 +932,8 @@
   "tw_sourcing": "中",
   "note": "晶體與 RF 電晶體需替代。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 53,
@@ -898,7 +950,8 @@
   "tw_sourcing": "中",
   "note": "晶體與 RF 電晶體需替代。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 54,
@@ -915,7 +968,8 @@
   "tw_sourcing": "中",
   "note": "晶體與 RF 電晶體需替代品。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 55,
@@ -932,7 +986,8 @@
   "tw_sourcing": "中",
   "note": "買套件而非自行設計。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 56,
@@ -949,7 +1004,8 @@
   "tw_sourcing": "難",
   "note": "含軟體與大量專用零件。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 57,
@@ -966,7 +1022,8 @@
   "tw_sourcing": "難",
   "note": "含軟體與大量專用零件。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 58,
@@ -983,7 +1040,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 59,
@@ -1000,7 +1058,8 @@
   "tw_sourcing": "難",
   "note": "RF 功率 MOSFET 模型複雜，零件難取得。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 60,
@@ -1017,7 +1076,8 @@
   "tw_sourcing": "難",
   "note": "真空管與高壓，不建議。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 61,
@@ -1034,7 +1094,8 @@
   "tw_sourcing": "難",
   "note": "真空管與高壓，不建議。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 62,
@@ -1051,7 +1112,8 @@
   "tw_sourcing": "難",
   "note": "真空管與高壓，不建議。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 63,
@@ -1068,7 +1130,8 @@
   "tw_sourcing": "難",
   "note": "真空管與高壓，不建議。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 64,
@@ -1085,7 +1148,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 65,
@@ -1102,7 +1166,8 @@
   "tw_sourcing": "中",
   "note": "磁芯與可變電容要網購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 66,
@@ -1119,7 +1184,8 @@
   "tw_sourcing": "中",
   "note": "磁芯與可變電容要網購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 67,
@@ -1136,7 +1202,8 @@
   "tw_sourcing": "中",
   "note": "磁芯與可變電容要網購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 68,
@@ -1152,8 +1219,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "Pi 網路已驗證。",
-  "netlist": "spice/pi-match-fig5.58/netlist.cir",
-  "sim_result": "50 Ω→200 Ω、7.1 MHz，失配損耗 0.002 dB；元件值依標準公式自行計算。"
+  "netlist": "spice/pi-match-fig5.58/circuit.cir",
+  "sim_result": "50 Ω→200 Ω、7.1 MHz，失配損耗 0.002 dB；元件值依標準公式自行計算。",
+  "testbench": "spice/pi-match-fig5.58/tb.cir"
  },
  {
   "id": 69,
@@ -1170,7 +1238,8 @@
   "tw_sourcing": "中",
   "note": "磁芯需網購。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 70,
@@ -1187,7 +1256,8 @@
   "tw_sourcing": "中",
   "note": "含微控制器與軟體，只能模擬類比部分。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 71,
@@ -1204,7 +1274,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 72,
@@ -1221,7 +1292,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 73,
@@ -1238,7 +1310,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 74,
@@ -1255,7 +1328,8 @@
   "tw_sourcing": "中",
   "note": "含微控制器與軟體，只能模擬類比部分。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 75,
@@ -1272,7 +1346,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 76,
@@ -1289,7 +1364,8 @@
   "tw_sourcing": "中",
   "note": "含微控制器與軟體，只能模擬類比部分。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 77,
@@ -1306,7 +1382,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 78,
@@ -1323,7 +1400,8 @@
   "tw_sourcing": "中",
   "note": "含微控制器與軟體，只能模擬類比部分。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 79,
@@ -1340,7 +1418,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 80,
@@ -1357,7 +1436,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 81,
@@ -1374,7 +1454,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 82,
@@ -1391,7 +1472,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 83,
@@ -1408,7 +1490,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 84,
@@ -1425,7 +1508,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 85,
@@ -1442,7 +1526,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 86,
@@ -1458,8 +1543,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/wien-osc-fig25.20/netlist.cir",
-  "sim_result": "Wien 電橋振盪器（以反向並聯二極體取代燈泡穩幅）：模擬 990 Hz，理論 1 kHz"
+  "netlist": "spice/wien-osc-fig25.20/circuit.cir",
+  "sim_result": "Wien 電橋振盪器（以反向並聯二極體取代燈泡穩幅）：模擬 990 Hz，理論 1 kHz",
+  "testbench": "spice/wien-osc-fig25.20/tb.cir"
  },
  {
   "id": 87,
@@ -1476,7 +1562,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 88,
@@ -1493,7 +1580,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 89,
@@ -1510,7 +1598,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 90,
@@ -1527,7 +1616,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 91,
@@ -1544,7 +1634,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 92,
@@ -1561,7 +1652,8 @@
   "tw_sourcing": "中",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 93,
@@ -1578,7 +1670,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 94,
@@ -1595,7 +1688,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 95,
@@ -1612,7 +1706,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 96,
@@ -1628,8 +1723,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/opamp-basics-fig3.61/netlist.cir",
-  "sim_result": "非反相與反相兩組增益皆為 20.0 dB，非反相頻寬 99 kHz（GBW 1 MHz／10）。"
+  "netlist": "spice/opamp-basics-fig3.61/circuit.cir",
+  "sim_result": "非反相與反相兩組增益皆為 20.0 dB，非反相頻寬 99 kHz（GBW 1 MHz／10）。",
+  "testbench": "spice/opamp-basics-fig3.61/tb.cir"
  },
  {
   "id": 97,
@@ -1645,8 +1741,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/comparator-hyst-fig3.68/netlist.cir",
-  "sim_result": "行為模型比較器：遲滯門檻 −0.47 / +0.47 V（理論 ±0.4545 V）"
+  "netlist": "spice/comparator-hyst-fig3.68/circuit.cir",
+  "sim_result": "行為模型比較器：遲滯門檻 −0.47 / +0.47 V（理論 ±0.4545 V）",
+  "testbench": "spice/comparator-hyst-fig3.68/tb.cir"
  },
  {
   "id": 98,
@@ -1662,8 +1759,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/precision-rect-fig3.71/netlist.cir",
-  "sim_result": "精密半波整流：輸入 100 mV 峰值 → 輸出峰值 100.0 mV（單二極體會幾乎為 0）"
+  "netlist": "spice/precision-rect-fig3.71/circuit.cir",
+  "sim_result": "精密半波整流：輸入 100 mV 峰值 → 輸出峰值 100.0 mV（單二極體會幾乎為 0）",
+  "testbench": "spice/precision-rect-fig3.71/tb.cir"
  },
  {
   "id": 99,
@@ -1680,7 +1778,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 100,
@@ -1696,8 +1795,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/sallen-key-fig3.69/netlist.cir",
-  "sim_result": "Sallen-Key 二階 Butterworth 低通：fc 模擬 1000.3 Hz，理論 1000.7 Hz"
+  "netlist": "spice/sallen-key-fig3.69/circuit.cir",
+  "sim_result": "Sallen-Key 二階 Butterworth 低通：fc 模擬 1000.3 Hz，理論 1000.7 Hz",
+  "testbench": "spice/sallen-key-fig3.69/tb.cir"
  },
  {
   "id": 101,
@@ -1713,8 +1813,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/ce-amp-fig3.44/netlist.cir",
-  "sim_result": "2N3904、Vcc 12 V，Ic 約 1.28 mA，中頻增益 42.4 dB；電阻值為自選，書上只給拓樸。"
+  "netlist": "spice/ce-amp-fig3.44/circuit.cir",
+  "sim_result": "2N3904、Vcc 12 V，Ic 約 1.28 mA，中頻增益 42.4 dB；電阻值為自選，書上只給拓樸。",
+  "testbench": "spice/ce-amp-fig3.44/tb.cir"
  },
  {
   "id": 102,
@@ -1730,8 +1831,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/jfet-cs-fig3.51/netlist.cir",
-  "sim_result": "JFET 共源放大（自偏壓，元件值假設）：中頻增益 14.7 dB"
+  "netlist": "spice/jfet-cs-fig3.51/circuit.cir",
+  "sim_result": "JFET 共源放大（自偏壓，元件值假設）：中頻增益 14.7 dB",
+  "testbench": "spice/jfet-cs-fig3.51/tb.cir"
  },
  {
   "id": 103,
@@ -1748,7 +1850,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 104,
@@ -1764,8 +1867,9 @@
   "spice": "可",
   "tw_sourcing": "易",
   "note": "",
-  "netlist": "spice/photodiode-tia-fig3.28/netlist.cir",
-  "sim_result": "光電二極體跨阻放大：1 MΩ 回授，100 Hz 跨阻 120 dBΩ，−3 dB 約 100 kHz"
+  "netlist": "spice/photodiode-tia-fig3.28/circuit.cir",
+  "sim_result": "光電二極體跨阻放大：1 MΩ 回授，100 Hz 跨阻 120 dBΩ，−3 dB 約 100 kHz",
+  "testbench": "spice/photodiode-tia-fig3.28/tb.cir"
  },
  {
   "id": 105,
@@ -1782,7 +1886,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 106,
@@ -1799,7 +1904,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 107,
@@ -1816,7 +1922,8 @@
   "tw_sourcing": "中",
   "note": "MMIC 需 S 參數模型。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 108,
@@ -1833,7 +1940,8 @@
   "tw_sourcing": "易",
   "note": "",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 109,
@@ -1850,7 +1958,8 @@
   "tw_sourcing": "易",
   "note": "軟體處理，不是電路模擬。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 110,
@@ -1867,7 +1976,8 @@
   "tw_sourcing": "易",
   "note": "軟體處理，不是電路模擬。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  },
  {
   "id": 111,
@@ -1884,6 +1994,7 @@
   "tw_sourcing": "易",
   "note": "軟體處理，不是電路模擬。",
   "netlist": null,
-  "sim_result": null
+  "sim_result": null,
+  "testbench": null
  }
 ]

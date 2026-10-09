@@ -1,0 +1,15 @@
+* testbench for circuit.cir: Fig 3.28A photodiode transimpedance amplifier. Photodiode modelled as current source + 20 pF; 741-class op amp (GBW 1 MHz).
+.include circuit.cir
+Iph 0 n DC 1u AC 1
+Cd n 0 20p
+.control
+op
+print v(out)
+ac dec 20 10 1Meg
+meas ac zt find vdb(out) at=100
+let z0=db(1Meg)
+echo "transimpedance at 100 Hz = $&zt dBV/A (1 Mohm = 120 dB)"
+meas ac f3 when vdb(out)=117 cross=1
+echo "-3 dB bandwidth ~ $&f3 Hz"
+.endc
+.end

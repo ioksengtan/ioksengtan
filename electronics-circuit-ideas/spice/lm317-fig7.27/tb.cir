@@ -1,0 +1,10 @@
+* testbench for circuit.cir: Fig 7.27 LM317 adjustable regulator: Vout = 1.25*(1+R2/R1) + Iadj*R2.  Behavioural model (Vref 1.25, Iadj 50 uA, dropout 2 V).
+.include circuit.cir
+Vin vin 0 PWL(0 0 1m 18)
+.tran 10u 5m
+.control
+run
+meas tran vo find v(out) at=4m
+echo "Vout = $&vo V (theory 1.25*(1+1200/240)+50u*1200 = 7.56 V)"
+.endc
+.end

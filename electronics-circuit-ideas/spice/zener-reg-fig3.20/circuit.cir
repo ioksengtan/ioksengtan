@@ -1,0 +1,5 @@
+* circuit under test (no sources / analysis).  Fig 3.20B Zener shunt regulator. 12 V input, 5.1 V Zener (1N751-class), Rs 470 ohm for roughly 10 mA of shunt current.
+.model DZ5V1 D(Is=5e-14 Rs=7 N=1.0 Bv=5.1 Ibv=5m Nbv=1.2 Tbv=0)
+.param Rs=470
+Rs in out {Rs}
+Dz 0 out DZ5V1

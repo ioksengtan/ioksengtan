@@ -1,0 +1,26 @@
+* circuit under test (no sources / analysis).  Fig 10.22 diode ring double-balanced mixer (4 x 1N5711-class Schottky, ideal 1:1 transformers via coupled inductors), LO 10 MHz +7 dBm, RF 9 MHz -20 dBm, IF 1 MHz.
+.model DSCH D(Is=5n Rs=15 N=1.08 Cjo=1p Bv=70)
+* LO transformer (centre tapped secondary)
+L1 lp 0 20u
+L2 s1 ct 5u
+L3 ct s2 5u
+K1a L1 L2 0.999
+K1b L1 L3 0.999
+K1c L2 L3 0.999
+* RF transformer
+L4 rp 0 20u
+L5 r1 rct 5u
+L6 rct r2 5u
+K2a L4 L5 0.999
+K2b L4 L6 0.999
+K2c L5 L6 0.999
+D1 s1 r1 DSCH
+D2 r1 s2 DSCH
+D3 s2 r2 DSCH
+D4 r2 s1 DSCH
+* IF taken from the two centre taps
+Rif ct rct 50
+Rg1 ct 0 1Meg
+Rg2 rct 0 1Meg
+Rg3 s1 0 1Meg
+Rg4 r1 0 1Meg

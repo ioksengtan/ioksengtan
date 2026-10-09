@@ -1,0 +1,16 @@
+* circuit under test (no sources / analysis).  Fig 9.12A Colpitts oscillator (BJT, common base style). L=2.2 uH, C1=C2=220 pF series pair: f = 1/(2*pi*sqrt(L*Ceq)), Ceq=110 pF -> 10.2 MHz.
+* Component values chosen here; the book shows the topology.
+.model Q2N3904 NPN(Is=6.7f Bf=416 Vaf=74 Cjc=3.6p Cje=4.5p Tf=0.3n Rb=10 Rc=1 Re=0.2 Ikf=0.07)
+Vcc vcc 0 12
+R1 vcc b 33k
+R2 b 0 10k
+Cb b 0 1n
+Re e 0 1k
+Rc vcc c 1k
+Cc c 0 10n
+L1 c t 2.2u
+C1 t e 220p
+C2 e 0 220p
+Q1 t b e Q2N3904
+Cout t out 5p
+Rl out 0 1k
