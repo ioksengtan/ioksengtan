@@ -1,0 +1,20 @@
+* testbench for circuit.cir: ARRL Handbook 2011, Fig 11.95  Optimized 80 m low-pass filter (5-pole, two traps)
+.include circuit.cir
+* Testbench: AC sweep 0.5-30 MHz, plots insertion loss in dB.
+Vin in 0 AC 1
+Rs in n1 50
+RL n3 0 50
+.ac dec 200 0.5Meg 30Meg
+.control
+run
+* loss relative to the half-voltage of a matched 50-50 divider
+let il = -20*log10(2*mag(v(n3)))
+meas ac f3db when il=3 cross=1
+meas ac il_3p5 find il at=3.5Meg
+meas ac il_3p75 find il at=3.75Meg
+meas ac il_7p5 find il at=7.5Meg
+meas ac il_11p25 find il at=11.25Meg
+meas ac il_15 find il at=15Meg
+echo "f3dB = $&f3db  IL(3.75MHz)=$&il_3p75  IL(7.5MHz)=$&il_7p5  IL(11.25MHz)=$&il_11p25"
+.endc
+.end

@@ -1,0 +1,14 @@
+* testbench for circuit.cir: Fig 9.12A Colpitts oscillator (BJT, common base style). L=2.2 uH, C1=C2=220 pF series pair: f = 1/(2*pi*sqrt(L*Ceq)), Ceq=110 pF -> 10.2 MHz.
+.include circuit.cir
+.ic v(t)=0.1
+.tran 2n 20u 0 1n uic
+.control
+run
+meas tran vmax max v(t) from=15u to=20u
+meas tran vmin min v(t) from=15u to=20u
+let vmid=(vmax+vmin)/2
+meas tran per trig v(t) val=vmid rise=10 targ v(t) val=vmid rise=40
+let f = 30/per
+echo "Colpitts: swing $&vmin to $&vmax V ; f = $&f Hz (theory 10.2 MHz)"
+.endc
+.end

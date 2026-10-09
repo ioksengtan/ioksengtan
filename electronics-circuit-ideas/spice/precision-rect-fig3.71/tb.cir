@@ -1,0 +1,11 @@
+* testbench for circuit.cir: Fig 3.71 half-wave precision rectifier, op amp with diode in the loop (non-inverting form), 1N4148.
+.include circuit.cir
+Vin in 0 SIN(0 0.1 1k)
+.tran 5u 3m
+.control
+run
+meas tran vo_pk max v(o) from=1m to=3m
+meas tran vo_min min v(o) from=1m to=3m
+echo "output peak = $&vo_pk V (input peak 0.1 V; plain diode would give ~0), negative swing = $&vo_min V"
+.endc
+.end

@@ -1,0 +1,7 @@
+* circuit under test (no sources / analysis).  Fig 7.10 full-wave voltage doubler, 60 Hz, 12 Vac rms input, 1N4002, 2 x 2200 uF, load 100 mA
+.model D1N4002 D(Is=14n Rs=0.033 N=1.99 Cjo=51p Bv=100 Ibv=5u)
+C1 a x 2200u
+D1 0 x D1N4002
+D2 x o D1N4002
+C2 o 0 2200u
+Rl o 0 {1/0.1*30}

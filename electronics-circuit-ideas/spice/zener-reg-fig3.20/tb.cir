@@ -1,0 +1,18 @@
+* testbench for circuit.cir: Fig 3.20B Zener shunt regulator. 12 V input, 5.1 V Zener (1N751-class), Rs 470 ohm for roughly 10 mA of shunt current.
+.include circuit.cir
+* Testbench: line sweep 8-16 V and load sweep 0-20 mA; reports line and load regulation.
+Vin in 0 12
+Il out 0 DC 5m
+.control
+dc Vin 10 16 0.5
+meas dc v8 find v(out) at=10
+meas dc v16 find v(out) at=16
+echo "line regulation (10-16 V in, 5 mA load): Vout $&v8 -> $&v16 V, (delta = Vout16 - Vout8)"
+reset
+alter Vin = 12
+dc Il 0 10m 0.5m
+meas dc vl0 find v(out) at=0.5m
+meas dc vl20 find v(out) at=10m
+echo "load regulation (0.5-10 mA, Vin 12): $&vl0 -> $&vl20 V"
+.endc
+.end

@@ -4,6 +4,8 @@ write data/plots.json with the waveforms / responses shown in the web page.
 Run from anywhere: python3 tools/make_plots.py   (needs ngspice + numpy)"""
 import json, pathlib, re, subprocess, tempfile
 import numpy as np
+import sys; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from spice_lib import combined
 
 root = pathlib.Path(__file__).resolve().parent.parent
 TRAN = 'tran'
@@ -72,7 +74,7 @@ def decimate(x, y, n=700):
 def rnd(a): return [float(f'{v:.5g}') for v in a]
 
 def run(folder, ctl, plots):
-    src = (root/'spice'/folder/'netlist.cir').read_text()
+    src = combined(folder)
     body = re.sub(r'(?ims)^\.control.*?^\.endc[ \t]*$', '', src)
     body = re.sub(r'(?im)^\.end[ \t]*$', '', body).rstrip()
     tmp = pathlib.Path(tempfile.mkdtemp())

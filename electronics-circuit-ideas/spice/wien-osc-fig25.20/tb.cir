@@ -1,0 +1,12 @@
+* testbench for circuit.cir: Audio oscillator after Fig 25.20 (741-based, lamp-stabilised). Wien bridge, R=2.2k + 100k pot (set 15.9k), C=10 nF -> f=1/(2*pi*R*C)=1 kHz.
+.include circuit.cir
+.ic v(o)=0.01 v(p)=0.01
+.tran 20u 400m 0 20u
+.control
+run
+meas tran vpk max v(o) from=380m to=400m
+meas tran per trig v(o) val=0 rise=5 targ v(o) val=0 rise=15
+let f=10/per
+echo "oscillation f = $&f Hz (theory 1000 Hz), amplitude = $&vpk V"
+.endc
+.end

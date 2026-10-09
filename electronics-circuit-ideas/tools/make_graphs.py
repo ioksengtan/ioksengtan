@@ -4,6 +4,8 @@
 It is NOT a standard schematic: the layout is automatic. Needs networkx. Run: python3 tools/make_graphs.py"""
 import json, pathlib, re, html
 import networkx as nx
+import sys; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from spice_lib import combined
 
 root = pathlib.Path(__file__).resolve().parent.parent
 PINS = {'R': 2, 'C': 2, 'L': 2, 'V': 2, 'I': 2, 'D': 2, 'B': 2, 'Q': 3, 'J': 3, 'E': 4, 'S': 4}
@@ -106,9 +108,8 @@ def draw(els):
 def main():
     res = {}
     for d in sorted((root/'spice').iterdir()):
-        f = d/'netlist.cir'
-        if not f.exists() or d.name == 'wip': continue
-        els = parse(f.read_text())
+        if not (d/'tb.cir').exists() or d.name == 'wip': continue
+        els = parse(combined(d.name))
         svg = draw(els)
         if svg: res[d.name] = dict(svg=svg, n=len(els))
         print(d.name, len(els), 'elements')

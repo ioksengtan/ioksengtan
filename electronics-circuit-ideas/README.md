@@ -4,18 +4,19 @@
 
 - `index.html`：可搜尋、篩選的點子庫頁面（單一檔案，直接開啟即可）
 - `data/circuits.json`、`data/circuits.csv`：全部資料，是頁面的資料來源
-- `spice/`：已在 ngspice 42 驗證的 netlist 與 testbench，每個資料夾一個電路
+- `spice/`：已在 ngspice 42 驗證的電路，每個資料夾一個電路：`circuit.cir`（純電路）＋ `tb.cir`（激勵、負載、分析與量測，以 `.include circuit.cir` 引入）
 - `spice/wip/`：未通過驗證的嘗試（目前是 VXO）
 - `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
 - `data/plots.json`、`data/graphs.json`：每個已驗證電路的模擬波形與自動產生的連接圖（由 `tools/make_plots.py`、`tools/make_graphs.py` 產生）
 - `tools/make_plots.py`、`tools/make_graphs.py`：重跑 ngspice 取得波形、由 netlist 畫連接圖
+- `data/schematics.json`：手工排版的標準電路圖（schemdraw，`tools/make_schematics.py`，`tools/check_schematics.py` 檢查元件值是否與 netlist 一致）
 - `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 
 ## 驗證過的 netlist
 
 | 電路 | 資料夾 | 驗證結果 |
 |---|---|---|
-| 13.8 V 5 A 線性電源 | `psu-13v8-fig7.69` | 20 Vac 次級 5 A 滿載 13.80 V；16 Vac 次級掉到約 12.1 V |
+| 13.8 V 5 A 線性電源 | `psu-13v8-fig7.69` | 20 Vac 次級 5 A 滿載 13.80 V；16 Vac 次級只有 12.70 V（漣波 0.85 Vp-p） |
 | 80 m 低通濾波器 | `lpf-80m-fig11.95` | −3 dB 約 4.49 MHz，3.75 MHz 損耗 0.01 dB，7.5 MHz 以上約 58 dB |
 | 廣播 wave trap | `wavetrap-fig11.92` | 陷波頻率與 1/(2π√LC) 相符（L 為假設值） |
 | Pi 匹配網路 | `pi-match-fig5.58` | 50 Ω→200 Ω、7.1 MHz，失配損耗 0.002 dB |
@@ -47,7 +48,7 @@
 
 ```
 sudo apt install ngspice
-cd spice/lpf-80m-fig11.95 && ngspice -b netlist.cir
+cd spice/lpf-80m-fig11.95 && ngspice -b tb.cir
 ```
 
 ## 撲克牌
@@ -56,4 +57,4 @@ cd spice/lpf-80m-fig11.95 && ngspice -b netlist.cir
 
 ## 網頁互動
 
-點任一張卡片會開啟詳細視窗：總覽、模擬結果（ngspice 實跑的波形／頻率響應，可指著看數值）、連接圖（由 netlist 自動排版，不是標準電路圖）、完整 netlist 與複製鈕。網址加 `#c17` 可直接開啟第 17 筆。
+點任一張卡片會開啟詳細視窗：總覽、模擬結果（ngspice 實跑的波形／頻率響應，可指著看數值）、電路圖（標準符號）、連接圖（由 netlist 自動排版，僅供對照）、circuit.cir 與 tb.cir 及複製鈕。網址加 `#c17` 可直接開啟第 17 筆。

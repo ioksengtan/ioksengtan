@@ -1,0 +1,10 @@
+* testbench for circuit.cir: Fig 3.69 active low-pass (Sallen-Key, unity gain, Butterworth). fc = 1/(2*pi*sqrt(R1*R2*C1*C2)) ; R=10k, C1=22.5n (feedback), C2=11.25n -> Q=0.707
+.include circuit.cir
+Vin in 0 AC 1
+.control
+ac dec 50 10 100k
+meas ac f3 when vdb(out)=-3.0103 cross=1
+meas ac g1k find vdb(out) at=100
+echo "fc(-3dB) = $&f3 Hz (theory 1/(2*pi*10k*sqrt(22.5n*11.25n)) = 1000.7 Hz) ; passband gain = $&g1k dB"
+.endc
+.end

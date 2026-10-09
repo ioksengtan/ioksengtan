@@ -1,0 +1,16 @@
+* circuit under test (no sources / analysis).  Fig 3.61 inverting and non-inverting op-amp stages, 741-class model (linear: gain 200k, GBW 1 MHz, no output limiting)
+.subckt opa p n out
+Eg  1 0 p n 200k
+Rp  1 2 1k
+Cp  2 0 {1/(2*3.14159*1k*5)}
+Eo  3 0 2 0 1
+Ro  3 out 75
+.ends
+* Gain-of-10 non-inverting
+Xa in fb o1 opa
+Rf1 o1 fb 9k
+Rg1 fb 0 1k
+* Gain of -10 inverting
+Xb 0 fb2 o2 opa
+Rin2 in fb2 1k
+Rf2 o2 fb2 10k

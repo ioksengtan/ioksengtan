@@ -1,0 +1,13 @@
+* circuit under test (no sources / analysis).  Fig 3.69 active low-pass (Sallen-Key, unity gain, Butterworth). fc = 1/(2*pi*sqrt(R1*R2*C1*C2)) ; R=10k, C1=22.5n (feedback), C2=11.25n -> Q=0.707
+.subckt opa p n out
+Eg 1 0 p n 200k
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*5)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+R1 in a 10k
+R2 a b 10k
+C1 a out 22.5n
+C2 b 0 11.25n
+Xa b out out opa
