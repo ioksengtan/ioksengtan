@@ -9,6 +9,7 @@
 - `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
 - `data/plots.json`、`data/graphs.json`：每個已驗證電路的模擬波形與自動產生的連接圖（由 `tools/make_plots.py`、`tools/make_graphs.py` 產生）
 - `tools/make_plots.py`、`tools/make_graphs.py`：重跑 ngspice 取得波形、由 netlist 畫連接圖
+- `data/bom.json`：18 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
 - `data/schematics.json`：手工排版的標準電路圖（schemdraw，`tools/make_schematics.py`，`tools/check_schematics.py` 檢查元件值是否與 netlist 一致）
 - `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 

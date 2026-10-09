@@ -78,6 +78,7 @@ dialog::backdrop{background:rgba(10,18,15,.6)}
 .cap{font-size:12px;color:var(--muted)}
 @media (max-width:560px){.tab{padding:7px 10px;font-size:13px}.dh h2{font-size:18px}}
 .schbox{overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:8px;color:var(--fg)}.sch{height:auto;display:block}.sch text{fill:currentColor}
+table.bt{border-collapse:collapse;font-size:13px;min-width:720px;width:100%}.bt th,.bt td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}.bt th{color:var(--muted);font-weight:500;white-space:nowrap}.bt tr.fx td{color:var(--muted)}
 </style>
 </head><body>
 <div class="wrap">
@@ -95,7 +96,7 @@ dialog::backdrop{background:rgba(10,18,15,.6)}
  <div class="row" id="cats"></div>
 </div>
 <div class="grid" id="grid"></div>
-<footer>書中圖片受著作權保護，未放入此 repo；每筆以章節、PDF 頁碼與圖號指向原書。「SPICE」「台灣取得」兩欄與難度為我依內容和經驗所做的估計，沒有逐項查現貨。標示「已驗證」的 netlist 都在 ngspice 42 跑過，結果寫在卡片上，元件值若不是取自書中圖，卡片會註明。</footer>
+<footer>書中圖片受著作權保護，未放入此 repo；每筆以章節、PDF 頁碼與圖號指向原書。「SPICE」「台灣取得」兩欄與難度為我依內容和經驗所做的估計，沒有逐項查現貨；有 BOM 的電路（見詳細視窗的「BOM／取得」分頁）才附逐項理由。標示「已驗證」的 netlist 都在 ngspice 42 跑過，結果寫在卡片上，元件值若不是取自書中圖，卡片會註明。</footer>
 </div>
 <dialog id="dlg" aria-labelledby="dt"><div class="dh"><h2 id="dt"></h2><button class="x" id="dx" aria-label="關閉">×</button></div><div class="tabs" id="tabs" role="tablist"></div><div class="db" id="db"></div></dialog>
 <script>
@@ -167,7 +168,7 @@ function hookCharts(root,plots){
   svg.addEventListener('pointerleave',()=>{rd.textContent='指到圖上看數值'})});
 }
 let cur=null,curTab='';
-function tabsFor(x){const t=[['info','總覽']];if(x.netlist){t.push(['sim','模擬結果']);if(x.schem)t.push(['schem','電路圖']);if(x.graph)t.push(['graph','連接圖（自動）']);t.push(['net','Netlist／Testbench'])}return t}
+function tabsFor(x){const t=[['info','總覽']];if(x.netlist){t.push(['sim','模擬結果']);if(x.schem)t.push(['schem','電路圖']);if(x.bom)t.push(['bom','BOM／取得']);if(x.graph)t.push(['graph','連接圖（自動）']);t.push(['net','Netlist／Testbench'])}return t}
 function showTab(t){
  const x=cur;curTab=t;
  [...$('tabs').children].forEach(b=>b.setAttribute('aria-selected',String(b.dataset.t===t)));
@@ -176,10 +177,18 @@ function showTab(t){
   db.innerHTML=`<p style="margin:0">${esc(x.description)}</p>${x.note?`<p class="note">${esc(x.note)}</p>`:''}
   <dl class="kv"><dt>類型</dt><dd>${x.type}・${x.category}・${x.level}</dd><dt>SPICE</dt><dd>${x.spice}</dd><dt>台灣取得</dt><dd>${x.tw_sourcing}</dd><dt>出處</dt><dd class="src">第 ${x.chapter} 章 · PDF p.${x.pdf_page} · Fig ${esc(x.figures)}</dd></dl>
   <div class="idea" style="margin:0"><b>點子</b>　${esc(x.idea)}</div>
+  ${x.tw_reason?`<p style="margin:0"><b>取得說明（${x.tw_sourcing}）</b>　${esc(x.tw_reason)}</p>`:`<p class="note">取得難度「${x.tw_sourcing}」只是我依內容與經驗的估計，這一筆還沒有 BOM 與逐項理由。${x.note?'備註：'+esc(x.note):''}</p>`}
   ${x.netlist?`<div class="res">✔ ${esc(x.sim_result)}</div>`:'<p class="note">這一筆還沒有 netlist。</p>'}`}
  else if(t==='sim'){
   db.innerHTML=`<div class="res">✔ ${esc(x.sim_result)}</div>`+(x.plots?x.plots.map((p,i)=>chart(p,i)).join(''):'<p class="note">沒有波形資料。</p>')+`<p class="cap">波形由 ngspice 42 以此 netlist 實際跑出（為了好讀已抽稀取點），元件值若不是取自書中圖，見 netlist 檔頭說明。</p>`;
   if(x.plots)hookCharts(db,x.plots)}
+ else if(t==='bom'){
+  const bm=x.bom,rk={'易':'ok','中':'mid','難':'hard'};
+  db.innerHTML=`<div><span class="b ${rk[bm.level]}">取得 ${bm.level}</span></div><p style="margin:0">${esc(bm.reason)}</p>
+  <p class="cap">判定規則：整份 BOM 裡最難取得的關鍵零件決定難度；電阻電容只是需要用近似標準值或並聯湊值，不單獨拉高難度；測試／負載用的零件不計。<b>以下是我依零件常見程度的判斷，不是查過現貨或價格</b>，料號與替代品請買前再確認。</p>
+  <div class="schbox"><table class="bt"><thead><tr><th>位號</th><th>零件</th><th>數量</th><th>規格</th><th>難度</th><th>說明</th></tr></thead><tbody>${bm.rows.map(r=>`<tr class="${r.fixture?'fx':''}"><td>${esc(r.refs.join(', '))}</td><td>${esc(r.part)}${r.fixture?'（測試／負載用）':''}</td><td>${r.qty}</td><td>${esc(r.spec)}</td><td><span class="b ${rk[r.level]}">${r.level}</span></td><td>${esc(r.why)}</td></tr>`).join('')}</tbody></table></div>
+  ${bm.sim_only.length?`<p class="cap"><b>模擬專用、不用另外買：</b>${bm.sim_only.map(esc).join('；')}</p>`:''}
+  <p class="cap">「易」＝電料行／光華通常有現貨散裝；「中」＝要挑規格、自繞、買特定封裝或網路商店較容易；「難」＝非貨架規格或需訂製。</p>`}
  else if(t==='schem'){
   db.innerHTML=`<div class="schbox">${x.schem}</div><p class="cap">標準符號的電路圖，由我依 netlist 手工排版；元件名稱與數值對照 netlist（已用程式檢查）。${x.schem_note?esc(x.schem_note):''}</p>`}
  else if(t==='graph'){
