@@ -1,0 +1,13 @@
+* testbench for circuit.cir: 1 kHz tone, 1 V peak for 0.1 s, then silence; watch the AGC voltage charge fast and decay slowly
+.include circuit.cir
+Bin in 0 V = 1*sin(2*3.14159*1k*time)*(time<0.1)
+.tran 20u 0.6 0 20u
+.control
+run
+meas tran vpeak max v(agc) from=0.05 to=0.11
+meas tran v100 find v(agc) at=0.1
+let tgt = 0.368*vpeak
+meas tran v37 when v(agc)=tgt cross=last
+echo "AGC peak = $&vpeak V ; at 0.1 s = $&v100 V ; falls to 37 % at t = $&v37 s"
+.endc
+.end

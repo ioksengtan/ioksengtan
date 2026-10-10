@@ -752,12 +752,12 @@
   "description": "AGC 原理、增益可控放大器與整流器，用於音訊衍生 AGC。",
   "idea": "改善接收機的音量穩定。",
   "spice": "可",
-  "tw_sourcing": "中",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "易",
+  "note": "netlist 的元件值取自書中圖；只模擬其中一部分（見電路圖備註）。",
+  "netlist": "spice/agc-rectifier-fig12.36b/circuit.cir",
+  "sim_result": "1 kHz、1 V 峰值音訊 0.1 s：AGC 電壓充到 0.715 V，停止後以約 0.27 s 時間常數慢速衰減（降至 37 % 約在 0.36 s）",
+  "testbench": "spice/agc-rectifier-fig12.36b/tb.cir",
+  "tw_reason": "四運放（TL084 類）、1N914、2N2222A 與 E 系列電阻／電容，全是通用料；2.7 MΩ 高阻值電阻建議用金屬皮膜並注意洩漏。"
  },
  {
   "id": 41,
@@ -943,11 +943,11 @@
   "idea": "自製發射機消除 key click。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的元件值取自書中圖；只模擬其中一部分（見電路圖備註）。",
+  "netlist": "spice/cw-shaper-fig13.36/circuit.cir",
+  "sim_result": "按鍵 0/5 V：增益控制電壓由 0.42 V 平滑升到約 1.03 V，10–90 % 上升時間約 7 ms（書中標示的高位準約 1.2 V）",
+  "testbench": "spice/cw-shaper-fig13.36/tb.cir",
+  "tw_reason": "LM339、TL082、1N917 與 E 系列電阻、電容，全是通用料（0.33 µF、0.47 µF 為薄膜或鉭電容的標準值）；書中另用的 CLC5523 增益放大器與 ADG202A 開關不在本電路內。"
  },
  {
   "id": 51,

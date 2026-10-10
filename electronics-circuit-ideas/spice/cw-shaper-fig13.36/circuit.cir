@@ -1,0 +1,33 @@
+* circuit under test.  ARRL Handbook 2011, Fig 13.36  CW waveshaping (keying envelope) path: LM339 comparator (U2B), 1N917 + 10k/0.47u, third-order Sallen-Key low-pass (U3B), and the level-shifting op amp (U3A) whose output drives the CLC5523 gain pin.
+* Values read from the figure. The key input is a logic level (0 = key up, 5 V = key down); the open-collector comparator is modelled by a switch that pulls the 4.7k pull-up low while the key is up.
+* Op amps are behavioural (gain 2e5, GBW 3 MHz, output limited to +-4 V after the pole, +-5 V supplies); the comparator thresholds are placed at 2.5 V.
+.subckt opa p n out
+Bg 1 0 V={ 2e5*(v(p)-v(n)) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*15)}
+Bo 3 0 V={ 4*tanh(v(2)/4) }
+Ro 3 out 75
+.ends
+.model SWK SW(Vt=2.5 Vh=0.1 Ron=50 Roff=1G)
+.model D1N917 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+Vp5 p5 0 5
+Vm5 m5 0 -5
+* U2B comparator: output high (pull-up) when key down, pulled low when key up
+Rpu p5 c 4.7k
+Bnk nk 0 V = 5 - v(key)
+S1 c 0 nk 0 SWK
+D1 c d D1N917
+Rd d 0 10k
+Cd d 0 0.47u
+* Sallen-Key third-order low-pass (U3B follower)
+R1 d e1 15k
+R2 e1 e2 15k
+Cg e2 0 0.1u
+Cfb e1 f 0.33u
+Xb e2 f f opa
+* level shift / scale: 2.7k and 560 divider then U3A non-inverting stage with 120k to -5 V
+Rdiv1 f g 2.7k
+Rdiv2 g 0 560
+Xa g n vg opa
+Rfa vg n 10k
+Rm5 n m5 120k

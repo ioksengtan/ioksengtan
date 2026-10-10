@@ -1,0 +1,30 @@
+* circuit under test.  ARRL Handbook 2011, Fig 12.36(B)  Audio-derived AGC rectifier: buffer, unity inverter, two 1N914 diodes (full-wave |v|), 470 ohm / 2.7 Mohm + 0.1 uF peak-hold filter, op-amp + 2N2222A emitter follower.
+* Component values read from the figure. The quad op amp (x084) is a behavioural op amp (gain 2e5, GBW 3 MHz, clamp at the +-12 V supply minus 1.5 V placed after the pole).
+.subckt opa p n out
+Bg 1 0 V={ 2e5*(v(p)-v(n)) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*15)}
+Bo 3 0 V={ 10.5*tanh(v(2)/10.5) }
+Ro 3 out 75
+.ends
+.model D1N914 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+.model Q2N2222 NPN(Is=14.3f Bf=255 Vaf=74 Cjc=7.3p Cje=22p Tf=0.4n Rb=10 Rc=1 Re=0.2)
+* input buffer U1 (unity gain) and inverter U2 (gain -1 through 10k / 10k)
+Xu1 in b b opa
+Ri b m 10k
+Xu2 0 m inv opa
+Rfi m inv 10k
+* full-wave: whichever of b and inv is higher feeds the filter
+D1 b x D1N914
+D2 inv x D1N914
+Rs x y 470
+Rd y 0 2.7Meg
+Cd y 0 0.1u
+* output buffer: op amp drives a 2N2222A emitter follower inside its feedback loop
+Xu3 y e base opa
+Qf vcc base e Q2N2222
+Rpd e vee 2.2k
+Ro1 e agc 1k
+Cagc agc 0 0.1u
+Vcc vcc 0 12
+Vee vee 0 -12

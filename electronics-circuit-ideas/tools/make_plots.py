@@ -90,6 +90,11 @@ SPEC = {
     P('電橋偵測電壓 vs 待測電阻 Rx', 'Rx (Ω)', 'V', [('Va − Vb', 'v(a)-v(b)')])])],
  'rf-feedback-amp-fig5.51': [(['ac dec 100 1Meg 500Meg'], [
     P('射頻回授放大器增益（50 Ω 系統）', '頻率 (MHz)', 'dB', [('增益', 'vdb(out)')], xlog=True, xs=1e-6)])],
+ 'agc-rectifier-fig12.36b': [([], [
+    P('AGC 整流器：輸入音訊與 AGC 電壓', '時間 (ms)', 'V', [('輸入', 'v(in)'), ('AGC 輸出', 'v(agc)')], xs=1e3, xwin=(0, 0.01)),
+    P('AGC 電壓（0.1 s 後無訊號，慢速衰減）', '時間 (s)', 'V', [('AGC 輸出', 'v(agc)')])])],
+ 'cw-shaper-fig13.36': [([], [
+    P('CW 鍵控波形整形', '時間 (ms)', 'V', [('按鍵 0/5 V', 'v(key)'), ('比較器輸出', 'v(c)'), ('增益控制 Vgain', 'v(vg)')], xs=1e3)])],
 }
 
 def decimate(x, y, n=700):
