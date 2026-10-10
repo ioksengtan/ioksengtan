@@ -1569,12 +1569,12 @@
   "description": "W7DB 設計，可量測 −50 dBm（10 nW）到 −20 dBm（10 µW），精度 1 dB，頻率從廣播頻段到 2 m。",
   "idea": "測試接收機靈敏度。",
   "spice": "可",
-  "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "難",
+  "note": "netlist 的元件值取自書中圖；二極體陣列與放大器為行為／近似模型。",
+  "netlist": "spice/microwatter-fig25.12/circuit.cir",
+  "sim_result": "7 MHz、50 Ω 端接：−50／−40／−30／−20 dBm 時偵測放大器輸出每 10 dB 差 10 倍（平方律），3.9 kΩ 檔電表電流 0.001／0.009／0.089／0.787 mA（滿刻度 −20 dBm 約差 −1 dB，因二極體模型為假設）",
+  "testbench": "spice/microwatter-fig25.12/tb.cir",
+  "tw_reason": "最難買的是 CA3039／NTE907 二極體陣列（熱耦合匹配、已停產，要海外訂購）；INA2128 與 1 mA 指針電表可在網路買到；電阻電容都是標準值。若接受精度變差，可用兩顆挑選配對的蕭特基代替二極體陣列。"
  },
  {
   "id": 84,
@@ -1759,12 +1759,12 @@
   "description": "偵測家中電器發出的干擾電磁輻射並讓你聽到雜訊。",
   "idea": "找 RFI 來源。",
   "spice": "可",
-  "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "中",
+  "note": "netlist 的元件值取自書中圖；二極體陣列與放大器為行為／近似模型。",
+  "netlist": "spice/rf-sniffer-fig27.33/circuit.cir",
+  "sim_result": "拾音線圈 20 µV 輸入：喇叭端約 0.285 V（全增益約 83 dB），−3 dB 頻寬 63 Hz–13.9 kHz",
+  "testbench": "spice/rf-sniffer-fig27.33/tb.cir",
+  "tw_reason": "741、LM386、E 系列電阻與電解電容皆為電料行常見料；拾音線圈（電話吸盤式拾音器）要在材料行或網路買，其餘都是通用零件。"
  },
  {
   "id": 94,
