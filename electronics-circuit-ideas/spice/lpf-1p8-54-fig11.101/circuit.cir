@@ -1,0 +1,8 @@
+* circuit under test.  ARRL Handbook 2011, Fig 11.101  High-performance low-cost 1.8-54 MHz low-pass filter (K8CU), 3 inductors + 3 capacitors.
+* Values read from the figure: L1 = L3 = 178.9 nH, L2 = 235.88 nH, C1 = C2 = 74.1 pF, C3 = 10.7 pF across L2 (a trap near 100 MHz). Source and load 50 ohm.
+L1 in n1 178.9n
+L2 n1 n2 235.88n
+C3 n1 n2 10.7p
+L3 n2 out 178.9n
+C1 n1 0 74.1p
+C2 n2 0 74.1p

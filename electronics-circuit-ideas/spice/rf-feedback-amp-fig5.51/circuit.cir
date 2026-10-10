@@ -1,0 +1,15 @@
+* circuit under test.  ARRL Handbook 2011, Fig 5.51-5.52  RF amplifier with feedback: collector-base feedback resistor Rf and emitter degeneration Re.
+* Topology from the figure; component values designed here for about 10 mA collector current and roughly 14-15 dB gain.
+.model Q2N3904 NPN(Is=6.7f Bf=416 Vaf=74 Cjc=3.6p Cje=4.5p Tf=0.3n Rb=10 Rc=1 Re=0.2 Ikf=0.07)
+Vcc vcc 0 12
+Rc vcc c 330
+Q1 c b e Q2N3904
+Rb1 vcc b 22k
+Rb2 b 0 4.7k
+Rf c fb 680
+Cfb fb b 1n
+Re1 e e2 10
+Re2 e2 0 100
+Ce e2 0 100n
+Cin in b 1n
+Cout c out 1n

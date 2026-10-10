@@ -9,7 +9,7 @@
 - `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
 - `data/plots.json`、`data/graphs.json`：每個已驗證電路的模擬波形與自動產生的連接圖（由 `tools/make_plots.py`、`tools/make_graphs.py` 產生）
 - `tools/make_plots.py`、`tools/make_graphs.py`：重跑 ngspice 取得波形、由 netlist 畫連接圖
-- `data/bom.json`：26 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
+- `data/bom.json`：32 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
 - `data/schematics.json`：手工排版的標準電路圖（schemdraw，`tools/make_schematics.py`，`tools/check_schematics.py` 檢查元件值是否與 netlist 一致）
 - `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 
@@ -44,8 +44,14 @@
 | 麥克風前級 | `mic-preamp-fig13.28` | 增益 33.4 dB，頻寬 33.8 Hz–16.2 kHz |
 | C 類倍頻器 | `freq-doubler-fig13.25` | 3.5 MHz→7 MHz，基頻抑制約 30 dB |
 | 多重回授帶通 | `mfb-bandpass-fig12.49` | 1 kHz，增益 6.2 dB，Q≈5.1 |
+| 1.8–54 MHz 低通濾波器 | `lpf-1p8-54-fig11.101` | 1.8 MHz 損耗 0.003 dB、54 MHz 0.17 dB、100 MHz 約 −74 dB（元件值取自書中） |
+| Diplexer 濾波器 | `diplexer-fig11.97` | 5.45 MHz 兩埠各 −3 dB，輸入阻抗 46–54 Ω（書中歸一化值換算） |
+| 語音限幅器 | `speech-clipper-fig13.29` | 輸出被限在約 ±1.04 V（元件值取自書中） |
+| 礦石收音機 | `crystal-radio-fig12.2` | 1 MHz 80 % AM → 音訊 100 mVp-p（耦合與二極體參數為假設） |
+| 惠斯登電橋 | `wheatstone-fig25.6` | Rx＝999.9 Ω 時平衡（臂電阻為我所選） |
+| 射頻回授放大器 | `rf-feedback-amp-fig5.51` | 10 MHz 增益 13.3 dB，頻寬約 450 MHz |
 
-元件值取自書中圖的只有 80 m 低通濾波器與 13.8 V 電源；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
+元件值取自書中圖的有 80 m 低通濾波器、13.8 V 電源、1.8–54 MHz 低通濾波器、Diplexer 與語音限幅器；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
 
 ## 注意
 

@@ -1,0 +1,15 @@
+* testbench for circuit.cir: 50 ohm source and load, AC sweep 1 - 300 MHz
+.include circuit.cir
+Vs s 0 AC 2
+Rs s in 50
+Rl out 0 50
+.ac dec 200 1Meg 300Meg
+.control
+run
+meas ac il1 find vdb(out) at=1.8Meg
+meas ac il54 find vdb(out) at=54Meg
+meas ac f3 when vdb(out)=-3 cross=1
+meas ac a100 find vdb(out) at=100Meg
+echo "loss at 1.8 MHz = $&il1 dB ; at 54 MHz = $&il54 dB ; -3 dB at $&f3 Hz ; at 100 MHz = $&a100 dB"
+.endc
+.end

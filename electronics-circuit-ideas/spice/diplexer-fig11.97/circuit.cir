@@ -1,0 +1,17 @@
+* circuit under test.  ARRL Handbook 2011, Fig 11.97  Diplexer: 5-element 0.1 dB Chebyshev low-pass and high-pass sections sharing one input.
+* Prototype values (1 ohm, 0.1592 Hz) read from the figure, then scaled here to 50 ohm and fco = 5.45 MHz with the book's formulas (K = 1.005):
+*   LP: L = K*Lp*R/(2 pi fco), C = K*Cp/(2 pi fco R);  HP: L = Lp*R/(2 pi fco K), C = Cp/(2 pi fco K R)
+.param fco=5.45Meg R0=50 K=1.005 w={2*3.14159265*fco}
+.param kl={K*R0/w} kc={K/(w*R0)} hl={R0/(w*K)} hc={1/(w*R0*K)}
+* low-pass branch
+Ll1 in a {1.5613*kl}
+Cl1 a 0 {1.8069*kc}
+Ll2 a b {1.7659*kl}
+Cl2 b 0 {1.4173*kc}
+Ll3 b lp {0.6507*kl}
+* high-pass branch
+Ch1 in c {0.6405*hc}
+Lh1 c 0 {0.5534*hl}
+Ch2 c d {0.5593*hc}
+Lh2 d 0 {0.7056*hl}
+Ch3 d hp {1.5368*hc}

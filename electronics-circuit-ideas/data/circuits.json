@@ -639,11 +639,11 @@
   "idea": "降低混頻器終端失配。",
   "spice": "可",
   "tw_sourcing": "中",
-  "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。 netlist 的主要元件值取自書中圖。",
+  "netlist": "spice/diplexer-fig11.97/circuit.cir",
+  "sim_result": "fco 5.45 MHz：低通埠與高通埠在 5.45 MHz 皆約 −3 dB，輸入阻抗 46–54 Ω（SWR 優於 1.17）",
+  "testbench": "spice/diplexer-fig11.97/tb.cir",
+  "tw_reason": "全是被動元件，但電感（0.8–2.6 µH）與電容（325–1060 pF）都不是標準值，需要自繞磁環並用多顆電容並聯湊值；沒有稀有零件。"
  },
  {
   "id": 35,
@@ -658,11 +658,11 @@
   "idea": "為功率放大器加裝。",
   "spice": "可",
   "tw_sourcing": "中",
-  "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "電感電容可模擬；T-50 等磁芯要網購，電容選 NP0。 netlist 的主要元件值取自書中圖。",
+  "netlist": "spice/lpf-1p8-54-fig11.101/circuit.cir",
+  "sim_result": "50 Ω 系統：1.8 MHz 損耗 0.003 dB、54 MHz 損耗 0.17 dB，−3 dB 在 59 MHz，100 MHz 約 −74 dB（在 6 m 頻段陷波）",
+  "testbench": "spice/lpf-1p8-54-fig11.101/tb.cir",
+  "tw_reason": "電感 178.9 nH、235.88 nH 要用銅管自繞（書中作法），電容 74.1 pF、10.7 pF 非標準值，書中用鐵氟龍夾層的銅板自製；沒有特殊半導體，但需要機械加工與調整，所以是中。"
  },
  {
   "id": 36,
@@ -733,12 +733,12 @@
   "description": "以半導體二極體當檢波器的礦石收音機，並加入 RF／AF 放大改善靈敏度與選擇性。",
   "idea": "給小孩的第一個無線電實驗。",
   "spice": "可",
-  "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "中",
+  "note": "netlist 採用書上的拓樸，元件值多為我選的設計值。",
+  "netlist": "spice/crystal-radio-fig12.2/circuit.cir",
+  "sim_result": "1 MHz、80 % 調幅、100 mV 峰值天線訊號：偵測後直流 78 mV，音訊 100 mVp-p",
+  "testbench": "spice/crystal-radio-fig12.2/tb.cir",
+  "tw_reason": "1N34A 鍺二極體、可變電容與繞好的天線／調諧線圈要找舊料或網路商店；2000 Ω 高阻耳機現在也少見（可用壓電耳機）；其餘被動件是標準值。"
  },
  {
   "id": 40,
@@ -924,11 +924,11 @@
   "idea": "讓 SSB 語音更響。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的主要元件值取自書中圖。",
+  "netlist": "spice/speech-clipper-fig13.29/circuit.cir",
+  "sim_result": "1 kHz、0.5 V 峰值輸入：運放輸出達 10.5 V（飽和），二極體把輸出限在約 ±1.04 V",
+  "testbench": "spice/speech-clipper-fig13.29/tb.cir",
+  "tw_reason": "TL081（或 TL071）、1N914/1N4148 與 E 系列電阻、電解電容，全是通用料；100 kΩ 電位器電料行常見。"
  },
  {
   "id": 50,
@@ -1208,12 +1208,12 @@
   "description": "回授放大器基本電路與實用變化，含變壓器與集極輸出抽頭等接法。",
   "idea": "寬頻 50 Ω 放大級。",
   "spice": "可",
-  "tw_sourcing": "中",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "易",
+  "note": "netlist 採用書上的拓樸，元件值多為我選的設計值。",
+  "netlist": "spice/rf-feedback-amp-fig5.51/circuit.cir",
+  "sim_result": "50 Ω 系統：10 MHz 增益 13.3 dB，−3 dB 頻寬約 450 MHz（集極電流約 10 mA）",
+  "testbench": "spice/rf-feedback-amp-fig5.51/tb.cir",
+  "tw_reason": "2N3904 與標準值電阻、電容，全為通用料；要調整的是偏壓與射極電阻以得到所需增益。"
  },
  {
   "id": 65,
@@ -1779,11 +1779,11 @@
   "idea": "精密電阻比較。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 採用書上的拓樸，元件值多為我選的設計值。",
+  "netlist": "spice/wheatstone-fig25.6/circuit.cir",
+  "sim_result": "5 V 激勵：Rx＝500 Ω 時偵測電壓 +0.83 V，2 kΩ 時 −0.82 V，Rx＝999.9 Ω 時平衡為零",
+  "testbench": "spice/wheatstone-fig25.6/tb.cir",
+  "tw_reason": "只有 E 系列電阻（1 kΩ、100 kΩ）；實作時 Rs 要換成十進位電阻箱或精密可調電阻，偵測用電流計或 DVM 即可。"
  },
  {
   "id": 95,

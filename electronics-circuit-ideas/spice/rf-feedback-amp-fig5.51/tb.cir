@@ -1,0 +1,15 @@
+* testbench for circuit.cir: 50 ohm source and 50 ohm load, AC sweep 1 - 500 MHz
+.include circuit.cir
+Vs s 0 AC 2
+Rs s in 50
+Rl out 0 50
+.ac dec 100 1Meg 500Meg
+.control
+op
+print i(vcc) v(c)
+ac dec 100 1Meg 500Meg
+meas ac gmid find vdb(out) at=10Meg
+meas ac f3 when vdb(out)=gmid-3 cross=last
+echo "gain at 10 MHz = $&gmid dB (with the 6 dB source/load halving included) ; -3 dB at $&f3 Hz"
+.endc
+.end

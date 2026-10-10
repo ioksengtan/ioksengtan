@@ -1,0 +1,16 @@
+* testbench for circuit.cir: antenna = 1.0 MHz carrier, 80 % AM at 1 kHz, 100 mV peak open-circuit, behind 50 ohm and 100 pF
+.include circuit.cir
+
+Bant a 0 V = 0.1*(1+0.8*sin(2*3.14159*1k*time))*sin(2*3.14159*1Meg*time)
+Rant a a2 50
+Cant a2 ant 100p
+.tran 20n 6m 0 20n
+.control
+run
+meas tran vdc avg v(out) from=3m to=6m
+meas tran vmax max v(out) from=3m to=6m
+meas tran vmin min v(out) from=3m to=6m
+let af = vmax-vmin
+echo "detected dc = $&vdc V ; audio swing = $&af V p-p"
+.endc
+.end

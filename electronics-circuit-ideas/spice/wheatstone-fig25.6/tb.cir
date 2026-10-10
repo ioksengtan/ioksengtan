@@ -1,0 +1,14 @@
+* testbench for circuit.cir: 5 V excitation, sweep the unknown Rx from 500 ohm to 2 kohm (set through node rx, 1 V = 1 ohm) and read the detector voltage
+.include circuit.cir
+Vb top 0 5
+Vrx rx 0 1000
+.dc Vrx 500 2000 10
+.control
+run
+let vd = v(a)-v(b)
+meas dc vlow find vd at=500
+meas dc vhigh find vd at=2000
+meas dc rnull when vd=0
+echo "detector at Rx=500: $&vlow V ; at 2000: $&vhigh V ; null at Rx = $&rnull ohm"
+.endc
+.end

@@ -1,0 +1,7 @@
+* circuit under test.  Wheatstone bridge (ARRL Handbook ch. 25, Fig 25.6 area). Ratio arms R1 = R2 = 1k, standard Rs = 1k, unknown Rx; detector across the midpoints.
+* Values chosen here; the book gives the principle only. Rx is the unknown resistor; its value is set by the voltage on node rx (1 V = 1 ohm) so the testbench can sweep it.
+R1 top a 1k
+R2 top b 1k
+Rs a 0 1k
+Rx b 0 R='v(rx)'
+Rdet a b 100k

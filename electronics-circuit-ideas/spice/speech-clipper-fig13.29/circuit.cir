@@ -1,0 +1,29 @@
+* circuit under test.  ARRL Handbook 2011, Fig 13.29  Simple audio speech clipper (TL081 gain stage + diode clipper).
+* Values read from the figure. The 100k CLIP LEVEL pot is set to full (wiper at the top of Rcl), the 100k feedback pot at full gain (wiper at the bottom: 100k above, 10k below).
+* The TL081 is a behavioural op amp (gain 2e5, GBW 3 MHz, output limited to about 1.5 V to 10.5 V on the single 12 V supply; the clamp comes after the pole so the slew rate is not artificially low).
+.subckt opa p n out
+Bg 1 0 V={ 6 + 2e5*(v(p)-v(n)) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*15)}
+Bo 3 0 V={ 6 + 4.5*tanh((v(2)-6)/4.5) }
+Ro 3 out 75
+.ends
+Vcc vcc 0 12
+Rdec vcc v12 1k
+Cdec v12 0 100u
+Rb1 v12 p 330k
+Rb2 p 0 330k
+Cin in1 p 1u
+Rcl in1 0 100k
+Xa p n o opa
+Rf o n 100k
+Rg n g 10k
+Cg g 0 10u
+Ro o oc 10k
+Co oc c 10u
+Da1 0 m1 D1N914
+Da2 m1 c D1N914
+Db1 c m2 D1N914
+Db2 m2 0 D1N914
+Rout c 0 100k
+.model D1N914 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
