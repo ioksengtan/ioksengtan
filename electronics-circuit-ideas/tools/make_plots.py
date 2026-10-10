@@ -95,6 +95,10 @@ SPEC = {
     P('AGC 電壓（0.1 s 後無訊號，慢速衰減）', '時間 (s)', 'V', [('AGC 輸出', 'v(agc)')])])],
  'cw-shaper-fig13.36': [([], [
     P('CW 鍵控波形整形', '時間 (ms)', 'V', [('按鍵 0/5 V', 'v(key)'), ('比較器輸出', 'v(c)'), ('增益控制 Vgain', 'v(vg)')], xs=1e3)])],
+ 'microwatter-fig25.12': [([], [
+    P('Microwatter：7 MHz 輸入每 0.5 ms 提高 10 dB（−50、−40、−30、−20 dBm）時的放大器輸出', '時間 (ms)', 'V', [('v(out)', 'v(out)')], xs=1e3)])],
+ 'rf-sniffer-fig27.33': [(['ac dec 50 20 100k'], [
+    P('RF Sniffer 全增益頻率響應（拾音線圈 → 喇叭）', '頻率 (Hz)', 'dBV（輸入 20 µV）', [('v(喇叭)', 'vdb(spk)')], xlog=True)])],
 }
 
 def decimate(x, y, n=700):

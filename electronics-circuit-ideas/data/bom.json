@@ -1452,6 +1452,155 @@
   "level": "易",
   "reason": "通用運放（TL071／LM358 類，需單電源偏壓要另加設計）、E 系列電阻與電解電容，全為通用料；駐極體麥克風電路另需偏壓。"
  },
+ "microwatter-fig25.12": {
+  "rows": [
+   {
+    "refs": [
+     "R3",
+     "R4"
+    ],
+    "part": "電阻 100Ω",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C2",
+     "C3"
+    ],
+    "part": "電容 100nF",
+    "qty": 2,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R2",
+     "R6"
+    ],
+    "part": "電阻 220kΩ",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "D1",
+     "D2"
+    ],
+    "part": "CA3039 或 NTE907 二極體陣列（需熱耦合匹配的 6 二極體 IC）",
+    "qty": 2,
+    "spec": "14-pin DIP",
+    "level": "難",
+    "why": "CA3039 已停產，書中建議用 NTE907，要向 Mouser 之類的海外通路訂；台灣電料行與光華幾乎找不到，替代品是自己挑配對的 1N4148／蕭特基，但熱匹配與溫漂會變差。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R1",
+     "R5"
+    ],
+    "part": "電阻 2.7kΩ",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C11",
+     "C1"
+    ],
+    "part": "電容 10nF",
+    "qty": 2,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R7"
+    ],
+    "part": "電阻 51Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R8"
+    ],
+    "part": "電阻 120Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rsel"
+    ],
+    "part": "電阻 3.9kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "U1"
+    ],
+    "part": "INA2128P 儀表放大器（取其一，R8 120 Ω 設增益 418）",
+    "qty": 1,
+    "spec": "DIP-8／DIP-16",
+    "level": "中",
+    "why": "TI 的儀表放大器在台灣可由網路通路買到，但電料行不一定有。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "M1"
+    ],
+    "part": "1 mA 滿刻度、50 Ω 內阻的指針電表",
+    "qty": 1,
+    "spec": "面板式",
+    "level": "中",
+    "why": "指針電表現在較少見，網路商店有；內阻不同時要重算 Rsel。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "U2",
+     "D3",
+     "D4"
+    ],
+    "part": "78L12 與 5.1 V、3.9 V 稽納組成的 +5.1 V／−3.9 V 雙電源（電池 14–20 V）",
+    "qty": 1,
+    "spec": "TO-92",
+    "level": "易",
+    "why": "本電路的電源部分，78L12 與稽納都是常見料；模擬中以理想電源代替。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [
+   "Rgen 50 Ω：RF 信號源內阻（測試用）；Ra 1 Ω：行為放大器的輸出電阻，非零件；Rmeter 50 Ω：即電表 M1 的內阻"
+  ],
+  "level": "難",
+  "reason": "最難買的是 CA3039／NTE907 二極體陣列（熱耦合匹配、已停產，要海外訂購）；INA2128 與 1 mA 指針電表可在網路買到；電阻電容都是標準值。若接受精度變差，可用兩顆挑選配對的蕭特基代替二極體陣列。"
+ },
  "mosfet-driver-fig3.57": {
   "rows": [
    {
@@ -2017,6 +2166,196 @@
   ],
   "level": "中",
   "reason": "只有一顆蕭特基、一個 50 Ω 電阻、1 nF 與 10 MΩ 電阻；蕭特基（1N5711／BAT43）網路商店容易買、電料行不一定有。"
+ },
+ "rf-sniffer-fig27.33": {
+  "rows": [
+   {
+    "refs": [
+     "R2",
+     "R6"
+    ],
+    "part": "電阻 100Ω",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C3",
+     "C4"
+    ],
+    "part": "電容 22µF",
+    "qty": 2,
+    "spec": "電解或 MLCC／薄膜",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R3",
+     "R4"
+    ],
+    "part": "電阻 47kΩ",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C2",
+     "C5"
+    ],
+    "part": "電容 10nF",
+    "qty": 2,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C1",
+     "C6"
+    ],
+    "part": "電容 4.7µF",
+    "qty": 2,
+    "spec": "電解或 MLCC／薄膜",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R1"
+    ],
+    "part": "電阻 1kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R5"
+    ],
+    "part": "電阻 100kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Xu1"
+    ],
+    "part": "LM741／TL071／LM358 等通用運算放大器",
+    "qty": 1,
+    "spec": "DIP-8",
+    "level": "易",
+    "why": "模擬用的是 741 等級的單極點模型；實作用 LM741、TL071、LM358 都是電料行常見料。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R8"
+    ],
+    "part": "電阻 10kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C7"
+    ],
+    "part": "電容 47nF",
+    "qty": 1,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C11"
+    ],
+    "part": "電解電容 330µF",
+    "qty": 1,
+    "spec": "鋁電解，耐壓選電路最高電壓的 1.5–2 倍",
+    "level": "易",
+    "why": "常見值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R7"
+    ],
+    "part": "電阻 10Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C10"
+    ],
+    "part": "電容 100nF",
+    "qty": 1,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "U2"
+    ],
+    "part": "LM386N-1 音訊功率放大器",
+    "qty": 1,
+    "spec": "DIP-8",
+    "level": "易",
+    "why": "LM386 是非常普遍的料，電料行常見。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "L1"
+    ],
+    "part": "電話拾音線圈（吸盤式電話錄音拾音器）",
+    "qty": 1,
+    "spec": "3.5 mm 插頭",
+    "level": "中",
+    "why": "拾音線圈在電子材料行或網路商店有賣，也可自繞數百圈漆包線；電感量取決於線圈。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "SPK"
+    ],
+    "part": "8 Ω 小喇叭",
+    "qty": 1,
+    "spec": "",
+    "level": "易",
+    "why": "常見。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [
+   "Vcc：9 V 電池與電源開關；Rcoil 100 Ω 是拾音線圈的等效電阻（我的假設）"
+  ],
+  "level": "中",
+  "reason": "741、LM386、E 系列電阻與電解電容皆為電料行常見料；拾音線圈（電話吸盤式拾音器）要在材料行或網路買，其餘都是通用零件。"
  },
  "sallen-key-fig3.69": {
   "rows": [

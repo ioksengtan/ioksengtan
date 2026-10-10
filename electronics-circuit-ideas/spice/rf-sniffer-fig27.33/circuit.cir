@@ -1,0 +1,42 @@
+* circuit under test.  ARRL Handbook 2011, Fig 27.33  RF Sniffer: telephone pick-up coil -> 741 inverting preamplifier (gain 100) -> AF gain pot -> LM386 power amplifier (gain 200 with C8) -> 8 ohm speaker, 9 V supply.
+* Component values read from the figure; the pot R8 is at its top (full gain). The 741 and LM386 are behavioural models (741: gain 2e5, GBW 1 MHz, output swing about 1.5-7.5 V; LM386: input referred to ground through 50k, gain 200 set by C8, 300 kHz bandwidth, output centred on Vcc/2 and limited to +-3.5 V). The pick-up coil is represented by a source behind 100 ohm (my assumption).
+.subckt op741 p n out
+Bg 1 0 V={ 4.5 + 2e5*(v(p)-v(n)) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*5)}
+Bo 3 0 V={ 4.5 + 3*tanh((v(2)-4.5)/3) }
+Ro 3 out 75
+.ends
+.subckt lm386 in out
+Rin in 0 50k
+Bg 1 0 V={ 200*v(in) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*300k)}
+Bo 3 0 V={ 4.5 + 3.5*tanh(v(2)/3.5) }
+Ro 3 out 2
+.ends
+Vcc vcc 0 9
+* supply filtering and half-supply bias for the 741
+R2 vcc vb 100
+C3 vb 0 22u
+R3 vb h 47k
+R4 h 0 47k
+C4 h 0 22u
+* input: pick-up coil, C2 across the coil, C1/R1 into the inverting input, C5 from the inverting input to ground, R5 feedback
+C2 in1 0 0.01u
+C1 in1 s 4.7u
+R1 s n 1k
+C5 n 0 0.01u
+R5 n o1 100k
+Xu1 h n o1 op741
+* AF gain pot (full), coupling and filter into the LM386
+R6 o1 o2 100
+C6 o2 w 4.7u
+R8 w 0 10k
+C7 w 0 0.047u
+Xu2 w lo lm386
+* speaker output with Zobel network
+C11 lo spk 330u
+Rspk spk 0 8
+R7 lo z 10
+C10 z 0 0.1u

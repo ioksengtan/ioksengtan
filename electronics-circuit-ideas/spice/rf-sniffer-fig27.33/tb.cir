@@ -1,0 +1,15 @@
+* testbench for circuit.cir: pick-up coil modelled as an AC source behind 100 ohm; AC sweep 20 Hz - 100 kHz, then a 1 kHz transient with 20 uV coil signal
+.include circuit.cir
+Vcoil c 0 DC 0 AC 20u SIN(0 20u 1k)
+Rcoil c in1 100
+.ac dec 50 20 100k
+.control
+run
+meas ac gmid find vdb(spk) at=1k
+let tgt = gmid-3
+meas ac flo when vdb(spk)=tgt cross=1
+meas ac fhi when vdb(spk)=tgt cross=last
+let gain_db = gmid + 20*log10(1/20u)
+echo "speaker voltage at 1 kHz = $&gmid dBV for 20 uV in ; -3 dB $&flo Hz - $&fhi Hz"
+.endc
+.end

@@ -1,0 +1,27 @@
+* circuit under test.  ARRL Handbook 2011, Fig 25.12  "Microwatter" terminating RF power meter: two matched diodes (CA3039), one RF-coupled, a differential amplifier (1/2 INA2128, gain 1 + 50k/120 = 418) and a 1 mA meter with range resistors.
+* Component values read from the figure. The diodes are modelled as small silicon diodes (Is, Cj are my assumptions - the CA3039 data are not in the book); the INA2128 is a behavioural differential amplifier with its output limited to about -3.4 V / +7.6 V (the -3.9 V / +8.1 V rails less 0.5 V), and the offset-null stage (1/2 INA2128 + R14) is assumed perfectly nulled.
+.model DCA D(Is=5f N=1 Rs=10 Cjo=0.5p Bv=20)
+Vp p5 0 5.1
+* 50 ohm termination: two 100 ohm in parallel
+R3 rf 0 100
+R4 rf 0 100
+* RF-coupled diode D1 (to the inverting input)
+C2 rf d1 0.1u
+R2 p5 d1 220k
+D1 d1 0 DCA
+R1 d1 inm 2.7k
+C11 inm 0 0.01u
+* reference diode D2 (to the non-inverting input): same bias, dummy 51 ohm at the chip capacitor
+C3 dm d2 0.1u
+R7 dm 0 51
+R6 p5 d2 220k
+D2 d2 0 DCA
+R5 d2 inp 2.7k
+C1 inp 0 0.01u
+* INA2128 gain 1 + 50k/R8, behavioural, output limited
+R8 g 0 120
+Bamp a 0 V={ ((1+50k/120)*(v(inp)-v(inm)) > 0) ? 7.6*tanh((1+50k/120)*(v(inp)-v(inm))/7.6) : 3.4*tanh((1+50k/120)*(v(inp)-v(inm))/3.4) }
+Ra a out 1
+* range resistor (3.9k = least sensitive, 390 = middle, 0 = most sensitive) and the 50 ohm 1 mA meter
+Rsel out m 3.9k
+Rmeter m 0 50

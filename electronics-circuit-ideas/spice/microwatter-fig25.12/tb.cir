@@ -1,0 +1,17 @@
+* testbench for circuit.cir: 7 MHz generator (50 ohm source) stepped in 10 dB steps, -50 / -40 / -30 / -20 dBm into the 50 ohm termination, 0.5 ms each
+.include circuit.cir
+.param lvl1=1m lvl2=3.162m lvl3=10m lvl4=31.62m
+* open-circuit generator voltage = 2 * Vpk at the termination; Vpk = sqrt(2*P*50)
+Bgen gen 0 V = 2*( (time<0.5m)*0.001 + (time>=0.5m)*(time<1m)*0.003162 + (time>=1m)*(time<1.5m)*0.01 + (time>=1.5m)*0.03162 )*sin(2*3.14159*7Meg*time)
+Rgen gen rf 50
+.tran 5n 2m 0 5n
+.control
+run
+let ima = v(out)/3950*1000
+meas tran i1 avg ima from=0.4m to=0.5m
+meas tran i2 avg ima from=0.9m to=1m
+meas tran i3 avg ima from=1.4m to=1.5m
+meas tran i4 avg ima from=1.9m to=2m
+echo "meter current (mA, 3.9k range): -50 dBm $&i1 ; -40 dBm $&i2 ; -30 dBm $&i3 ; -20 dBm $&i4"
+.endc
+.end
