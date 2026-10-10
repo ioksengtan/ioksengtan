@@ -1,0 +1,12 @@
+* testbench for circuit.cir: 1 kHz sine, 500 mV peak, at the clip-level pot input
+.include circuit.cir
+Vin in1 0 SIN(0 0.5 1k)
+.tran 5u 20m
+.control
+run
+meas tran vpk max v(c) from=10m to=20m
+meas tran vneg min v(c) from=10m to=20m
+meas tran vopk max v(o) from=10m to=20m
+echo "input 0.5 V pk -> op-amp output peak $&vopk V ; clipper output +$&vpk / $&vneg V"
+.endc
+.end

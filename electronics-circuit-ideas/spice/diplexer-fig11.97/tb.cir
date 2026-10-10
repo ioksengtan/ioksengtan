@@ -1,0 +1,19 @@
+* testbench for circuit.cir: 50 ohm source, both ports terminated in 50 ohm, AC sweep 0.5 - 50 MHz
+.include circuit.cir
+Vs s 0 AC 2
+Rs s in 50
+Rlp lp 0 50
+Rhp hp 0 50
+.ac dec 200 0.5Meg 50Meg
+.control
+run
+meas ac lp1 find vdb(lp) at=2Meg
+meas ac hp1 find vdb(hp) at=15Meg
+meas ac lpx find vdb(lp) at=5.45Meg
+meas ac hpx find vdb(hp) at=5.45Meg
+let zin = abs(v(in)/((v(s)-v(in))/50))
+meas ac zmin min zin
+meas ac zmax max zin
+echo "LP at 2 MHz = $&lp1 dB ; HP at 15 MHz = $&hp1 dB ; at 5.45 MHz LP = $&lpx dB HP = $&hpx dB ; |Zin| range $&zmin - $&zmax ohm"
+.endc
+.end

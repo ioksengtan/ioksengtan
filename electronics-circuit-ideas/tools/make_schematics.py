@@ -3,7 +3,7 @@
 Component values are typed from the matching netlist; run tools/check_schematics.py to compare."""
 import json, pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import schem_defs1 as a, schem_defs2 as b, schem_defs3 as c, schem_defs4 as d, schem_defs5 as e5
+import schem_defs1 as a, schem_defs2 as b, schem_defs3 as c, schem_defs4 as d, schem_defs5 as e5, schem_defs6 as e6
 root = pathlib.Path(__file__).resolve().parent.parent
 REG = {
  'ce-amp-fig3.44': a.ce_amp, 'jfet-cs-fig3.51': a.jfet_cs, 'opamp-basics-fig3.61': b.opamp_basics,
@@ -14,9 +14,18 @@ REG = {
  'wien-osc-fig25.20': c.wien, 'buck-fig7.30': c.buck, 'psu-13v8-fig7.69': c.psu, 'diode-dbm-fig10.22': d.dbm,
  'xtal-ladder-fig11.11.1': e5.xtal_ladder, 'rf-probe-fig25.11': e5.rf_probe, 'varactor-tank-fig3.21': e5.varactor,
  'log-amp-fig3.73': e5.log_amp, 'mosfet-driver-fig3.57': e5.mosfet, 'mic-preamp-fig13.28': e5.mic,
- 'freq-doubler-fig13.25': e5.doubler, 'mfb-bandpass-fig12.49': e5.mfb,
+ 'freq-doubler-fig13.25': e5.doubler,
+ 'lpf-1p8-54-fig11.101': e6.lpf54, 'diplexer-fig11.97': e6.diplexer, 'speech-clipper-fig13.29': e6.clipper,
+ 'crystal-radio-fig12.2': e6.crystal_radio, 'wheatstone-fig25.6': e6.wheatstone, 'rf-feedback-amp-fig5.51': e6.rf_fb,
+ 'mfb-bandpass-fig12.49': e5.mfb,
 }
 NOTE = {
+ 'lpf-1p8-54-fig11.101': '元件值取自書中 Fig 11.101；實體的電感是銅管繞製，電容用鐵氟龍夾層銅板，圖中只畫電氣等效。',
+ 'diplexer-fig11.97': '圖上是把書中 Fig 11.97 的歸一化原型值，依書中公式換算成 50 Ω、fco 5.45 MHz（K＝1.005）後的值；電路相同，只是縮放。',
+ 'speech-clipper-fig13.29': '元件值取自書中 Fig 13.29；100k CLIP LEVEL 電位器設在最大（模擬中接成 Rcl）、回授電位器設在最大增益，前後的 300–3000 Hz 帶通濾波器未畫；TL081 為行為模型。',
+ 'crystal-radio-fig12.2': '元件值取自書中 Fig 12.2；耦合係數 K＝0.5、1N34 參數與天線等效（50 Ω＋100 pF）是我的假設；2000 Ω 耳機以 20 kΩ 負載代替（書中標示）。',
+ 'wheatstone-fig25.6': '書中只給原理，臂電阻值是我選的；Rx 在模擬中以 0.5–2 kΩ 掃描。',
+ 'rf-feedback-amp-fig5.51': '拓撲取自書中 Fig 5.51／5.52（集極—基極回授電阻加射極衰減）；元件值是我設計的，不是書中值。',
  'xtal-ladder-fig11.11.1': '晶體等效電路（Lm 23.4 mH、Cm 15 fF、Rm 20 Ω、Cp 4 pF）與 68 pF、300 Ω 都是我選的假設值；模擬的阻帶比實物深很多（理想化）。',
  'rf-probe-fig25.11': '蕭特基模型參數與 50 Ω 信號源內阻是我的假設，不是書中數值。',
  'varactor-tank-fig3.21': '這是我設計的調諧槽路示範，變容二極體 60 pF＠0 V、M＝0.5 為假設值；圖中只畫一組，模擬同時比較 1／3／6／10 V 四個偏壓。',

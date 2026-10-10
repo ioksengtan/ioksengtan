@@ -77,6 +77,19 @@ SPEC = {
     P('輸出頻譜（驅動 3.5 MHz）', '頻率 (MHz)', '峰值 (mV)', [('v(out)', 'v(out)')], kind='fft', fft=(20e-6, 40e-6))])],
  'mfb-bandpass-fig12.49': [(['ac dec 200 100 10k'], [
     P('MFB 帶通濾波器（1 kHz，Q≈5）', '頻率 (Hz)', 'dB', [('vout/vin', 'vdb(out)')], xlog=True)])],
+ 'lpf-1p8-54-fig11.101': [(['ac dec 200 1Meg 300Meg'], [
+    P('1.8–54 MHz 低通濾波器插入損耗', '頻率 (MHz)', 'dB', [('S21', 'vdb(out)')], xlog=True, xs=1e-6)])],
+ 'diplexer-fig11.97': [(['ac dec 200 0.5Meg 50Meg'], [
+    P('Diplexer 低通與高通埠（50 Ω，fco 5.45 MHz）', '頻率 (MHz)', 'dB', [('低通埠', 'vdb(lp)'), ('高通埠', 'vdb(hp)')], xlog=True, xs=1e-6)])],
+ 'speech-clipper-fig13.29': [([], [
+    P('語音限幅器：輸入、運放輸出與限幅後輸出', '時間 (ms)', 'V', [('輸入', 'v(in1)'), ('運放輸出', 'v(o)'), ('限幅後', 'v(c)')], xs=1e3, xwin=(10e-3, 20e-3))])],
+ 'crystal-radio-fig12.2': [([], [
+    P('天線端 AM 載波（放大）', '時間 (µs)', 'V', [('調諧電路', 'v(t)')], xs=1e6, xwin=(5.0e-3, 5.01e-3)),
+    P('偵測器輸出（音訊）', '時間 (ms)', 'V', [('v(out)', 'v(out)')], xs=1e3)])],
+ 'wheatstone-fig25.6': [([], [
+    P('電橋偵測電壓 vs 待測電阻 Rx', 'Rx (Ω)', 'V', [('Va − Vb', 'v(a)-v(b)')])])],
+ 'rf-feedback-amp-fig5.51': [(['ac dec 100 1Meg 500Meg'], [
+    P('射頻回授放大器增益（50 Ω 系統）', '頻率 (MHz)', 'dB', [('增益', 'vdb(out)')], xlog=True, xs=1e-6)])],
 }
 
 def decimate(x, y, n=700):
