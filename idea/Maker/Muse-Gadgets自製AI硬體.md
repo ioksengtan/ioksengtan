@@ -2,6 +2,7 @@
 
 更新日期：2026-10-09  
 靈感來源：使用者貼上的社群新聞文字（出處未附）；另以搜尋摘要查證，來源見文末  
+官方儲存庫：[facebookincubator/muse-gadget-sdk](https://github.com/facebookincubator/muse-gadget-sdk)（2026-10-10 已 clone 讀過 README、esp32 與 linux 說明；未讀 gadgets.muse.ai 條款頁）  
 狀態：靈感庫／未選定落地方向  
 紀錄者：Maker Idea
 
@@ -22,8 +23,22 @@ Meta 開源 Muse Gadgets 的 ESP32 韌體與 Linux SDK，讓人自製能跟 Muse
 - 內容：ESP32 Device SDK 與韌體、給 Raspberry Pi 與其他 Linux 電腦用的 Linux Device SDK，程式碼採 Apache 2.0 授權。
 - 起步方式：到 gadgets.muse.ai 取得 API token，再依 GitHub 儲存庫開發。
 - 另有名為 Muse Home Link 的 USB-C 轉接器，報導稱限量 5,000 個，免費提供給 Muse 訂閱者（細節各報導略有出入）。
-- 注意事項：程式碼雖開源，但要連上 Muse 必須使用 Meta 發放的 token，Meta 可以收回；Meta 也提醒開發者風險自負。
+- 注意事項：程式碼雖開源，但要連上 Muse 必須使用 Meta 發放的 token，Meta 可以收回；Meta 也提醒開發者風險自負。報導另稱 token 條款限制每個 token 最多 50 台設備、不得用在販售的設備，這點我尚未在條款頁確認（repo README 只說要先閱讀 Gadget SDK Terms）。
 - Muse 目前在美國上線，台灣能否使用 Muse 與 token 尚未查證。
+
+## 讀過官方 repo 後確認的事實（2026-10-10，commit 812c46f）
+
+- 結構：`esp32/`（ESP-IDF v6.0.1 韌體）、`linux/`（Python SDK，Raspberry Pi 等）、`skills/`（社群貢獻的裝置技能，Markdown only）。授權 Apache 2.0（Jollybot 頭像與兩個第三方檔案例外）。
+- 每台設備都要 SDK token（gadgets.muse.ai 帳號內產生）才能配對，包含自己用的；配對經 iOS／Android 的 Muse App：設定、裝置、開啟 Developer mode，再找 `MuseGadget` 開頭的裝置。ESP32 上要按板上按鈕確認配對，連線採加密 session；README 明說社群設備沒有廠商驗證，要在可信任的網路上設定。
+- **ESP32 韌體本身就包含完整功能，不只是顯示介面。** 部分板子（如 Waveshare 圓形 AMOLED 1.75、M5Stack StickS3、ESP32-S3-BOX-3）已有動畫頭像、按鍵說話（push-to-talk）、設定畫面與圖片顯示，燒錄後就能用；只有狀態燈的板子則以燈號顯示連線狀態。
+- 電子紙：支援 Seeed reTerminal E1001（7.5 吋黑白）、E1002（7.3 吋六色）與 Waveshare 1.54 吋電子紙，目前是「狀態加圖片」顯示，是否能做成晨報機要再看。
+- **Linux 端：Muse 反過來能對你的機器下指令。** 內建 `system.run`（執行 shell 指令）、`file.read`、`file.write`、`device.health`；Muse 的權限等同安裝時選的帳號，若該帳號有 sudo，Muse 也有。程式端可用 `musegadget send-user-msg "…"` 主動傳訊息給 Muse；新增指令改 `linux/src/musegadget/executor.py`。
+- 官方推薦用 Meta 的 Muse Code（其他讀 `AGENTS.md` 的 coding agent 也可）幫忙編譯與燒錄。
+- `skills/` 內有社群寫的智慧家庭裝置技能（Hue、Sonos、Roomba、印表機等），可貼進 Muse 對話使用。需搭配 Muse Home Link。
+
+### 對前面說明的修正
+
+我先前推測「硬體只是接收指令的顯示介面、你要寫指令解析」，實際上：連線、加密、頭像與語音介面都由 SDK 韌體處理，使用者通常只需選板子、設 token、燒錄。想做自訂的事（例如晨報機版面、新指令）才需要改韌體或 `executor.py`。
 
 ## 想擴充的方向（建議）
 
