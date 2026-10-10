@@ -1,0 +1,15 @@
+* circuit under test.  ARRL Handbook 2011, Fig 24.12  160/80 m impedance matching network for a 43 ft vertical: one toroid inductor (T400A-2, 35 turns #14) used as an autotransformer.
+* Toroid inductance taken as 40 nH per turn^2 (about 49 uH for 35 turns, matching the text's "about 50 uH"). The feed (rf) is tapped 3 turns above ground for 160 m and 2 turns for 80 m;
+* the antenna connects at the top of the 35 turns for 160 m (trimmed in practice), or at about turn 15 (about 9 uH, as the text says) for 80 m. The sections share one core: K = 0.98 between them is my assumption.
+* 160 m: ground - 3 turns - tap(rf) - 32 turns - ant
+.subckt match160 rf ant
+Lg 0 rf 0.36u
+Lr rf ant 40.96u
+K1 Lg Lr 0.98
+.ends
+* 80 m: ground - 2 turns - tap(rf) - 13 turns - ant
+.subckt match80 rf ant
+Lg 0 rf 0.16u
+Lr rf ant 6.76u
+K1 Lg Lr 0.98
+.ends
