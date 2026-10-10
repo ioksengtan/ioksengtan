@@ -1,0 +1,13 @@
+* testbench for circuit.cir: input swept exponentially from 10 mV to 10 V over 20 ms (3 decades), so the output vs input curve is a log plot
+.include circuit.cir
+Bin in 0 V = 10m*exp(2.302585*3*time/20m)
+.tran 10u 20m
+.control
+run
+meas tran vo_10m find v(out) at=0.1m
+meas tran vo_100m find v(out) at=6.667m
+meas tran vo_1 find v(out) at=13.333m
+meas tran vo_10 find v(out) at=19.9m
+echo "Vout: 10mV -> $&vo_10m V ; 0.1V -> $&vo_100m V ; 1V -> $&vo_1 V ; ~10V -> $&vo_10 V (about -0.10 V per decade)"
+.endc
+.end

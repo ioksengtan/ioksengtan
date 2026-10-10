@@ -1,0 +1,11 @@
+* circuit under test.  Varactor-tuned LC tank (voltage-tuned resonator), topology of the varactor tuning circuits in ARRL Handbook ch. 3 (Fig 3.21 area).
+* Values chosen here: L = 4.7 uH, 22 pF fixed, varactor modelled as a reverse-biased junction diode (Cjo = 60 pF, M = 0.5, Vj = 0.75 V), Q set by a 15 kohm parallel loss resistor.
+.model DVAR D(Is=1n Rs=1 N=1 Cjo=60p M=0.5 Vj=0.75 Bv=30 Ibv=1u)
+.subckt vtank bias out
+L1 out 0 4.7u
+Cf out 0 22p
+Rp out 0 15k
+Cblk out v 1n
+Dv 0 v DVAR
+Rb bias v 100k
+.ends

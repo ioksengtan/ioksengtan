@@ -1,0 +1,16 @@
+* circuit under test.  Microphone preamplifier: AC-coupled non-inverting op-amp stage, gain 1 + Rf/Rg = 48 (33.6 dB), topology after ARRL Handbook ch. 13 (Fig 13.28 area).
+* Values chosen here (the book's microphone amplifier is not reproduced): low-cut set by Cin and Cg, high-cut by Cf. Op amp is a behavioural model (gain 1e5, GBW 1 MHz, +-9 V clamp inside the pole).
+.subckt opa p n out
+Bg 1 0 V={ 9*tanh(1e5*(v(p)-v(n))/9) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*10)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+Cin in p 4.7u
+Rb p 0 100k
+Xa p n out opa
+Rf out n 47k
+Cf out n 47p
+Rg n g 1k
+Cg g 0 4.7u

@@ -1,0 +1,10 @@
+* circuit under test.  Class-C frequency doubler: self-biased BJT, collector tank tuned to the second harmonic (3.5 -> 7 MHz), topology after ARRL Handbook ch. 13 (Fig 13.25-13.26 area).
+* Values chosen here: 2N3904 model, tank L = 1 uH with C = 517 pF (7.0 MHz), output tapped through 100 pF into the load.
+.model Q2N3904 NPN(Is=6.7f Bf=416 Vaf=74 Cjc=3.6p Cje=4.5p Tf=0.3n Rb=10 Rc=1 Re=0.2 Ikf=0.07)
+Vcc vcc 0 12
+Cin in b 1n
+Rb b 0 4.7k
+Q1 c b 0 Q2N3904
+L1 vcc c 1u
+Ct c vcc 517p
+Cout c out 100p

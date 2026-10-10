@@ -562,12 +562,12 @@
   "description": "選用 8.5 MHz 串聯晶體，讓 IF 位於 30、40 m 混頻後濾波較容易的位置，並降低 17 m 的二次諧波問題；晶體倒裝焊在導電底板上。",
   "idea": "自製 SSB 收發機的 IF 濾波器。",
   "spice": "可",
-  "tw_sourcing": "中",
-  "note": "晶體可用等效電路模擬；8.5 MHz 晶體需訂購。",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "難",
+  "note": "晶體可用等效電路模擬；8.5 MHz 晶體需訂購。 netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/xtal-ladder-fig11.11.1/circuit.cir",
+  "sim_result": "4 顆串聯晶體梯形濾波器（300 Ω 端接）：最小插入損耗 1.75 dB，中心 8.496 MHz，−3 dB 頻寬約 2.4 kHz",
+  "testbench": "spice/xtal-ladder-fig11.11.1/tb.cir",
+  "tw_reason": "4 顆 8.5 MHz 晶體且需頻率匹配：8.5 MHz 非常見標準頻率，通常要訂製或大量挑選配對；68 pF 電容與 300 Ω 終端電阻都是標準料。"
  },
  {
   "id": 31,
@@ -677,11 +677,11 @@
   "idea": "CW 窄頻音訊濾波器。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/mfb-bandpass-fig12.49/circuit.cir",
+  "sim_result": "多重回授帶通：1000 Hz 增益 6.2 dB（×2），−3 dB 範圍 901–1099 Hz，Q≈5.1",
+  "testbench": "spice/mfb-bandpass-fig12.49/tb.cir",
+  "tw_reason": "運放加 E 系列電阻（39 k、1.65 k、160 k 中 1.65 k 為 E96 值，可用 1.6 k+ 50 Ω 湊）與 10 nF 電容，通用料。"
  },
  {
   "id": 37,
@@ -905,11 +905,11 @@
   "idea": "自製 SSB 前級。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/mic-preamp-fig13.28/circuit.cir",
+  "sim_result": "麥克風前級：中頻增益 33.4 dB（×47），−3 dB 頻寬 33.8 Hz–16.2 kHz",
+  "testbench": "spice/mic-preamp-fig13.28/tb.cir",
+  "tw_reason": "通用運放（TL071／LM358 類，需單電源偏壓要另加設計）、E 系列電阻與電解電容，全為通用料；駐極體麥克風電路另需偏壓。"
  },
  {
   "id": 49,
@@ -1018,12 +1018,12 @@
   "description": "二極體倍頻、JFET 推挽倍頻、階躍恢復二極體及變容二極體倍頻。",
   "idea": "產生更高頻率。",
   "spice": "可",
-  "tw_sourcing": "中",
-  "note": "晶體與 RF 電晶體需替代品。",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "易",
+  "note": "晶體與 RF 電晶體需替代品。 netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/freq-doubler-fig13.25/circuit.cir",
+  "sim_result": "3.5 MHz 1.5 V 峰值輸入：7 MHz 輸出約 11.1 V 峰值，3.5 MHz 殘留 0.34 V（約抑制 30 dB）",
+  "testbench": "spice/freq-doubler-fig13.25/tb.cir",
+  "tw_reason": "2N3904、標準電阻與 1 µH 色碼電感皆易買；517 pF 要用 470 p + 47 p 並聯湊，再用微調電容調到 7 MHz（要有頻率計或示波器），零件本身不難買，所以列為易。"
  },
  {
   "id": 55,
@@ -1797,12 +1797,12 @@
   "description": "電子伏特計用 RF 探棒原理圖。",
   "idea": "示波器 RF 探棒。",
   "spice": "可",
-  "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "中",
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/rf-probe-fig25.11/circuit.cir",
+  "sim_result": "1 MHz 輸入：1 V 峰值 → 直流輸出 0.77 V，4 V 峰值 → 3.74 V（蕭特基壓降約 0.2–0.3 V）",
+  "testbench": "spice/rf-probe-fig25.11/tb.cir",
+  "tw_reason": "只有一顆蕭特基、一個 50 Ω 電阻、1 nF 與 10 MΩ 電阻；蕭特基（1N5711／BAT43）網路商店容易買、電料行不一定有。"
  },
  {
   "id": 96,
@@ -1874,11 +1874,11 @@
   "idea": "dB 顯示器。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/log-amp-fig3.73/circuit.cir",
+  "sim_result": "輸入 10 mV→10 V（3 個十倍頻）：輸出 −0.165／−0.264／−0.365／−0.464 V，約 −0.10 V／十倍頻",
+  "testbench": "spice/log-amp-fig3.73/tb.cir",
+  "tw_reason": "通用運放、1N4148 與 100 kΩ 電阻，全為電料行常見料；實作要注意 1N4148 的溫度漂移（約 −2 mV/°C）。"
  },
  {
   "id": 100,
@@ -1950,11 +1950,11 @@
   "idea": "驅動繼電器、LED。",
   "spice": "可",
   "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/mosfet-driver-fig3.57/circuit.cir",
+  "sim_result": "5 V 閘極脈衝：導通時 Vds 0.84 mV、線圈電流約 50 mA；關斷時飛輪二極體把電壓箝在 12.79 V",
+  "testbench": "spice/mosfet-driver-fig3.57/tb.cir",
+  "tw_reason": "邏輯電平 MOSFET（2N7000／IRLZ44N）、1N4002、E 系列電阻皆常見；100 mH 線圈以繼電器線圈或電磁閥代替即可。"
  },
  {
   "id": 104,
@@ -1987,12 +1987,12 @@
   "description": "Zener 基本穩壓、變容二極體等效電路與整流電路。",
   "idea": "電壓參考、電調諧。",
   "spice": "可",
-  "tw_sourcing": "易",
-  "note": "",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "tw_sourcing": "中",
+  "note": "netlist 的元件值多為我選的設計值，非書中圖上數值。",
+  "netlist": "spice/varactor-tank-fig3.21/circuit.cir",
+  "sim_result": "變容二極體調諧槽路：偏壓 1／3／6／10 V 時諧振 9.55／10.59／11.36／12.03 MHz",
+  "testbench": "spice/varactor-tank-fig3.21/tb.cir",
+  "tw_reason": "難點是變容二極體（BB 系列），網路商店與光華較容易；4.7 µH 電感與其餘電容電阻都是標準料。"
  },
  {
   "id": 106,

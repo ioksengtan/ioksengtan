@@ -1,0 +1,16 @@
+* circuit under test (no sources / analysis).  8.5 MHz four-crystal ladder filter (SSB, ~2.4 kHz wide), topology after the ARRL Handbook crystal-filter section.
+* Crystal motional values and the shunt capacitors are chosen here (the book gives topology and design method, not these numbers):
+*   fs = 1/(2*pi*sqrt(Lm*Cm)) = 8.5 MHz with Lm = 23.4 mH, Cm = 15 fF, Rm = 20 ohm, holder capacitance Cp = 4 pF.
+.subckt xtal a b
+Lm a 1 23.4m
+Cm 1 2 15f
+Rm 2 b 20
+Cp a b 4p
+.ends
+X1 a b xtal
+X2 b c xtal
+X3 c d xtal
+X4 d e xtal
+C1 b 0 68p
+C2 c 0 68p
+C3 d 0 68p

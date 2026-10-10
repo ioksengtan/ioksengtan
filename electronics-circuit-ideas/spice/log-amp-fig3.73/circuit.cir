@@ -1,0 +1,13 @@
+* circuit under test.  Logarithmic amplifier: diode in the feedback path of an inverting op amp, topology of the log-amp example in ARRL Handbook ch. 3 (Fig 3.73 area).
+* Values chosen here: R1 = 100 kohm, 1N4148 model; op amp is a behavioural model (gain 1e4, 10 kHz pole, +-12 V clamp inside the pole).
+.model D1N4148 D(Is=2.5n Rs=0.6 N=1.7 Cjo=4p Bv=100)
+.subckt opa p n out
+Bg 1 0 V={ 12*tanh(1e4*(v(p)-v(n))/12) }
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*10k)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+R1 in n 100k
+D1 n out D1N4148
+Xa 0 n out opa

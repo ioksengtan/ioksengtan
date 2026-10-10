@@ -1,0 +1,5 @@
+* circuit under test.  RF probe: single Schottky diode peak detector for a DVM (topology of the usual RF probe; the book's Fig 25.11 values are not used here).
+* Values chosen here: Schottky diode model (1N5711/HSMS-2820 class), 1 nF reservoir; the DVM input resistance is the load (tb.cir).
+.model DSCH D(Is=5n Rs=15 N=1.08 Cjo=1p Bv=70)
+D1 probe out DSCH
+Cl out 0 1n

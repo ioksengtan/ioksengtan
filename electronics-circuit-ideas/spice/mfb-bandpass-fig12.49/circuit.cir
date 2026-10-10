@@ -1,0 +1,16 @@
+* circuit under test.  Multiple-feedback (MFB) active band-pass filter for audio, centre 1 kHz, Q about 5, mid-band gain -2.
+* Topology: ARRL Handbook active RC audio filter (Fig 12.49 area); values computed here with C1 = C2 = 10 nF:
+*   R2 = 2Q/(w0 C) = 160k, R1 = Q/(H0 w0 C) = 39.8k -> 39k, R3 = Q/((2Q^2-H0) w0 C) = 1.66k -> 1.65k.
+.subckt opa p n out
+Eg 1 0 p n 200k
+Rp 1 2 1k
+Cp 2 0 {1/(2*3.14159*1k*5)}
+Eo 3 0 2 0 1
+Ro 3 out 75
+.ends
+R1 in a 39k
+R3 a 0 1.65k
+C1 a n 10n
+C2 a out 10n
+R2 n out 160k
+Xa 0 n out opa

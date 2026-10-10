@@ -1,0 +1,11 @@
+* circuit under test.  Low-side N-MOSFET driver for an inductive load (relay coil) with flyback diode, topology after ARRL Handbook ch. 3 (Fig 3.55-3.59 area).
+* Values chosen here: logic-level MOSFET (level-1 model: Vto 2 V, Kp 20 A/V^2 -> about 0.05 ohm at Vgs 5 V), 12 V relay coil 100 mH / 240 ohm (50 mA), 1N4002 flyback diode. Gate capacitances are not modelled.
+.model NLOGIC NMOS(Level=1 Vto=2 Kp=20 Lambda=0.01)
+.model D1N4002 D(Is=14n Rs=0.033 N=1.99 Cjo=51p Bv=100 Ibv=5u)
+Vcc vcc 0 12
+Lcoil vcc x 100m
+Rcoil x d 240
+D1 d vcc D1N4002
+M1 d g 0 0 NLOGIC W=1 L=1
+Rg gate g 100
+Rpd g 0 10k

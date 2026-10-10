@@ -1,0 +1,24 @@
+* testbench for circuit.cir: four tanks at different tuning voltages, driven by a 1 uA AC current, impedance vs frequency
+.include circuit.cir
+Vb1 b1 0 1
+Vb2 b2 0 3
+Vb3 b3 0 6
+Vb4 b4 0 10
+X1 b1 o1 vtank
+X2 b2 o2 vtank
+X3 b3 o3 vtank
+X4 b4 o4 vtank
+I1 0 o1 AC 1
+I2 0 o2 AC 1
+I3 0 o3 AC 1
+I4 0 o4 AC 1
+.ac dec 200 5Meg 40Meg
+.control
+run
+meas ac fr1 max_at vdb(o1)
+meas ac fr2 max_at vdb(o2)
+meas ac fr3 max_at vdb(o3)
+meas ac fr4 max_at vdb(o4)
+echo "resonance: 1 V -> $&fr1 Hz ; 3 V -> $&fr2 Hz ; 6 V -> $&fr3 Hz ; 10 V -> $&fr4 Hz"
+.endc
+.end

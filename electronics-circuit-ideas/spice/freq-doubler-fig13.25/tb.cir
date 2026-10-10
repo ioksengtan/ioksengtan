@@ -1,0 +1,13 @@
+* testbench for circuit.cir: 3.5 MHz drive, 1.5 V peak behind 50 ohm, 1 kohm load; FFT the output in numpy (see tools/make_plots.py)
+.include circuit.cir
+Vdrv drv 0 SIN(0 1.5 3.5Meg)
+Rdrv drv in 50
+Rl out 0 1k
+.tran 2n 40u 0 2n
+.control
+run
+meas tran vpp pp v(out) from=30u to=40u
+wrdata dbl.txt v(out)
+echo "output p-p (30-40 us) = $&vpp V ; spectrum in dbl.txt"
+.endc
+.end

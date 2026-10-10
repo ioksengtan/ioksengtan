@@ -1,0 +1,14 @@
+* testbench for circuit.cir: microphone modelled as an AC source behind its 2.2 kohm bias/output resistance, 10 Hz - 1 MHz sweep
+.include circuit.cir
+Vmic m 0 AC 1
+Rmic m in 2.2k
+.ac dec 50 10 1Meg
+.control
+run
+meas ac gmid find vdb(out) at=1k
+let tgt = gmid-3
+meas ac flo when vdb(out)=tgt cross=1
+meas ac fhi when vdb(out)=tgt cross=last
+echo "mid-band gain = $&gmid dB (target 33.6 dB less the 2.2k/100k loss) ; -3 dB: $&flo Hz to $&fhi Hz"
+.endc
+.end
