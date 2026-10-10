@@ -9,7 +9,7 @@
 - `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
 - `data/plots.json`、`data/graphs.json`：每個已驗證電路的模擬波形與自動產生的連接圖（由 `tools/make_plots.py`、`tools/make_graphs.py` 產生）
 - `tools/make_plots.py`、`tools/make_graphs.py`：重跑 ngspice 取得波形、由 netlist 畫連接圖
-- `data/bom.json`：32 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
+- `data/bom.json`：34 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
 - `data/schematics.json`：手工排版的標準電路圖（schemdraw，`tools/make_schematics.py`，`tools/check_schematics.py` 檢查元件值是否與 netlist 一致）
 - `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 
@@ -50,8 +50,10 @@
 | 礦石收音機 | `crystal-radio-fig12.2` | 1 MHz 80 % AM → 音訊 100 mVp-p（耦合與二極體參數為假設） |
 | 惠斯登電橋 | `wheatstone-fig25.6` | Rx＝999.9 Ω 時平衡（臂電阻為我所選） |
 | 射頻回授放大器 | `rf-feedback-amp-fig5.51` | 10 MHz 增益 13.3 dB，頻寬約 450 MHz |
+| 音訊衍生 AGC 整流器 | `agc-rectifier-fig12.36b` | 1 V 峰值音訊 → 0.715 V，衰減時間常數約 0.27 s（元件值取自書中） |
+| CW 鍵控波形整形 | `cw-shaper-fig13.36` | 增益控制電壓 0.42→1.03 V，上升約 7 ms（元件值取自書中，只模擬鍵控路徑） |
 
-元件值取自書中圖的有 80 m 低通濾波器、13.8 V 電源、1.8–54 MHz 低通濾波器、Diplexer 與語音限幅器；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
+元件值取自書中圖的有 80 m 低通濾波器、13.8 V 電源、1.8–54 MHz 低通濾波器、Diplexer、語音限幅器、AGC 整流器與 CW 波形整形；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
 
 ## 注意
 

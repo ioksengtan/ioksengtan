@@ -1,0 +1,16 @@
+* testbench for circuit.cir: key down for 100 ms, watch the shaped gain-control voltage rise and fall
+.include circuit.cir
+Vkey key 0 PWL(0 0 10m 0 10.001m 5 110m 5 110.001m 0 250m 0)
+.tran 20u 250m
+.control
+run
+meas tran vlo find v(vg) at=5m
+meas tran vhi max v(vg)
+let t10 = vlo + 0.1*(vhi-vlo)
+let t90 = vlo + 0.9*(vhi-vlo)
+meas tran tr1 when v(vg)=t10 cross=1
+meas tran tr2 when v(vg)=t90 cross=1
+let rise = tr2-tr1
+echo "key up = $&vlo V ; key down = $&vhi V ; 10-90 % rise = $&rise s"
+.endc
+.end

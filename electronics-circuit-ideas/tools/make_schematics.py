@@ -3,7 +3,7 @@
 Component values are typed from the matching netlist; run tools/check_schematics.py to compare."""
 import json, pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import schem_defs1 as a, schem_defs2 as b, schem_defs3 as c, schem_defs4 as d, schem_defs5 as e5, schem_defs6 as e6
+import schem_defs1 as a, schem_defs2 as b, schem_defs3 as c, schem_defs4 as d, schem_defs5 as e5, schem_defs6 as e6, schem_defs7 as e7
 root = pathlib.Path(__file__).resolve().parent.parent
 REG = {
  'ce-amp-fig3.44': a.ce_amp, 'jfet-cs-fig3.51': a.jfet_cs, 'opamp-basics-fig3.61': b.opamp_basics,
@@ -15,11 +15,15 @@ REG = {
  'xtal-ladder-fig11.11.1': e5.xtal_ladder, 'rf-probe-fig25.11': e5.rf_probe, 'varactor-tank-fig3.21': e5.varactor,
  'log-amp-fig3.73': e5.log_amp, 'mosfet-driver-fig3.57': e5.mosfet, 'mic-preamp-fig13.28': e5.mic,
  'freq-doubler-fig13.25': e5.doubler,
+ 'agc-rectifier-fig12.36b': e7.agc_rect, 'cw-shaper-fig13.36': e7.cw_shaper,
+
  'lpf-1p8-54-fig11.101': e6.lpf54, 'diplexer-fig11.97': e6.diplexer, 'speech-clipper-fig13.29': e6.clipper,
  'crystal-radio-fig12.2': e6.crystal_radio, 'wheatstone-fig25.6': e6.wheatstone, 'rf-feedback-amp-fig5.51': e6.rf_fb,
  'mfb-bandpass-fig12.49': e5.mfb,
 }
 NOTE = {
+ 'agc-rectifier-fig12.36b': '元件值取自書中 Fig 12.36(B)；1/4 ’084 運放以行為模型代替；書中未標出電源去耦電容（0.1 µF），這裡也未畫。',
+ 'cw-shaper-fig13.36': '只畫鍵控波形路徑（比較器 U2B → Sallen-Key 低通 → 位準轉換 U3A）；書中的 ADG202A 開關、CLC5523 增益放大器、U2A/U2C 的 12 ms 延遲電路未畫；LM339 開集極輸出在模擬中以開關代替，參考電壓 2.5 V 是我的假設。',
  'lpf-1p8-54-fig11.101': '元件值取自書中 Fig 11.101；實體的電感是銅管繞製，電容用鐵氟龍夾層銅板，圖中只畫電氣等效。',
  'diplexer-fig11.97': '圖上是把書中 Fig 11.97 的歸一化原型值，依書中公式換算成 50 Ω、fco 5.45 MHz（K＝1.005）後的值；電路相同，只是縮放。',
  'speech-clipper-fig13.29': '元件值取自書中 Fig 13.29；100k CLIP LEVEL 電位器設在最大（模擬中接成 Rcl）、回授電位器設在最大增益，前後的 300–3000 Hz 帶通濾波器未畫；TL081 為行為模型。',
