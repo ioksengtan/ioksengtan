@@ -1,0 +1,15 @@
+* testbench for circuit.cir: AC sweep 100 Hz - 10 kHz
+.include circuit.cir
+Vin in 0 AC 1
+.ac dec 200 100 10k
+.control
+run
+meas ac gpk max vdb(out)
+meas ac f0 max_at vdb(out)
+let tgt = gpk-3.0103
+meas ac f1 when vdb(out)=tgt cross=1
+meas ac f2 when vdb(out)=tgt cross=last
+let q = f0/(f2-f1)
+echo "peak gain = $&gpk dB at $&f0 Hz ; -3 dB band $&f1 - $&f2 Hz ; Q = $&q"
+.endc
+.end

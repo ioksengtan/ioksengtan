@@ -1,0 +1,15 @@
+* testbench for circuit.cir: 1 MHz carrier whose amplitude ramps 0 -> 5 V peak over 5 ms; probe output tracks the peak
+.include circuit.cir
+Brf rf 0 V = 5*(time/5m)*sin(2*3.14159*1Meg*time)
+Rs rf probe 50
+Rdvm out 0 10Meg
+.tran 20n 5m 0 20n
+.control
+run
+let env = 5*time/5m
+meas tran vo_1v find v(out) when env=1
+meas tran vo_4v find v(out) when env=4
+wrdata probe.txt env v(out)
+echo "DC out at 1 V peak input = $&vo_1v V ; at 4 V peak = $&vo_4v V"
+.endc
+.end

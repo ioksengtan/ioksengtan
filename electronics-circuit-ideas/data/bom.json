@@ -472,6 +472,101 @@
   "level": "易",
   "reason": "1N4002 與 2200 µF 電解電容都是常見料；要注意電容耐壓（本電路約 35 V，選 50 V）。輸入需 12 Vac 變壓器。"
  },
+ "freq-doubler-fig13.25": {
+  "rows": [
+   {
+    "refs": [
+     "Cin"
+    ],
+    "part": "電容 1nF",
+    "qty": 1,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rb"
+    ],
+    "part": "電阻 4.7kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Q1"
+    ],
+    "part": "2N3904（NPN）",
+    "qty": 1,
+    "spec": "TO-92",
+    "level": "易",
+    "why": "最常見的小訊號 NPN，電料行必備。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "L1"
+    ],
+    "part": "電感 1000nH",
+    "qty": 1,
+    "spec": "色碼電感",
+    "level": "易",
+    "why": "標準值色碼電感，電料行常見。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Ct"
+    ],
+    "part": "電容 517pF",
+    "qty": 1,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "中",
+    "why": "非標準值，最接近 510pF（-1.4%），或用並聯／串聯湊。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Cout"
+    ],
+    "part": "電容 100pF",
+    "qty": 1,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rdrv"
+    ],
+    "part": "電阻 50Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "不在 E24 標準值上，最接近 51Ω（+2.0%），或用兩顆並聯／串聯湊。",
+    "fixture": true
+   },
+   {
+    "refs": [
+     "Rl"
+    ],
+    "part": "電阻 1kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": true
+   }
+  ],
+  "sim_only": [],
+  "level": "易",
+  "reason": "2N3904、標準電阻與 1 µH 色碼電感皆易買；517 pF 要用 470 p + 47 p 並聯湊，再用微調電容調到 7 MHz（要有頻率計或示波器），零件本身不難買，所以列為易。"
+ },
  "jfet-cs-fig3.51": {
   "rows": [
    {
@@ -608,6 +703,46 @@
   "level": "易",
   "reason": "LM317T 是電料行與光華的常備料，電阻皆標準值。"
  },
+ "log-amp-fig3.73": {
+  "rows": [
+   {
+    "refs": [
+     "R1"
+    ],
+    "part": "電阻 100kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "D1"
+    ],
+    "part": "1N4148（小訊號二極體）",
+    "qty": 1,
+    "spec": "DO-35",
+    "level": "易",
+    "why": "最常見的通用二極體，電料行幾乎都有散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Xa"
+    ],
+    "part": "LM741／TL071／LM358 等通用運算放大器",
+    "qty": 1,
+    "spec": "DIP-8",
+    "level": "易",
+    "why": "模擬用的是 741 等級的單極點模型；實作用 LM741、TL071、LM358 都是電料行常見料。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [],
+  "level": "易",
+  "reason": "通用運放、1N4148 與 100 kΩ 電阻，全為電料行常見料；實作要注意 1N4148 的溫度漂移（約 −2 mV/°C）。"
+ },
  "lpf-80m-fig11.95": {
   "rows": [
    {
@@ -693,6 +828,206 @@
   "sim_only": [],
   "level": "中",
   "reason": "電容是 180p、390p、1100p、1300p、2400p 等非標準值，需用標準值並聯湊或用可調電容；電感 1.5 µH、1.3 µH 要自繞磁環，並用電感計校準，所以不是買了就能用。"
+ },
+ "mfb-bandpass-fig12.49": {
+  "rows": [
+   {
+    "refs": [
+     "R1"
+    ],
+    "part": "電阻 39kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R3"
+    ],
+    "part": "電阻 1.65kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "不在 E24 標準值上，最接近 1.6kΩ（-3.0%），或用兩顆並聯／串聯湊。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "C1",
+     "C2"
+    ],
+    "part": "電容 10nF",
+    "qty": 2,
+    "spec": "薄膜或 X7R 陶瓷",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "R2"
+    ],
+    "part": "電阻 160kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Xa"
+    ],
+    "part": "LM741／TL071／LM358 等通用運算放大器",
+    "qty": 1,
+    "spec": "DIP-8",
+    "level": "易",
+    "why": "模擬用的是 741 等級的單極點模型；實作用 LM741、TL071、LM358 都是電料行常見料。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [],
+  "level": "易",
+  "reason": "運放加 E 系列電阻（39 k、1.65 k、160 k 中 1.65 k 為 E96 值，可用 1.6 k+ 50 Ω 湊）與 10 nF 電容，通用料。"
+ },
+ "mic-preamp-fig13.28": {
+  "rows": [
+   {
+    "refs": [
+     "Cin",
+     "Cg"
+    ],
+    "part": "電容 4.7µF",
+    "qty": 2,
+    "spec": "電解或 MLCC／薄膜",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rb"
+    ],
+    "part": "電阻 100kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Xa"
+    ],
+    "part": "LM741／TL071／LM358 等通用運算放大器",
+    "qty": 1,
+    "spec": "DIP-8",
+    "level": "易",
+    "why": "模擬用的是 741 等級的單極點模型；實作用 LM741、TL071、LM358 都是電料行常見料。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rf"
+    ],
+    "part": "電阻 47kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Cf"
+    ],
+    "part": "電容 47pF",
+    "qty": 1,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rg"
+    ],
+    "part": "電阻 1kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rmic"
+    ],
+    "part": "電阻 2.2kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": true
+   }
+  ],
+  "sim_only": [],
+  "level": "易",
+  "reason": "通用運放（TL071／LM358 類，需單電源偏壓要另加設計）、E 系列電阻與電解電容，全為通用料；駐極體麥克風電路另需偏壓。"
+ },
+ "mosfet-driver-fig3.57": {
+  "rows": [
+   {
+    "refs": [
+     "D1"
+    ],
+    "part": "1N4002（整流二極體 1 A）",
+    "qty": 1,
+    "spec": "DO-41",
+    "level": "易",
+    "why": "最常見的整流二極體，散裝一包就有。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rg"
+    ],
+    "part": "電阻 100Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rpd"
+    ],
+    "part": "電阻 10kΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Lcoil",
+     "Rcoil"
+    ],
+    "part": "繼電器或電磁閥線圈（≈100 mH／240 Ω，12 V）",
+    "qty": 1,
+    "spec": "12 V 繼電器",
+    "level": "易",
+    "why": "12 V 小型繼電器電料行常見，電感量由線圈決定，不必另買電感。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [],
+  "level": "易",
+  "reason": "邏輯電平 MOSFET（2N7000／IRLZ44N）、1N4002、E 系列電阻皆常見；100 mH 線圈以繼電器線圈或電磁閥代替即可。"
  },
  "opamp-basics-fig3.61": {
   "rows": [
@@ -1035,6 +1370,59 @@
   "level": "中",
   "reason": "難點在變壓器（16–20 Vac / 5 A 非貨架規格）、LM338（TO-3 版少見，TO-220 版可買）與 10000 µF 大電容、大散熱片；其餘是通用料。書中保護電路（MC3423 過壓保護）尚未列入。"
  },
+ "rf-probe-fig25.11": {
+  "rows": [
+   {
+    "refs": [
+     "D1"
+    ],
+    "part": "HSMS-2820／BAT43／1N5711 等蕭特基（RF 探棒檢波）",
+    "qty": 1,
+    "spec": "DO-35／SOT-23",
+    "level": "中",
+    "why": "探棒要低順向壓降、低電容的蕭特基；1N5711、BAT43 在網路商店買得到，電料行不一定有。若只量低頻可用 1N60 鍺二極體。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Cl"
+    ],
+    "part": "電容 1nF",
+    "qty": 1,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rs"
+    ],
+    "part": "電阻 50Ω",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "不在 E24 標準值上，最接近 51Ω（+2.0%），或用兩顆並聯／串聯湊。",
+    "fixture": true
+   },
+   {
+    "refs": [
+     "Rdvm"
+    ],
+    "part": "電阻 10MΩ",
+    "qty": 1,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": true
+   }
+  ],
+  "sim_only": [
+   "Rs 50 Ω 與 Rdvm 10 MΩ：信號源內阻與電壓表輸入阻抗，屬測試設備"
+  ],
+  "level": "中",
+  "reason": "只有一顆蕭特基、一個 50 Ω 電阻、1 nF 與 10 MΩ 電阻；蕭特基（1N5711／BAT43）網路商店容易買、電料行不一定有。"
+ },
  "sallen-key-fig3.69": {
   "rows": [
    {
@@ -1086,6 +1474,49 @@
   "sim_only": [],
   "level": "易",
   "reason": "22.5 nF 與 11.25 nF 不是標準值，要用 22 nF 與 10 nF 並聯 1.2 nF 等湊，或改用標準值重算截止頻率；運放與電阻皆通用。"
+ },
+ "varactor-tank-fig3.21": {
+  "rows": [
+   {
+    "refs": [
+     "Dv"
+    ],
+    "part": "變容二極體（BB 系列或 MV209）",
+    "qty": 1,
+    "spec": "TO-92／SOT-23",
+    "level": "中",
+    "why": "不是電料行常備品，網路商店與光華較容易買到。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "L1"
+    ],
+    "part": "色碼電感 4.7 µH",
+    "qty": 1,
+    "spec": "軸向",
+    "level": "易",
+    "why": "標準值，常見。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Cf",
+     "Rp",
+     "Cblk",
+     "Rb"
+    ],
+    "part": "22 pF C0G、15 kΩ（Rp 為模擬用的諧振損耗，可省略）、1 nF、100 kΩ",
+    "qty": 4,
+    "spec": "標準值",
+    "level": "易",
+    "why": "全是標準值被動件。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [],
+  "level": "中",
+  "reason": "難點是變容二極體（BB 系列），網路商店與光華較容易；4.7 µH 電感與其餘電容電阻都是標準料。"
  },
  "wavetrap-fig11.92": {
   "rows": [
@@ -1216,6 +1647,54 @@
   "sim_only": [],
   "level": "易",
   "reason": "LM741/TL071、E 系列電阻與電容；15.9 kΩ 要用 15 k + 0.9 k 串聯湊或可變電阻調。書中的燈泡穩幅件在本例以二極體替代。"
+ },
+ "xtal-ladder-fig11.11.1": {
+  "rows": [
+   {
+    "refs": [
+     "C1",
+     "C2",
+     "C3"
+    ],
+    "part": "電容 68pF",
+    "qty": 3,
+    "spec": "C0G／NP0 陶瓷（射頻用）",
+    "level": "易",
+    "why": "標準值。",
+    "fixture": false
+   },
+   {
+    "refs": [
+     "Rs",
+     "Rl"
+    ],
+    "part": "電阻 300Ω",
+    "qty": 2,
+    "spec": "1/4 W 金屬皮膜 1%",
+    "level": "易",
+    "why": "標準 E 系列電阻，電料行散裝。",
+    "fixture": true
+   },
+   {
+    "refs": [
+     "X1",
+     "X2",
+     "X3",
+     "X4"
+    ],
+    "part": "8.5 MHz 石英晶體（HC-49/U），4 顆需頻率匹配",
+    "qty": 4,
+    "spec": "HC-49/U",
+    "level": "難",
+    "why": "8.5 MHz 不是常見的標準頻率（常見是 4、8、10、12 MHz），梯形濾波器要 4 顆頻率相差在數十 Hz 內，需向晶體廠訂製或大量挑選配對。",
+    "fixture": false
+   }
+  ],
+  "sim_only": [
+   "Rs、Rl 300 Ω：信號源與負載終端，屬測試設備"
+  ],
+  "level": "難",
+  "reason": "4 顆 8.5 MHz 晶體且需頻率匹配：8.5 MHz 非常見標準頻率，通常要訂製或大量挑選配對；68 pF 電容與 300 Ω 終端電阻都是標準料。"
  },
  "zener-reg-fig3.20": {
   "rows": [

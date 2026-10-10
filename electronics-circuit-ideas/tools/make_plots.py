@@ -10,8 +10,8 @@ from spice_lib import combined
 root = pathlib.Path(__file__).resolve().parent.parent
 TRAN = 'tran'
 
-def P(title, xl, yl, vecs, xlog=False, xwin=None, xs=1.0, kind='line', fft=None):
-    return dict(title=title, xl=xl, yl=yl, vecs=vecs, xlog=xlog, xwin=xwin, xs=xs, kind=kind, fft=fft)
+def P(title, xl, yl, vecs, xlog=False, xwin=None, xs=1.0, kind='line', fft=None, ymin=None):
+    return dict(title=title, xl=xl, yl=yl, vecs=vecs, xlog=xlog, xwin=xwin, xs=xs, kind=kind, fft=fft, ymin=ymin)
 
 SPEC = {
  'psu-13v8-fig7.69': [([], [
@@ -59,6 +59,24 @@ SPEC = {
  'diode-dbm-fig10.22': [([], [
     P('中頻輸出（放大）', '時間 (µs)', 'V', [('v(ct,rct)', 'v(ct,rct)')], xs=1e6, xwin=(10e-6, 11e-6)),
     P('中頻頻譜（LO 10 MHz，RF 9 MHz）', '頻率 (MHz)', '峰值 (mV)', [('v(ct,rct)', 'v(ct,rct)')], kind='fft', fft=(4e-6, 12e-6))])],
+ 'xtal-ladder-fig11.11.1': [(['ac lin 3000 8.485Meg 8.510Meg'], [
+    P('8.5 MHz 晶體梯形濾波器（300 Ω 終端）', '頻率 (MHz)', 'dB', [('傳輸', '20*log10(2*mag(v(e)))')], xs=1e-6, ymin=-90)])],
+ 'rf-probe-fig25.11': [([], [
+    P('RF 探棒：峰值輸入與直流輸出', '輸入峰值 (V)', '輸出 (V)', [('x', '5*time/5m'), ('輸出', 'v(out)')], kind='xy')])],
+ 'varactor-tank-fig3.21': [(['ac dec 200 5Meg 40Meg'], [
+    P('變容二極體調諧：不同偏壓下的並聯諧振', '頻率 (MHz)', 'dBΩ（1 µA 電流源）', [('1 V', 'vdb(o1)'), ('3 V', 'vdb(o2)'), ('6 V', 'vdb(o3)'), ('10 V', 'vdb(o4)')], xlog=True, xs=1e-6)])],
+ 'log-amp-fig3.73': [([], [
+    P('對數放大器：輸出 vs 輸入（對數座標）', '輸入 (V)', '輸出 (V)', [('x', 'v(in)'), ('輸出', 'v(out)')], xlog=True, kind='xy')])],
+ 'mosfet-driver-fig3.57': [([], [
+    P('閘極與汲極電壓', '時間 (ms)', 'V', [('閘極輸入', 'v(gate)'), ('汲極 Vd', 'v(d)')], xs=1e3),
+    P('線圈電流', '時間 (ms)', 'mA', [('線圈電流', 'i(lcoil)*1000')], xs=1e3)])],
+ 'mic-preamp-fig13.28': [(['ac dec 50 10 1Meg'], [
+    P('麥克風前級頻率響應', '頻率 (Hz)', 'dB', [('vout/vin', 'vdb(out)')], xlog=True)])],
+ 'freq-doubler-fig13.25': [([], [
+    P('倍頻器輸出波形（放大）', '時間 (µs)', 'V', [('輸出', 'v(out)')], xs=1e6, xwin=(38e-6, 40e-6)),
+    P('輸出頻譜（驅動 3.5 MHz）', '頻率 (MHz)', '峰值 (mV)', [('v(out)', 'v(out)')], kind='fft', fft=(20e-6, 40e-6))])],
+ 'mfb-bandpass-fig12.49': [(['ac dec 200 100 10k'], [
+    P('MFB 帶通濾波器（1 kHz，Q≈5）', '頻率 (Hz)', 'dB', [('vout/vin', 'vdb(out)')], xlog=True)])],
 }
 
 def decimate(x, y, n=700):
@@ -93,7 +111,9 @@ def run(folder, ctl, plots):
         t = d[:, 0]
         series = []
         if p['kind'] == 'xy':
-            series.append(dict(name=p['vecs'][1][0], x=rnd(d[:, 1]), y=rnd(d[:, 3])))
+            xx, yy = d[:, 1], d[:, 3]
+            st = max(1, len(xx)//700); xx, yy = xx[::st], yy[::st]
+            series.append(dict(name=p['vecs'][1][0], x=rnd(xx), y=rnd(yy)))
         elif p['kind'] == 'fft':
             a, b = p['fft']; tt = np.arange(a, b, 1e-9)
             v = np.interp(tt, t, d[:, 1]); w = np.hanning(len(v))
@@ -105,6 +125,7 @@ def run(folder, ctl, plots):
                 x, y = d[:, 2*j], d[:, 2*j+1]
                 if p['xwin']:
                     m = (x >= p['xwin'][0]) & (x <= p['xwin'][1]); x, y = x[m], y[m]
+                if p.get('ymin') is not None: y = np.maximum(y, p['ymin'])
                 x, y = decimate(x, y)
                 series.append(dict(name=nm, x=rnd(x*p['xs']), y=rnd(y)))
         out.append(dict(title=p['title'], xl=p['xl'], yl=p['yl'], xlog=p['xlog'], kind=p['kind'], series=series))

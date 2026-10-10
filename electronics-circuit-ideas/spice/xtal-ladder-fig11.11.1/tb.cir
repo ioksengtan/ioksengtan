@@ -1,0 +1,14 @@
+* testbench for circuit.cir: 8.5 MHz crystal ladder filter, AC sweep, 300 ohm terminations
+.include circuit.cir
+Vin in 0 AC 1
+Rs in a 300
+Rl e 0 300
+.ac lin 3000 8.485Meg 8.510Meg
+.control
+run
+let il = -20*log10(2*mag(v(e)))
+meas ac ilmin min il
+wrdata il.txt il
+echo "minimum insertion loss = $&ilmin dB (analyse il.txt for the 3 dB width)"
+.endc
+.end

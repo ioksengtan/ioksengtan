@@ -1,0 +1,13 @@
+* testbench for circuit.cir: 5 V logic pulse (on for 4 ms, starting at 1 ms), observe drain voltage and coil current
+.include circuit.cir
+Vlogic gate 0 PULSE(0 5 1m 20n 20n 4m 10m)
+.tran 5u 10m
+.control
+run
+meas tran von find v(d) at=4m
+meas tran ion find i(Vcc) at=4.9m
+meas tran vspike min v(d) from=4.9m to=5.5m
+meas tran vpeak max v(d) from=4.9m to=5.5m
+echo "on-state Vds = $&von V ; coil current ~ $&ion A (Vcc branch, negative = flowing out) ; flyback clamps drain at $&vpeak V (Vcc + one diode drop)"
+.endc
+.end

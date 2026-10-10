@@ -28,11 +28,21 @@ SEMI = {
  'DSCH_DBM': ('1N5711／BAT43／HSMS-2820 等蕭特基（需配對 4 顆）', 'DO-35', '中', '環形混頻器要 4 顆特性一致的蕭特基；1N5711 等較少見，通常要挑料或向網路商店買，並自己配對。'),
  'DZ5V1': ('5.1 V 稽納二極體（1N5231B 或 1N751）', 'DO-35 0.5 W', '易', '5.1 V 稽納是標準值，通用料。'),
  'Q2N3904': ('2N3904（NPN）', 'TO-92', '易', '最常見的小訊號 NPN，電料行必備。'),
+ 'DSCH_RF': ('HSMS-2820／BAT43／1N5711 等蕭特基（RF 探棒檢波）', 'DO-35／SOT-23', '中', '探棒要低順向壓降、低電容的蕭特基；1N5711、BAT43 在網路商店買得到，電料行不一定有。若只量低頻可用 1N60 鍺二極體。'),
+ 'DVAR': ('變容二極體（BB 系列如 BB112／BB204，或 MV209）', 'TO-92／SOT-23', '中', '變容二極體不是電料行常備品，網路商店與光華較容易；本例 60 pF＠0 V、M=0.5 是我假設的典型值，實際零件要看資料手冊。'),
+ 'NLOGIC': ('邏輯電平 N 通道 MOSFET（如 IRLZ44N、2N7000／BS170 小電流版）', 'TO-220／TO-92', '易', '閘極 5 V 即可導通的 MOSFET 很普遍；本例線圈電流僅 50 mA，2N7000／BS170 就夠，電料行常見。'),
  'J2N5486': ('J310／MPF102／2N5486（N 通道 JFET）', 'TO-92', '中', '2N5486 已停產，常見替代 J310、MPF102、2N5457 要看店家有沒有；JFET 沒有 BJT 那麼普遍。'),
 }
 NOTE_OPA = ('LM741／TL071／LM358 等通用運算放大器', 'DIP-8', '易', '模擬用的是 741 等級的單極點模型；實作用 LM741、TL071、LM358 都是電料行常見料。')
 SPECIAL = {  # folder -> {ref: (part, spec, level, why, qty_note)}  and 'skip' / 'extra'
  'ce-amp-fig3.44': {},
+ 'mosfet-driver-fig3.57': {'skip': ['Lcoil','Rcoil'], 'extra': [(['Lcoil','Rcoil'], '繼電器或電磁閥線圈（≈100 mH／240 Ω，12 V）', 1, '12 V 繼電器', '易', '12 V 小型繼電器電料行常見，電感量由線圈決定，不必另買電感。')]},
+ 'xtal-ladder-fig11.11.1': {'skip': ['X1','X2','X3','X4'], 'extra': [
+    (['X1','X2','X3','X4'], '8.5 MHz 石英晶體（HC-49/U），4 顆需頻率匹配', 4, 'HC-49/U', '難', '8.5 MHz 不是常見的標準頻率（常見是 4、8、10、12 MHz），梯形濾波器要 4 顆頻率相差在數十 Hz 內，需向晶體廠訂製或大量挑選配對。')]},
+ 'varactor-tank-fig3.21': {'skip': ['X1','X2','X3','X4'], 'extra': [
+    (['Dv'], '變容二極體（BB 系列或 MV209）', 1, 'TO-92／SOT-23', '中', '不是電料行常備品，網路商店與光華較容易買到。'),
+    (['L1'], '色碼電感 4.7 µH', 1, '軸向', '易', '標準值，常見。'),
+    (['Cf','Rp','Cblk','Rb'], '22 pF C0G、15 kΩ（Rp 為模擬用的諧振損耗，可省略）、1 nF、100 kΩ', 4, '標準值', '易', '全是標準值被動件。')]},
  'psu-13v8-fig7.69': {
    'skip': ['Rsec','Rsec2','D1','D2','D3','D4'],
    'extra': [
@@ -55,6 +65,8 @@ SPECIAL = {  # folder -> {ref: (part, spec, level, why, qty_note)}  and 'skip' /
  'comparator-hyst-fig3.68': {'extra': [(['U1'], 'LM393／LM311（比較器）', 1, 'DIP-8', '易', 'netlist 是行為模型；實作用通用比較器，LM393 很常見。注意開集極輸出要加上拉電阻。')]},
 }
 SIMONLY = {
+ 'xtal-ladder-fig11.11.1': ['Rs、Rl 300 Ω：信號源與負載終端，屬測試設備'],
+ 'rf-probe-fig25.11': ['Rs 50 Ω 與 Rdvm 10 MΩ：信號源內阻與電壓表輸入阻抗，屬測試設備'],
  'precision-rect-fig3.71': ['Rfb 1 Ω：只是為了模擬收斂，實作以導線取代'],
  'photodiode-tia-fig3.28': ['Cd 20 pF：光電二極體本身的接面電容，不用另外買'],
  'psu-13v8-fig7.69': ['Rsec、Rsec2 0.1 Ω：變壓器繞組電阻（我的假設），非零件'],
@@ -63,6 +75,14 @@ SIMONLY = {
  'buck-fig7.30': ['Vpwm：100 kHz、D=0.5 的方波，用函數產生器或 555／PWM 晶片產生'],
 }
 RULES_NOTES = {  # circuit-level sourcing justification (shown in the page)
+ 'xtal-ladder-fig11.11.1': ('難', '4 顆 8.5 MHz 晶體且需頻率匹配：8.5 MHz 非常見標準頻率，通常要訂製或大量挑選配對；68 pF 電容與 300 Ω 終端電阻都是標準料。'),
+ 'rf-probe-fig25.11': ('中', '只有一顆蕭特基、一個 50 Ω 電阻、1 nF 與 10 MΩ 電阻；蕭特基（1N5711／BAT43）網路商店容易買、電料行不一定有。'),
+ 'varactor-tank-fig3.21': ('中', '難點是變容二極體（BB 系列），網路商店與光華較容易；4.7 µH 電感與其餘電容電阻都是標準料。'),
+ 'log-amp-fig3.73': ('易', '通用運放、1N4148 與 100 kΩ 電阻，全為電料行常見料；實作要注意 1N4148 的溫度漂移（約 −2 mV/°C）。'),
+ 'mosfet-driver-fig3.57': ('易', '邏輯電平 MOSFET（2N7000／IRLZ44N）、1N4002、E 系列電阻皆常見；100 mH 線圈以繼電器線圈或電磁閥代替即可。'),
+ 'mic-preamp-fig13.28': ('易', '通用運放（TL071／LM358 類，需單電源偏壓要另加設計）、E 系列電阻與電解電容，全為通用料；駐極體麥克風電路另需偏壓。'),
+ 'freq-doubler-fig13.25': ('易', '2N3904、標準電阻與 1 µH 色碼電感皆易買；517 pF 要用 470 p + 47 p 並聯湊，再用微調電容調到 7 MHz（要有頻率計或示波器），零件本身不難買，所以列為易。'),
+ 'mfb-bandpass-fig12.49': ('易', '運放加 E 系列電阻（39 k、1.65 k、160 k 中 1.65 k 為 E96 值，可用 1.6 k+ 50 Ω 湊）與 10 nF 電容，通用料。'),
  'ce-amp-fig3.44': ('易', '全部是 E 系列電阻、電容與一顆 2N3904，電料行通用料；沒有特殊零件。'),
  'jfet-cs-fig3.51': ('中', '被動件都是標準值；難點在 JFET：2N5486 已停產，可用 J310、MPF102、2N5457 代替，但電料行不一定有貨，要先確認。'),
  'opamp-basics-fig3.61': ('易', '只有一顆通用運放與 E 系列電阻，LM741、TL071 都是標準料。'),
@@ -129,7 +149,7 @@ def build(folder):
     grp = {}
     for kind, ref, v in rows:
         if ref in skip: continue
-        key = (kind, v if kind in 'RCL' else ('DSCH_BUCK' if v == 'DSCH' and folder == 'buck-fig7.30' else 'DSCH_DBM' if v == 'DSCH' else v))
+        key = (kind, v if kind in 'RCL' else ('DSCH_BUCK' if v == 'DSCH' and folder == 'buck-fig7.30' else 'DSCH_RF' if v == 'DSCH' and folder == 'rf-probe-fig25.11' else 'DSCH_DBM' if v == 'DSCH' else v))
         grp.setdefault(key, []).append(ref)
     out = []; sim_only = []
     for (kind, v), refs in grp.items():
