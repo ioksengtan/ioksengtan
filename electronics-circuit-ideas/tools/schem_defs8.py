@@ -59,3 +59,14 @@ def rf_sniffer():      # Fig 27.33, netlist rf-sniffer-fig27.33
     s.R((O2[0]+6.2, O2[1]), (O2[0]+6.2, O2[1]-3.2), '喇叭\n8 Ω', 'right'); s.gnd((O2[0]+6.2, O2[1]-3.2))
     s.W((O2[0]+1.2, O2[1]), (O2[0]+1.2, O2[1]-1.4)); s.R((O2[0]+1.2, O2[1]-1.4), (O2[0]+1.2, O2[1]-4.0), 'R7\n10', 'left'); s.C((O2[0]+1.2, O2[1]-4.0), (O2[0]+1.2, O2[1]-6.6), 'C10\n0.1µ', 'left'); s.gnd((O2[0]+1.2, O2[1]-6.6))
     return s.svg()
+
+def vertical_match():  # Fig 24.12, netlist vertical-match-fig24.12
+    s = Sch()
+    for x0, name, tap, lg, lr, turns, ca, ra, cap in ((0, '160 m', '3 圈', '0.36µ', '40.96µ', '32 圈', '160p', '30', '(3+27 Ω)'), (15, '80 m', '2 圈', '0.16µ', '6.76µ', '13 圈', '224p', '13', '(13 Ω)')):
+        g, t, top = 0, 2.6, 8.4
+        s.gnd((x0+4, g)); s.L((x0+4, g), (x0+4, t), f'Lg {lg}\n（{tap}）', 'right'); s.dot((x0+4, t))
+        s.W((x0+4, t), (x0+1.6, t)); s.text((x0-1.4, t-0.1), 'RF in')
+        s.L((x0+4, t), (x0+4, top), f'Lr {lr}\n（{turns}）', 'right')
+        s.W((x0+4, top), (x0+7, top)); s.C((x0+7, top), (x0+7, top-3.4), f'Ca\n{ca}', 'right'); s.R((x0+7, top-3.4), (x0+7, top-6.8), f'Ra\n{ra}', 'right'); s.gnd((x0+7, top-6.8))
+        s.text((x0+0.6, top+1.6), f'{name} 匹配網路（K＝0.98）'); s.text((x0+4.6, top+0.4), '天線等效 '+ cap)
+    return s.svg()

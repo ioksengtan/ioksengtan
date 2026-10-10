@@ -9,7 +9,7 @@
 - `cards/`：52 張電子點子撲克牌（`index.html` 可線上翻閱，`deck-print.pdf` 為 A4 列印版，6 頁正面加 1 頁背面，牌面尺寸 63.5×88.9 mm）
 - `data/plots.json`、`data/graphs.json`：每個已驗證電路的模擬波形與自動產生的連接圖（由 `tools/make_plots.py`、`tools/make_graphs.py` 產生）
 - `tools/make_plots.py`、`tools/make_graphs.py`：重跑 ngspice 取得波形、由 netlist 畫連接圖
-- `data/bom.json`：36 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
+- `data/bom.json`：37 個已驗證電路的 BOM 與取得難度逐項理由（`tools/make_bom.py`；是依常見程度的判斷，不是現貨或價格查詢）
 - `data/schematics.json`：手工排版的標準電路圖（schemdraw，`tools/make_schematics.py`，`tools/check_schematics.py` 檢查元件值是否與 netlist 一致）
 - `tools/build_site.py`、`tools/build_deck.py`：由 `data/`、`spice/`、`cards/deck.json` 重建頁面
 
@@ -54,6 +54,7 @@
 | CW 鍵控波形整形 | `cw-shaper-fig13.36` | 增益控制電壓 0.42→1.03 V，上升約 7 ms（元件值取自書中，只模擬鍵控路徑） |
 | Microwatter 微瓦計 | `microwatter-fig25.12` | −50→−20 dBm 輸出每 10 dB 差 10 倍（平方律）；元件值取自書中，二極體為假設模型 |
 | RF Sniffer | `rf-sniffer-fig27.33` | 20 µV 輸入 → 喇叭端 0.285 V，頻寬 63 Hz–13.9 kHz（元件值取自書中） |
+| 43 呎直立天線 160／80 m 匹配網路 | `vertical-match-fig24.12` | 配擬合的天線等效：160 m 最低 SWR 1.45、80 m 1.07（2:1 頻寬約 71／169 kHz，書中實測約 50／150 kHz）；圈數取自書中，其餘為假設 |
 
 元件值取自書中圖的有 80 m 低通濾波器、13.8 V 電源、1.8–54 MHz 低通濾波器、Diplexer、語音限幅器、AGC 整流器、CW 波形整形、Microwatter 與 RF Sniffer；其餘電路只採用書上的拓樸，元件值由我選定或計算，各 netlist 檔頭有註明。
 

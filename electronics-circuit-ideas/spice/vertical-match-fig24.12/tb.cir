@@ -1,0 +1,30 @@
+* testbench for circuit.cir: antenna models after the text's 43 ft vertical: capacitive reactance about -540 ohm at 1.83 MHz (160 pF, the text says about -580 ohm) on 160 m with 30 ohm total resistance (3 ohm radiation + an assumed 27 ohm ground loss),
+* and about -200 ohm at 3.55 MHz (224 pF) on 80 m with 13 ohm (my assumption: the two resistances are chosen so the book's tap positions give a good match). A 1 A AC current source drives each feed point so v(rf) is the input impedance; SWR is computed against 50 ohm.
+.include circuit.cir
+X160 rf160 a160 match160
+Ca160 a160 b160 160p
+Ra160 b160 0 30
+I160 0 rf160 AC 1
+X80 rf80 a80 match80
+Ca80 a80 b80 224p
+Ra80 b80 0 13
+I80 0 rf80 AC 1
+.control
+ac lin 800 1.5Meg 4.5Meg
+let g160 = (v(rf160)-50)/(v(rf160)+50)
+let swr160 = (1+mag(g160))/(1-mag(g160))
+let g80 = (v(rf80)-50)/(v(rf80)+50)
+let swr80 = (1+mag(g80))/(1-mag(g80))
+meas ac s160min min swr160
+meas ac f160 min_at swr160
+meas ac s80min min swr80
+meas ac a1 when swr160=2 cross=1
+meas ac a2 when swr160=2 cross=2
+meas ac b1 when swr80=2 cross=1
+meas ac b2 when swr80=2 cross=2
+let bw160 = a2-a1
+let bw80 = b2-b1
+meas ac f80 min_at swr80
+echo "160 m: SWR min $&s160min at $&f160 Hz, 2:1 bandwidth $&bw160 Hz ; 80 m: SWR min $&s80min at $&f80 Hz, 2:1 bandwidth $&bw80 Hz"
+.endc
+.end

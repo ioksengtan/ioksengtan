@@ -99,6 +99,9 @@ SPEC = {
     P('Microwatter：7 MHz 輸入每 0.5 ms 提高 10 dB（−50、−40、−30、−20 dBm）時的放大器輸出', '時間 (ms)', 'V', [('v(out)', 'v(out)')], xs=1e3)])],
  'rf-sniffer-fig27.33': [(['ac dec 50 20 100k'], [
     P('RF Sniffer 全增益頻率響應（拾音線圈 → 喇叭）', '頻率 (Hz)', 'dBV（輸入 20 µV）', [('v(喇叭)', 'vdb(spk)')], xlog=True)])],
+ 'vertical-match-fig24.12': [([ 'ac lin 800 1.5Meg 4.5Meg', 'let g160 = (v(rf160)-50)/(v(rf160)+50)', 'let swr160 = (1+mag(g160))/(1-mag(g160))', 'let g80 = (v(rf80)-50)/(v(rf80)+50)', 'let swr80 = (1+mag(g80))/(1-mag(g80))'], [
+    P('160 m 匹配網路 SWR（50 Ω）', '頻率 (MHz)', 'SWR', [('160 m', 'swr160')], xs=1e-6, xwin=(1.7e6, 1.95e6)),
+    P('80 m 匹配網路 SWR（50 Ω）', '頻率 (MHz)', 'SWR', [('80 m', 'swr80')], xs=1e-6, xwin=(3.3e6, 3.9e6))])],
 }
 
 def decimate(x, y, n=700):

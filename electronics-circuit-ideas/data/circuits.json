@@ -1247,11 +1247,11 @@
   "idea": "低頻段多頻天線。",
   "spice": "可",
   "tw_sourcing": "中",
-  "note": "磁芯與可變電容要網購。",
-  "netlist": null,
-  "sim_result": null,
-  "testbench": null,
-  "tw_reason": null
+  "note": "磁芯與可變電容要網購。 圈數、抽頭取自書中；環形電感每圈² 40 nH 與天線等效電阻、電容是我的假設。",
+  "netlist": "spice/vertical-match-fig24.12/circuit.cir",
+  "sim_result": "配上我擬合的 43 ft 直立天線等效：160 m 最低 SWR 1.45（2:1 頻寬約 71 kHz），80 m 最低 SWR 1.07（約 169 kHz）；書中實測約 50 kHz 與 150 kHz",
+  "testbench": "spice/vertical-match-fig24.12/tb.cir",
+  "tw_reason": "只有一個環形電感：T400A-2 粉末鐵芯環要從 Amidon 或網路商店買，台灣電料行不一定有，並要自繞 35 圈、抽頭並用天線分析儀調圈數；接頭與接線柱都是通用料。高功率（1500 W）下的射頻電壓高達數千伏，要特別注意絕緣。"
  },
  {
   "id": 67,
